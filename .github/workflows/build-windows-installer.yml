@@ -43,13 +43,21 @@ jobs:
             throw "Godot editor executable was not found after extraction."
           }
 
-          $templateSource = Join-Path $templatesRoot "templates"
-          $templateDestination = Join-Path $env:APPDATA "Godot\export_templates\$release"
-          if (-not (Test-Path -LiteralPath $templateSource)) {
-            throw "Godot export templates were not found at $templateSource."
+          $releaseTemplate = Get-ChildItem -LiteralPath $templatesRoot -Filter "windows_release_x86_64.exe" -File -Recurse | Select-Object -First 1
+          if (-not $releaseTemplate) {
+            throw "windows_release_x86_64.exe was not found in the export templates archive."
           }
+          $templateSource = $releaseTemplate.Directory.FullName
+          $templateDestination = Join-Path $env:APPDATA "Godot\export_templates\$release"
           New-Item -ItemType Directory -Force -Path $templateDestination | Out-Null
           Copy-Item -Path (Join-Path $templateSource "*") -Destination $templateDestination -Recurse -Force
+
+          foreach ($templateName in @("windows_debug_x86_64.exe", "windows_release_x86_64.exe")) {
+            $installedTemplate = Join-Path $templateDestination $templateName
+            if (-not (Test-Path -LiteralPath $installedTemplate -PathType Leaf)) {
+              throw "Required Godot export template was not installed: $installedTemplate"
+            }
+          }
 
           "GODOT_EXE=$($godot.FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           & $godot.FullName --version
