@@ -177,6 +177,7 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
+          New-Item -ItemType Directory -Force -Path "installer/setup/src-tauri/payload" | Out-Null
           Copy-Item -LiteralPath $env:PAYLOAD_ZIP -Destination "installer/setup/src-tauri/payload/neuralese_payload.zip" -Force
           $env:NEURALESE_APP_NAME = "Neuralese"
           $env:NEURALESE_GAME_EXE = "Neuralese.exe"
