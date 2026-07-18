@@ -66,16 +66,31 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
-          $release = "$env:GODOT_VERSION-$env:GODOT_STATUS"
-          $templateDestination = Join-Path $env:APPDATA "Godot\export_templates\$release"
-          New-Item -ItemType Directory -Force -Path $templateDestination | Out-Null
-          Copy-Item -Path (Join-Path $env:GODOT_TEMPLATE_SOURCE "*") -Destination $templateDestination -Recurse -Force
-          foreach ($templateName in @("windows_debug_x86_64.exe", "windows_release_x86_64.exe")) {
-            $installedTemplate = Join-Path $templateDestination $templateName
-            if (-not (Test-Path -LiteralPath $installedTemplate -PathType Leaf)) {
-              throw "Required Godot export template was not installed: $installedTemplate"
+          $debugTemplate = (Resolve-Path (Join-Path $env:GODOT_TEMPLATE_SOURCE "windows_debug_x86_64.exe")).Path.Replace("\", "/")
+          $releaseTemplate = (Resolve-Path (Join-Path $env:GODOT_TEMPLATE_SOURCE "windows_release_x86_64.exe")).Path.Replace("\", "/")
+          foreach ($templatePath in @($debugTemplate, $releaseTemplate)) {
+            $template = Get-Item -LiteralPath $templatePath
+            if ($template.Length -lt 10MB) {
+              throw "Godot export template is unexpectedly small: $templatePath"
             }
           }
+
+          $presetPath = (Resolve-Path "apps/builder/export_presets.cfg").Path
+          $presetText = Get-Content -LiteralPath $presetPath -Raw
+          $windowsSectionStart = $presetText.IndexOf("[preset.2.options]")
+          $windowsSectionEnd = $presetText.IndexOf("[preset.3]", $windowsSectionStart)
+          if ($windowsSectionStart -lt 0 -or $windowsSectionEnd -lt 0) {
+            throw "Windows export preset section was not found."
+          }
+          $beforeWindowsOptions = $presetText.Substring(0, $windowsSectionStart)
+          $windowsOptions = $presetText.Substring($windowsSectionStart, $windowsSectionEnd - $windowsSectionStart)
+          $afterWindowsOptions = $presetText.Substring($windowsSectionEnd)
+          $windowsOptions = $windowsOptions.Replace('custom_template/debug=""', "custom_template/debug=`"$debugTemplate`"")
+          $windowsOptions = $windowsOptions.Replace('custom_template/release=""', "custom_template/release=`"$releaseTemplate`"")
+          if (-not $windowsOptions.Contains("custom_template/debug=`"$debugTemplate`"") -or -not $windowsOptions.Contains("custom_template/release=`"$releaseTemplate`"")) {
+            throw "Failed to configure custom Godot Windows export templates."
+          }
+          Set-Content -LiteralPath $presetPath -Value ($beforeWindowsOptions + $windowsOptions + $afterWindowsOptions) -Encoding utf8NoBOM
 
           $gameDir = Join-Path $env:RUNNER_TEMP "neuralese-game"
           $gameExe = Join-Path $gameDir "Neuralese.exe"
