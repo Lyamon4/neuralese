@@ -1,0 +1,207 @@
+name: Build Windows installer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  GODOT_VERSION: 4.7.1
+  GODOT_STATUS: stable
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install Godot and export templates
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $release = "$env:GODOT_VERSION-$env:GODOT_STATUS"
+          $baseUrl = "https://github.com/godotengine/godot/releases/download/$release"
+          $tempRoot = Join-Path $env:RUNNER_TEMP "godot-$release"
+          $editorZip = Join-Path $tempRoot "godot-editor.zip"
+          $templatesZip = Join-Path $tempRoot "godot-templates.zip"
+          $editorRoot = Join-Path $tempRoot "editor"
+          $templatesRoot = Join-Path $tempRoot "templates"
+
+          New-Item -ItemType Directory -Force -Path $tempRoot, $editorRoot, $templatesRoot | Out-Null
+          Invoke-WebRequest "$baseUrl/Godot_v$release`_win64.exe.zip" -OutFile $editorZip
+          Invoke-WebRequest "$baseUrl/Godot_v$release`_export_templates.tpz" -OutFile $templatesZip
+          Expand-Archive -LiteralPath $editorZip -DestinationPath $editorRoot -Force
+          Expand-Archive -LiteralPath $templatesZip -DestinationPath $templatesRoot -Force
+
+          $godot = Get-ChildItem -LiteralPath $editorRoot -Filter "Godot_*.exe" -File | Select-Object -First 1
+          if (-not $godot) {
+            throw "Godot editor executable was not found after extraction."
+          }
+
+          $templateSource = Join-Path $templatesRoot "templates"
+          $templateDestination = Join-Path $env:APPDATA "Godot\export_templates\$release"
+          if (-not (Test-Path -LiteralPath $templateSource)) {
+            throw "Godot export templates were not found at $templateSource."
+          }
+          New-Item -ItemType Directory -Force -Path $templateDestination | Out-Null
+          Copy-Item -Path (Join-Path $templateSource "*") -Destination $templateDestination -Recurse -Force
+
+          "GODOT_EXE=$($godot.FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          & $godot.FullName --version
+
+      - name: Import builder project
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          & $env:GODOT_EXE --headless --path "apps/builder" --editor --quit-after 5
+          if ($LASTEXITCODE -ne 0) {
+            throw "Godot project import failed with exit code $LASTEXITCODE."
+          }
+
+      - name: Export current Windows application
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $gameDir = Join-Path $env:RUNNER_TEMP "neuralese-game"
+          $gameExe = Join-Path $gameDir "Neuralese.exe"
+          New-Item -ItemType Directory -Force -Path $gameDir | Out-Null
+
+          & $env:GODOT_EXE --headless --path "apps/builder" --export-release "Windows Desktop" $gameExe
+          if ($LASTEXITCODE -ne 0) {
+            throw "Godot Windows export failed with exit code $LASTEXITCODE."
+          }
+
+          $requiredFiles = @(
+            $gameExe,
+            (Join-Path $gameDir "libgdyaml.windows.release.x86_64.dll"),
+            (Join-Path $gameDir "libluaapi.windows.template_release.x86_64.dll")
+          )
+          foreach ($path in $requiredFiles) {
+            if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {
+              throw "Required Godot export file is missing: $path"
+            }
+          }
+
+          "GAME_DIR=$gameDir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Verify and stage local runtime
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $projectRoot = (Resolve-Path "apps/builder").Path
+          $runtimeZip = Join-Path $projectRoot "runtime_payload\windows-x64-runtime.zip"
+          $runtimeShaFile = Join-Path $projectRoot "runtime_payload\windows-x64-runtime.sha256"
+          $expectedHash = ((Get-Content -LiteralPath $runtimeShaFile -Raw).Trim() -split "\s+")[0].ToLowerInvariant()
+          $actualHash = (Get-FileHash -LiteralPath $runtimeZip -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actualHash -ne $expectedHash) {
+            throw "Runtime SHA-256 mismatch: expected $expectedHash, got $actualHash."
+          }
+
+          $stageRoot = Join-Path $projectRoot ".runtime_payload_build\windows-x64"
+          New-Item -ItemType Directory -Force -Path $stageRoot | Out-Null
+          Expand-Archive -LiteralPath $runtimeZip -DestinationPath $stageRoot -Force
+
+          $manifestPath = Join-Path $stageRoot "runtime_manifest.json"
+          $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
+          if ($manifest.pruned -ne $true) {
+            throw "Runtime payload is not marked as pruned."
+          }
+          if (-not (Test-Path -LiteralPath (Join-Path $stageRoot "python\python.exe"))) {
+            throw "Runtime payload does not contain python/python.exe."
+          }
+
+      - name: Prepare installer payload
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $payloadZip = Join-Path $env:RUNNER_TEMP "neuralese_payload.zip"
+          & "apps/builder/tools/prepare_windows_installer_payload.ps1" `
+            -ProjectRoot (Resolve-Path "apps/builder").Path `
+            -GameDir $env:GAME_DIR `
+            -OutputZip $payloadZip `
+            -Platform "windows-x64"
+          if ($LASTEXITCODE -ne 0) {
+            throw "Installer payload preparation failed with exit code $LASTEXITCODE."
+          }
+
+          $smokeRoot = Join-Path $env:RUNNER_TEMP "payload-smoke"
+          Expand-Archive -LiteralPath $payloadZip -DestinationPath $smokeRoot -Force
+          $requiredFiles = @(
+            (Join-Path $smokeRoot "Neuralese.exe"),
+            (Join-Path $smokeRoot "libgdyaml.windows.release.x86_64.dll"),
+            (Join-Path $smokeRoot "libluaapi.windows.template_release.x86_64.dll"),
+            (Join-Path $smokeRoot "local_runtime\windows-x64\python\python.exe"),
+            (Join-Path $smokeRoot "local_runtime\windows-x64\.neuralese_runtime_manifest.json")
+          )
+          foreach ($path in $requiredFiles) {
+            if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {
+              throw "Required installer payload file is missing: $path"
+            }
+          }
+
+          $runtimeManifest = Get-Content -LiteralPath (Join-Path $smokeRoot "local_runtime\windows-x64\.neuralese_runtime_manifest.json") -Raw | ConvertFrom-Json
+          if ($runtimeManifest.platform -ne "windows-x64" -or $runtimeManifest.pruned -ne $true) {
+            throw "Installed runtime manifest is invalid."
+          }
+
+          "PAYLOAD_ZIP=$payloadZip" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Test installer code
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          Copy-Item -LiteralPath $env:PAYLOAD_ZIP -Destination "installer/setup/src-tauri/payload/neuralese_payload.zip" -Force
+          $env:NEURALESE_APP_NAME = "Neuralese"
+          $env:NEURALESE_GAME_EXE = "Neuralese.exe"
+          cargo test --release --manifest-path "installer/setup/src-tauri/Cargo.toml"
+          if ($LASTEXITCODE -ne 0) {
+            throw "Installer tests failed with exit code $LASTEXITCODE."
+          }
+
+      - name: Build Windows setup executable
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          & "installer/setup/build.ps1" `
+            -PayloadZip $env:PAYLOAD_ZIP `
+            -LogoPng "installer/setup/public/logo.png" `
+            -AppName "Neuralese" `
+            -GameExeName "Neuralese.exe"
+          if ($LASTEXITCODE -ne 0) {
+            throw "Installer build failed with exit code $LASTEXITCODE."
+          }
+
+          $installer = (Resolve-Path "installer/setup/release/Neuralese-Setup.exe").Path
+          $bytes = [System.IO.File]::ReadAllBytes($installer)
+          if ($bytes.Length -lt 10MB) {
+            throw "Installer is unexpectedly small: $($bytes.Length) bytes."
+          }
+          if ($bytes[0] -ne 0x4D -or $bytes[1] -ne 0x5A) {
+            throw "Installer does not have a valid PE MZ header."
+          }
+
+          $hash = (Get-FileHash -LiteralPath $installer -Algorithm SHA256).Hash.ToLowerInvariant()
+          $metadata = @(
+            "sha256=$hash",
+            "bytes=$($bytes.Length)",
+            "builder_commit=${{ github.sha }}",
+            "godot=$env:GODOT_VERSION-$env:GODOT_STATUS"
+          )
+          Set-Content -LiteralPath "installer/setup/release/Neuralese-Setup.txt" -Value $metadata -Encoding ASCII
+          Get-Item -LiteralPath $installer | Format-List FullName, Length, LastWriteTimeUtc
+          Write-Host "SHA256: $hash"
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Neuralese-Windows-x86_64
+          path: |
+            installer/setup/release/Neuralese-Setup.exe
+            installer/setup/release/Neuralese-Setup.txt
+          if-no-files-found: error
+          retention-days: 14
