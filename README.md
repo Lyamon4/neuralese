@@ -236,10 +236,6 @@ Executed checks and their platform limits are recorded in [`TESTING.md`](TESTING
 - The installer source currently ships a Windows-native setup flow; macOS is distributed directly as a DMG.
 - This consolidated snapshot preserves source state, not the individual repositories' full Git histories.
 
-## Research team
-
-Neuralese was developed by **Mikhail Isakov** and **Rakhim Nurmukhanbetov**, students at Specialized School-Lyceum No. 54 named after I.V. Panfilov, under the supervision of **Dina Amirkanova**.
-
 ## License and access
 
 No open-source license is granted by this snapshot. All rights remain with the Neuralese team unless a component states otherwise.
