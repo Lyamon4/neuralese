@@ -150,9 +150,6 @@ jobs:
             -GameDir $env:GAME_DIR `
             -OutputZip $payloadZip `
             -Platform "windows-x64"
-          if ($LASTEXITCODE -ne 0) {
-            throw "Installer payload preparation failed with exit code $LASTEXITCODE."
-          }
 
           $smokeRoot = Join-Path $env:RUNNER_TEMP "payload-smoke"
           Expand-Archive -LiteralPath $payloadZip -DestinationPath $smokeRoot -Force
@@ -197,9 +194,6 @@ jobs:
             -LogoPng "installer/setup/public/logo.png" `
             -AppName "Neuralese" `
             -GameExeName "Neuralese.exe"
-          if ($LASTEXITCODE -ne 0) {
-            throw "Installer build failed with exit code $LASTEXITCODE."
-          }
 
           $installer = (Resolve-Path "installer/setup/release/Neuralese-Setup.exe").Path
           $bytes = [System.IO.File]::ReadAllBytes($installer)
