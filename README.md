@@ -111,26 +111,41 @@ The dashboard opens at `http://127.0.0.1:8010/` and supports upload, live metric
 
 ## How Codex & GPT-5.6 were used
 
-AI-assisted engineering was part of the development loop across the project, not a one-shot generation step at submission time.
+Codex was part of Neuralese's engineering workflow from the early prototype onward, not a tool added for the hackathon submission. Some early chat histories were not retained, so the account below reconstructs that work from the development timeline in the research paper and from surviving code, documentation, tests, and release artifacts. It describes how we worked with Codex; it does not claim that AI independently designed or authored Neuralese.
 
-### Codex as a repository-scale engineering partner
+### How the collaboration evolved with the product
 
-Codex was used to navigate a system split across Godot/GDScript, Python, TypeScript, Rust, native libraries, ONNX Runtime, and deployment tooling. A Godot MCP bridge provided structured access to project and scene context; repository tracing and the real Godot compiler remained the source of truth.
+**1. Turning the first Godot experiment into a maintainable graph editor.** Neuralese began in July 2025 as an experimental visual neural-network constructor. During this early phase, we used Codex to read unfamiliar Godot and GDScript paths, map scene-tree and signal relationships, and reason about how visual nodes should represent real layers, tensor shapes, and data flow. Instead of asking for an entire application in one prompt, we brought Codex specific problems: trace why a connection was rejected, find where a node was serialized, explain which scene owned an interaction, or propose a small change without breaking existing behavior. As the project grew, the Godot MCP bridge made scene and script inspection more structured. The running project and the Godot compiler always remained the final authority.
 
-Concrete contributions included:
+**2. Expanding from a graph demo into a complete learning environment.** When datasets, local execution, simulations, training, inference, and export were added, Codex helped us follow behavior across the Godot client, Python services, Rust modules, and native extensions. It was particularly useful for identifying ownership boundaries: which work belonged in the responsive client, which belonged in the asynchronous backend, and which performance-sensitive operations should remain in Rust. For dataset work, Codex helped inspect the existing block, compression, hashing, and incremental-sync implementation so that later services could reuse its protocol rather than silently create an incompatible copy.
 
-1. **Tracing the lesson DSL end to end.** Codex followed the compiler flow from the YAML compiler and DSL registry through generated runtime calls, then helped build a schema-driven Blockly editor. The editor generates the existing Neuralese bundle format instead of inventing a parallel format.
-2. **Building syntax parity rather than trusting samples.** Codex helped create generated coverage that sends exported YAML through the actual Godot compiler. This catches wrong field names, branch shapes, enums, nested actions, and topology requirements that snapshot-only tests miss.
-3. **Designing the on-prem training runtime.** Codex separated the ONNX training core from HTTP/WebSocket delivery, added local-school and cloud-node modes, dataset references and incremental sync, progress streaming, cancellation, snapshots, authentication, Docker/systemd deployment, and focused tests.
-4. **Hardening cross-platform delivery.** Codex investigated native Godot libraries, macOS architecture slices, code signing, trackpad and keyboard differences, installer packaging, update safety, and release verification instead of assuming a Windows export would behave identically on macOS.
-5. **Reducing Axon context cost without changing its output contract.** Codex analyzed the real graph/world-state structures and developed compact Markdown/YAML representations for model context while preserving node documentation and tool semantics.
-6. **Reviewing changes with evidence.** Pull requests were checked with component tests, builds, generated syntax-parity runs, real Godot compilation, artifact inspection, and SHA-256 verification. AI suggestions were treated as hypotheses until the relevant runtime accepted them.
+**3. Developing Axon from chat into an in-product mentor.** Axon started as a conversational experiment and evolved into the Narrator/Builder design described in the paper. We used Codex to trace the real graph and world-state structures given to the model, review tool contracts, and separate explanatory behavior from deterministic graph edits. Later, Codex helped reduce context cost by designing compact Markdown/YAML representations of node documentation and world state while preserving the existing Axon response contract. This was an iterative context-engineering task: inspect real payloads, measure their size, compress repeated structure, and test that the model still received every field needed for a correct graph operation.
+
+**4. Building structured lessons and then removing YAML from the teacher workflow.** The first lesson system was authored directly in a custom YAML DSL and interpreted by Godot. Codex helped trace that DSL from the YAML compiler and registry to the runtime calls, including steps, actions, validation rules, branches, and teacher locks. That understanding later became the basis of the standalone Blockly editor in [`apps/block-editor`](apps/block-editor). Its block definitions and YAML mappings are loaded from schemas rather than a hardcoded type-to-YAML switch. Generated exports are checked by the real Godot lesson compiler, giving the editor 102/102 syntax-parity cases in addition to its unit tests.
+
+**5. Supporting the research optimization work.** For Section Reuse and Fused SuperGraph experiments, Codex was used as a code-reading, instrumentation, and review partner. It helped trace topology matching and reusable sections, inspect benchmark harnesses and profiler output, and check that performance claims were tied to recorded experiments rather than inferred from code. The paper reports a 3.4x reduction in cumulative training time for Section Reuse at 16 concurrent users and an 81.6% reduction in CUDA kernel launches for the Fused SuperGraph experiment. In this repository, Section Reuse is connected to the training path; Fused SuperGraph is preserved as research and benchmark code rather than described as an active production path.
+
+**6. Making training deployable inside a school.** When the project needed an on-prem ONNX training service, Codex helped turn the requirement into a discrete core engine plus transport layers. The resulting runtime has separate local-school and cloud-node modes, HTTP and WebSocket APIs, live metrics, cancellation, authenticated access, dataset references, incremental synchronization, trained snapshots, Docker deployment, systemd documentation, and focused tests. The modular boundary was deliberate: the same training engine can be embedded in school hardware or used behind Neuralese infrastructure without coupling it to one web server.
+
+**7. Shipping beyond the development machine.** Codex was also used for the less visible work required to make a research prototype distributable. This included inspecting Godot GDExtensions and macOS architecture slices, diagnosing Gatekeeper and signing behavior, translating Windows shortcuts to macOS Command bindings, adding trackpad navigation, reviewing installer and updater safety, producing Windows and universal macOS artifacts, and verifying hashes and file formats. These tasks were tested with real compilers, platform tools, and manual UI checks rather than accepted from generated code alone.
+
+### The working loop
+
+Across those phases, our normal Codex loop was consistent:
+
+1. Give Codex the relevant repository, bug report, logs, or research requirement.
+2. Ask it to trace the existing implementation before proposing a change.
+3. Review a scoped plan and apply changes in small, inspectable patches.
+4. Run the relevant unit tests, build, compiler, benchmark, or artifact inspection.
+5. Manually test visual and platform-specific behavior, then return failures to the same loop.
+
+This approach made Codex most useful on cross-file and cross-language problems while keeping product decisions, experimental interpretation, and final acceptance with the human team.
 
 ### GPT-5.6 for the final integration pass
 
 GPT-5.6 Sol was used through Codex as a read-only, high-reasoning second-pass reviewer for this hackathon snapshot on 2026-07-18. It cross-checked the 33-page research paper against the repository structure, challenged unsupported claims, reviewed the architecture explanation for missing links, and checked whether a judge could move from the README to a packaged build or the relevant source component without private context. The review directly caused the port/runtime diagram, Fused SuperGraph status, Godot version, platform quickstarts, and research wording above to be corrected.
 
-The division of work was intentional: Codex handled long-running repository operations and implementation feedback loops; GPT-5.6 focused on cross-component reasoning, research-to-code synthesis, and adversarial review of the final narrative. The result is not "AI wrote the app" - it is a documented human/AI engineering workflow in which generated work is constrained by schemas, compilers, tests, checksums, and real platform behavior.
+The division of work was intentional: Codex handled long-running repository operations and implementation feedback loops; GPT-5.6 focused on cross-component reasoning, research-to-code synthesis, and adversarial review of the final narrative. The result is not "AI wrote the app" - it is a human/AI engineering workflow in which generated work is constrained by schemas, compilers, tests, benchmarks, checksums, and real platform behavior.
 
 GPT-5.6 availability in Codex is documented in the [official OpenAI announcement](https://openai.com/index/gpt-5-6/).
 
@@ -138,6 +153,9 @@ GPT-5.6 availability in Codex is documented in the [official OpenAI announcement
 
 | AI-assisted work | Repository evidence | Verification evidence |
 | --- | --- | --- |
+| Godot graph editor and platform tracing | [`apps/builder`](apps/builder) | Real Godot project compilation, runtime inspection, and manual graph/UI testing |
+| Dataset and service-boundary review | [`apps/builder`](apps/builder), [`services/api`](services/api) | Existing block/hash synchronization protocol retained; component behavior checked at its native boundary |
+| Section Reuse and Fused SuperGraph analysis | [`services/api/nns/sections`](services/api/nns/sections), [`services/api/nns/topofuse`](services/api/nns/topofuse), [`services/api/optibench.py`](services/api/optibench.py) | Recorded benchmark/profiler artifacts and the results reported in the research paper |
 | Lesson DSL tracing and schema-driven editor | [`apps/block-editor`](apps/block-editor), especially `tutorialBlocks.schema.json` and the exporter/compiler scripts | 85 unit tests and 102/102 real Godot syntax-parity cases |
 | Modular ONNX training runtime | [`runtime/onnx-training/code-snapshot/onprem_runtime`](runtime/onnx-training/code-snapshot/onprem_runtime) | 95 Python tests plus API/WebSocket snapshot checks |
 | Cross-platform packaging and installer work | [`installer/setup`](installer/setup), [`dist`](dist) | PE inspection, universal macOS architecture inspection, DMG verification, code-signature verification, SHA-256 checks |
