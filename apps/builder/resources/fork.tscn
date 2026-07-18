@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://elid1ltjvsd4"]
+
+[ext_resource type="Script" uid="uid://wu7x4eppiaqu" path="res://scripts/fork.gd" id="1_fg855"]
+[ext_resource type="Material" uid="uid://bqmfiaej167wg" path="res://resources/fork.tres" id="3_fg855"]
+[ext_resource type="Material" uid="uid://qx7oot40ln28" path="res://ports.tres" id="4_67ld6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fg855")
+
+[node name="plot" type="ColorRect" parent="."]
+material = ExtResource("4_67ld6")
+clip_contents = true
+layout_mode = 0
+offset_left = 3.9999998
+offset_top = -3.9999998
+offset_right = 33.321278
+offset_bottom = 18.805439
+scale = Vector2(0.3069443, 0.3069443)
+
+[node name="o" type="ColorRect" parent="."]
+material = ExtResource("3_fg855")
+instance_shader_parameters/corner_radius_width_add = Vector2(3, 0)
+instance_shader_parameters/extents = Vector4(0, 0, 0, 0)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+instance_shader_parameters/tuning = Color(0.97, 0.97, 0.97, 1)
+layout_mode = 0
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 7.0
+offset_bottom = 8.0

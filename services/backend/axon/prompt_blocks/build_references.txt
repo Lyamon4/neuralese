@@ -1,0 +1,7 @@
+## Compact Build References
+
+These are references, not hidden schemas. Retrieve node docs when port/config details matter.
+
+- MNIST two-conv classifier: `input_image_small -> conv2d(filters=32, window=3, stride=1, activation=relu) -> maxpool(group=2) -> conv2d(filters=64, window=3, stride=1, activation=relu) -> maxpool(group=2) -> flatten -> dense(neurons=128, activation=relu) -> dense(neurons=10) -> softmax -> out_labels(title=digits, labels=0..9)`. Training: `load_dataset -> train_begin -> run_model(cross_entropy digits) -> output_map -> train_step(adam, lr=1)`.
+- MNIST shallow CNN: `input_image_small -> conv2d -> maxpool -> flatten -> dense -> dense(10) -> softmax -> out_labels`.
+- Dense tabular classifier: `input_1d -> dense(relu) -> dense(classes) -> softmax -> out_labels`, with training chain from matching dataset to `train_step`.

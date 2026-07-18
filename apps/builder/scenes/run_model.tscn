@@ -1,0 +1,391 @@
+[gd_scene format=3 uid="uid://bajnadkdpiu3h"]
+
+[ext_resource type="Script" uid="uid://delar2xa8xe6x" path="res://scripts/run_m.gd" id="2_20d1g"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="2_cs7cw"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="3_4mecg"]
+[ext_resource type="Script" uid="uid://dth7a328aa7op" path="res://scripts/conn.gd" id="5_sbclw"]
+[ext_resource type="Material" uid="uid://blkv556akjllh" path="res://resources/panel.tres" id="5_udj8x"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="6_4mecg"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="7_2rdp7"]
+[ext_resource type="Script" uid="uid://bjncugq5805ty" path="res://scripts/label_auto_resize.gd" id="7_cs7cw"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="8_fwn3v"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="9_norah"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="10_7rg2c"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="11_0iy4y"]
+[ext_resource type="Resource" uid="uid://dpcfcsr4yvw5j" path="res://resources/activ.tres" id="11_cs7cw"]
+
+[sub_resource type="Resource" id="Resource_4mecg"]
+script = ExtResource("10_7rg2c")
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 1.0
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" type="Control" unique_id=1426417749 node_paths=PackedStringArray("unit")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("2_20d1g")
+unit = NodePath("connection")
+padding = -5.0
+unit_offset_y = 12.0
+wait_enclose = true
+target_size = 35.0
+input_y_add = 3.0
+server_typename = &"RunModel"
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"branches": {},
+&"mapped": {}
+})
+
+[node name="o2" parent="." unique_id=553891866 node_paths=PackedStringArray("parent_graph") instance=ExtResource("11_0iy4y")]
+visible = false
+instance_shader_parameters/corner_radius_width_add = Vector2(4.5, 0)
+layout_mode = 0
+offset_left = -10.0
+offset_top = -29.0
+offset_right = 10.0
+offset_bottom = -8.0
+color = Color(0.7019608, 0.4, 1, 1)
+config_conn = true
+_accepted_datatypes = "netname"
+hint = 1
+server_name = &"RunModel"
+connection_type = 0
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(0, -1)
+parent_graph = NodePath("..")
+conn_count_keyword = "netname"
+gradient_color = Color(0.7019608, 0.4, 1, 1)
+
+[node name="i2" parent="." unique_id=929718316 node_paths=PackedStringArray("parent_graph") instance=ExtResource("11_0iy4y")]
+layout_mode = 0
+offset_left = -66.0
+offset_top = -12.0
+offset_right = -48.0
+offset_bottom = 6.0
+color = Color(0.462745, 0.45098, 0.85098, 1)
+_accepted_datatypes = "data"
+server_name = &"model_in"
+connection_type = 0
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(-4, 0)
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+conn_count_keyword = "train"
+gradient_color = Color(0.462745, 0.45098, 0.85098, 1)
+
+[node name="i" parent="." unique_id=1004824352 node_paths=PackedStringArray("parent_graph") instance=ExtResource("11_0iy4y")]
+layout_mode = 0
+offset_left = 41.0
+offset_top = -12.0
+offset_right = 59.0
+offset_bottom = 6.0
+color = Color(0.462745, 0.45098, 0.85098, 1)
+_accepted_datatypes = "model_output"
+server_name = &"model_out"
+connection_type = 1
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(-4, 0)
+parent_graph = NodePath("..")
+conn_count_keyword = "train"
+gradient_color = Color(0.462745, 0.45098, 0.85098, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=890499499]
+z_index = 1
+material = ExtResource("2_cs7cw")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0)
+instance_shader_parameters/outline_color = Color(0.693883, 0.6885, 0.85, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.639216)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -22.0
+offset_right = 51.0
+offset_bottom = 14.0
+
+[node name="root" type="Control" parent="ColorRect" unique_id=1786759179]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="input_fmt" type="Label" parent="ColorRect/root" unique_id=1637992980]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 19.0
+offset_right = 434.66522
+offset_bottom = 108.0
+scale = Vector2(0.2025424, 0.2025424)
+theme = ExtResource("3_4mecg")
+text = "in 0d(0)"
+horizontal_alignment = 1
+script = ExtResource("7_cs7cw")
+padding = Vector2(0, 0)
+min_scale = 0.0
+parent_indep = true
+base_size = Vector2(169.107, 43)
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Label" type="Label" parent="ColorRect/root" unique_id=1500593609]
+layout_mode = 0
+offset_left = 2.000002
+offset_top = 3.0
+offset_right = 276.27783
+offset_bottom = 46.0
+scale = Vector2(0.37917754, 0.37917754)
+theme = ExtResource("3_4mecg")
+text = "RunModel"
+horizontal_alignment = 1
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" unique_id=1909399077]
+script = ExtResource("6_4mecg")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "ЗапускМодели"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "МодельОрын"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="connection" type="Control" parent="." unique_id=1896446729]
+anchors_preset = 0
+offset_left = -57.0
+offset_top = 7.0
+offset_right = 53.0
+offset_bottom = 47.5
+script = ExtResource("5_sbclw")
+
+[node name="i" parent="connection" unique_id=895239972 node_paths=PackedStringArray("parent_graph") instance=ExtResource("11_0iy4y")]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 11.0
+offset_right = 115.0
+offset_bottom = 25.0
+color = Color(0.65882355, 0.65882355, 0.65882355, 1)
+dynamic = true
+virtual = true
+_accepted_datatypes = "pellet"
+hint = 4
+server_name = &"model_out"
+connection_type = 1
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(-4, 0)
+parent_graph = NodePath("../..")
+conn_count_keyword = "pell"
+gradient_color = Color(0.66, 0.66, 0.66, 1)
+
+[node name="ColorRect" type="ColorRect" parent="connection" unique_id=1448166804]
+z_index = 1
+material = ExtResource("5_udj8x")
+instance_shader_parameters/outline_color = Color(0.501961, 0.501961, 0.501961, 0.490196)
+instance_shader_parameters/tuning = Color(0.5, 0.5, 0.5, 0.490196)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 101.0
+offset_bottom = 33.5
+
+[node name="Label2" type="Label" parent="connection/ColorRect" unique_id=1540848835]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 20.0
+offset_right = 332.98248
+offset_bottom = 109.0
+scale = Vector2(0.2025424, 0.2025424)
+theme = ExtResource("3_4mecg")
+text = "1d(200)"
+horizontal_alignment = 2
+script = ExtResource("7_cs7cw")
+padding = Vector2(0, 0)
+min_scale = 0.0
+parent_indep = true
+base_size = Vector2(169.107, 43)
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Control" type="Control" parent="connection" unique_id=1483880504]
+anchors_preset = 0
+offset_left = 10.0
+offset_right = 57.0
+offset_bottom = 20.0
+
+[node name="Label" type="Label" parent="connection/Control" unique_id=1198077339]
+z_index = 1
+layout_mode = 0
+offset_top = 3.0
+offset_right = 169.1065
+offset_bottom = 46.0
+scale = Vector2(0.2838448, 0.2838448)
+theme = ExtResource("3_4mecg")
+text = "0"
+script = ExtResource("7_cs7cw")
+padding = Vector2(0, 0)
+min_scale = 0.0
+parent_indep = true
+base_size = Vector2(169.107, 43)
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="loss" parent="connection" unique_id=1472561899 node_paths=PackedStringArray("graph_root") instance=ExtResource("8_fwn3v")]
+z_index = 1
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 62.0
+offset_top = 4.0
+offset_right = 119.40246
+offset_bottom = 24.0
+scale = Vector2(0.62715083, 0.62715083)
+mouse_filter = 1
+color = Color(0.584314, 0.576471, 0.85098, 1)
+button_type = 2
+base_scale_x = 0.45
+resize_after = 5
+text = "MSE"
+base_size = Vector2(57.40246, 20)
+expanded_size = 72
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_4mecg")
+graph_root = NodePath("../..")
+auto_ready = false
+
+[node name="ColorRect2" parent="connection/loss" unique_id=400907514 instance=ExtResource("8_fwn3v")]
+visible = false
+material = ExtResource("9_norah")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"mse"
+resize_after = 4
+text = "MSE"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("11_cs7cw")
+auto_ready = false
+
+[node name="ColorRect3" parent="connection/loss" unique_id=1924786484 instance=ExtResource("8_fwn3v")]
+visible = false
+material = ExtResource("9_norah")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -14.0
+offset_top = 4.0
+offset_right = 106.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(60, 18)
+button_type = 1
+top = true
+hint = &"cross_entropy"
+resize_after = 5
+text = "CrossE"
+base_size = Vector2(120, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("11_cs7cw")
+auto_ready = false
+
+[node name="imp" parent="connection" unique_id=669632412 node_paths=PackedStringArray("graph_root") instance=ExtResource("8_fwn3v")]
+visible = false
+z_index = 1
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 62.0
+offset_top = 18.0
+offset_right = 119.40246
+offset_bottom = 38.0
+scale = Vector2(0.62715083, 0.62715083)
+mouse_filter = 1
+color = Color(0.584314, 0.576471, 0.85098, 1)
+button_type = 2
+base_scale_x = 0.45
+resize_after = 6
+text = "MSE"
+base_size = Vector2(57.40246, 20)
+expanded_size = 72
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_4mecg")
+graph_root = NodePath("../..")
+auto_ready = false
+
+[node name="ColorRect2" parent="connection/imp" unique_id=479111642 instance=ExtResource("8_fwn3v")]
+visible = false
+material = ExtResource("9_norah")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"mse"
+resize_after = 4
+text = "MSE"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("11_cs7cw")
+auto_ready = false
+
+[node name="ColorRect3" parent="connection/imp" unique_id=75358764 instance=ExtResource("8_fwn3v")]
+visible = false
+material = ExtResource("9_norah")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -14.0
+offset_top = 4.0
+offset_right = 106.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(60, 18)
+button_type = 1
+top = true
+hint = &"cross_entropy"
+resize_after = 5
+text = "CrossE"
+base_size = Vector2(120, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("11_cs7cw")
+auto_ready = false
+
+[node name="Label2" type="Label" parent="." unique_id=1548353323]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+layout_mode = 0
+offset_left = 14.000002
+offset_top = -2.999999
+offset_right = 207.0
+offset_bottom = 44.0
+scale = Vector2(0.2211043, 0.2211043)
+theme = ExtResource("7_2rdp7")
+text = "Loss"

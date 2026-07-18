@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "node_id": "neuron",
+  "status": "stable",
+  "generated": {
+    "node_id": "neuron",
+    "created_with": "neuron",
+    "scene_path": "res://scenes/neuron.tscn",
+    "scene_uid": "uid://cbtf5jh2s8v3j",
+    "root_instance_path": "res://scenes/base_graph.tscn",
+    "script_path": "res://scripts/neuron_config.gd",
+    "inheritance_chain": [
+      "res://scripts/neuron_config.gd",
+      "res://scripts/base_graph.gd"
+    ],
+    "inherits_graph": true,
+    "server_typename": "LayerConfig",
+    "layer_name": null,
+    "title_candidates": {
+      "en": "Activation",
+      "ru": "Активация",
+      "kz": "Активация"
+    },
+    "base_config": {
+      "activ": "none"
+    },
+    "ports": [
+      {
+        "id": "output_o_activ_out",
+        "scene_node": "o",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "activ_out",
+        "direction": "output",
+        "datatypes": [
+          "activation"
+        ],
+        "multiple": true,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": null
+      }
+    ],
+    "settings": [
+      {
+        "id": "activ",
+        "source": "base_config",
+        "default": "none",
+        "ui_kind": null,
+        "ui_path": null,
+        "options": []
+      }
+    ],
+    "icon_source": "res://node_icons/IconNeuron.png",
+    "static_compatible_nodes": [
+      {
+        "from_port": "output_o_activ_out",
+        "to_node": "layer",
+        "to_port": "input_activ_activ_in",
+        "datatypes": [
+          "activation"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_activ_out",
+        "to_node": "conv2d",
+        "to_port": "input_activ_activ_in",
+        "datatypes": [
+          "activation"
+        ],
+        "confidence": "static_datatype_intersection"
+      }
+    ]
+  },
+  "docs": {
+    "title": {
+      "en": "Activation",
+      "ru": "Активация",
+      "kz": "Активация"
+    },
+    "summary": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "operation": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "compact": {
+      "body": {
+        "en": "",
+        "ru": "",
+        "kz": ""
+      }
+    },
+    "ports": {
+      "output_o_activ_out": {
+        "label": {
+          "en": "activ_out",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "settings": {
+      "activ": {
+        "label": {
+          "en": "activ",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "connects_to": [],
+    "examples": []
+  }
+}

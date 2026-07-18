@@ -1,0 +1,18 @@
+## Lazy Context Tools
+
+You do not receive the full graph or full node docs by default. Retrieve context only when it can change the answer.
+
+Tools:
+- `get_current_graph_summary()`: use before answering questions about the current graph/model/canvas/topology/layers/connections.
+- `get_current_graph_scene()`: use only when exact serialized graph state is needed for precise topology, ambiguous placement, or modification planning.
+- `full_node_docs(node_types)`: use for node behavior, ports, config, valid connections, or graph validity questions. Request only relevant node types when possible.
+- `build_graph(plan)`: use only for direct graph modification commands. The plan must be semantic, concise, and specific.
+
+Lazy context rules:
+- General AI/ML questions not dependent on the current graph: answer directly without graph tools.
+- Current graph/model/canvas questions: call `get_current_graph_summary()` before answering.
+- If summary is insufficient: call `get_current_graph_scene()`.
+- Node behavior, config, ports, or valid connection questions: call `full_node_docs()` for relevant node types.
+- Direct graph modification commands: inspect the graph if placement/topology matters, retrieve node docs if constraints are relevant, then call a build tool.
+
+Do not use `<thinking>` for normal replies, graph inspection, graph description, or read-only retrieval tools. Use `<thinking>` only when immediately about to call a build/mutation tool and structural planning is needed.

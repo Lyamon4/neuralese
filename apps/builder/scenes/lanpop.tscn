@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://ph6fhu5csdwt"]
+
+[ext_resource type="Script" uid="uid://dhcf5ofvwaf3g" path="res://scripts/lanpop.gd" id="1_man4l"]
+
+[node name="Lanpop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_man4l")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 28.0
+offset_right = 211.34839
+offset_bottom = 59.0
+scale = Vector2(2.066379, 2.066379)
+placeholder_text = "введите Ip с доски"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 108.0
+offset_right = 346.0
+offset_bottom = 139.0
+scale = Vector2(1.7992185, 1.7992185)
+text = "применить"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

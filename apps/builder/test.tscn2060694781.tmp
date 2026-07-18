@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbgi78pifb8xh"]
+
+[ext_resource type="Shader" uid="uid://cm0uwt66sanpc" path="res://test.gdshader" id="1_ykrsh"]
+[ext_resource type="Texture2D" uid="uid://ukxnlbmbabr" path="res://icon.svg" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://BaseBComponent.tscn" id="4_ppyta"]
+[ext_resource type="Material" uid="uid://jm8oyahk342s" path="res://context_menu.tres" id="5_g14j6"]
+[ext_resource type="Script" uid="uid://dqx0m845e4ld3" path="res://cmenu.gd" id="6_ehkex"]
+[ext_resource type="Script" uid="uid://b4hd7meqnpke2" path="res://camera_2d.gd" id="6_g14j6"]
+[ext_resource type="Resource" uid="uid://b87f7qp31583q" path="res://lite_config.tres" id="6_vbegm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g14j6"]
+shader = ExtResource("1_ykrsh")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -9
+material = SubResource("ShaderMaterial_g14j6")
+position = Vector2(398, 252)
+scale = Vector2(5, 5)
+texture = ExtResource("2_6uqi0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(592, 323)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+script = ExtResource("6_g14j6")
+scroll_speed = 0.15
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="menu" parent="CanvasLayer" instance=ExtResource("4_ppyta")]
+material = ExtResource("5_g14j6")
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.388235, 0.388235, 0.388235, 0.215686)
+offset_right = 255.0
+script = ExtResource("6_ehkex")
+text = "Add graph        +"
+base_size = Vector2(255, 50)
+rect_center = Vector2(0.5, 0.5)
+expanded_size = 240.0
+expand_upwards = true
+
+[node name="neuron" parent="CanvasLayer/menu" instance=ExtResource("4_ppyta")]
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.266667, 0.4, 0.337255, 0.552941)
+offset_right = 219.0
+offset_bottom = 41.0
+button_type = 1
+hint = &"1"
+text = "Neuron"
+base_size = Vector2(219, 41)
+rect_center = Vector2(0, 0)
+config = ExtResource("6_vbegm")
+
+[node name="layer" parent="CanvasLayer/menu" instance=ExtResource("4_ppyta")]
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.268, 0.4, 0.3384, 0.552941)
+offset_right = 219.0
+offset_bottom = 41.0
+button_type = 1
+text = "Layer"
+base_size = Vector2(219, 41)
+rect_center = Vector2(0, 0)
+arrangement_padding = Vector2(5, 5)
+config = ExtResource("6_vbegm")
+
+[node name="condition" parent="CanvasLayer/menu" instance=ExtResource("4_ppyta")]
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.266667, 0.4, 0.337255, 0.552941)
+layout_mode = 0
+offset_right = 219.0
+offset_bottom = 41.0
+button_type = 1
+text = "Condition"
+base_size = Vector2(219, 41)
+rect_center = Vector2(0, 0)
+config = ExtResource("6_vbegm")
+
+[node name="remote" parent="CanvasLayer/menu" instance=ExtResource("4_ppyta")]
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.266667, 0.4, 0.337255, 0.552941)
+offset_right = 236.0
+offset_bottom = 41.0
+button_type = 1
+text = "Remote"
+base_size = Vector2(236, 41)
+rect_center = Vector2(0, 0)
+config = ExtResource("6_vbegm")

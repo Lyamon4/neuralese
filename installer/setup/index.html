@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuralese Setup</title>
+  </head>
+  <body>
+    <main class="window-shell" data-drag-region>
+      <header id="titlebar" class="titlebar" data-drag-region>
+        <div class="brand" data-drag-region>
+          <img src="/logo.png" alt="Neuralese" class="brand-logo" data-drag-region />
+          <div class="brand-text" data-drag-region>
+            <div class="brand-name" data-drag-region>Neuralese Setup</div>
+          </div>
+        </div>
+
+        <div class="window-buttons">
+          <button id="minimize-btn" class="window-btn" aria-label="Minimize">—</button>
+          <button id="close-btn" class="window-btn close" aria-label="Close">×</button>
+        </div>
+      </header>
+
+      <section class="content" data-drag-region>
+        <section id="screen-ready" class="screen active">
+          <h1>Install</h1>
+
+          <label class="field-label" for="install-path">Location</label>
+          <div class="path-row">
+            <input id="install-path" class="path-input" type="text" spellcheck="false" readonly />
+            <button id="browse-btn" class="secondary-btn browse-btn">Browse</button>
+          </div>
+
+          <div class="actions">
+            <button id="install-btn" class="primary-btn">Install</button>
+          </div>
+        </section>
+
+        <section id="screen-installing" class="screen">
+          <div class="screen-row">
+            <h1>Installing</h1>
+            <div id="progress-step" class="progress-percent">0%</div>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+
+          <div id="progress-label" class="status-text">Preparing…</div>
+          <div id="progress-file" class="file-text">Working…</div>
+        </section>
+
+        <section id="screen-done" class="screen">
+          <h1>Installed</h1>
+          <div class="status-text">Neuralese is ready.</div>
+
+          <div class="actions split">
+            <button id="launch-btn" class="primary-btn">Launch</button>
+            <button id="finish-btn" class="secondary-btn">Close</button>
+          </div>
+        </section>
+
+        <section id="screen-error" class="screen">
+          <h1>Failed</h1>
+          <div id="error-message" class="error-text"></div>
+
+          <div class="actions">
+            <button id="retry-btn" class="secondary-btn">Back</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

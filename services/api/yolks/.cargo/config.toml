@@ -1,0 +1,7 @@
+[target.x86_64-unknown-linux-gnu]
+#rustflags = [
+#  "-C", "link-args=-Lthird_party/sysroot/x86_64-unknown-linux-gnu/lib",
+#  "-C", "link-args=-L'C:\\Users\\Mike\\AppData\\Local\\ort.pyke.io\\dfbin\\x86_64-unknown-linux-gnu\\ED1716DE95974BF47AB0223CA33734A0B5A5D09A181225D0E8ED62D070AEA893\\onnxruntime\\lib'",
+#  "-C", "link-args=-lstdc++",
+#  "-C", "link-args=-Wl,-rpath,'$ORIGIN'",
+#]

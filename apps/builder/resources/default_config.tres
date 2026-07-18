@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ButtonConfig" load_steps=2 format=3 uid="uid://dfj4adcly3raw"]
+
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="1_balws"]
+
+[resource]
+script = ExtResource("1_balws")
+as_mult = false
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 1.0
+press_mult = 1.0
+animation_scale = 0.0
+animation_speed = 1.951
+animation_decay = 4.564
+animation_duration = 1.0
+metadata/_custom_type_script = "uid://dx40hpbce8w60"

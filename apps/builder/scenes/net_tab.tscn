@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://d3fd5vlotsa4t"]
+
+[ext_resource type="Script" uid="uid://c7x66droek8mo" path="res://scripts/net_tab.gd" id="1_ahqo4"]
+[ext_resource type="FontFile" uid="uid://d0xcffxoyd14k" path="res://game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="2_hfa33"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="2_lgacx"]
+[ext_resource type="Script" uid="uid://drwqmyo336yff" path="res://scripts/sandbox_visualizer.gd" id="2_n8tek"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lgacx"]
+load_path = "res://.godot/imported/check_on.png-063130e3f394e2e4a79f9c9f07b49151.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_neaab"]
+load_path = "res://.godot/imported/radio_on.png-af9c67f73f2df28f37f891fd040f862b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ps4o"]
+load_path = "res://.godot/imported/radio_off.png-39d9de61d695b67cadb7241259edc6c6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dabqg"]
+load_path = "res://.godot/imported/ch.png-78bd4bcd94c03a8ccb83d11f9a3d9598.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wk0d5"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lhga"]
+bg_color = Color(0.24, 0.24, 0.24, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.59, 0.59, 0.59, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onk3p"]
+bg_color = Color(0.14, 0.14, 0.14, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.19, 0.19, 0.19, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqi4w"]
+bg_color = Color(0.33, 0.33, 0.33, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic5fq"]
+bg_color = Color(0.6045, 0.93, 0.631625, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="ImageTexture" id="ImageTexture_xa6l4"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_80qfi"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y6m0u"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_grd73"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_csnj2"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_5xsx8"]
+
+[sub_resource type="Theme" id="Theme_n08w7"]
+default_font = ExtResource("2_hfa33")
+CheckBox/icons/checked = SubResource("CompressedTexture2D_lgacx")
+CheckBox/icons/radio_checked = SubResource("CompressedTexture2D_neaab")
+CheckBox/icons/radio_unchecked = SubResource("CompressedTexture2D_8ps4o")
+CheckBox/icons/unchecked = SubResource("CompressedTexture2D_dabqg")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("2_hfa33")
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_uneditable_color = Color(0.81, 0.81, 0.81, 0.501961)
+LineEdit/constants/minimum_character_width = 0
+LineEdit/styles/focus = SubResource("StyleBoxFlat_wk0d5")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_1lhga")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_onk3p")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_wqi4w")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ic5fq")
+VScrollBar/icons/decrement = SubResource("ImageTexture_xa6l4")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_80qfi")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_y6m0u")
+VScrollBar/icons/increment = SubResource("ImageTexture_grd73")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_csnj2")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_5xsx8")
+
+[node name="NetTab" type="Node2D" unique_id=53271318 node_paths=PackedStringArray("camera")]
+script = ExtResource("1_ahqo4")
+window_name = "net"
+camera = NodePath("Camera2D")
+metadata/_custom_type_script = "uid://c2egkwwdjnkbc"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=55060277]
+scale = Vector2(2.1270475, 2.1270475)
+anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1329743685]
+layer = -9
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2122063009]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=726914483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -487.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.12, 0.12, 1)
+
+[node name="PageScroll" type="ScrollContainer" parent="CanvasLayer/Control" unique_id=1461114453]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 45.0
+offset_right = 1032.0
+offset_bottom = 549.0
+
+[node name="PageBody" type="VBoxContainer" parent="CanvasLayer/Control/PageScroll" unique_id=1107715031]
+layout_mode = 2
+
+[node name="FeaturedSection" type="VBoxContainer" parent="CanvasLayer/Control/PageScroll/PageBody" unique_id=872192821]
+layout_mode = 2
+
+[node name="FeaturedTitle" type="Label" parent="CanvasLayer/Control/PageScroll/PageBody/FeaturedSection" unique_id=347871086]
+layout_mode = 2
+theme = ExtResource("2_lgacx")
+theme_override_font_sizes/font_size = 45
+text = "Featured Sandboxes"
+
+[node name="FeaturedScroll" type="ScrollContainer" parent="CanvasLayer/Control/PageScroll/PageBody/FeaturedSection" unique_id=532797074]
+layout_mode = 2
+
+[node name="FeaturedGrid" type="GridContainer" parent="CanvasLayer/Control/PageScroll/PageBody/FeaturedSection/FeaturedScroll" unique_id=1230984264]
+z_index = 8
+clip_contents = true
+layout_mode = 2
+theme = SubResource("Theme_n08w7")
+columns = 3
+script = ExtResource("2_n8tek")
+metadata/_custom_type_script = "uid://drwqmyo336yff"
+
+[node name="ProjectsSection" type="VBoxContainer" parent="CanvasLayer/Control/PageScroll/PageBody" unique_id=1737623733]
+layout_mode = 2
+
+[node name="FeaturedTitle" type="Label" parent="CanvasLayer/Control/PageScroll/PageBody/ProjectsSection" unique_id=1583730540]
+layout_mode = 2
+theme = ExtResource("2_lgacx")
+theme_override_font_sizes/font_size = 45
+text = "All Sandboxes"
+
+[node name="SandboxProjectGrid" type="GridContainer" parent="CanvasLayer/Control/PageScroll/PageBody/ProjectsSection" unique_id=1104987368]
+z_index = 8
+layout_mode = 2
+theme = SubResource("Theme_n08w7")
+columns = 3
+script = ExtResource("2_n8tek")
+project_layout_mode = 1
+metadata/_custom_type_script = "uid://drwqmyo336yff"

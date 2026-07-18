@@ -1,0 +1,67 @@
+{
+  "lang_code": "en",
+  "lang_label": "English",
+
+  "nav_features": "Features",
+  "nav_for_teachers": "For Teachers",
+  "nav_try_free": "Try Free",
+  "nav_logo_alt": "Neuralese",
+
+  "hero_heading_line1": "Learn AI by",
+  "hero_heading_line2": "building it.",
+  "hero_sub": "The visual, interactive platform that lets anyone design, train, and understand neural networks. No coding or advanced math required.",
+  "hero_cta_download": "Download",
+  "hero_cta_watch": "Watch Demo",
+  "hero_demo_alt": "Neuralese product demo",
+
+  "features_section_heading": "Demystify AI for everyone.",
+  "features_section_sub": "We removed the programming barriers so students can focus purely on architectural and conceptual understanding.",
+
+  "feature_1_title": "See the math, don't write it.",
+  "feature_1_desc": "Connect layers like building blocks. Understand the flow of data instantly. The 'glass box' approach ensures students actually comprehend what happens under the hood.",
+
+  "feature_2_title": "Your personal teaching assistant.",
+  "feature_2_desc": "Meet Axon, the built-in AI tutor. Axon helps students understand what each layer does, answers questions in real-time, and guides them when they're stuck.",
+
+  "feature_3_title": "Put theories to the test.",
+  "feature_3_desc": "Validate models instantly. Watch your trained neural networks drive an autonomous car or navigate a maze right in the browser. See decisions manifest in observable behavior.",
+
+  "teacher_heading": "Built for the classroom.",
+  "teacher_sub_prefix": "Achieve up to",
+  "teacher_sub_highlight": "2x faster learning improvements",
+  "teacher_sub_suffix": "with your students. Neuralese provides educators with the tools needed to manage, pace, and deliver impactful AI lessons without requiring specialized hardware.",
+
+  "card_01_number": "",
+  "card_01_title": "Lock the room",
+  "card_01_desc": "Keep the whole class on the same step while students build.",
+  "card_01_badge": "Synced",
+
+  "card_02_number": "",
+  "card_02_title": "Guide every step",
+  "card_02_desc": "Validate work live and nudge students through each concept.",
+  "card_02_step1": "Build a CNN layer",
+  "card_02_step2": "Connect pooling",
+  "card_02_checking": "Checking...",
+
+  "card_03_number": "",
+  "card_03_title": "Run live lessons",
+  "card_03_desc": "Track progress, spot blockers, and keep the room moving.",
+  "card_03_progress_label": "Class progress",
+  "card_03_count": "32",
+  "card_03_status": "active",
+
+  "card_04_number": "",
+  "card_04_title": "Works on laptops",
+  "card_04_desc": "Browser-first lessons that do not need expensive hardware.",
+  "card_04_badge": "Browser ready",
+  "card_04_cpu": "CPU",
+  "card_04_gpu": "GPU",
+  "card_04_webgl": "WebGL",
+
+  "footer_heading": "Have questions?",
+  "footer_cta": "Contact Neuralese Team",
+  "footer_tagline": "Built for modern classrooms",
+  "footer_logo_alt": "Neuralese",
+
+  "lang_switcher_label": "Language"
+}

@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://crjr13k12egng"]
+
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="1_as5ug"]
+
+[resource]
+shader = ExtResource("1_as5ug")
+shader_parameter/shape = 1
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/corner_radius = 13.9210006612475
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 1.3
+shader_parameter/mult = 2.0
+shader_parameter/blur_level = -3.37999982805
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.8790000892525
+shader_parameter/use_bg = false

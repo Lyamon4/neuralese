@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://db45gd3qrpsew"]
+
+[ext_resource type="Material" uid="uid://da7idancshs4s" path="res://resources/circle.tres" id="1_wcjn7"]
+
+[node name="Circle" type="ColorRect"]
+material = ExtResource("1_wcjn7")
+offset_right = 7.0
+offset_bottom = 5.0

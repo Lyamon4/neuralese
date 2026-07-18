@@ -1,0 +1,140 @@
+lesson_title: "Знакомство с Neuralese"
+
+flow:
+
+  - step welcome:
+      title: Приветствие
+      actions:
+        - explain:
+            text:
+              - "Привет! Добро пожаловать в [b]Neuralese[/b]."
+              - "Наверняка вы слышали про такие нейросети как ChatGPT, Sora, MidJourney."
+              - "[b]Neuralese[/b] — это приложение, которое научит вас [i]создавать[/i] такие нейросети."
+              - "Прослушайте объяснение учителя по теме."
+            wait: next
+
+        - require:
+            teacher_lock: {}
+
+
+  - step intro_goal:
+      title: Цель урока
+      actions:
+        - explain:
+            text:
+              - "В этом вступительном уроке мы познакомимся с тем, как пользоваться Neuralese."
+              - "Это нужно перед тем, как приступить к самому интересному — проектированию настоящих нейросетей."
+            wait: next
+
+
+  - step scratch_analogy:
+      title: Аналогия со Scratch
+      actions:
+        - explain:
+            text:
+              - "Если вы когда-либо использовали Scratch, будет легко понять принципы Neuralese."
+              - "Нейросети тут создаются [i]по блокам[/i], как из конструктора ЛЕГО."
+              - "Блоки в Neuralese называются [color=cyan][b]нодами (nodes)[/b][/color]."
+              - "Слово \"node\" с английского переводится как \"узел\"."
+              - "Давай попробуем добавить какой-нибудь нод."
+            wait: next
+
+
+  - step open_graph_tab:
+      title: Переход в графы
+      actions:
+        - explain:
+            text:
+              - "Если ты ещё не перешёл — перейди во вкладку «Графы»."
+              - "Нажми на [i]правую кнопку мыши[/i] в любое место."
+              - "В контекстном меню выбери любой нод на своё усмотрение и нажми на него."
+            wait: none
+        - create:
+            first: anytype
+        - require:
+            node:
+              bind:
+                first
+        - explain_next: {}
+
+
+  - step first_node_created:
+      title: Первый нод
+      actions:
+        - explain:
+            text:
+              - "Отлично! Это твой первый нод."
+            wait: next
+        - explain:
+            text:
+              - "Теперь давай попробуем создать какой-то конкретный нод."
+              - "Например, пусть это будет [color=khaki]Ввод2D[/color]."
+            wait: none
+        - highlight:
+            bind: first
+        - create:
+            inp_node: input
+        - require:
+            node:
+              bind: inp_node
+        - explain_next: {}
+
+
+
+  - step more_nodes:
+      title: Дополнительные ноды
+      actions:
+        - explain:
+            text:
+              - "Хорошо!"
+              - "Попробуем создать ещё два нода: [color=medium_orchid]ИмяМодели[/color] и [color=sea_green]ПлотнСлой[/color]."
+              - "Ты можешь использовать поле поиска ([color=dim_gray]Найти нод...[/color]) в контекстном меню."
+            wait: none
+        - create:
+            netname: model_name
+            layer: layer
+        - require:
+            - node:
+                bind: netname
+            - node:
+                bind: layer
+        - explain_next: {}
+
+
+  - step inspect_ports:
+      title: Порты нодов
+      actions:
+        - explain:
+            text:
+              - "Хорошо! Теперь давай ближе рассмотрим [color=khaki]Ввод2D[/color]."
+            wait: next
+
+        - highlight:
+            bind:
+              inp_node
+
+        - explain:
+            text:
+              - "Видишь [color=yellow]жёлтый квадратик[/color] справа и [color=medium_orchid]фиолетовый кружок[/color] слева-сверху?"
+              - "Это называется [color=cyan][b]порты[/b][/color]. Порты нужны для того, чтобы соединять ноды."
+              - "Попробуй соединить [color=khaki]Ввод2D[/color] и [color=medium_orchid]ИмяМодели[/color]."
+            wait: none
+
+        - require:
+            connection:
+              to:
+                bind: inp_node
+              from:
+                bind: netname
+
+        - explain_next: {}
+
+
+  - step port_result:
+      title: Соединение
+      actions:
+        - explain:
+            text:
+              - "Соединения нужны для того, чтобы ноды обменивались информацией."
+              - "Попробуем соединить"
+            wait: next

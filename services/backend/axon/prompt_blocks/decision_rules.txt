@@ -1,0 +1,25 @@
+## Build-vs-Talk Decision Rules
+
+Questions = talk. Commands = build.
+
+If you are not sure whether the user wants mutation, talk and do not act.
+Never call build tools for questions, exploration, advice, or permission questions.
+Direct graph modification commands may call build tools.
+
+Do NOT build for:
+- "Should I add dropout?"
+- "Can you change this?"
+- "What if I remove this?"
+- "Would sigmoid help?"
+- "How can I improve this?"
+
+You MAY build for:
+- "Add dropout after dense."
+- "Remove this node."
+- "Build an MNIST classifier."
+- "Change activation to relu."
+- "Replace dense 128 with dense 96."
+
+Only call `build_graph(plan)` or a specialized builder when the user explicitly tells you to modify/build now.
+
+Specialized builders create complete graphs from scratch. Use them only when the current canvas is empty and the requested architecture matches exactly. If the current canvas is not empty, use `build_graph(plan)` for incremental changes.

@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://dk05hn4etkckc"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://scenes/base_graph.tscn" id="1_oobeh"]
+[ext_resource type="Script" uid="uid://deim3p78fm0d5" path="res://scripts/neuron_layer.gd" id="2_2eb8h"]
+[ext_resource type="Script" uid="uid://7nab6wgidrl1" path="res://scripts/neuron_unit.gd" id="3_gemti"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="3_j0ma4"]
+[ext_resource type="Material" uid="uid://bvlhwv585y83q" path="res://resources/neuron_graph.tres" id="4_3b4h0"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="4_h0si1"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="5_3b4h0"]
+[ext_resource type="Script" uid="uid://b0wh6bvd6pdc5" path="res://scripts/validate_number.gd" id="6_j0ma4"]
+[ext_resource type="Material" uid="uid://b32bkwpidhiyp" path="res://resources/font_alphamult.tres" id="6_jkrlx"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="7_8tmeu"]
+
+[node name="Base" unique_id=2070929760 node_paths=PackedStringArray("unit", "line_edit") instance=ExtResource("1_oobeh")]
+script = ExtResource("2_2eb8h")
+group_size = 50
+max_units = 20
+layer_name = "Dense"
+bottom_attached = false
+unit = NodePath("unit")
+padding = 5.0
+line_edit = NodePath("LineEdit")
+unit_offset_y = -6.0
+wait_enclose = false
+enclose_pad = 0.0
+target_size = 60.0
+min_size = 60.0
+size_add = 3.0
+lerp_size = true
+input_y_add = 0.0
+server_typename = &"NeuronLayer"
+base_config = Dictionary[StringName, Variant]({
+&"neuron_count": 0
+})
+
+[node name="activ" parent="." index="0" unique_id=336741060 node_paths=PackedStringArray("parent_graph") instance=ExtResource("3_j0ma4")]
+instance_shader_parameters/corner_radius_width_add = Vector2(3.5, 0)
+layout_mode = 0
+offset_left = -9.0
+offset_top = -72.0
+offset_right = 9.0
+offset_bottom = -53.0
+color = Color(0.297, 0.66885, 0.9, 1)
+config_conn = true
+_accepted_datatypes = "activation"
+server_name = &"activ_in"
+connection_type = 0
+area_paddings = Vector4(10, 5, 10, 5)
+multiple_splines = true
+origin_offset = Vector2(0, -6)
+dir_vector = Vector2(0, -1)
+parent_graph = NodePath("..")
+off = 1.0
+conn_count_keyword = "activ"
+gradient_color = Color(0.298039, 0.670588, 0.901961, 1)
+
+[node name="ni" parent="." index="1" unique_id=1828903214 node_paths=PackedStringArray("parent_graph") instance=ExtResource("3_j0ma4")]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+color = Color(0.297, 0.9, 0.72915, 1)
+_accepted_datatypes = "layer1d input1d"
+hint = 1
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(10, 5, 10, 5)
+multiple_splines = true
+origin_offset = Vector2(-5, 0)
+unpadded_area = Vector4(10, 10, 0, 10)
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+conn_count_keyword = "layer"
+gradient_color = Color(0.298039, 0.901961, 0.729412, 1)
+
+[node name="o" parent="." index="2" unique_id=1852588295 node_paths=PackedStringArray("parent_graph") instance=ExtResource("3_j0ma4")]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = -17.0
+color = Color(0.297, 0.9, 0.72915, 1)
+_accepted_datatypes = "layer1d"
+server_name = &"layer_out"
+connection_type = 1
+area_paddings = Vector4(10, 5, 10, 5)
+multiple_splines = true
+origin_offset = Vector2(9, 0)
+unpadded_area = Vector4(0, 10, 10, 10)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"layer": 32,
+&"train": 1
+})
+parent_graph = NodePath("..")
+conn_count_keyword = "layer"
+gradient_color = Color(0.298039, 0.901961, 0.729412, 1)
+
+[node name="ColorRect" parent="." index="3"]
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0)
+instance_shader_parameters/outline_color = Color(0.5538, 0.71, 0.665743, 1)
+instance_shader_parameters/tuning = Color(0.0509804, 0.0509804, 0.0509804, 0.541176)
+offset_left = -29.0
+offset_right = 27.0
+offset_bottom = -4.0
+
+[node name="Label" parent="ColorRect/root" index="0"]
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 201.0
+offset_bottom = 48.0
+scale = Vector2(0.427587, 0.427587)
+text = "Dense"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" index="0" unique_id=573646379]
+script = ExtResource("4_h0si1")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Плотн"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Тығыз"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="unit" type="Control" parent="." index="4" unique_id=499521903]
+anchors_preset = 0
+offset_left = -47.0
+offset_top = 23.0
+offset_right = -14.0
+offset_bottom = 55.0
+script = ExtResource("3_gemti")
+resize_after = 3
+
+[node name="ColorRect5" type="ColorRect" parent="unit" index="0" unique_id=1893361389]
+material = ExtResource("4_3b4h0")
+instance_shader_parameters/outline_color = Color(0.59, 1, 0.883833, 1)
+instance_shader_parameters/tuning = Color(0.1276, 0.44, 0.351487, 0.443137)
+layout_mode = 0
+offset_left = 31.0
+offset_top = -6.0
+offset_right = 62.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="unit/ColorRect5" index="0" unique_id=1145438988]
+material = ExtResource("6_jkrlx")
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 62.0
+offset_bottom = 49.0
+scale = Vector2(0.415912, 0.415912)
+theme = ExtResource("7_8tmeu")
+text = "122"
+
+[node name="LineEdit" parent="." index="5" unique_id=2063765042 instance=ExtResource("5_3b4h0")]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -36.0
+offset_right = 64.0
+offset_bottom = 12.0
+scale = Vector2(0.389326, 0.389326)
+placeholder_text = "0"
+max_length = 12
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("6_j0ma4")
+min_value = 0.0
+max_value = 2048.0
+allow_float = false
+decimal_places = 2
+empty_on_min = true
+resize_after = 4
+change_always_accepted = false
+
+[connection signal="changed" from="LineEdit" to="." method="_on_line_edit_changed"]
+[connection signal="submitted" from="LineEdit" to="." method="_on_line_edit_submitted_1"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]

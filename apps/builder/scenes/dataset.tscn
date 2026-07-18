@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkx7jmpcdb0sw"]
+
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_14mbi"]
+[ext_resource type="Script" uid="uid://ckswduxqerno3" path="res://scripts/dataset_node.gd" id="2_jap0d"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="3_0wvvd"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="4_yjs75"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="5_0wvvd"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="5_7c80c"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="6_yjs75"]
+[ext_resource type="Script" uid="uid://bjncugq5805ty" path="res://scripts/label_auto_resize.gd" id="7_yjs75"]
+
+[sub_resource type="Resource" id="Resource_7c80c"]
+script = ExtResource("6_yjs75")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("2_jap0d")
+server_typename = &"DatasetName"
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"meta": {},
+&"name": ""
+})
+
+[node name="o3" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_14mbi")]
+instance_shader_parameters/corner_radius_width_add = Vector2(2, 0)
+layout_mode = 0
+offset_left = -8.0
+offset_top = 9.0
+offset_right = 12.0
+offset_bottom = 30.0
+color = Color(0.765, 0.53, 1, 1)
+_accepted_datatypes = "dataset_type"
+server_name = &"netname"
+connection_type = 1
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(0, 1)
+parent_graph = NodePath("..")
+conn_count_keyword = "netname"
+gradient_color = Color(0.81960785, 0.6392157, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("3_0wvvd")
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/outline_color = Color(0.9369999, 0.73, 1, 1)
+instance_shader_parameters/tuning = Color(0.14255998, 0.1404, 0.27, 0.6509804)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -24.0
+offset_right = 61.0
+offset_bottom = 22.0
+
+[node name="root" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+self_modulate = Color(0.9372549, 0.7294118, 1, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 47.0
+scale = Vector2(0.419329, 0.419329)
+theme = ExtResource("4_yjs75")
+text = "Dataset"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label"]
+script = ExtResource("5_7c80c")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Датасет"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Датасет"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="run" parent="." node_paths=PackedStringArray("graph") instance=ExtResource("5_0wvvd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 37.46015
+offset_top = -21.999998
+offset_right = 58.63842
+offset_bottom = -0.64156723
+scale = Vector2(0.733764, 0.733764)
+pivot_offset = Vector2(10.589134, 10.679215)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 1)
+button_type = 1
+top = true
+base_scale_x = 0.45
+resize_after = 6
+text = "+"
+base_size = Vector2(21.178268, 21.35843)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_7c80c")
+graph = NodePath("..")
+
+[node name="LabelAutoResize" type="Label" parent="."]
+layout_mode = 0
+offset_left = -50.0
+offset_top = -3.0
+offset_right = 200.0
+offset_bottom = 40.0
+scale = Vector2(0.419, 0.419)
+theme = ExtResource("4_yjs75")
+text = "[none]"
+script = ExtResource("7_yjs75")
+padding = Vector2(0, 0)
+parent_indep = true
+base_size = Vector2(250, 43)
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[connection signal="released" from="run" to="." method="_on_run_released"]

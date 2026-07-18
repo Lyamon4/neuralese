@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgnnkam6b06f3"]
+
+[ext_resource type="Script" uid="uid://xr0hkco8a12g" path="res://scripts/img.gd" id="1_xubub"]
+[ext_resource type="Texture2D" uid="uid://ccwgo8ulndvjp" path="res://game_assets/icons/none.png" id="2_8x61a"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="2_xubub"]
+[ext_resource type="Script" uid="uid://bjncugq5805ty" path="res://scripts/label_auto_resize.gd" id="4_8u6jn"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="5_1ge0n"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="6_gf8p8"]
+
+[sub_resource type="Resource" id="Resource_1m8me"]
+script = ExtResource("6_gf8p8")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 1.0
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 82.0
+offset_bottom = 155.0
+script = ExtResource("1_xubub")
+cell_type = &"image"
+height = 160.0
+expensive = true
+base_field = "img"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -119.0
+offset_right = -2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_8x61a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0.45, 0.45, 0.45, 1)
+layout_mode = 1
+offset_right = 193.0
+offset_bottom = 43.0
+scale = Vector2(0.29499817, 0.29499817)
+theme = ExtResource("2_xubub")
+text = "              "
+script = ExtResource("4_8u6jn")
+padding = Vector2(0, 4)
+min_scale = 0.04
+
+[node name="train2" parent="Label" instance=ExtResource("5_1ge0n")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-8, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 108.475235
+offset_top = 47.457924
+offset_right = 165.3471
+offset_bottom = 66.79746
+scale = Vector2(4.264451, 4.264451)
+pivot_offset = Vector2(28.435936, 9.669769)
+mouse_filter = 1
+color = Color(0.59, 0.59, 0.59, 1)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 5
+text = "Upload"
+base_size = Vector2(56.871872, 19.339539)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_1m8me")
+
+[connection signal="released" from="Label/train2" to="." method="_on_train_2_released"]

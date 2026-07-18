@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "nodes": [
+    { "id": "input_1d", "label": "Table input", "runtimeLabel": "Ввод1D" },
+    { "id": "input", "label": "Image input", "runtimeLabel": "Ввод2D" },
+    { "id": "layer", "label": "Dense layer", "runtimeLabel": "ПлотнСлой" },
+    { "id": "neuron", "label": "Activation", "runtimeLabel": "Активация" },
+    { "id": "conv2d", "label": "Convolution layer", "runtimeLabel": "Свёрт2D" },
+    { "id": "maxpool", "label": "Max pooling", "runtimeLabel": "МаксПул2D" },
+    { "id": "flatten", "label": "Flatten", "runtimeLabel": "Плоск1D" },
+    { "id": "softmax", "label": "Softmax", "runtimeLabel": "Софтмакс" },
+    { "id": "classifier", "label": "Answer output", "runtimeLabel": "ВыводОтвет" },
+    { "id": "dataset", "label": "Dataset", "runtimeLabel": "Датасет" },
+    { "id": "train_begin", "label": "Training start", "runtimeLabel": "НачОбучения" },
+    { "id": "run_model", "label": "Run model", "runtimeLabel": "ЗапускМодели" },
+    { "id": "output_map", "label": "Output mapping", "runtimeLabel": "КартаВывода" },
+    { "id": "train_input", "label": "Training step", "runtimeLabel": "ШагОбучения" }
+  ]
+}

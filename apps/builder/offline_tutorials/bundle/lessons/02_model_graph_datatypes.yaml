@@ -1,0 +1,237 @@
+lesson_title: Урок 2 — Данные и правильная форма модели
+flow:
+- step welcome:
+    title: Почему ноды нельзя соединять как угодно
+    actions:
+    - explain:
+        text:
+        - 'В прошлом уроке мы собрали первую цепочку. Теперь сделаем шаг важнее: поймём, почему у данных есть форма.'
+        - Нейросеть не просто “глотает всё подряд”. Один нод ждёт список чисел, другой — картинку, третий — готовые ответы.
+        - Если формы данных не совпадают, соединение должно быть запрещено. Это не мешает тебе — это защищает модель от ошибки.
+        wait: next
+    - explain_next: {}
+- step create_input_1d:
+    title: 'Iris: цветок как четыре числа'
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Представь, что ботаник нашёл цветок и хочет понять его вид.
+        - 'Он измеряет 4 числа: длину и ширину чашелистика, длину и ширину лепестка.'
+        - 'Создай [color=BEIGE][b]Ввод1D[/b][/color] и добавь в нём 4 признака типа [b]float[/b]: sepal_length, sepal_width,
+          petal_length, petal_width.'
+        - Названия могут быть и на русском. Главное — чтобы вход ожидал ровно 4 числовых признака.
+        wait: none
+    - create:
+        iris_inp: input_1d
+    - require:
+        topology:
+          root: iris_inp
+          nodes:
+            inp:
+              type: input_1d
+          edges: []
+    - prohibit_deletion: iris_inp
+    - require:
+        config:
+          node: iris_inp
+          exprs:
+            input_features: input_features.size() == 4
+    - confetti:
+        bind: iris_inp
+    - explain:
+        text:
+        - Отлично. Теперь [color=BEIGE]Ввод1D[/color] ждёт четыре числа.
+        - 'Это данные формы 1D: один короткий список признаков.'
+        wait: next
+    - explain_next: {}
+- step wrong_type_demo:
+    title: Зачем нужен Ввод2D
+    persistent: true
+    actions:
+    - multi_input: true
+    - explain:
+        text:
+        - Теперь посмотрим на частую ошибку новичков.
+        - Создай [color=BEIGE][b]Ввод2D[/b][/color] рядом, но не делай его частью финальной модели.
+        - '[color=BEIGE]Ввод2D[/color] нужен для картинок и матриц. А для Iris у нас четыре числа, то есть 1D-список.'
+        wait: none
+    - create:
+        image_inp: input
+    - require:
+        node:
+          bind: image_inp
+    - prohibit_deletion: image_inp
+    - highlight:
+        targets:
+        - bind: iris_inp
+        - bind: image_inp
+    - explain:
+        text:
+        - 'Сравни: [color=BEIGE]Ввод1D[/color] — список чисел, [color=BEIGE]Ввод2D[/color] — двумерная картинка или карта
+          пикселей.'
+        - Если попробовать дать картинку туда, где [color=CADET_BLUE]ПлотнСлой[/color] ждёт список, модель будет собрана неправильно.
+          Поэтому Neuralese не даёт соединять несовместимые типы.
+        wait: next
+    - ask:
+        head: Почему Ввод2D нельзя напрямую использовать там, где модель ждёт список чисел?
+        options:
+        - 'Потому что формы данных разные: 2D-картинка не равна 1D-списку'
+        - Потому что нод стоит слишком далеко
+        - Потому что провод нужно тянуть быстрее
+        correct:
+        - 1
+        show: true
+    - explain_next: {}
+- step create_hidden_layer:
+    title: 'Скрытый слой: место, где ищутся закономерности'
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Теперь строим правильную 1D-модель. Создай [color=CADET_BLUE][b]ПлотнСлой[/b][/color] и подключи [color=BEIGE]Ввод1D[/color]
+          к его порту данных.
+        - Поставь в слое [b]8 нейронов[/b].
+        - Эти нейроны будут искать полезные сочетания из четырёх измерений цветка.
+        wait: none
+    - create:
+        hidden: layer
+    - require:
+        topology:
+          root: iris_inp
+          nodes:
+            inp:
+              type: input_1d
+            hidden:
+              type: layer
+              config:
+                neuron_count: == 8
+          edges:
+          - inp.0 -> hidden.1
+    - prohibit_deletion: hidden
+    - confetti:
+        bind: hidden
+    - explain_next: {}
+- step add_relu:
+    title: ReLU делает модель гибче
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=LIGHT_SKY_BLUE][b]Активация[/b][/color], выбери [b]ReLU[/b] и подключи её к верхнему порту [color=CADET_BLUE]ПлотнСлой[/color].
+        - Без активации слой похож на обычную линейную формулу. С активацией модель может описывать более сложные зависимости.
+        wait: none
+    - create:
+        hidden_relu: neuron
+    - require:
+        topology:
+          root: iris_inp
+          nodes:
+            inp:
+              type: input_1d
+            act:
+              type: neuron
+              config:
+                activ: == 'relu'
+            hidden:
+              type: layer
+              config:
+                neuron_count: == 8
+          edges:
+          - inp.0 -> hidden.1
+          - act.0 -> hidden.0
+    - prohibit_deletion: hidden_relu
+    - confetti:
+        targets:
+        - bind: hidden_relu
+        - bind: hidden
+    - explain_next: {}
+- step create_output_layer:
+    title: Три ответа для трёх видов Iris
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Теперь нужен слой, который выдаст три числа — по одному на каждый вид цветка.
+        - Создай второй [color=CADET_BLUE][b]ПлотнСлой[/b][/color] на [b]3 нейрона[/b] и подключи к нему первый слой.
+        - Если одно из трёх чисел станет самым большим, модель будет считать этот класс наиболее вероятным.
+        wait: none
+    - create:
+        logits: layer
+    - require:
+        topology:
+          root: iris_inp
+          nodes:
+            inp:
+              type: input_1d
+            hidden:
+              type: layer
+              config:
+                neuron_count: == 8
+            logits:
+              type: layer
+              config:
+                neuron_count: == 3
+          edges:
+          - inp.0 -> hidden.1
+          - hidden.0 -> logits.1
+    - prohibit_deletion: logits
+    - confetti:
+        bind: logits
+    - explain_next: {}
+- step add_softmax_and_labels:
+    title: Превращаем числа в понятный ответ
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Добавь [color=PINK][b]Софтмакс[/b][/color], а после него [color=WHITE][b]ВыводОтвет[/b][/color].
+        - '[color=PINK]Софтмакс[/color] превращает три числа в вероятности, а [color=WHITE]ВыводОтвет[/color] подписывает,
+          что именно означают эти вероятности.'
+        - 'Задай группе ответов title [b]iris[/b] и три метки: setosa, versicolor, virginica.'
+        wait: none
+    - create:
+        soft: softmax
+        labels: classifier
+    - require:
+        topology:
+          root: iris_inp
+          nodes:
+            inp:
+              type: input_1d
+            hidden:
+              type: layer
+              config:
+                neuron_count: == 8
+            logits:
+              type: layer
+              config:
+                neuron_count: == 3
+            soft:
+              type: softmax
+            labels:
+              type: classifier
+              config:
+                label_names: label_names.size() == 3
+          edges:
+          - inp.0 -> hidden.1
+          - hidden.0 -> logits.1
+          - logits.0 -> soft.0
+          - soft.0 -> labels.0
+    - prohibit_deletion:
+      - soft
+      - labels
+    - confetti:
+        targets:
+        - bind: soft
+        - bind: labels
+    - explain:
+        text:
+        - Теперь это уже настоящий граф классификатора.
+        - Данные идут из [color=BEIGE]Ввод1D[/color], проходят через слои, а в конце [color=WHITE]ВыводОтвет[/color] показывает
+          человеку понятные названия классов.
+        wait: next
+    - confetti:
+        whole_screen: true
+        wait: false
+    - explain_next: {}

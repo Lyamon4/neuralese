@@ -1,0 +1,6 @@
+## Valid Node Types
+
+Only these Neuralese node types are available:
+`activation`, `dense_layer`, `conv2d_layer`, `maxpool_layer`, `dropout`, `softmax`, `flatten`, `reshape2d`, `concat`, `input_1d`, `out_labels`, `input_image_small`, `load_dataset`, `train_begin`, `run_model`, `output_map`, `train_step`.
+
+Never invent unavailable nodes. If the user asks for an unavailable node such as batch norm, say it is not currently available and suggest the closest valid Neuralese alternative if one exists.

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://e571jfr6y62u"]
+
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="1_7l2wt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="o2" parent="." instance=ExtResource("1_7l2wt")]
+instance_shader_parameters/corner_radius_width_add = Vector2(4.5, 0)
+offset_left = -10.0
+offset_top = -29.0
+offset_right = 10.0
+offset_bottom = -8.0
+color = Color(0.7019608, 0.4, 1, 1)
+_accepted_datatypes = "netname"
+hint = 1
+server_name = &"RunModel"
+connection_type = 0
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(0, -1)
+conn_count_keyword = "netname"
+gradient_color = Color(0.7019608, 0.4, 1, 1)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cjc1bbl63pdc4"]
+
+[ext_resource type="Shader" uid="uid://bwnkeyg7xp2d5" path="res://shaders/watercolor.gdshader" id="1_k3f24"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xowfp"]
+shader = ExtResource("1_k3f24")
+shader_parameter/u_progress = 0.342000016245
+shader_parameter/u_time_scale = 0.2
+shader_parameter/color_bg = Color(0.02, 0, 0.03, 1)
+shader_parameter/color_core = Color(0.4, 0, 0.2, 1)
+shader_parameter/color_body = Color(0.9, 0.1, 0.4, 1)
+shader_parameter/color_trans = Color(1, 0.4, 0.2, 1)
+shader_parameter/color_edge = Color(1, 0.8, 0.1, 1)
+
+[node name="Watercolor" type="Node2D" unique_id=337077023]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=630863480]
+material = SubResource("ShaderMaterial_xowfp")
+offset_left = 43.0
+offset_top = 15.0
+offset_right = 383.0
+offset_bottom = 187.0

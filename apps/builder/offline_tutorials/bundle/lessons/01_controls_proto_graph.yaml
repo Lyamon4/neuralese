@@ -1,0 +1,215 @@
+lesson_title: Урок 1 — Первые шаги в Neuralese
+flow:
+- step welcome:
+    title: 'Знакомство: нейросеть как схема'
+    actions:
+    - explain:
+        text:
+        - Добро пожаловать в Neuralese.
+        - 'Здесь нейросеть можно увидеть руками: не как страшную формулу, а как схему из понятных блоков.'
+        - Каждый блок — это маленькая часть будущего ИИ. Сегодня мы спокойно научимся двигаться по полю, ставить блоки и соединять
+          их.
+        - 'В конце получится первая мини-схема: [color=BEIGE][b]Ввод1D[/b][/color] → [color=CADET_BLUE][b]ПлотнСлой[/b][/color],
+          а сверху будет [color=LIGHT_SKY_BLUE][b]Активация[/b][/color]. Это ещё не обучение, а первый “скелет” модели.'
+        wait: next
+    - explain_next: {}
+- step camera_middle_mouse:
+    title: Двигаем рабочее поле
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Рабочее поле больше экрана, как большой лист бумаги на столе.
+        - Зажми [b]среднюю кнопку мыши[/b] / колёсико и подвигай мышь.
+        - Так ты двигаешь камеру и выбираешь, какую часть схемы сейчас видеть.
+        wait: none
+    - require:
+        event: ui_mouse_middle
+    - confetti:
+        whole_screen: true
+        wait: false
+    - explain:
+        text:
+        - Отлично. Теперь ты умеешь двигаться по полю.
+        - 'Это простая вещь, но она очень важна: настоящие модели быстро становятся длинными, и камера помогает не потеряться.'
+        wait: next
+    - explain_next: {}
+- step create_input:
+    title: 'Первый блок: вход модели'
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Любая нейросеть сначала должна получить данные.
+        - Для этого нужен вход. Создай нод [color=BEIGE][b]Ввод1D[/b][/color].
+        - Кликни [b]правой кнопкой мыши[/b] по пустому месту, найди этот нод в меню и поставь его [b]левой кнопкой мыши[/b]
+          на поле.
+        wait: none
+    - create:
+        inp: input_1d
+    - require:
+        node:
+          bind: inp
+    - prohibit_deletion: inp
+    - confetti:
+        bind: inp
+    - explain:
+        text:
+        - 'Готово. [color=BEIGE]Ввод1D[/color] — это место, куда приходят обычные числа: например рост, вес, длина лепестка
+          или любой другой список признаков.'
+        - Можно представить его как дверь, через которую данные заходят в модель.
+        wait: next
+    - explain_next: {}
+- step explain_ports:
+    title: Откуда выходят данные
+    actions:
+    - highlight:
+        bind: inp
+    - arrow:
+        port:
+          from: inp
+          out_port: 0
+    - explain:
+        text:
+        - Посмотри на правую сторону [color=BEIGE]Ввод1D[/color].
+        - 'Маленький штекер — это выход: отсюда данные уходят дальше.'
+        - 'В Neuralese данные обычно путешествуют слева направо: от входа к ответу.'
+        wait: next
+    - hide_arrows: {}
+    - explain_next: {}
+- step create_dense:
+    title: Первый слой, который думает
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Теперь добавим блок, который уже будет обрабатывать числа.
+        - Создай нод [color=CADET_BLUE][b]ПлотнСлой[/b][/color].
+        - 'Плотный слой похож на группу маленьких решателей: каждый нейрон смотрит на входные числа и делает свой небольшой
+          вывод.'
+        wait: none
+    - create:
+        dense: layer
+    - require:
+        node:
+          bind: dense
+    - prohibit_deletion: dense
+    - highlight:
+        bind: dense
+    - arrow:
+        port:
+          to: dense
+          in_port: 1
+    - explain:
+        text:
+        - У [color=CADET_BLUE]ПлотнСлой[/color] есть отдельный порт для данных.
+        - Именно сюда должен прийти список чисел из [color=BEIGE]Ввод1D[/color].
+        wait: next
+    - hide_arrows: {}
+    - explain_next: {}
+- step connect_input_dense:
+    title: Соединяем вход и слой
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Теперь соедини [color=BEIGE][b]Ввод1D[/b][/color] с [color=CADET_BLUE][b]ПлотнСлой[/b][/color].
+        - Потяни провод от правого штекера [color=BEIGE]Ввод1D[/color] к порту данных у [color=CADET_BLUE]ПлотнСлой[/color].
+        - Если провод подключился — значит форма данных подходит.
+        wait: none
+    - require:
+        topology:
+          root: inp
+          nodes:
+            inp_node:
+              type: input_1d
+            dense_node:
+              type: layer
+          edges:
+          - inp_node.0 -> dense_node.1
+    - confetti:
+        targets:
+        - bind: inp
+        - bind: dense
+    - explain:
+        text:
+        - Есть первая рабочая цепочка.
+        - 'Теперь данные могут пройти из входа в слой. Пока это не обученная нейросеть, но уже понятная идея: источник чисел
+          → обработчик чисел.'
+        wait: next
+    - explain_next: {}
+- step create_activation:
+    title: 'Активация: режим работы слоя'
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Теперь добавим [color=LIGHT_SKY_BLUE][b]Активация[/b][/color].
+        - Активация — это не поток данных. Это правило поведения для слоя.
+        - Например, ReLU помогает слою оставлять полезные положительные сигналы и отбрасывать отрицательные.
+        wait: none
+    - create:
+        act: neuron
+    - require:
+        node:
+          bind: act
+    - prohibit_deletion: act
+    - explain:
+        text:
+        - Соедини [color=LIGHT_SKY_BLUE]Активация[/color] с верхним портом [color=CADET_BLUE]ПлотнСлой[/color].
+        - Верхний порт — это порт настройки активации. Порт данных находится отдельно.
+        wait: none
+    - require:
+        topology:
+          root: inp
+          nodes:
+            inp_node:
+              type: input_1d
+            act_node:
+              type: neuron
+            dense_node:
+              type: layer
+          edges:
+          - inp_node.0 -> dense_node.1
+          - act_node.0 -> dense_node.0
+    - confetti:
+        bind: act
+    - explain_next: {}
+- step set_relu:
+    title: Выбираем ReLU
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Внутри нода [color=LIGHT_SKY_BLUE]Активация[/color] выбери тип [b]ReLU[/b].
+        - ReLU часто используют в нейросетях, потому что она простая и хорошо работает на практике.
+        wait: none
+    - require:
+        topology:
+          root: inp
+          nodes:
+            inp_node:
+              type: input_1d
+            act_node:
+              type: neuron
+              config:
+                activ: == 'relu'
+            dense_node:
+              type: layer
+          edges:
+          - inp_node.0 -> dense_node.1
+          - act_node.0 -> dense_node.0
+    - confetti:
+        targets:
+        - bind: act
+        - bind: dense
+    - explain:
+        text:
+        - 'Готово. У тебя первая мини-схема: [color=BEIGE]Ввод1D[/color] → [color=CADET_BLUE]ПлотнСлой[/color], а [color=LIGHT_SKY_BLUE]Активация[/color]
+          задаёт слою режим ReLU.'
+        - 'На следующем уроке мы превратим такую цепочку в полноценную модель: с правильным входом, ответами и типами данных.'
+        wait: next
+    - confetti:
+        whole_screen: true
+        wait: false
+    - explain_next: {}

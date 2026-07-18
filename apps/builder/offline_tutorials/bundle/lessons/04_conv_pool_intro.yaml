@@ -1,0 +1,220 @@
+lesson_title: Урок 4 — Как нейросеть смотрит на картинки
+flow:
+- step welcome:
+    title: Почему для картинок нужны особые слои
+    actions:
+    - explain:
+        text:
+        - До этого мы работали с короткими списками чисел. Но изображение устроено иначе.
+        - 'На картинке важны соседние пиксели: линии, углы, края, маленькие формы.'
+        - Поэтому для изображений используют [color=VIOLET]Свёрт2D[/color] и [color=LIGHT_SEA_GREEN]МаксПул2D[/color]. Они
+          помогают модели сначала увидеть простые формы, а потом собрать из них более сложный образ.
+        wait: next
+    - explain_next: {}
+- step create_image_input:
+    title: Вход для изображения
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=BEIGE][b]Ввод2D[/b][/color].
+        - 'Он принимает 2D-данные: маленькую картинку или карту пикселей.'
+        - Для картинки нужен именно [color=BEIGE]Ввод2D[/color], потому что у изображения есть ширина и высота.
+        wait: none
+    - create:
+        img: input
+    - require:
+        node:
+          bind: img
+    - prohibit_deletion: img
+    - confetti:
+        bind: img
+    - explain_next: {}
+- step create_conv:
+    title: Свёртка ищет маленькие формы
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Свёртка смотрит на картинку маленьким окошком, например 3×3 пикселя.
+        - Так она может заметить край, линию, уголок или другую маленькую форму.
+        - Создай [color=LIGHT_SKY_BLUE][b]Активация[/b][/color] ReLU и [color=VIOLET][b]Свёрт2D[/b][/color].
+        - 'Настройки [color=VIOLET]Свёрт2D[/color]: filters = [b]16[/b], window = [b]3[/b], stride = [b]1[/b].'
+        - Подключи [color=BEIGE]Ввод2D[/color] к порту данных свёртки, а [color=LIGHT_SKY_BLUE]Активация[/color] — к верхнему
+          порту.
+        wait: none
+    - create:
+        conv_relu: neuron
+        conv: conv2d
+    - require:
+        topology:
+          root: img
+          nodes:
+            img:
+              type: input
+            relu:
+              type: neuron
+              config:
+                activ: == 'relu'
+            conv:
+              type: conv2d
+              config:
+                filters: == 16
+                window: == 3
+                stride: == 1
+          edges:
+          - img.0 -> conv.1
+          - relu.0 -> conv.0
+    - prohibit_deletion:
+      - conv_relu
+      - conv
+    - confetti:
+        targets:
+        - bind: conv_relu
+        - bind: conv
+    - explain:
+        text:
+        - Отлично. [color=VIOLET]Свёрт2D[/color] превратил картинку в карты признаков.
+        - Это всё ещё 2D-данные, просто теперь в них больше смысла для модели.
+        wait: next
+    - explain_next: {}
+- step create_pool:
+    title: Пуллинг оставляет главное
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Теперь добавим [color=LIGHT_SEA_GREEN][b]МаксПул2D[/b][/color].
+        - Пуллинг уменьшает карту признаков и оставляет самые сильные сигналы в маленьких областях.
+        - Создай [color=LIGHT_SEA_GREEN]МаксПул2D[/color] с group = [b]2[/b] и подключи [color=VIOLET]Свёрт2D[/color] → [color=LIGHT_SEA_GREEN]МаксПул2D[/color].
+        - 'Можно думать о нём как о способе сказать: “оставь главное, мелкие сдвиги не так важны”.'
+        wait: none
+    - create:
+        pool: maxpool
+    - require:
+        topology:
+          root: img
+          nodes:
+            img:
+              type: input
+            conv:
+              type: conv2d
+              config:
+                filters: == 16
+                window: == 3
+                stride: == 1
+            pool:
+              type: maxpool
+              config:
+                group: == 2
+          edges:
+          - img.0 -> conv.1
+          - conv.0 -> pool.0
+    - prohibit_deletion: pool
+    - confetti:
+        bind: pool
+    - ask:
+        head: Что делает МаксПул2D?
+        options:
+        - Уменьшает 2D-карту и оставляет самые сильные признаки
+        - Превращает картинку в текст
+        - Удаляет все признаки
+        correct:
+        - 1
+        show: true
+    - explain_next: {}
+- step flatten_adapter:
+    title: Переходник из картинки в список
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - После [color=VIOLET]Свёрт2D[/color] и [color=LIGHT_SEA_GREEN]МаксПул2D[/color] данные всё ещё имеют форму 2D-карты.
+        - Но [color=CADET_BLUE]ПлотнСлой[/color] умеет читать 1D-список. Поэтому нужен переходник.
+        - Создай [color=WHITE][b]Плоск1D[/b][/color] и подключи [color=LIGHT_SEA_GREEN]МаксПул2D[/color] → [color=WHITE]Плоск1D[/color].
+        wait: none
+    - create:
+        flat: flatten
+    - require:
+        topology:
+          root: img
+          nodes:
+            img:
+              type: input
+            conv:
+              type: conv2d
+            pool:
+              type: maxpool
+            flat:
+              type: flatten
+          edges:
+          - img.0 -> conv.1
+          - conv.0 -> pool.0
+          - pool.0 -> flat.0
+    - prohibit_deletion: flat
+    - confetti:
+        bind: flat
+    - explain:
+        text:
+        - '[color=WHITE]Плоск1D[/color] распрямляет карту признаков в один список чисел.'
+        - Теперь эти признаки можно передать в обычный [color=CADET_BLUE]ПлотнСлой[/color].
+        wait: next
+    - explain_next: {}
+- step dense_head:
+    title: Маленькая голова классификатора
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Дособерём маленький классификатор, чтобы увидеть полный путь от картинки до ответа.
+        - Создай [color=CADET_BLUE][b]ПлотнСлой[/b][/color] на [b]10 нейронов[/b], затем [color=PINK][b]Софтмакс[/b][/color]
+          и [color=WHITE][b]ВыводОтвет[/b][/color].
+        - Соедини [color=WHITE]Плоск1D[/color] → [color=CADET_BLUE]ПлотнСлой[/color] → [color=PINK]Софтмакс[/color] → [color=WHITE]ВыводОтвет[/color].
+        - Задай группе ответов title [b]digits[/b] и метки 0,1,2,3,4,5,6,7,8,9.
+        wait: none
+    - create:
+        logits: layer
+        soft: softmax
+        labels: classifier
+    - require:
+        topology:
+          root: img
+          nodes:
+            img:
+              type: input
+            conv:
+              type: conv2d
+            pool:
+              type: maxpool
+            flat:
+              type: flatten
+            logits:
+              type: layer
+              config:
+                neuron_count: == 10
+            soft:
+              type: softmax
+            labels:
+              type: classifier
+              config:
+                label_names: label_names.size() == 10
+          edges:
+          - img.0 -> conv.1
+          - conv.0 -> pool.0
+          - pool.0 -> flat.0
+          - flat.0 -> logits.1
+          - logits.0 -> soft.0
+          - soft.0 -> labels.0
+    - prohibit_deletion:
+      - logits
+      - soft
+      - labels
+    - confetti:
+        whole_screen: true
+        wait: false
+    - explain:
+        text:
+        - 'Теперь у тебя есть понятная схема CNN-идеи: картинка → свёртка → пуллинг → распрямление → ответ.'
+        - В последнем уроке мы соберём уже полноценную сеть для распознавания цифр и обучим её.
+        wait: next
+    - explain_next: {}

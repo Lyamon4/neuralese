@@ -1,0 +1,175 @@
+[gd_scene load_steps=15 format=3 uid="uid://w43j2o5b6yn5"]
+
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_o55m3"]
+[ext_resource type="Script" uid="uid://cxvbg8g60swuv" path="res://scripts/augment_transform.gd" id="2_rn6o0"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="3_twjye"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="4_wc84u"]
+[ext_resource type="Material" uid="uid://dxhlqb1yd1my2" path="res://resources/rounded_corners.tres" id="5_5s62a"]
+[ext_resource type="Shader" uid="uid://5vjawu6xs5sj" path="res://shaders/augment_transform.gdshader" id="5_wc84u"]
+[ext_resource type="Texture2D" uid="uid://cs8fcflu2iyih" path="res://game_assets/icons/3.png" id="7_28u1y"]
+[ext_resource type="Script" uid="uid://cp7e4eeuykhnt" path="res://scripts/image_draw.gd" id="7_hck41"]
+[ext_resource type="Texture2D" uid="uid://bithtkn7t2q3x" path="res://game_assets/icons/2.png" id="8_5s62a"]
+[ext_resource type="Texture2D" uid="uid://dbrxkvbxer8it" path="res://game_assets/icons/4.png" id="9_ync1a"]
+[ext_resource type="Texture2D" uid="uid://d3cd2knv6ca63" path="res://game_assets/icons/1.png" id="10_b4yc2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yck43"]
+shader = ExtResource("5_wc84u")
+shader_parameter/corner_radius = 2.000000095
+shader_parameter/rect_size = Vector2(28, 28)
+shader_parameter/use_pixel_points = true
+shader_parameter/newton_iters = 1
+shader_parameter/eps = 1e-06
+shader_parameter/pixel_softness = 0.2
+
+[sub_resource type="Image" id="Image_5s62a"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "Lum8",
+"height": 28,
+"mipmaps": false,
+"width": 28
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_ync1a"]
+image = SubResource("Image_5s62a")
+
+[node name="Base" type="Control" node_paths=PackedStringArray("OO", "II", "IO", "OI")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("2_rn6o0")
+OO = NodePath("TextureRect/00")
+II = NodePath("TextureRect/11")
+IO = NodePath("TextureRect/10")
+OI = NodePath("TextureRect/01")
+server_typename = &"AugmentTF"
+area_padding = 0.0
+
+[node name="o2" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_o55m3")]
+layout_mode = 0
+offset_left = -56.0
+offset_top = 34.0
+offset_right = -40.0
+offset_bottom = 51.0
+color = Color(1, 0.47000003, 0.4788332, 1)
+_accepted_datatypes = "input2d"
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(10, 10, 10, 10)
+origin_offset = Vector2(-5, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+gradient_color = Color(1, 0.47058824, 0.47843137, 1)
+
+[node name="o" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_o55m3")]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 34.0
+offset_right = 95.0
+offset_bottom = 51.0
+color = Color(1, 0.47058824, 0.47843137, 1)
+_accepted_datatypes = "input2d"
+server_name = &"layer_out"
+connection_type = 1
+area_paddings = Vector4(10, 10, 10, 10)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+parent_graph = NodePath("..")
+gradient_color = Color(1, 0.47058824, 0.47843137, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("3_twjye")
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/outline_color = Color(0.85, 0.561, 0.5658166, 1)
+instance_shader_parameters/tuning = Color(0.35, 0.05600001, 0.060899924, 0.5882353)
+layout_mode = 0
+offset_left = -49.0
+offset_top = -35.0
+offset_right = 88.0
+offset_bottom = 122.0
+color = Color(0.65, 0.31849998, 0.32402492, 1)
+
+[node name="root" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+modulate = Color(0.86, 0.86, 0.86, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 276.0
+offset_bottom = 46.0
+scale = Vector2(0.38364854, 0.38364854)
+theme = ExtResource("4_wc84u")
+text = "ImageTransform"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = ExtResource("5_5s62a")
+layout_mode = 0
+offset_left = -42.0
+offset_top = -15.0
+offset_right = 81.0
+offset_bottom = 115.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_yck43")
+layout_mode = 0
+offset_left = -35.0
+offset_top = -1.0
+offset_right = 2.8918686
+offset_bottom = 35.867764
+scale = Vector2(2.9293885, 2.9293885)
+texture = SubResource("ImageTexture_ync1a")
+expand_mode = 3
+script = ExtResource("7_hck41")
+brush_radius = 1
+brush_hardness = 0.5
+flow_per_second = 50.0
+max_luma = 2.0
+headroom_power = 1.0
+active = false
+
+[node name="11" type="Sprite2D" parent="TextureRect"]
+texture_filter = 2
+position = Vector2(35.50229, 2.3895772)
+scale = Vector2(0.19257239, 0.19257239)
+texture = ExtResource("7_28u1y")
+
+[node name="10" type="Sprite2D" parent="TextureRect"]
+texture_filter = 2
+position = Vector2(3.0723138, 33.454082)
+scale = Vector2(0.19257239, 0.19257239)
+texture = ExtResource("8_5s62a")
+
+[node name="01" type="Sprite2D" parent="TextureRect"]
+texture_filter = 2
+position = Vector2(35.50229, 33.79545)
+scale = Vector2(0.19257239, 0.19257239)
+texture = ExtResource("9_ync1a")
+
+[node name="00" type="Sprite2D" parent="TextureRect"]
+texture_filter = 2
+scale = Vector2(0.19257239, 0.19257239)
+texture = ExtResource("10_b4yc2")
+
+[node name="acc" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.000004
+offset_top = -14.000001
+offset_right = 124.0
+offset_bottom = 29.0
+scale = Vector2(0.200223, 0.200223)
+theme = ExtResource("4_wc84u")
+text = "28x28"
+horizontal_alignment = 2

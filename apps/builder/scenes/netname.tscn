@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://wav7n44fxbkf"]
+
+[ext_resource type="Script" uid="uid://pf8xsmviatgx" path="res://scripts/netname.gd" id="1_3yi81"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="2_focgl"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_uarpl"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="3_3yi81"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="5_x05q1"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="6_uarpl"]
+
+[node name="Base" type="Control" unique_id=356546061]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("1_3yi81")
+server_typename = &"ModelName"
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"name": ""
+})
+
+[node name="o2" parent="." unique_id=527596334 node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_uarpl")]
+instance_shader_parameters/corner_radius_width_add = Vector2(4.5, 0)
+layout_mode = 0
+offset_left = -11.0
+offset_top = 8.0
+offset_right = 9.0
+offset_bottom = 29.0
+color = Color(0.7, 0.39999998, 1, 1)
+_accepted_datatypes = "netname"
+server_name = &"netname"
+connection_type = 1
+area_paddings = Vector4(20, 20, 20, 20)
+multiple_splines = true
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"netname": 128
+})
+dir_vector = Vector2(0, 1)
+parent_graph = NodePath("..")
+gradient_color = Color(0.7019608, 0.4, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=957831039]
+material = ExtResource("2_focgl")
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/outline_color = Color(0.85999984, 0.39999998, 1, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.639216)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -24.0
+offset_right = 56.0
+offset_bottom = 22.0
+
+[node name="root" type="Control" parent="ColorRect" unique_id=1185013148]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root" unique_id=661336905]
+self_modulate = Color(0.85882354, 0.4, 1, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 259.55435
+offset_bottom = 46.0
+scale = Vector2(0.419329, 0.419329)
+theme = ExtResource("3_3yi81")
+text = "Model"
+horizontal_alignment = 1
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" unique_id=1740752827]
+script = ExtResource("6_uarpl")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "ИмяМодели"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "МодельАтауы"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="LineEdit" parent="." unique_id=1397154546 instance=ExtResource("5_x05q1")]
+layout_mode = 0
+offset_left = -48.000004
+offset_top = -2.0
+offset_right = 261.9465
+offset_bottom = 46.0
+scale = Vector2(0.3097309, 0.3097309)
+placeholder_text = "Model name"
+max_length = 40
+expand_to_text_length = true
+context_menu_enabled = false
+resize_after = 16
+
+[node name="Loc" type="Node" parent="LineEdit" unique_id=171471154]
+script = ExtResource("6_uarpl")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Имя модели"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Модель атауы"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[connection signal="changed" from="LineEdit" to="." method="_on_line_edit_changed"]

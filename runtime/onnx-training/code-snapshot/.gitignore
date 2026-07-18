@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# FullyLocal runtime artifacts
+/local_runtime/python/
+/local_runtime/tmp_smoke_job/
+/local_runtime/tmp*/
+/local_runtime/tmp_*
+/local_runtime/**/__pycache__/
+/.runtime_payload_build/
+
+# Python development artifacts
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+.venv-onprem/
+.DS_Store
+
+# On-prem runtime local deployment state
+onprem_runtime/deployment/data/jobs/*
+!onprem_runtime/deployment/data/jobs/.gitkeep

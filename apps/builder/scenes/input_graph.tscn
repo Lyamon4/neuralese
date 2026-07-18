@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://e3l6g3u21slb"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://scenes/base_graph.tscn" id="1_6ucvy"]
+[ext_resource type="Script" uid="uid://fnk1i461e1xi" path="res://scripts/input_graph.gd" id="2_02not"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_m1bro"]
+[ext_resource type="Script" uid="uid://cp7e4eeuykhnt" path="res://scripts/image_draw.gd" id="3_53i8k"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="4_0qcdd"]
+[ext_resource type="Shader" uid="uid://xdax0svtqhn4" path="res://shaders/rounded.gdshader" id="4_6o5ig"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="6_6o5ig"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="7_g0n8j"]
+[ext_resource type="Script" uid="uid://bigshts3ul8jd" path="res://scripts/loc2a.gd" id="8_g0n8j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0n8j"]
+shader = ExtResource("4_6o5ig")
+shader_parameter/corner_radius = 2.000000095
+
+[sub_resource type="Image" id="Image_0qcdd"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "Lum8",
+"height": 28,
+"mipmaps": false,
+"width": 28
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_mn61i"]
+image = SubResource("Image_0qcdd")
+
+[sub_resource type="Resource" id="Resource_0qcdd"]
+script = ExtResource("7_g0n8j")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" unique_id=2137313916 instance=ExtResource("1_6ucvy")]
+script = ExtResource("2_02not")
+base_dt = "2d"
+server_typename = &"InputNode"
+is_input = true
+graph_flags = 4
+
+[node name="o2" parent="." index="0" unique_id=1972057749 node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_m1bro")]
+visible = false
+instance_shader_parameters/corner_radius_width_add = Vector2(4.5, 0)
+layout_mode = 0
+offset_left = -96.0
+offset_top = -28.0
+offset_right = -76.0
+offset_bottom = -7.0
+color = Color(0.7019608, 0.4, 1, 1)
+config_conn = true
+_accepted_datatypes = "netname"
+hint = 1
+server_name = &"RunModel"
+connection_type = 0
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+conn_count_keyword = "netname"
+gradient_color = Color(0.7019608, 0.4, 1, 1)
+
+[node name="o" parent="." index="1" unique_id=1271125983 node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_m1bro")]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 28.0
+offset_right = 58.0
+offset_bottom = 49.0
+color = Color(1, 0.988235, 0.6, 1)
+_accepted_datatypes = "input2d"
+server_name = &"input_out"
+connection_type = 1
+area_paddings = Vector4(20, 20, 20, 20)
+multiple_splines = true
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+parent_graph = NodePath("..")
+gradient_color = Color(1, 0.988235, 0.6, 1)
+
+[node name="ColorRect" parent="." index="2"]
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/outline_color = Color(0.89, 0.88703334, 0.80099994, 1)
+instance_shader_parameters/tuning = Color(0.0509804, 0.0509804, 0.0509804, 0.541176)
+offset_top = -35.0
+offset_right = 48.0
+offset_bottom = 116.0
+
+[node name="Label" parent="ColorRect/root" index="0"]
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 142.0
+offset_bottom = 48.0
+scale = Vector2(0.5097783, 0.5097783)
+theme_override_colors/font_color = Color(1, 0.986667, 0.6, 1)
+text = "Input2D"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" index="0" unique_id=1551022960]
+script = ExtResource("4_0qcdd")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Ввод2D"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Кіріс2D"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="TextureRect" type="TextureRect" parent="." index="3" unique_id=164513411]
+texture_filter = 1
+material = SubResource("ShaderMaterial_g0n8j")
+layout_mode = 0
+offset_left = -77.0
+offset_top = -4.0
+offset_right = -38.08403
+offset_bottom = 33.20913
+scale = Vector2(2.9293885, 2.9293885)
+texture = SubResource("ImageTexture_mn61i")
+expand_mode = 3
+script = ExtResource("3_53i8k")
+brush_radius = 1
+brush_hardness = 0.5
+flow_per_second = 50.0
+max_luma = 2.0
+headroom_power = 1.0
+
+[node name="run" parent="." index="4" unique_id=224329491 node_paths=PackedStringArray("graph") instance=ExtResource("6_6o5ig")]
+visible = false
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = -5.253317
+offset_top = -30.999996
+offset_right = 47.897293
+offset_bottom = -6.0
+scale = Vector2(0.733764, 0.733764)
+pivot_offset = Vector2(26.575306, 12.499998)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 1)
+button_type = 1
+base_scale_x = 0.45
+resize_after = 5
+text = "Run!"
+text_offset = Vector2(2, 0)
+base_size = Vector2(53.15061, 24.999996)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_0qcdd")
+graph = NodePath("..")
+
+[node name="Loc" type="Node" parent="run" index="1" unique_id=1489551568]
+script = ExtResource("8_g0n8j")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"run": "Пуск"
+})
+localizations_kz = Dictionary[String, String]({
+"run": "Қосу"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[connection signal="released" from="run" to="." method="_on_run_released"]

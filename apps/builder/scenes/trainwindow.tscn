@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bueh342gd427x"]
+
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="1_71rr0"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="2_arvmu"]
+
+[sub_resource type="Resource" id="Resource_6rxct"]
+script = ExtResource("2_arvmu")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="train" parent="." instance=ExtResource("1_71rr0")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 75.0
+offset_top = 54.0
+offset_right = 137.0
+offset_bottom = 79.0
+scale = Vector2(0.733764, 0.733764)
+pivot_offset = Vector2(31, 12.5)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 1)
+button_type = 1
+top = true
+base_scale_x = 0.45
+resize_after = 6
+text = "Train!"
+base_size = Vector2(62, 25)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_6rxct")

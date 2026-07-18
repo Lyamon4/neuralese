@@ -1,0 +1,462 @@
+[gd_scene load_steps=13 format=3 uid="uid://cl5yhw1xp0afw"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://scenes/base_graph.tscn" id="1_h6r10"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_41i7g"]
+[ext_resource type="Script" uid="uid://cl0mjh40xjip4" path="res://scripts/train_input.gd" id="2_gdpv5"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="4_d1efk"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="5_10eqb"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="5_dq5jb"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="6_s3o4y"]
+[ext_resource type="Resource" uid="uid://dpcfcsr4yvw5j" path="res://resources/activ.tres" id="7_dq5jb"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="8_10eqb"]
+[ext_resource type="PackedScene" uid="uid://cy68aiofs1yc3" path="res://scenes/moving_analytics.tscn" id="9_s3o4y"]
+
+[sub_resource type="Resource" id="Resource_b41bo"]
+script = ExtResource("5_10eqb")
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 1.0
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_10eqb"]
+script = ExtResource("5_10eqb")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.101
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.96
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" instance=ExtResource("1_h6r10")]
+script = ExtResource("2_gdpv5")
+fade_speed = 20.0
+size_lerp_speed = 20.0
+tab_size_adds = Dictionary[StringName, float]({
+&"adam": 0.0,
+&"sgd": 13.0
+})
+server_typename = &"TrainInput"
+base_config = Dictionary[StringName, Variant]({
+&"lr": 0,
+&"momentum": 0.0,
+&"optimizer": "adam",
+&"weight_decay": false
+})
+
+[node name="labels" type="Control" parent="." index="0"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="labels" index="0"]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+z_index = 1
+layout_mode = 0
+offset_left = -68.0
+offset_top = -13.0
+offset_right = 125.0
+offset_bottom = 30.0
+scale = Vector2(0.311419, 0.311419)
+theme = ExtResource("8_10eqb")
+text = "Optimizer"
+
+[node name="Loc" type="Node" parent="labels/Label" index="0"]
+script = ExtResource("5_dq5jb")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Оптимизат"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Оптимизат"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Label3" type="Label" parent="labels" index="1"]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+z_index = 1
+layout_mode = 0
+offset_left = -68.0
+offset_top = 4.000002
+offset_right = 125.0
+offset_bottom = 48.0
+scale = Vector2(0.311, 0.311)
+theme = ExtResource("8_10eqb")
+text = "LearnRate "
+
+[node name="Loc" type="Node" parent="labels/Label3" index="0"]
+script = ExtResource("5_dq5jb")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "РазмерШаг"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "ҚадамӨлш"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Label4" type="Label" parent="labels" index="2"]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+z_index = 1
+layout_mode = 0
+offset_left = -68.0
+offset_top = 22.337639
+offset_right = 125.0
+offset_bottom = 66.33764
+scale = Vector2(0.311, 0.311)
+theme = ExtResource("8_10eqb")
+text = "WeightDec"
+
+[node name="Loc" type="Node" parent="labels/Label4" index="0"]
+script = ExtResource("5_dq5jb")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "УменьшВес"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "АзайтСалм"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="i" parent="." index="1" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_41i7g")]
+layout_mode = 0
+offset_left = -87.0
+offset_top = -2.0
+offset_right = -69.0
+offset_bottom = 18.0
+color = Color(0.462745, 0.45098, 0.85098, 1)
+_accepted_datatypes = "output_mapped"
+server_name = &"pred_in"
+connection_type = 0
+area_paddings = Vector4(20, 20, 20, 20)
+multiple_splines = true
+origin_offset = Vector2(-4, 0)
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+conn_count_keyword = "train"
+gradient_color = Color(0.462745, 0.45098, 0.85098, 1)
+
+[node name="ColorRect" parent="." index="2"]
+instance_shader_parameters/outline_color = Color(0.693883, 0.6885, 0.85, 1)
+offset_left = -78.0
+offset_top = -45.0
+offset_right = 173.0
+offset_bottom = 64.0
+
+[node name="Label" parent="ColorRect/root" index="0"]
+self_modulate = Color(0.84000003, 0.94133335, 1, 1)
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 202.0
+offset_bottom = 49.0
+scale = Vector2(0.463877, 0.463877)
+text = "TrainStep"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" index="0"]
+script = ExtResource("5_dq5jb")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "ШагОбучения"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "ОқытуҚадам"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="optimizer" parent="." index="3" node_paths=PackedStringArray("graph") instance=ExtResource("4_d1efk")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = -9.0
+offset_top = -13.0
+offset_right = 58.0
+offset_bottom = 7.0
+scale = Vector2(0.733764, 0.733764)
+mouse_filter = 1
+color = Color(0.584314, 0.576471, 0.85098, 1)
+button_type = 2
+base_scale_x = 0.45
+resize_after = 6
+text = "SGD"
+base_size = Vector2(67, 20)
+expanded_size = 72
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_b41bo")
+graph = NodePath("..")
+
+[node name="ColorRect2" parent="optimizer" index="1" instance=ExtResource("4_d1efk")]
+visible = false
+material = ExtResource("6_s3o4y")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"sgd"
+resize_after = 9
+text = "SGD"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_dq5jb")
+
+[node name="ColorRect3" parent="optimizer" index="2" instance=ExtResource("4_d1efk")]
+visible = false
+material = ExtResource("6_s3o4y")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.36284
+offset_top = 4.08851
+offset_right = 97.63716
+offset_bottom = 40.08851
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"adam"
+resize_after = 4
+text = "Adam"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_dq5jb")
+
+[node name="lr" parent="." index="4" node_paths=PackedStringArray("graph") instance=ExtResource("4_d1efk")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = -9.0
+offset_top = 3.9999976
+offset_right = 58.0
+offset_bottom = 23.999998
+scale = Vector2(0.733764, 0.733764)
+mouse_filter = 1
+color = Color(0.584314, 0.576471, 0.85098, 1)
+button_type = 2
+base_scale_x = 0.45
+resize_after = 6
+text = "1e-2"
+base_size = Vector2(67, 20)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_b41bo")
+graph = NodePath("..")
+
+[node name="ColorRect2" parent="lr" index="0" instance=ExtResource("4_d1efk")]
+visible = false
+material = ExtResource("6_s3o4y")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -0.999998
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"0"
+text = "1e-1"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_dq5jb")
+
+[node name="ColorRect3" parent="lr" index="2" instance=ExtResource("4_d1efk")]
+visible = false
+material = ExtResource("6_s3o4y")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -14.0
+offset_top = 4.0
+offset_right = 106.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(60, 18)
+button_type = 1
+top = true
+hint = &"1"
+resize_after = 5
+text = "1e-2"
+base_size = Vector2(120, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_dq5jb")
+
+[node name="ColorRect4" parent="lr" index="3" instance=ExtResource("4_d1efk")]
+visible = false
+material = ExtResource("6_s3o4y")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -14.0
+offset_top = 4.0
+offset_right = 106.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(60, 18)
+button_type = 1
+top = true
+hint = &"2"
+resize_after = 5
+text = "1e-3"
+base_size = Vector2(120, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_dq5jb")
+
+[node name="switch" parent="." index="5" node_paths=PackedStringArray("graph") instance=ExtResource("4_d1efk")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = -12.0
+offset_top = 19.337637
+offset_right = 8.0
+offset_bottom = 39.33764
+scale = Vector2(0.733764, 0.733764)
+pivot_offset = Vector2(10, 10.000001)
+mouse_filter = 1
+color = Color(0.582533, 0.578, 0.85, 1)
+button_type = 1
+top = true
+base_scale_x = 0.45
+resize_after = 6
+text = "I"
+base_size = Vector2(20, 20.000002)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_10eqb")
+graph = NodePath("..")
+
+[node name="ColorRect2" parent="." index="6" instance=ExtResource("9_s3o4y")]
+layout_mode = 0
+offset_left = 49.0
+offset_top = -15.0
+offset_right = 162.0
+offset_bottom = 54.0
+tweener = true
+origin_y = 63.0
+y_mult = 47.0
+smoothed = true
+window_size = 11
+snapshot_every = 0.3
+
+[node name="acc" type="Label" parent="ColorRect2" index="2"]
+layout_mode = 0
+offset_left = 25.999992
+offset_top = 3.0
+offset_right = 436.67148
+offset_bottom = 46.0
+scale = Vector2(0.200223, 0.200223)
+theme = ExtResource("8_10eqb")
+text = "100.0%"
+horizontal_alignment = 2
+
+[node name="time_passed" type="Label" parent="ColorRect2" index="3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 94.0
+offset_bottom = 46.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("8_10eqb")
+text = "0.0s"
+
+[node name="sgd_tab" type="Control" parent="." index="7"]
+anchors_preset = 0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 24.0
+
+[node name="Label4" type="Label" parent="sgd_tab" index="0"]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+z_index = 1
+layout_mode = 0
+offset_left = -68.0
+offset_top = 70.0
+offset_right = 125.0
+offset_bottom = 114.0
+scale = Vector2(0.311, 0.311)
+theme = ExtResource("8_10eqb")
+text = "Momentum"
+
+[node name="HSlider" type="HSlider" parent="sgd_tab/Label4" index="0"]
+layout_mode = 0
+offset_left = 163.987
+offset_top = 9.64627
+offset_right = 232.987
+offset_bottom = 25.6463
+scale = Vector2(2, 2)
+focus_mode = 1
+mouse_force_pass_scroll_events = false
+step = 10.0
+
+[node name="Loc" type="Node" parent="sgd_tab/Label4" index="1"]
+script = ExtResource("5_dq5jb")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Моментум"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Моментум"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="name" type="Label" parent="sgd_tab" index="1"]
+z_index = 1
+layout_mode = 0
+offset_left = -68.0
+offset_top = 55.0
+offset_right = 125.0
+offset_bottom = 99.0
+scale = Vector2(0.355093, 0.355093)
+theme = ExtResource("8_10eqb")
+text = "SGD"
+
+[node name="n" type="Label" parent="sgd_tab" index="2"]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 27.0
+offset_top = 72.00001
+offset_right = 220.0
+offset_bottom = 116.00001
+scale = Vector2(0.24072652, 0.24072652)
+theme = ExtResource("8_10eqb")
+text = "0.0"
+
+[node name="adam_tab" type="Control" parent="." index="8"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="child_button_release" from="optimizer" to="." method="_on_optimizer_child_button_release"]
+[connection signal="child_button_release" from="lr" to="." method="_on_lr_child_button_release"]
+[connection signal="child_button_release" from="lr" to="." method="_on_loss_child_button_release"]
+[connection signal="released" from="switch" to="." method="_on_switch_released"]
+[connection signal="value_changed" from="sgd_tab/Label4/HSlider" to="." method="_on_h_slider_value_changed"]

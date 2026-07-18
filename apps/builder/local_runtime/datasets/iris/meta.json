@@ -1,0 +1,15 @@
+{
+  "name": "iris",
+  "size": 150,
+  "inputs": {"x": 4, "datatype": "1d(len:4)"},
+  "outputs": [{"label": "species", "x": 3, "datatype": "1d", "label_names": ["setosa", "versicolor", "virginica"]}],
+  "input_hints": [
+    {"name": "sepal_length", "value": "float", "dtype": "float"},
+    {"name": "sepal_width", "value": "float", "dtype": "float"},
+    {"name": "petal_length", "value": "float", "dtype": "float"},
+    {"name": "petal_width", "value": "float", "dtype": "float"}
+  ],
+  "fully_local": true,
+  "storage": "numpy"
+}
+

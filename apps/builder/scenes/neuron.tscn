@@ -1,0 +1,236 @@
+[gd_scene load_steps=12 format=3 uid="uid://cbtf5jh2s8v3j"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://scenes/base_graph.tscn" id="1_mms1l"]
+[ext_resource type="Script" uid="uid://djv1yj3ii8ktb" path="res://scripts/neuron_config.gd" id="2_g8jnw"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="3_j2aws"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="4_g8jnw"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="5_fqm4g"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="6_g8jnw"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="7_0nr7h"]
+[ext_resource type="Resource" uid="uid://dpcfcsr4yvw5j" path="res://resources/activ.tres" id="7_fqm4g"]
+[ext_resource type="Material" uid="uid://b86rhtfhmtu17" path="res://resources/rounded_crs_abs.tres" id="9_0nr7h"]
+[ext_resource type="Script" uid="uid://yq3plw0lgo4k" path="res://scripts/plot_draw.gd" id="10_q868x"]
+
+[sub_resource type="Resource" id="Resource_g8jnw"]
+script = ExtResource("7_0nr7h")
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 1.0
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="config" instance=ExtResource("1_mms1l")]
+script = ExtResource("2_g8jnw")
+server_typename = &"LayerConfig"
+base_config = Dictionary[StringName, Variant]({
+&"activ": &"none"
+})
+
+[node name="o" parent="." index="0" node_paths=PackedStringArray("parent_graph") instance=ExtResource("3_j2aws")]
+instance_shader_parameters/corner_radius_width_add = Vector2(3, 0)
+layout_mode = 0
+offset_left = -9.0
+offset_top = -5.0
+offset_right = 9.0
+offset_bottom = 23.0
+color = Color(0.298039, 0.670588, 0.901961, 1)
+_accepted_datatypes = "activation"
+server_name = &"activ_out"
+connection_type = 1
+area_paddings = Vector4(20, 5, 20, 5)
+multiple_splines = true
+origin_offset = Vector2(0, 14)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"activ": 128
+})
+dir_vector = Vector2(0, 1)
+parent_graph = NodePath("..")
+gradient_color = Color(0.298039, 0.670588, 0.901961, 1)
+
+[node name="ColorRect" parent="." index="1"]
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0)
+instance_shader_parameters/outline_color = Color(0.42000002, 0.7776666, 1, 1)
+instance_shader_parameters/tuning = Color(0.0509804, 0.0509804, 0.0509804, 0.541176)
+offset_left = -43.0
+offset_top = -92.0
+offset_right = 44.0
+offset_bottom = 15.0
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Label" parent="ColorRect/root" index="0"]
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 225.51312
+offset_bottom = 47.0
+scale = Vector2(0.378597, 0.378597)
+theme_override_colors/font_color = Color(0.298039, 0.670588, 0.901961, 1)
+text = "Activation"
+horizontal_alignment = 1
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" index="0"]
+script = ExtResource("4_g8jnw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Активация"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Активация"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="ColorRect2" parent="." index="2" node_paths=PackedStringArray("graph") instance=ExtResource("5_fqm4g")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, 0)
+layout_mode = 0
+offset_left = -33.999996
+offset_top = -13.000001
+offset_right = 61.000004
+offset_bottom = 12.999999
+scale = Vector2(0.733764, 0.733764)
+color = Color(0.298039, 0.670588, 0.901961, 1)
+button_type = 2
+base_scale_x = 0.45
+text = "None"
+base_size = Vector2(95, 26)
+expanded_size = 129
+arrangement_padding = Vector2(6, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_g8jnw")
+graph = NodePath("..")
+
+[node name="ColorRect2" parent="ColorRect2" index="1" instance=ExtResource("5_fqm4g")]
+material = ExtResource("6_g8jnw")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"none"
+text = "None"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_fqm4g")
+
+[node name="Loc" type="Node" parent="ColorRect2/ColorRect2" index="1"]
+script = ExtResource("4_g8jnw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"none": "Прямая"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Линия"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="ColorRect3" parent="ColorRect2" index="2" instance=ExtResource("5_fqm4g")]
+material = ExtResource("6_g8jnw")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"relu"
+text = "RelU"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_fqm4g")
+
+[node name="ColorRect4" parent="ColorRect2" index="3" instance=ExtResource("5_fqm4g")]
+material = ExtResource("6_g8jnw")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"sigmoid"
+resize_after = 8
+text = "Sigmoid"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_fqm4g")
+
+[node name="ColorRect5" parent="ColorRect2" index="4" instance=ExtResource("5_fqm4g")]
+material = ExtResource("6_g8jnw")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"tanh"
+resize_after = 5
+text = "Tanh"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("7_fqm4g")
+
+[node name="Loc" type="Node" parent="ColorRect2" index="5"]
+script = ExtResource("4_g8jnw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"none": "Прямая"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Линия"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="plot" type="ColorRect" parent="." index="3"]
+z_index = 1
+material = ExtResource("9_0nr7h")
+clip_contents = true
+layout_mode = 0
+offset_left = -34.000004
+offset_top = -71.00001
+offset_right = 194.05438
+offset_bottom = 104.927666
+scale = Vector2(0.3069443, 0.3069443)
+color = Color(1, 1, 1, 0)
+
+[node name="plot" type="ColorRect" parent="plot" index="0"]
+z_index = -1
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09, 0.09, 0.09, 1)
+script = ExtResource("10_q868x")
+axis_width = 2.0
+graph_width = 4.0
+grid_width = 2.0
+
+[connection signal="child_button_release" from="ColorRect2" to="." method="_on_color_rect_2_child_button_release"]

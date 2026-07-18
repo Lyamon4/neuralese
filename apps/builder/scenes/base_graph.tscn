@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvy7srp0sk1qm"]
+
+[ext_resource type="Script" uid="uid://dp2qwk0p8iuhy" path="res://scripts/base_graph.gd" id="1_wd6q0"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="2_h617g"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="3_wd6q0"]
+
+[node name="Base" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("1_wd6q0")
+area_padding = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("2_h617g")
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.639216)
+layout_mode = 0
+offset_left = -87.0
+offset_top = -64.0
+offset_right = 87.0
+offset_bottom = 73.0
+
+[node name="root" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+z_index = 1
+layout_mode = 0
+offset_left = 46.0
+offset_top = 33.0
+offset_right = 108.0
+offset_bottom = 76.0
+scale = Vector2(1.4528, 1.4528)
+theme = ExtResource("3_wd6q0")
+text = "..."

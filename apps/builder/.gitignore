@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# FullyLocal runtime artifacts
+/local_runtime/python/
+/local_runtime/tmp_smoke_job/
+/local_runtime/tmp*/
+/local_runtime/tmp_*
+/local_runtime/**/__pycache__/
+/.runtime_payload_build/

@@ -1,0 +1,82 @@
+[gd_resource type="Theme" format=3 uid="uid://6b4rxqrmq3yb"]
+
+[ext_resource type="FontFile" uid="uid://d0xcffxoyd14k" path="res://game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="1_w2vkv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2drxm"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqtv3"]
+bg_color = Color(0.24, 0.24, 0.24, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.59, 0.59, 0.59, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5to33"]
+bg_color = Color(0.14, 0.14, 0.14, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.19, 0.19, 0.19, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="ImageTexture" id="ImageTexture_pwg45"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_w2jqr"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_tblbi"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_k17ig"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_s3f8t"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_mhsb2"]
+
+[resource]
+default_font = ExtResource("1_w2vkv")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_w2vkv")
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_uneditable_color = Color(0.81, 0.81, 0.81, 0.501961)
+LineEdit/constants/minimum_character_width = 0
+LineEdit/styles/focus = SubResource("StyleBoxFlat_2drxm")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_fqtv3")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_5to33")
+VScrollBar/icons/decrement = SubResource("ImageTexture_pwg45")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_w2jqr")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_tblbi")
+VScrollBar/icons/increment = SubResource("ImageTexture_k17ig")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_s3f8t")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_mhsb2")

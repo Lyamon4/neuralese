@@ -1,0 +1,24 @@
+[package]
+name = "yolk"
+version = "0.1.0"
+edition = "2021"
+authors = ["Neuralese"]
+description = "Neuralese-generated ONNX model wrapper executable"
+license = "MIT"
+
+# You can add optional dependencies later if the runtime ever does ONNX inference.
+[dependencies]
+anyhow = "1"
+serde_json = "1"
+ndarray = "0.16"
+ort = { version = "2.0.0-rc.10", features = ["ndarray"] }
+half = "2.3"
+
+
+
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

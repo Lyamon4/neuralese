@@ -1,0 +1,6 @@
+__pycache__/
+.git/
+data/
+checkpoints/
+userdata.db/
+local_data/

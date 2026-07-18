@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://c21qi0hgkbyds"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://scenes/base_graph.tscn" id="1_gg3sf"]
+[ext_resource type="Script" uid="uid://1pvye2jl2wlc" path="res://scripts/loop.gd" id="2_1k3e5"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_kesng"]
+
+[node name="Base" instance=ExtResource("1_gg3sf")]
+script = ExtResource("2_1k3e5")
+
+[node name="ColorRect" parent="." index="0"]
+z_index = 1
+
+[node name="Label" parent="ColorRect/root" index="0"]
+offset_left = 17.0
+offset_top = 34.0
+offset_right = 113.0
+offset_bottom = 77.0
+text = "LOOP0"
+
+[node name="ColorRect2" parent="." index="1" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_kesng")]
+layout_mode = 0
+offset_left = -95.0
+offset_top = -20.0
+offset_right = -82.0
+offset_bottom = 20.0
+connection_type = 0
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+
+[node name="ColorRect3" parent="." index="2" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_kesng")]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 66.0
+offset_right = 27.0
+offset_bottom = 87.0
+connection_type = 1
+dir_vector = Vector2(0, 1)
+parent_graph = NodePath("..")

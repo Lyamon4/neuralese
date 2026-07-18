@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://bteq4be5wc2t1"]
+
+[ext_resource type="Script" uid="uid://bq63htf3tigxl" path="res://scripts/splash_menu.gd" id="1_v43gm"]
+[ext_resource type="Material" uid="uid://crjr13k12egng" path="res://scenes/splash.tres" id="2_mier1"]
+[ext_resource type="Texture2D" uid="uid://kdt71jk5swyh" path="res://game_assets/icons/user.png" id="3_pyotn"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="4_nkxob"]
+[ext_resource type="Theme" uid="uid://74kwx22ikciq" path="res://resources/theme_headers.tres" id="5_ah1yc"]
+[ext_resource type="FontFile" uid="uid://d0xcffxoyd14k" path="res://game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="6_453ey"]
+[ext_resource type="Script" uid="uid://dog0wpjftm7uk" path="res://scripts/validate_line.gd" id="7_b3a27"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="8_umsta"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="9_swrrq"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="10_7nw0u"]
+[ext_resource type="Script" uid="uid://cink4uduoxu4b" path="res://scripts/end.gd" id="11_3t43r"]
+
+[sub_resource type="Resource" id="Resource_3idxy"]
+script = ExtResource("10_7nw0u")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Node2D" type="Control" node_paths=PackedStringArray("accept", "first_line")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_v43gm")
+accept = NodePath("ColorRect/train")
+first_line = NodePath("ColorRect/Label")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 8
+material = ExtResource("2_mier1")
+instance_shader_parameters/corner_radius_width_add = Vector2(9.365, 1)
+instance_shader_parameters/outline_color = Color(0.85, 0.85, 0.85, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.7529412)
+layout_mode = 0
+offset_left = 365.0
+offset_top = 128.0
+offset_right = 644.0
+offset_bottom = 330.0
+
+[node name="root" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="i" type="Sprite2D" parent="ColorRect/root"]
+position = Vector2(23.000015, 21)
+scale = Vector2(0.9496938, 0.9496938)
+texture = ExtResource("3_pyotn")
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+modulate = Color(0.41, 0.41, 0.41, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 140.84766
+offset_bottom = 52.0
+scale = Vector2(0.600218, 0.600218)
+theme = ExtResource("4_nkxob")
+text = "/login"
+
+[node name="Label" type="LineEdit" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.5
+offset_top = 48.0
+offset_right = 130.5
+offset_bottom = 91.0
+grow_horizontal = 2
+scale = Vector2(0.92970926, 0.92970926)
+theme = ExtResource("5_ah1yc")
+theme_override_fonts/font = ExtResource("6_453ey")
+placeholder_text = "name"
+max_length = 32
+expand_to_text_length = true
+script = ExtResource("7_b3a27")
+resize_after = 250
+auto_red = true
+monospaced = false
+metadata/_custom_type_script = "uid://dog0wpjftm7uk"
+
+[node name="Loc" type="Node" parent="ColorRect/Label"]
+script = ExtResource("8_umsta")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"name": "ник"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "аты"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Label2" type="LineEdit" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.5
+offset_top = 103.999985
+offset_right = 130.5
+offset_bottom = 147.0
+grow_horizontal = 2
+scale = Vector2(0.92970926, 0.92970926)
+theme = ExtResource("5_ah1yc")
+theme_override_fonts/font = ExtResource("6_453ey")
+placeholder_text = "pass"
+max_length = 32
+expand_to_text_length = true
+script = ExtResource("7_b3a27")
+resize_after = 250
+auto_red = true
+monospaced = false
+metadata/_custom_type_script = "uid://dog0wpjftm7uk"
+
+[node name="Loc" type="Node" parent="ColorRect/Label2"]
+script = ExtResource("8_umsta")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"pass": "пароль"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "құпиясөз"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="train" parent="ColorRect" instance=ExtResource("9_swrrq")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.99997
+offset_top = -43.99997
+offset_right = -27.999939
+offset_bottom = -18.99997
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(31.000015, 12.5)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 1)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 6
+text = "Login"
+base_size = Vector2(62.00003, 25)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_3idxy")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/train"]
+script = ExtResource("8_umsta")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"login": "Вход"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Кіру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="train2" parent="ColorRect" instance=ExtResource("9_swrrq")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -43.999985
+offset_right = -97.422455
+offset_bottom = -18.999985
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.954273, 0.954273)
+pivot_offset = Vector2(39.288773, 12.5)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 0)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 9
+text = "Signup"
+base_size = Vector2(78.577545, 25)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_3idxy")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/train2"]
+script = ExtResource("8_umsta")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"signup": "Новый"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Тіркеу"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("11_3t43r")
+
+[connection signal="released" from="ColorRect/train" to="." method="_on_train_released"]
+[connection signal="released" from="ColorRect/train2" to="." method="_on_train_2_released"]

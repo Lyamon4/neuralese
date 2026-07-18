@@ -1,0 +1,11 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+numpy==1.26.4
+onnx==1.14.1
+onnxruntime-training-cpu==1.19.2
+pytest==8.3.4
+psutil==6.1.1
+lmdb==2.2.0
+torch==2.12.1
+httpx==0.28.1

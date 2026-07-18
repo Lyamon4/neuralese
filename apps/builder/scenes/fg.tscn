@@ -1,0 +1,769 @@
+[gd_scene format=3 uid="uid://tjiw5jmnnrgh"]
+
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="1_5k5he"]
+[ext_resource type="Script" uid="uid://cy42ej4d3hwf0" path="res://scripts/top_panel.gd" id="2_1j68c"]
+[ext_resource type="Script" uid="uid://dijo5i8266pd" path="res://scripts/lesson_header.gd" id="3_64w7c"]
+[ext_resource type="Theme" uid="uid://74kwx22ikciq" path="res://resources/theme_headers.tres" id="3_xwiyo"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="4_5k5he"]
+[ext_resource type="Script" uid="uid://b8ehbcul6kgbc" path="res://scripts/submenu_neuron.gd" id="5_m4erh"]
+[ext_resource type="Script" uid="uid://bdl80c5ge01pa" path="res://scripts/graphic.gd" id="6_5i506"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="7_5i506"]
+[ext_resource type="Texture2D" uid="uid://0qcq7cu4b3kl" path="res://game_assets/icons/download.png" id="7_frmgw"]
+[ext_resource type="Texture2D" uid="uid://kdt71jk5swyh" path="res://game_assets/icons/user.png" id="7_gbf2a"]
+[ext_resource type="Script" uid="uid://dog0wpjftm7uk" path="res://scripts/validate_line.gd" id="7_x5ox8"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="9_4033n"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="10_5i506"]
+[ext_resource type="Texture2D" uid="uid://cifmknshu7jyt" path="res://game_assets/icons/chat.png" id="11_x67tc"]
+[ext_resource type="Material" uid="uid://dhpvvvjn14qxk" path="res://resources/fg_block.tres" id="12_thedb"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="12_v7s1j"]
+[ext_resource type="Script" uid="uid://dvv2j3fprmh8e" path="res://scripts/loc2.gd" id="13_luhqm"]
+[ext_resource type="Texture2D" uid="uid://d1d0watnunr27" path="res://game_assets/icons/dir.png" id="14_tsth1"]
+[ext_resource type="PackedScene" uid="uid://bsbdls0nw0uf2" path="res://scenes/topr.tscn" id="14_v7s1j"]
+[ext_resource type="Script" uid="uid://bunhhg1bg443j" path="res://scripts/selector_box.gd" id="19_v7s1j"]
+[ext_resource type="Shader" uid="uid://dnc61n20cut58" path="res://scripts/bokeh.gdshader" id="21_3pl03"]
+[ext_resource type="Script" uid="uid://b35tw21ej2pfd" path="res://scripts/mist.gd" id="22_tsth1"]
+[ext_resource type="Script" uid="uid://m5db3dqdt1jc" path="res://scripts/lua_procedure.gd" id="23_64w7c"]
+[ext_resource type="PackedScene" uid="uid://cid477464f0eh" path="res://scenes/quest.tscn" id="24_o28vt"]
+[ext_resource type="Script" uid="uid://dw3rrt5nla3y7" path="res://scripts/scalefg.gd" id="25_kgi7h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x67tc"]
+shader = ExtResource("1_5k5he")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 0.0
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 0.0
+shader_parameter/mult = 1.5
+shader_parameter/blur_level = 3.870000183825
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.8790000892525
+shader_parameter/use_bg = false
+
+[sub_resource type="Gradient" id="Gradient_5k5he"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.444444, 1)
+colors = PackedColorArray(0.95, 0.95, 0.95, 1, 0.8, 0.8, 0.8, 0.537255, 0.294, 0.7, 0.591733, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nwut5"]
+gradient = SubResource("Gradient_5k5he")
+width = 400
+height = 40
+fill_from = Vector2(0, 0.00828157)
+
+[sub_resource type="Resource" id="Resource_5i506"]
+script = ExtResource("10_5i506")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.1
+_hover_scale = 1.02
+press_color = Color(0.84, 0.84, 0.84, 1)
+_press_scale = 0.98
+animation_speed = 2.657
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Gradient" id="Gradient_x67tc"]
+offsets = PackedFloat32Array(0, 0.75555557, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7777778, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7s1j"]
+gradient = SubResource("Gradient_x67tc")
+height = 2
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_luhqm"]
+offsets = PackedFloat32Array(0, 0.29777777, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.8977778, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3pl03"]
+gradient = SubResource("Gradient_luhqm")
+height = 2
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_x67tc"]
+script = ExtResource("10_5i506")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_luhqm"]
+script = ExtResource("10_5i506")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_v7s1j"]
+script = ExtResource("10_5i506")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwut5"]
+shader = ExtResource("1_5k5he")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 0.0
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 1.688
+shader_parameter/mult = 1.5
+shader_parameter/blur_level = 5.07
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.0
+shader_parameter/use_bg = true
+
+[sub_resource type="Resource" id="Resource_thedb"]
+script = ExtResource("10_5i506")
+hover_color = Color(0.68, 1, 0.834667, 1)
+hover_mult = 1.4
+_hover_scale = 1.037
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7s1j"]
+shader = ExtResource("1_5k5he")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 0.6627451)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 8.0
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 0.0
+shader_parameter/mult = 1.0
+shader_parameter/blur_level = -0.00699966783249994
+shader_parameter/gaussian_mix = 0.822000039045
+shader_parameter/gaussian_step = 1.8990000902025
+shader_parameter/use_bg = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tsth1"]
+shader = ExtResource("21_3pl03")
+shader_parameter/intensity = 0.870000041325
+shader_parameter/border_width = -0.12400000123186
+shader_parameter/softness = 0.29700001340897997
+shader_parameter/flow_speed = 0.4990000237025
+shader_parameter/flow_scale = 1.96000006935
+shader_parameter/warp_strength = 0.77600003686
+shader_parameter/bokeh_variance = 0.5570000264575
+shader_parameter/blur_amount = 4.242000201495
+shader_parameter/blur_speed = 0.6800000323
+shader_parameter/seam_smooth_px = 35.414001682165
+shader_parameter/seam_blend_px = 41.4850019705375
+shader_parameter/color_a = Color(0.8004167, 0.5525, 0.85, 1)
+shader_parameter/color_b = Color(0.85, 0.39950004, 0.7599001, 1)
+
+[node name="fg" type="CanvasLayer" unique_id=1482709841]
+layer = 126
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=721545665 node_paths=PackedStringArray("menus")]
+material = SubResource("ShaderMaterial_x67tc")
+instance_shader_parameters/outline_color = Color(0.47, 0.47, 0.47, 0.521569)
+instance_shader_parameters/tuning = Color(0.3019608, 0.3019608, 0.3019608, 0.64705884)
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 1155.0
+offset_bottom = 51.0
+script = ExtResource("2_1j68c")
+menus = {
+&"a": NodePath("../submenu")
+}
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=8173845]
+visible = false
+material = SubResource("ShaderMaterial_x67tc")
+instance_shader_parameters/outline_color = Color(0.47058824, 0.47058824, 0.47058824, 0.52156866)
+instance_shader_parameters/tuning = Color(0.3019608, 0.3019608, 0.3019608, 0.64705884)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.73, 0.73, 0.73, 1)
+script = ExtResource("3_64w7c")
+
+[node name="Label" type="Label" parent="ColorRect/ColorRect" unique_id=1107350333]
+layout_mode = 0
+offset_left = 9.999999
+offset_top = 4.0
+offset_right = 10.999999
+offset_bottom = 41.0
+scale = Vector2(0.5919286, 0.5919286)
+theme = ExtResource("3_xwiyo")
+
+[node name="backline" type="Line2D" parent="ColorRect/ColorRect" unique_id=328867943]
+z_index = 1
+position = Vector2(0, 15)
+points = PackedVector2Array(-14, 0, 113, 0)
+default_color = Color(0.31764707, 0.36078432, 0.33333334, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="actual" type="Line2D" parent="ColorRect/ColorRect" unique_id=1258758329]
+z_index = 1
+position = Vector2(0, 15)
+points = PackedVector2Array(-14, 0, 50, 0)
+default_color = Color(0.2, 1, 0.49411765, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="Label2" type="Label" parent="ColorRect/ColorRect" unique_id=582830434]
+layout_mode = 0
+offset_left = 1144.1436
+offset_top = 4.0
+offset_right = 1145.1436
+offset_bottom = 41.0
+scale = Vector2(0.5919286, 0.5919286)
+theme = ExtResource("3_xwiyo")
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=516100264]
+visible = false
+modulate = Color(0.4088, 0.53728, 0.73, 1)
+self_modulate = Color(1, 1, 1, 0.2627451)
+layout_mode = 0
+offset_left = 2.0
+offset_top = -8.0
+offset_right = 317.0
+offset_bottom = 36.5
+scale = Vector2(0.801, 1.393)
+texture = SubResource("GradientTexture2D_nwut5")
+expand_mode = 1
+
+[node name="Label" type="LineEdit" parent="ColorRect" unique_id=1867369425]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 12.0
+offset_right = 302.91968
+offset_bottom = 55.0
+scale = Vector2(0.77261, 0.77261)
+theme = ExtResource("3_xwiyo")
+placeholder_text = "Untitled"
+max_length = 25
+script = ExtResource("7_x5ox8")
+resize_after = 5
+monospaced = false
+metadata/_custom_type_script = "uid://dog0wpjftm7uk"
+
+[node name="Loc" type="Node" parent="ColorRect/Label" unique_id=1403955449]
+script = ExtResource("12_v7s1j")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"untitled": "Безымянный"
+})
+localizations_kz = Dictionary[String, String]({
+"kz": "Атаусыз"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Control" type="Control" parent="ColorRect" unique_id=387132345]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -391.0
+offset_top = 3.0
+offset_right = -118.0
+offset_bottom = 52.0
+grow_horizontal = 0
+
+[node name="login" parent="ColorRect/Control" unique_id=1201283979 instance=ExtResource("4_5k5he")]
+material = ExtResource("12_thedb")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 339.9999
+offset_top = 7.0000005
+offset_right = 381.24014
+offset_bottom = 43.0
+scale = Vector2(0.8889408, 0.8889408)
+pivot_offset = Vector2(20.620117, 18)
+color = Color(0.49019608, 0.627451, 0.83137256, 1)
+button_type = 1
+top = true
+hint = &"layer"
+resize_after = 5
+text_alignment = Vector2(-1, 0)
+text_offset = Vector2(37, 0)
+base_size = Vector2(41.240234, 36)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_5i506")
+
+[node name="i" type="Sprite2D" parent="ColorRect/Control/login" unique_id=1014354635]
+position = Vector2(20.546005, 17.999998)
+scale = Vector2(1.1249341, 1.1249341)
+texture = ExtResource("7_gbf2a")
+
+[node name="export" parent="ColorRect/Control" unique_id=1399149728 instance=ExtResource("4_5k5he")]
+material = ExtResource("12_thedb")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 221.00003
+offset_top = 7.0000005
+offset_right = 340.23148
+offset_bottom = 43.0
+scale = Vector2(0.8889408, 0.8889408)
+pivot_offset = Vector2(59.615723, 18)
+color = Color(0.49019608, 0.627451, 0.83137256, 1)
+button_type = 1
+top = true
+hint = &"layer"
+resize_after = 8
+text = "  Export"
+base_size = Vector2(119.231445, 36)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_5i506")
+
+[node name="i" type="Sprite2D" parent="ColorRect/Control/export" unique_id=1231672794]
+position = Vector2(20.670837, 17.999998)
+scale = Vector2(1.1249341, 1.1249341)
+texture = ExtResource("7_frmgw")
+
+[node name="Loc" type="Node" parent="ColorRect/Control/export" unique_id=22867575]
+script = ExtResource("12_v7s1j")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"export": "  Скачать"
+})
+localizations_kz = Dictionary[String, String]({
+"export": "  Жүктеу"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="ai" parent="ColorRect/Control" unique_id=2066387629 instance=ExtResource("4_5k5he")]
+material = ExtResource("12_thedb")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 126.999985
+offset_top = 7.0
+offset_right = 225.50603
+offset_bottom = 43.0
+scale = Vector2(0.8889408, 0.8889408)
+pivot_offset = Vector2(49.25302, 18)
+color = Color(0.87576675, 0.5546, 0.94, 1)
+button_type = 1
+top = true
+hint = &"ai_help"
+resize_after = 6
+text = "  Axon"
+text_offset = Vector2(2, 0)
+base_size = Vector2(98.50604, 36)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_5i506")
+
+[node name="i" type="Sprite2D" parent="ColorRect/Control/ai" unique_id=981960195]
+position = Vector2(22.920776, 19.12493)
+texture = ExtResource("11_x67tc")
+
+[node name="Loc" type="Node" parent="ColorRect/Control/ai" unique_id=1425398935]
+script = ExtResource("13_luhqm")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"axon": "  Аксон"
+})
+localizations_kz = Dictionary[String, String]({
+"axon": "  Аксон"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Control2" parent="ColorRect" unique_id=1175824402 instance=ExtResource("14_v7s1j")]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -388.00006
+offset_top = 61.0
+offset_right = -348.00006
+offset_bottom = 101.0
+grow_horizontal = 0
+scale = Vector2(1.2717904, 1.2717904)
+
+[node name="Control3" type="Control" parent="ColorRect" unique_id=1178056841]
+anchors_preset = 0
+offset_left = 577.0
+offset_right = 617.0
+offset_bottom = 40.0
+
+[node name="minigamesbg" type="ColorRect" parent="ColorRect/Control3" unique_id=623232330]
+visible = false
+layout_mode = 0
+offset_left = -32.0
+offset_right = 89.0
+offset_bottom = 54.0
+color = Color(0.37, 0.37, 0.37, 0.20784314)
+
+[node name="graphsbg" type="TextureRect" parent="ColorRect/Control3" unique_id=1031293155]
+self_modulate = Color(0.37, 0.37, 0.37, 0.22745098)
+layout_mode = 0
+offset_left = -174.0
+offset_right = -33.0
+offset_bottom = 54.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_v7s1j")
+
+[node name="dsbg" type="TextureRect" parent="ColorRect/Control3" unique_id=2085884348]
+visible = false
+self_modulate = Color(0.36862746, 0.36862746, 0.36862746, 0.22745098)
+layout_mode = 0
+offset_left = 90.0
+offset_right = 211.0
+offset_bottom = 54.0
+texture = SubResource("GradientTexture2D_3pl03")
+
+[node name="graphs" parent="ColorRect/Control3" unique_id=1338228934 instance=ExtResource("4_5k5he")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.37042
+offset_top = -33.93629
+offset_right = -86.401855
+offset_bottom = 7.82753
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.2450968, 1.2450968)
+pivot_offset = Vector2(46.984283, 20.88191)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 0)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 9
+text = "Worlds"
+base_size = Vector2(93.96857, 41.76382)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_x67tc")
+
+[node name="Loc" type="Node" parent="ColorRect/Control3/graphs" unique_id=1817165587]
+script = ExtResource("12_v7s1j")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"worlds": "Миры"
+})
+localizations_kz = Dictionary[String, String]({
+"worlds": "Әлемдер"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="datasets" parent="ColorRect/Control3" unique_id=274519688 instance=ExtResource("4_5k5he")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 59.629517
+offset_top = -32.93629
+offset_right = 148.02905
+offset_bottom = 8.82753
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.2450968, 1.2450968)
+pivot_offset = Vector2(44.199768, 20.88191)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 0)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 9
+text = "Datasets"
+text_offset = Vector2(5, 0)
+base_size = Vector2(88.399536, 41.76382)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_luhqm")
+
+[node name="Loc" type="Node" parent="ColorRect/Control3/datasets" unique_id=2005751304]
+script = ExtResource("12_v7s1j")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"datasets": "Датасеты"
+})
+localizations_kz = Dictionary[String, String]({
+"datasets": "Датасеттар"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="minigames" parent="ColorRect/Control3" unique_id=2118700472 instance=ExtResource("4_5k5he")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.37046
+offset_top = -32.93629
+offset_right = 36.20443
+offset_bottom = 8.02438
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.2450968, 1.2450968)
+pivot_offset = Vector2(47.787445, 20.480335)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 0)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 9
+text = "Graphs"
+base_size = Vector2(95.57489, 40.96067)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_v7s1j")
+
+[node name="Loc" type="Node" parent="ColorRect/Control3/minigames" unique_id=2999154]
+script = ExtResource("12_v7s1j")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"graphs": "Графы"
+})
+localizations_kz = Dictionary[String, String]({
+"graphs": "Графтар"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/Control3" unique_id=902724003]
+layout_mode = 0
+offset_left = -33.0
+offset_right = -32.0
+offset_bottom = 54.0
+color = Color(0.5, 0.5, 0.5, 0.59607846)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/Control3" unique_id=1193029436]
+layout_mode = 0
+offset_left = 89.0
+offset_right = 90.0
+offset_bottom = 54.0
+color = Color(0.5, 0.5, 0.5, 0.59607846)
+
+[node name="back" type="ColorRect" parent="ColorRect" unique_id=1940347110]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16, 0.16, 0.16, 1)
+
+[node name="works" parent="ColorRect" unique_id=1791002739 instance=ExtResource("4_5k5he")]
+material = ExtResource("12_thedb")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 6.999998
+offset_top = 10.0
+offset_right = 48.240234
+offset_bottom = 46.0
+scale = Vector2(0.8889408, 0.8889408)
+pivot_offset = Vector2(20.620117, 18)
+color = Color(0.49, 0.627, 0.831, 1)
+button_type = 1
+top = true
+hint = &"layer"
+resize_after = 5
+text_alignment = Vector2(-1, 0)
+text_offset = Vector2(37, 0)
+base_size = Vector2(41.240234, 36)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_5i506")
+
+[node name="i" type="Sprite2D" parent="ColorRect/works" unique_id=1114877516]
+position = Vector2(19.922525, 18)
+scale = Vector2(0.39845455, 0.39845455)
+texture = ExtResource("14_tsth1")
+
+[node name="submenu" type="ColorRect" parent="." unique_id=1280618656 node_paths=PackedStringArray("top")]
+visible = false
+material = SubResource("ShaderMaterial_nwut5")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.39, 1, 0.766167, 1)
+instance_shader_parameters/tuning = Color(0.36, 0.36, 0.36, 0.811765)
+offset_left = 754.0
+offset_top = 50.0
+offset_right = 1160.0
+offset_bottom = 568.0
+script = ExtResource("5_m4erh")
+top = NodePath("../ColorRect")
+
+[node name="Label" type="Label" parent="submenu" unique_id=607066630]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 249.0
+offset_bottom = 62.0
+scale = Vector2(0.77261, 0.77261)
+theme = ExtResource("3_xwiyo")
+text = "Edit neuron"
+
+[node name="graph" type="Line2D" parent="submenu" unique_id=1240163472]
+visible = false
+position = Vector2(39, 127)
+points = PackedVector2Array(0, 10, 4, 10, 8, 10, 12, 10, 16, 10, 20, 10, 24, 10, 28, 9.99999, 32, 9.99998, 36, 9.99994, 40, 9.99988, 44, 9.99973, 48, 9.99939, 52, 9.99865, 56, 9.99699, 60, 9.99329, 64, 9.98508, 68, 9.96682, 72, 9.92632, 76, 9.83675, 80, 9.64028, 84, 9.21669, 88, 8.33655, 92, 6.64037, 96, 3.79949, 100, 0, 104, -3.79949, 108, -6.64037, 112, -8.33655, 116, -9.21669, 120, -9.64028, 124, -9.83675, 128, -9.92632, 132, -9.96682, 136, -9.98508, 140, -9.99329, 144, -9.99699, 148, -9.99865, 152, -9.99939, 156, -9.99973, 160, -9.99988, 164, -9.99994, 168, -9.99998, 172, -9.99999, 176, -10, 180, -10, 184, -10, 188, -10, 192, -10, 196, -10)
+width = 5.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("6_5i506")
+expr = "tanh(x*0.1)
+"
+
+[node name="LineEdit" type="LineEdit" parent="submenu" unique_id=74332588]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 152.0
+offset_right = 296.0
+offset_bottom = 200.0
+scale = Vector2(0.725194, 0.725194)
+theme = ExtResource("7_5i506")
+theme_override_font_sizes/font_size = 30
+placeholder_text = " Bias"
+max_length = 17
+script = ExtResource("7_x5ox8")
+
+[node name="ColorRect2" parent="submenu" unique_id=128396286 instance=ExtResource("4_5k5he")]
+z_index = 99
+layout_mode = 0
+offset_left = 41.0
+offset_top = 212.0
+offset_right = 241.0
+offset_bottom = 262.0
+button_type = 2
+top = true
+mouse_open = false
+
+[node name="ColorRect2" parent="submenu/ColorRect2" unique_id=1648707140 instance=ExtResource("4_5k5he")]
+material = ExtResource("9_4033n")
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 70.0
+offset_bottom = 46.0
+pivot_offset = Vector2(35.5, 21)
+button_type = 1
+top = true
+text = "Add"
+base_size = Vector2(71, 42)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_thedb")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1108975783]
+z_index = -2
+material = SubResource("ShaderMaterial_v7s1j")
+instance_shader_parameters/corner_radius_width_add = Vector2(0, 2)
+instance_shader_parameters/outline_color = Color(0.87, 0.87, 0.87, 0.76862746)
+instance_shader_parameters/tuning = Color(0.8, 0.8, 0.8, 0.21176471)
+offset_left = 240.0
+offset_top = 160.0
+offset_right = 280.0
+offset_bottom = 200.0
+color = Color(0.79, 0.965, 1, 1)
+script = ExtResource("19_v7s1j")
+lerp_speed = 35.0
+
+[node name="mist" type="ColorRect" parent="." unique_id=979755091]
+visible = false
+z_index = -3
+material = SubResource("ShaderMaterial_tsth1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("22_tsth1")
+
+[node name="LuaProcRunner" type="Node" parent="." unique_id=1218343055]
+script = ExtResource("23_64w7c")
+metadata/_custom_type_script = "uid://m5db3dqdt1jc"
+
+[node name="Control2" parent="." unique_id=1736348680 instance=ExtResource("24_o28vt")]
+offset_left = 37.0
+offset_top = 113.0
+offset_right = 77.0
+offset_bottom = 153.0
+
+[node name="scale" type="CanvasLayer" parent="." unique_id=1340297003]
+layer = 126
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("25_kgi7h")
+
+[connection signal="released" from="ColorRect/Control/login" to="ColorRect" method="_on_login_released"]
+[connection signal="released" from="ColorRect/Control/export" to="ColorRect" method="_on_export_released"]
+[connection signal="released" from="ColorRect/Control/ai" to="ColorRect" method="_on_ai_released"]
+[connection signal="released" from="ColorRect/Control3/graphs" to="ColorRect" method="_on_graphs_released"]
+[connection signal="released" from="ColorRect/Control3/datasets" to="ColorRect" method="_on_datasets_released"]
+[connection signal="released" from="ColorRect/Control3/minigames" to="ColorRect" method="_on_minigames_released"]
+[connection signal="released" from="ColorRect/works" to="ColorRect" method="_on_workslist"]

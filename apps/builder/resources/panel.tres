@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://blkv556akjllh"]
+
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="1_javp5"]
+
+[resource]
+shader = ExtResource("1_javp5")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(0.44, 0.44, 0.44, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 8.0
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 0.0
+shader_parameter/mult = 1.8
+shader_parameter/blur_level = 0.7170000340575
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.8990000902025
+shader_parameter/use_bg = true

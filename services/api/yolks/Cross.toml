@@ -1,0 +1,17 @@
+# Cross.toml — defines which Docker images cross should use
+
+# Linux x86-64 (default glibc)
+[target.x86_64-unknown-linux-gnu]
+image = "ghcr.io/cross-rs/x86_64-unknown-linux-gnu:latest"
+
+# Linux ARM64 (Jetson / Pi / ARM servers)
+[target.aarch64-unknown-linux-gnu]
+image = "ghcr.io/cross-rs/aarch64-unknown-linux-gnu:latest"
+
+# Linux x86-64 static (optional fully portable musl build)
+[target.x86_64-unknown-linux-musl]
+image = "ghcr.io/cross-rs/x86_64-unknown-linux-musl:latest"
+
+# Linux ARM64 static (optional)
+[target.aarch64-unknown-linux-musl]
+image = "ghcr.io/cross-rs/aarch64-unknown-linux-musl:latest"

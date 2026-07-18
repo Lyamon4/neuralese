@@ -1,0 +1,786 @@
+[gd_scene format=3 uid="uid://cuuew2v4inm7k"]
+
+[ext_resource type="Script" uid="uid://cir1i2gbr8pjh" path="res://scripts/dataset_tab.gd" id="1_hsuaq"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="2_fn1yt"]
+[ext_resource type="Script" uid="uid://cjgpy062bsa25" path="res://scripts/loader.gd" id="2_hsuaq"]
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="5_rckiu"]
+[ext_resource type="Theme" uid="uid://74kwx22ikciq" path="res://resources/theme_headers.tres" id="6_mbiqq"]
+[ext_resource type="Script" uid="uid://bjncugq5805ty" path="res://scripts/label_auto_resize.gd" id="7_q5lcu"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="8_jf34i"]
+[ext_resource type="Script" uid="uid://cd1e7nh0qym86" path="res://scripts/procedural_nodes22.gd" id="9_3m244"]
+[ext_resource type="Material" uid="uid://jm8oyahk342s" path="res://resources/context_menu.tres" id="9_b545l"]
+[ext_resource type="Script" uid="uid://c8207sv1hbg2e" path="res://scripts/unr.gd" id="10_8ivn3"]
+[ext_resource type="Script" uid="uid://csr1vy1phvsob" path="res://scripts/sakuta.gd" id="11_7knke"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="11_j7vbt"]
+[ext_resource type="Material" uid="uid://b32bkwpidhiyp" path="res://resources/font_alphamult.tres" id="13_3m244"]
+[ext_resource type="Script" uid="uid://bbs7krfajn88n" path="res://scripts/value.gd" id="13_7knke"]
+[ext_resource type="Material" uid="uid://dhpvvvjn14qxk" path="res://resources/fg_block.tres" id="13_51ak0"]
+[ext_resource type="Script" uid="uid://cpdndxaic5xca" path="res://scripts/virtualt.gd" id="13_bwfib"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="14_bwfib"]
+[ext_resource type="Texture2D" uid="uid://cc0gwf51gfory" path="res://game_assets/icons/hide.png" id="14_empbn"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="15_51ak0"]
+[ext_resource type="Script" uid="uid://bdd0v81iq8cis" path="res://scripts/console.gd" id="17_6hcr6"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="17_wg51w"]
+[ext_resource type="Theme" uid="uid://6b4rxqrmq3yb" path="res://resources/theme_no_aa.tres" id="18_6hcr6"]
+[ext_resource type="Script" uid="uid://rehn60f8al4q" path="res://scripts/loc3.gd" id="20_empbn"]
+[ext_resource type="FontFile" uid="uid://d0xcffxoyd14k" path="res://game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="20_rckiu"]
+[ext_resource type="SyntaxHighlighter" uid="uid://c6jrq0dx3d808" path="res://resources/dscli.tres" id="21_mbiqq"]
+[ext_resource type="Script" uid="uid://cwuexxn8qidxj" path="res://scripts/cli.gd" id="22_q5lcu"]
+[ext_resource type="Script" uid="uid://4d3i1e2dctun" path="res://scripts/cmdparse.gd" id="23_jf34i"]
+[ext_resource type="Script" uid="uid://cb40vkd5uu1g1" path="res://scripts/edit_graph.gd" id="24_8ivn3"]
+[ext_resource type="Resource" uid="uid://b87f7qp31583q" path="res://resources/lite_config.tres" id="25_j7vbt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_epnia"]
+shader = ExtResource("5_rckiu")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 0.0
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 1.688
+shader_parameter/mult = 1.5
+shader_parameter/blur_level = 5.07
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.0
+shader_parameter/use_bg = true
+
+[sub_resource type="Resource" id="Resource_5x1c3"]
+script = ExtResource("11_j7vbt")
+hover_color = Color(1.3, 1.1, 1.1, 1)
+hover_mult = 1.15
+_hover_scale = 1.02
+press_color = Color(1.1, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_n8ca6"]
+script = ExtResource("11_j7vbt")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ivn3"]
+content_margin_left = 8.0
+content_margin_top = 29.0
+content_margin_bottom = 8.0
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7vbt"]
+content_margin_left = 8.0
+content_margin_top = 29.0
+content_margin_bottom = 8.0
+bg_color = Color(0.12, 0.12, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_hsuaq"]
+script = ExtResource("11_j7vbt")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 1.0
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_uce8f"]
+script = ExtResource("11_j7vbt")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.2
+_hover_scale = 1.05
+press_color = Color(0.84, 0.84, 0.84, 1)
+_press_scale = 0.98
+animation_speed = 2.657
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rckiu"]
+bg_color = Color(0.3, 0.29880002, 0.27600002, 0.5137255)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbiqq"]
+bg_color = Color(0.35, 0.345275, 0.31849998, 0.5137255)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[node name="Control" type="Node2D" unique_id=721618792 node_paths=PackedStringArray("line_edit", "console", "camera")]
+script = ExtResource("1_hsuaq")
+line_edit = NodePath("Control/LineEdit")
+console = NodePath("Control/console")
+window_name = "ds"
+camera = NodePath("Camera2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1673404646]
+layer = -9
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1838912670]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[node name="Control" type="Control" parent="." unique_id=831158825 node_paths=PackedStringArray("table")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 645.0
+script = ExtResource("2_hsuaq")
+table = NodePath("CodeEdit")
+
+[node name="scenes" type="ColorRect" parent="Control" unique_id=149325451]
+material = SubResource("ShaderMaterial_epnia")
+instance_shader_parameters/corner_radius_width_add = Vector2(10, 0.3)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.6313726, 0.6313726, 0.6313726, 1)
+instance_shader_parameters/tuning = Color(0.36078432, 0.36078432, 0.36078432, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 209.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/scenes" unique_id=122228535]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 16.000002
+offset_right = 127.72238
+offset_bottom = 59.0
+scale = Vector2(0.6436957, 0.6436957)
+theme = ExtResource("6_mbiqq")
+text = "Datasets"
+script = ExtResource("7_q5lcu")
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Loc" type="Node" parent="Control/scenes/Label" unique_id=643785306]
+script = ExtResource("15_51ak0")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"datasets": "Датасеты"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Датасет"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="list" parent="Control/scenes" unique_id=1483078642 instance=ExtResource("8_jf34i")]
+material = ExtResource("9_b545l")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 0)
+instance_shader_parameters/tuning = Color(0.509804, 0.509804, 0.509804, 0.439216)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 38.0
+offset_right = 362.7778
+offset_bottom = 47.333332
+scale = Vector2(0.9, 0.9)
+color = Color(1, 1, 1, 0)
+script = ExtResource("10_8ivn3")
+naming = "list_unroll2"
+auto = false
+auto_names = Array[String]([])
+base_scale_x = 0.0
+text_color = Color(0, 0, 0, 1)
+base_size = Vector2(357.7778, 9.333332)
+static_mode = true
+_scroll_container = false
+arrangement_padding = Vector2(11, 5)
+mouse_open = false
+menu_name = &"list2"
+dynamic_size = true
+max_size = 210
+
+[node name="name" parent="Control/scenes/list" unique_id=1010659267 instance=ExtResource("8_jf34i")]
+z_index = 2
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.8784314, 0.7607843, 1, 1)
+instance_shader_parameters/tuning = Color(0.55439997, 0.4788, 0.63, 0.6901961)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 221.333
+offset_right = 436.0
+offset_bottom = 262.333
+pivot_offset = Vector2(118, 20.500008)
+button_type = 1
+placeholder = true
+auto_trim_text = true
+text = "Hello!!"
+text_alignment = Vector2(-1, 0)
+text_offset = Vector2(15, 0)
+marquee_enabled = true
+base_size = Vector2(236, 41.000015)
+alignment = Vector2(0.5, 0.5)
+mouse_open = false
+config = SubResource("Resource_5x1c3")
+
+[node name="ProceduralNodes" type="Node" parent="Control/scenes/list" unique_id=1354620319 node_paths=PackedStringArray("instance")]
+script = ExtResource("9_3m244")
+instance = NodePath("../name")
+metadata/_custom_type_script = "uid://cppqde4187p8n"
+
+[node name="plus" parent="Control/scenes" unique_id=679638660 instance=ExtResource("8_jf34i")]
+process_mode = 3
+z_index = 9
+instance_shader_parameters/corner_radius_width_add = Vector2(-10.835, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.67058825)
+layout_mode = 0
+offset_left = 117.0
+offset_top = 18.859617
+offset_right = 133.7193
+offset_bottom = 35.522972
+scale = Vector2(1.3004386, 1.3004386)
+pivot_offset = Vector2(8.35965, 8.331677)
+mouse_filter = 1
+color = Color(0.49, 0.49, 0.49, 1)
+button_type = 1
+top = true
+base_scale_x = 0.45
+resize_after = 6
+text = "+"
+text_offset = Vector2(0, -1)
+base_size = Vector2(16.7193, 16.663355)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_n8ca6")
+
+[node name="ColorRect" type="ColorRect" parent="Control/scenes" unique_id=441919543]
+z_index = -1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 77.0
+grow_horizontal = 2
+color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[node name="view" type="ColorRect" parent="Control" unique_id=538714790]
+material = SubResource("ShaderMaterial_epnia")
+instance_shader_parameters/corner_radius_width_add = Vector2(10, 0.3)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.63, 0.63, 0.63, 1)
+instance_shader_parameters/tuning = Color(0.36, 0.36, 0.36, 1)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -389.0
+offset_right = 71.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Control/view" unique_id=997422343 node_paths=PackedStringArray("base")]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 43.0
+offset_right = 192.0
+offset_bottom = 475.23172
+scale = Vector2(1.3580678, 1.3580678)
+script = ExtResource("11_7knke")
+cust = true
+base = NodePath("ScrollContainer/VBoxContainer/Control")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/view/Control" unique_id=274043313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.6280184
+offset_top = 17.672173
+offset_right = -5.6280212
+offset_bottom = 0.73635864
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/view/Control/ScrollContainer" unique_id=1946687027]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/view/Control/ScrollContainer/VBoxContainer" unique_id=751200786]
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 2
+
+[node name="name" type="Label" parent="Control/view/Control/ScrollContainer/VBoxContainer/Control" unique_id=817233294]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -9.472687
+offset_right = 125.65209
+offset_bottom = 33.527313
+scale = Vector2(0.59502, 0.59502)
+pivot_offset = Vector2(0, 21.5)
+theme = ExtResource("14_bwfib")
+theme_override_font_sizes/font_size = 27
+text = "hiiiii"
+script = ExtResource("7_q5lcu")
+auto_get_base_size = true
+padding = Vector2(0, 0)
+min_scale = 0.0
+parent_indep = true
+base_size = Vector2(120.65209, 43)
+simple = true
+simple_letters = 6
+unscaled_size = true
+pivoting = true
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="dtype" type="Label" parent="Control/view/Control/ScrollContainer/VBoxContainer/Control" unique_id=1414623882]
+self_modulate = Color(0.77, 0.77, 0.77, 1)
+layout_mode = 0
+offset_left = 4.8916626
+offset_top = 19.144833
+offset_right = 168.2556
+offset_bottom = 213.35635
+scale = Vector2(0.5168145, 0.5168145)
+theme = ExtResource("14_bwfib")
+theme_override_font_sizes/font_size = 27
+text = "bool"
+
+[node name="value" type="Label" parent="Control/view/Control/ScrollContainer/VBoxContainer/Control" unique_id=151490120 node_paths=PackedStringArray("top")]
+layout_mode = 0
+offset_left = 94.725235
+offset_top = 3.115944
+offset_right = 301.83124
+offset_bottom = 62.27986
+scale = Vector2(0.37184826, 0.37184826)
+theme = ExtResource("14_bwfib")
+theme_override_font_sizes/font_size = 27
+text = "0/1"
+horizontal_alignment = 2
+autowrap_mode = 3
+script = ExtResource("13_7knke")
+top = NodePath("../../../..")
+
+[node name="n" type="Node2D" parent="Control/view/Control/ScrollContainer/VBoxContainer/Control/value" unique_id=13100223]
+
+[node name="Label2" type="Label" parent="Control/view/Control" unique_id=2143028843]
+modulate = Color(0.88, 0.76, 1, 1)
+layout_mode = 0
+offset_left = -0.625335
+offset_top = -11.781445
+offset_right = 113.374664
+offset_bottom = 31.218555
+scale = Vector2(0.6633616, 0.6633616)
+pivot_offset = Vector2(0, 21.5)
+theme = ExtResource("14_bwfib")
+theme_override_font_sizes/font_size = 27
+text = "mnistgt"
+script = ExtResource("7_q5lcu")
+auto_get_base_size = true
+padding = Vector2(0, 0)
+min_scale = 0.0
+parent_indep = true
+base_size = Vector2(114, 43)
+simple_letters = 3
+unscaled_size = true
+debug = true
+pivoting = true
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Label3" type="Label" parent="Control/view/Control" unique_id=752569838]
+self_modulate = Color(0.76862746, 0.76862746, 0.76862746, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.95748
+offset_top = -11.659363
+offset_right = 183.59506
+offset_bottom = 31.340637
+grow_horizontal = 0
+scale = Vector2(0.2755513, 0.2755513)
+pivot_offset = Vector2(0, 21.5)
+theme = ExtResource("14_bwfib")
+theme_override_font_sizes/font_size = 27
+text = "32kk"
+horizontal_alignment = 2
+script = ExtResource("7_q5lcu")
+auto_get_base_size = true
+padding = Vector2(0, 0)
+min_scale = 0.0
+parent_indep = true
+base_size = Vector2(268.55255, 43)
+simple_letters = 10
+unscaled_size = true
+debug = true
+pivoting = true
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Label" type="Label" parent="Control/view" unique_id=677922092]
+self_modulate = Color(0.45, 0.45, 0.45, 1)
+layout_mode = 0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 242.0
+offset_bottom = 54.0
+scale = Vector2(0.77261, 0.77261)
+theme = ExtResource("2_fn1yt")
+text = "Preview"
+script = ExtResource("7_q5lcu")
+padding = Vector2(11, 4)
+
+[node name="Loc" type="Node" parent="Control/view/Label" unique_id=2019773816]
+script = ExtResource("15_51ak0")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"preview": "Превью"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="warn" type="Label" parent="Control/view" unique_id=1007131340]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.000061
+offset_top = 66.0
+offset_right = -21.0
+offset_bottom = -38.90338
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.035)
+theme = ExtResource("14_bwfib")
+theme_override_font_sizes/font_size = 16
+text = "Hello world!ппппппппппппппп"
+autowrap_mode = 3
+
+[node name="CodeEdit" type="Control" parent="Control" unique_id=166645326 node_paths=PackedStringArray("vscrollbar", "hscrollbar")]
+visible = false
+z_index = -1
+anchors_preset = 0
+offset_left = 188.5
+offset_right = 913.0
+offset_bottom = 558.0
+theme = ExtResource("2_fn1yt")
+script = ExtResource("13_bwfib")
+uniform_row_heights = true
+addition_enabled = true
+vscrollbar = NodePath("VScrollBar")
+odd_row_tint = Color(1, 1, 1, 0.019607844)
+spawn_delay_threshold = 7000.0
+content_margin = Vector4(0, 0, 0, 0)
+column_ratios = PackedFloat32Array(0.5, 0.5)
+hscrollbar = NodePath("HScrollBar")
+column_width_mode = 0
+max_total_width_scale = 1.3
+min_total_column_ratio = 0.30000000000000004
+min_column_width = 90.0
+header_width = 28.0
+column_names = Array[String](["Input", "Output"])
+min_vgrabber_ratio = 0.04
+
+[node name="VScrollBar" type="VScrollBar" parent="Control/CodeEdit" unique_id=287123789]
+z_index = 90
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HScrollBar" type="HScrollBar" parent="Control/CodeEdit" unique_id=2049687618]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="console" type="RichTextLabel" parent="Control" unique_id=168482282]
+material = ExtResource("13_3m244")
+instance_shader_parameters/extents = Vector4(1, 900, 0, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 188.5
+offset_top = -95.0
+offset_right = 188.5
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 2
+theme = ExtResource("14_bwfib")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ivn3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_j7vbt")
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+script = ExtResource("17_6hcr6")
+is_custom = true
+
+[node name="train2" parent="Control/console" unique_id=847644390 instance=ExtResource("8_jf34i")]
+z_index = 5
+instance_shader_parameters/corner_radius_width_add = Vector2(-8, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 6.5
+offset_top = 6.0
+offset_right = 57.476013
+offset_bottom = 25.339554
+scale = Vector2(1.091957, 1.091957)
+pivot_offset = Vector2(25.488007, 9.669777)
+mouse_filter = 1
+color = Color(0.59, 0.59, 0.59, 1)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 4
+text = "Clear"
+base_size = Vector2(50.976013, 19.339554)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_hsuaq")
+in_splash = true
+
+[node name="Commands" type="Node" parent="Control/console/train2" unique_id=85687246]
+script = ExtResource("23_jf34i")
+metadata/_custom_type_script = "uid://4d3i1e2dctun"
+
+[node name="Loc" type="Node" parent="Control/console/train2" unique_id=897168311]
+script = ExtResource("20_empbn")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"clear": "Сброс"
+})
+localizations_kz = Dictionary[String, String]({
+"clear": "Тазарт"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="9" parent="Control/console" unique_id=819736586 instance=ExtResource("8_jf34i")]
+self_modulate = Color(1, 1, 1, 0)
+material = ExtResource("13_51ak0")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.5
+offset_top = -2.0
+offset_right = 4.3044434
+offset_bottom = 30.624138
+grow_horizontal = 0
+scale = Vector2(0.798255, 0.798255)
+pivot_offset = Vector2(17.402222, 16.312069)
+color = Color(0.49019608, 0.627451, 0.83137256, 1)
+button_type = 1
+top = true
+hint = &"layer"
+base_size = Vector2(34.804443, 32.624138)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_uce8f")
+
+[node name="i" type="TextureRect" parent="Control/console/9" unique_id=1695439492]
+layout_mode = 0
+offset_left = 33.183807
+offset_top = 0.88832104
+offset_right = 57.183807
+offset_bottom = 24.888325
+rotation = 1.5707964
+scale = Vector2(1.3652097, 1.3652097)
+texture = ExtResource("14_empbn")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1947588932]
+z_index = -1
+layout_mode = 0
+offset_left = -145.0
+offset_top = 419.0
+offset_right = 1333.0
+offset_bottom = 1161.0
+mouse_filter = 2
+color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[node name="LineEdit2" parent="Control" unique_id=12631581 instance=ExtResource("17_wg51w")]
+visible = false
+z_index = 90
+layout_mode = 0
+offset_left = 194.99998
+offset_top = 478.0
+offset_right = 884.6411
+offset_bottom = 524.0
+scale = Vector2(0.61295277, 0.61295277)
+theme = ExtResource("18_6hcr6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rckiu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mbiqq")
+placeholder_text = "type command..."
+max_length = 14
+context_menu_enabled = false
+
+[node name="LineEdit" type="Control" parent="Control" unique_id=1471768986]
+anchors_preset = 0
+offset_left = 197.0
+offset_top = 477.0
+offset_right = 617.0
+offset_bottom = 506.0
+
+[node name="CodeEdit2" type="CodeEdit" parent="Control/LineEdit" unique_id=1259307603 node_paths=PackedStringArray("table", "console")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 15.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fn1yt")
+theme_override_fonts/font = ExtResource("20_rckiu")
+syntax_highlighter = ExtResource("21_mbiqq")
+code_completion_enabled = true
+auto_brace_completion_enabled = true
+script = ExtResource("22_q5lcu")
+table = NodePath("../../CodeEdit")
+console = NodePath("../../console")
+
+[node name="Node" type="Node" parent="Control/LineEdit/CodeEdit2" unique_id=1597720945]
+script = ExtResource("23_jf34i")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1782572185]
+scale = Vector2(2.1270475, 2.1270475)
+anchor_mode = 0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1932081118]
+layer = 126
+
+[node name="row_mod" parent="CanvasLayer2" unique_id=342435901 instance=ExtResource("8_jf34i")]
+z_index = 90
+material = ExtResource("9_b545l")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.51, 0.51, 0.51, 0.439216)
+offset_right = 182.66667
+offset_bottom = 46.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(33367.113, 2116)
+script = ExtResource("24_8ivn3")
+implement = false
+placeholder = true
+resize_after = 12
+text = "00000000000*"
+base_size = Vector2(182.66667, 46)
+alignment = Vector2(182.66667, 46)
+_scroll_container = 0.0
+expanded_size = 144
+scale_anim = true
+arrangement_padding = Vector2(10, 8)
+mouse_open = false
+menu_name = &"row_mod"
+max_size = 0
+config = null
+
+[node name="neuron" parent="CanvasLayer2/row_mod" unique_id=1528529663 instance=ExtResource("8_jf34i")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.9490196, 0.41960785, 0.41960785, 1)
+instance_shader_parameters/tuning = Color(0.4392157, 0.22352941, 0.22352941, 0.6392157)
+layout_mode = 0
+offset_left = -94.2857
+offset_top = -68.5714
+offset_right = 124.7143
+offset_bottom = -27.571404
+pivot_offset = Vector2(109.5, 20.5)
+button_type = 1
+hint = &"delete"
+text = "Delete"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("25_j7vbt")
+
+[node name="Loc" type="Node" parent="CanvasLayer2/row_mod/neuron" unique_id=486107831]
+script = ExtResource("15_51ak0")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Удалить"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Өшіру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="copy" parent="CanvasLayer2/row_mod" unique_id=48262690 instance=ExtResource("8_jf34i")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.86, 0.86, 0.86, 1)
+instance_shader_parameters/tuning = Color(0.44, 0.44, 0.44, 0.6392157)
+layout_mode = 0
+offset_left = -94.2857
+offset_top = -68.5714
+offset_right = 124.7143
+offset_bottom = -27.571404
+pivot_offset = Vector2(109.5, 20.5)
+button_type = 1
+hint = &"insert"
+text = "Insert"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("25_j7vbt")
+
+[node name="Loc" type="Node" parent="CanvasLayer2/row_mod/copy" unique_id=1392594187]
+script = ExtResource("15_51ak0")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Вставить"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Кірістіру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[connection signal="child_button_release" from="Control/scenes/list" to="." method="_on_list_child_button_release"]
+[connection signal="released" from="Control/scenes/plus" to="." method="_on_plus_released"]
+[connection signal="item_rect_changed" from="Control/view/Control" to="." method="_on_control_item_rect_changed"]
+[connection signal="deleted" from="Control/CodeEdit" to="." method="_on_code_edit_deleted"]
+[connection signal="dirtified" from="Control/CodeEdit" to="." method="_on_code_edit_dirtified"]
+[connection signal="preview_refreshed" from="Control/CodeEdit" to="." method="_on_code_edit_preview_refreshed"]
+[connection signal="released" from="Control/console/train2" to="." method="_on_train_2_released"]
+[connection signal="released" from="Control/console/9" to="." method="_on__released"]

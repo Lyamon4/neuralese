@@ -1,0 +1,158 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddl50qlfjt4st"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://scenes/base_graph.tscn" id="1_2pdka"]
+[ext_resource type="Script" uid="uid://dad2oa47ouedp" path="res://scripts/io_graph.gd" id="2_jeojw"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_rxypt"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="3_5xco4"]
+[ext_resource type="Script" uid="uid://7mf5v1esvqbs" path="res://scripts/unit.gd" id="3_bp7um"]
+[ext_resource type="Material" uid="uid://blkv556akjllh" path="res://resources/panel.tres" id="4_q7htc"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="5_5h31y"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="5_jeojw"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="6_5khim"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="7_q8r0s"]
+
+[sub_resource type="Resource" id="Resource_jeojw"]
+script = ExtResource("6_5khim")
+hover_color = Color(0.68, 1, 0.834667, 1)
+hover_mult = 1.4
+_hover_scale = 1.037
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" node_paths=PackedStringArray("unit", "add_button", "input", "line_edit") instance=ExtResource("1_2pdka")]
+mouse_filter = 2
+script = ExtResource("2_jeojw")
+bottom_attached = true
+unit = NodePath("connection")
+add_button = NodePath("input/ColorRect2")
+input = NodePath("input")
+padding = -7.0
+line_edit = NodePath("input/LineEdit")
+unit_offset_y = 0.0
+wait_enclose = false
+enclose_pad = 0.0
+target_size = 96.0
+min_size = 0.0
+size_add = 0.0
+lerp_size = true
+input_y_add = 0.0
+z_space = 1
+
+[node name="ColorRect" parent="." index="0"]
+z_index = 1
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+instance_shader_parameters/tuning = Color(0.05, 0.05, 0.05, 0.541176)
+offset_right = 82.0
+offset_bottom = 30.0
+mouse_filter = 2
+
+[node name="Label" parent="ColorRect/root" index="0"]
+z_index = 0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 124.0
+offset_bottom = 48.0
+scale = Vector2(0.414803, 0.414803)
+theme_override_colors/font_color = Color(0, 1, 0.716667, 1)
+text = "MapVar"
+
+[node name="connection" type="Control" parent="." index="1"]
+anchors_preset = 0
+offset_left = -85.0
+offset_top = -26.0
+offset_right = 97.0
+offset_bottom = 14.0
+script = ExtResource("3_bp7um")
+for_conn_size = Vector2(202, 60)
+
+[node name="ColorRect" type="ColorRect" parent="connection" index="0"]
+z_index = 1
+material = ExtResource("4_q7htc")
+instance_shader_parameters/outline_color = Color(0.501961, 0.501961, 0.501961, 0.490196)
+instance_shader_parameters/tuning = Color(0.5, 0.5, 0.5, 0.490196)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 12.0
+offset_right = 160.0
+offset_bottom = 39.0
+
+[node name="o" parent="connection" index="1" instance=ExtResource("2_rxypt")]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 11.0
+offset_right = 177.0
+offset_bottom = 39.0
+color = Color(0, 1, 0.717647, 1)
+connection_type = 1
+area_paddings = Vector4(20, 5, 20, 5)
+origin_offset = Vector2(3, 0)
+unpadded_area = Vector4(0, 0, 20, 0)
+gradient_color = Color(0, 1, 0.717647, 1)
+
+[node name="Label" type="Label" parent="connection" index="2"]
+z_index = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = 15.0
+offset_right = 327.0
+offset_bottom = 58.0
+scale = Vector2(0.448522, 0.448522)
+theme = ExtResource("5_5h31y")
+text = "Variable name"
+
+[node name="input" type="Control" parent="." index="2"]
+z_index = 1
+anchors_preset = 0
+offset_left = -78.0
+offset_top = 24.0
+offset_right = -38.0
+offset_bottom = 64.0
+
+[node name="LineEdit" parent="input" index="0" node_paths=PackedStringArray("accept_button") instance=ExtResource("7_q8r0s")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = -33.0
+offset_right = 318.0
+offset_bottom = 15.0
+context_menu_enabled = false
+accept_button = NodePath("../ColorRect2")
+
+[node name="ColorRect2" parent="input" index="1" node_paths=PackedStringArray("graph") instance=ExtResource("3_5xco4")]
+material = ExtResource("5_jeojw")
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = 82.0
+offset_top = -10.0
+offset_right = 170.0
+offset_bottom = 32.0
+scale = Vector2(0.583319, 0.583319)
+pivot_offset = Vector2(44, 21)
+button_type = 1
+text = "Add +"
+base_size = Vector2(88, 42)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_jeojw")
+graph = NodePath("../..")
+
+[node name="i" parent="." index="3" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_rxypt")]
+instance_shader_parameters/tuning = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = -10.0
+offset_top = -75.0
+offset_right = 11.0
+offset_bottom = -54.0
+color = Color(1, 0.986, 0.58, 1)
+keyword = &"router"
+connection_type = 0
+area_paddings = Vector4(16, 16, 16, 16)
+origin_offset = Vector2(0, -3)
+dir_vector = Vector2(0, -1)
+parent_graph = NodePath("..")
+conn_count_keyword = "router"
+gradient_color = Color(1, 0.984314, 0.580392, 1)
+
+[connection signal="pressed" from="input/ColorRect2" to="." method="_on_color_rect_2_pressed"]

@@ -1,0 +1,17 @@
+pip install google-genai
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install sanic
+pip install kagglehub
+pip install numpy
+pip install lmdb
+pip install redis>=5.0.0
+pip install celery
+pip install python-dotenv
+pip install pebble
+pip install rocksdict
+pip install ravendb
+
+Server Install:
+docker pull ravendb/ravendb
+docker run -d --name ravendb -p 8080:8080 -e RAVEN_Setup_Mode=None -e RAVEN_Security_UnsecuredAccessAllowed=PublicNetwork -v ravendb_data:/opt/RavenDB/Server/RavenData ravendb/ravendb
+

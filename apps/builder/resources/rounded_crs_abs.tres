@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b86rhtfhmtu17"]
+
+[ext_resource type="Shader" uid="uid://cctmdphlc5qao" path="res://shaders/abs_runded.gdshader" id="1_wryaf"]
+
+[resource]
+shader = ExtResource("1_wryaf")
+shader_parameter/corner_radius = 26.34800125153
+shader_parameter/bg_fill = true
+shader_parameter/outline_width = 3.9730001887175
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 1)

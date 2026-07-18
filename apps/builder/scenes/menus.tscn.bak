@@ -1,0 +1,705 @@
+[gd_scene load_steps=16 format=3 uid="uid://8u7275kgyen4"]
+
+[ext_resource type="Script" uid="uid://bnmswwbafj7fb" path="res://scripts/menus.gd" id="1_chs3c"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="2_rnbi1"]
+[ext_resource type="Material" uid="uid://jm8oyahk342s" path="res://resources/context_menu.tres" id="3_gygdu"]
+[ext_resource type="Script" uid="uid://dqx0m845e4ld3" path="res://scripts/cmenu.gd" id="4_rgbxd"]
+[ext_resource type="Resource" uid="uid://b87f7qp31583q" path="res://resources/lite_config.tres" id="5_0ypn7"]
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="5_r44s1"]
+[ext_resource type="Script" uid="uid://1afleute7nbb" path="res://scripts/detatch_menu.gd" id="6_r44s1"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="6_rgbxd"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="7_w6445"]
+[ext_resource type="Script" uid="uid://ynrhp2d5ge1o" path="res://scripts/detatch.gd" id="8_6how5"]
+[ext_resource type="Script" uid="uid://cb40vkd5uu1g1" path="res://scripts/edit_graph.gd" id="9_rxqxn"]
+[ext_resource type="Script" uid="uid://51dbrgobgi36" path="res://scripts/subctx_menu.gd" id="10_gygdu"]
+[ext_resource type="Script" uid="uid://c1u1irg2f37v8" path="res://scripts/subctx.gd" id="10_rnbi1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6445"]
+shader = ExtResource("5_r44s1")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(0.22, 0.22, 0.22, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 16.874
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 1.5
+shader_parameter/mult = 1.5
+shader_parameter/blur_level = 4.48
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.0
+shader_parameter/use_bg = false
+
+[sub_resource type="Resource" id="Resource_77dp3"]
+script = ExtResource("7_w6445")
+hover_color = Color(1.3, 1.1, 1.1, 1)
+press_color = Color(1.1, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="menus" type="CanvasLayer"]
+layer = 125
+script = ExtResource("1_chs3c")
+namings = Array[PackedStringArray]([PackedStringArray("input", "input_1d")])
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="add_graph" parent="." instance=ExtResource("2_rnbi1")]
+material = ExtResource("3_gygdu")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.509804, 0.509804, 0.509804, 0.439216)
+offset_right = 239.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(57121, 2500)
+script = ExtResource("4_rgbxd")
+name_groups = Array[PackedStringArray]([PackedStringArray("input", "input_1d", "classifier"), PackedStringArray("flatten", "reshape2d", "softmax"), PackedStringArray("layer", "conv2d", "maxpool", "dropout", "neuron"), PackedStringArray("lua_env", "dataset", "model_name"), PackedStringArray("output_map", "train_begin", "run_model", "train_input", "train_rl"), PackedStringArray("augment_tf", "concat")])
+skip = Array[String](["augment_tf", "train_rl", "lua_env"])
+text = "Add node        +"
+base_size = Vector2(239, 50)
+alignment = Vector2(239, 50)
+size_add = 4.0
+_scroll_container = 0.0
+expanded_size = 0
+scale_anim = true
+arrangement_padding = Vector2(10, 8)
+menu_name = &"add_graph"
+max_size = 250
+margin_y = null
+
+[node name="5" parent="add_graph" instance=ExtResource("2_rnbi1")]
+material = SubResource("ShaderMaterial_w6445")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+button_type = 1
+hint = &"input"
+text = "NodeInput"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="2" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.941176, 0.941176, 0.941176, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.857
+offset_top = -311.429
+offset_right = 521.857
+offset_bottom = -270.429
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.513, 0.75165, 0.9, 1)
+button_type = 1
+hint = &"act"
+text = "ActivationFunc"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="1" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.857
+offset_top = -358.571
+offset_right = 521.857
+offset_bottom = -317.571
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.76, 1, 0.78, 1)
+button_type = 1
+hint = &"layer"
+text = "DenseLayer"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="6" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"train_input"
+text = "TrainInput"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="7" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"softmax"
+text = "SoftmaxTensor"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="8" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"reshape2d"
+text = "ReshapeTo2D"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="9" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"flatten"
+text = "FlattenTo1D"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="10" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"conv2d"
+text = "Conv2DLayer"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="11" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"maxpool"
+text = "MaxPoolLayer"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="12" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"classifier"
+text = "OutClassifier"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="13" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"train_begin"
+text = "TrainBegin"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="14" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"model_name"
+text = "ModelName"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="15" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"dataset"
+text = "DatasetName"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="16" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"run_model"
+text = "RunModel"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="17" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"augment_tf"
+text = "AugmentTf"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="18" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"output_map"
+text = "OutputMap"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="19" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"input1d"
+text = "Input1D"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="20" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"lua_env"
+text = "EnvName"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="21" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"train_rl"
+text = "TrainRL"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="22" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"dropout"
+text = "Dropout"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="23" parent="add_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = 302.667
+offset_top = -258.667
+offset_right = 521.667
+offset_bottom = -217.66699
+pivot_offset = Vector2(109.5, 20.5)
+color = Color(0.463817, 0.4505, 0.85, 1)
+button_type = 1
+hint = &"concat"
+text = "Concat"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="Loc" type="Node" parent="add_graph"]
+script = ExtResource("6_rgbxd")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Новый нод       +"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Жаңа нод        +"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="detatch" parent="." instance=ExtResource("2_rnbi1")]
+material = ExtResource("3_gygdu")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.509804, 0.509804, 0.509804, 0.439216)
+offset_left = -1.0
+offset_top = 46.0
+offset_right = 159.0
+offset_bottom = 96.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(25600, 2500)
+script = ExtResource("6_r44s1")
+hint = &"detatch"
+text = "Detatch   -"
+base_size = Vector2(160, 50)
+alignment = Vector2(160, 50)
+_scroll_container = 0.0
+scale_anim = true
+mouse_open = false
+menu_name = &"detatch"
+dynamic_size = true
+max_size = 210
+margin_y = null
+
+[node name="delete" parent="detatch" instance=ExtResource("2_rnbi1")]
+z_index = 2
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.95, 0.418, 0.418, 1)
+instance_shader_parameters/tuning = Color(0.44, 0.2244, 0.2244, 0.639216)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 221.333
+offset_right = 436.0
+offset_bottom = 262.333
+pivot_offset = Vector2(118, 20.500008)
+button_type = 1
+placeholder = true
+text = "Hello!!"
+base_size = Vector2(236, 41.000015)
+alignment = Vector2(0.5, 0.5)
+mouse_open = false
+config = SubResource("Resource_77dp3")
+
+[node name="ProceduralNodes" type="Node" parent="detatch" node_paths=PackedStringArray("instance")]
+script = ExtResource("8_6how5")
+instance = NodePath("../delete")
+metadata/_custom_type_script = "uid://cppqde4187p8n"
+
+[node name="Loc" type="Node" parent="detatch"]
+script = ExtResource("6_rgbxd")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Удалить   -"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Өшіру     -"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="edit_graph" parent="." instance=ExtResource("2_rnbi1")]
+material = ExtResource("3_gygdu")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.51, 0.51, 0.51, 0.439216)
+offset_right = 182.66667
+offset_bottom = 46.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(33367.113, 2116)
+script = ExtResource("9_rxqxn")
+implement = Rect2(0, 0, 1176, 605)
+placeholder = true
+text = "Edit node   *"
+base_size = Vector2(182.66667, 46)
+alignment = Vector2(182.66667, 46)
+_scroll_container = 0.0
+expanded_size = 144
+scale_anim = true
+arrangement_padding = Vector2(10, 8)
+mouse_open = false
+menu_name = &"edit_graph"
+max_size = 0
+config = null
+margin_y = null
+
+[node name="neuron" parent="edit_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.9490196, 0.41960785, 0.41960785, 1)
+instance_shader_parameters/tuning = Color(0.4392157, 0.22352941, 0.22352941, 0.6392157)
+layout_mode = 0
+offset_left = -94.2857
+offset_top = -68.5714
+offset_right = 124.7143
+offset_bottom = -27.571404
+pivot_offset = Vector2(109.5, 20.5)
+button_type = 1
+hint = &"1"
+text = "Delete"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="Loc" type="Node" parent="edit_graph/neuron"]
+script = ExtResource("6_rgbxd")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Удалить"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Өшіру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="copy" parent="edit_graph" instance=ExtResource("2_rnbi1")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.86, 0.86, 0.86, 1)
+instance_shader_parameters/tuning = Color(0.44, 0.44, 0.44, 0.6392157)
+layout_mode = 0
+offset_left = -94.2857
+offset_top = -68.5714
+offset_right = 124.7143
+offset_bottom = -27.571404
+pivot_offset = Vector2(109.5, 20.5)
+button_type = 1
+hint = &"copy"
+text = "Duplicate"
+base_size = Vector2(219, 41)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("5_0ypn7")
+
+[node name="Loc" type="Node" parent="edit_graph/copy"]
+script = ExtResource("6_rgbxd")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Копировать"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Көшіру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Loc" type="Node" parent="edit_graph"]
+script = ExtResource("6_rgbxd")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Изменить    *"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Өзгерту     *"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="delete_i" parent="." instance=ExtResource("2_rnbi1")]
+visible = false
+material = ExtResource("3_gygdu")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.51, 0.51, 0.51, 0.439216)
+offset_right = 159.0
+offset_bottom = 46.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(25281, 2116)
+script = ExtResource("9_rxqxn")
+implement = Rect2(0, 0, 1176, 605)
+text_alignment = Vector2(-1, 0)
+text_offset = Vector2(15, 0)
+base_size = Vector2(159, 46)
+alignment = Vector2(159, 46)
+_scroll_container = 0.0
+expanded_size = 96
+scale_anim = true
+mouse_open = false
+menu_name = &"delete_i"
+max_size = 0
+config = null
+margin_y = null
+
+[node name="delete" parent="delete_i" instance=ExtResource("2_rnbi1")]
+z_index = 2
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.95, 0.418, 0.418, 1)
+instance_shader_parameters/tuning = Color(0.44, 0.2244, 0.2244, 0.639216)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 105.0
+offset_bottom = 74.0
+pivot_offset = Vector2(50.5, 20.5)
+button_type = 1
+text = "Delete"
+base_size = Vector2(101, 41)
+alignment = Vector2(0.5, 0.5)
+mouse_open = false
+config = SubResource("Resource_77dp3")
+
+[node name="Loc" type="Node" parent="delete_i/delete"]
+script = ExtResource("6_rgbxd")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Удалить"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Өшіру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="detatch3" parent="." instance=ExtResource("2_rnbi1")]
+material = ExtResource("3_gygdu")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.509804, 0.509804, 0.509804, 0.439216)
+offset_left = -1.0
+offset_top = 46.0
+offset_right = 159.0
+offset_bottom = 54.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(25600, 64)
+script = ExtResource("10_gygdu")
+text_color = Color(0, 0, 0, 1)
+base_size = Vector2(160, 8)
+alignment = Vector2(160, 8)
+_scroll_container = 0.0
+secondary = true
+mouse_open = false
+menu_name = &"subctx"
+max_size = 210
+config = null
+margin_y = null
+
+[node name="delete" parent="detatch3" instance=ExtResource("2_rnbi1")]
+z_index = 2
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.95, 0.418, 0.418, 1)
+instance_shader_parameters/tuning = Color(0.44, 0.2244, 0.2244, 0.639216)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 221.333
+offset_right = 436.0
+offset_bottom = 262.333
+pivot_offset = Vector2(118, 20.500008)
+button_type = 1
+placeholder = true
+text = "Hello!!"
+base_size = Vector2(236, 41.000015)
+alignment = Vector2(0.5, 0.5)
+mouse_open = false
+config = SubResource("Resource_77dp3")
+
+[node name="ProceduralNodes2" type="Node" parent="detatch3" node_paths=PackedStringArray("instance")]
+script = ExtResource("10_rnbi1")
+instance = NodePath("../delete")
+metadata/_custom_type_script = "uid://cppqde4187p8n"

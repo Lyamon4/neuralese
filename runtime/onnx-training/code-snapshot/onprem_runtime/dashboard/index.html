@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neuralese Runtime</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>Neuralese Runtime</h1>
+          <p>On-prem ONNX training node</p>
+        </div>
+        <label class="upload">
+          <input id="bundleInput" type="file" accept=".zip" />
+          <span>Upload bundle</span>
+        </label>
+      </header>
+
+      <section class="auth-panel">
+        <label>
+          <span>API token</span>
+          <input id="authToken" type="password" autocomplete="off" placeholder="Optional when auth is enabled" />
+        </label>
+        <small id="authStatus">Token is stored only in this browser.</small>
+      </section>
+
+      <div id="runtimeNotice" class="notice" hidden></div>
+
+      <section class="stats">
+        <div><span id="cpu">0%</span><small>CPU</small></div>
+        <div><span id="memory">0%</span><small>Memory</small></div>
+        <div><span id="activeJobs">0</span><small>Active jobs</small></div>
+        <div><span id="totalJobs">0</span><small>Total jobs</small></div>
+        <div><span id="capacitySlots">0/0</span><small>Capacity slots</small></div>
+        <div><span id="runtimeMode">local_school</span><small>Runtime mode</small></div>
+        <div><span id="backendName">onnxruntime_training</span><small>Backend</small></div>
+      </section>
+
+      <section class="runtime-grid">
+        <div>
+          <div class="section-title">Public datasets</div>
+          <div id="publicDatasets" class="chips"></div>
+        </div>
+        <div>
+          <div class="section-title">Local synced datasets</div>
+          <div id="localFingerprints" class="fingerprints"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">Training jobs</div>
+        <div id="jobs" class="jobs"></div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

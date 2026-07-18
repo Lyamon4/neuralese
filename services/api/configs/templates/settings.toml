@@ -1,0 +1,6 @@
+# Local Runner configuration
+mode = "local_workstation"
+port = 8500
+workers = 1
+db_path = "./userdata.db"
+log_level = "info"

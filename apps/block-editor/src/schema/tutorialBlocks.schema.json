@@ -1,0 +1,1945 @@
+{
+  "schemaVersion": 2,
+  "connectionShapes": {
+    "lesson_step": {
+      "width": 36,
+      "height": 8,
+      "pathLeft": " h 7 v 5 h 8 v -5 h 21 ",
+      "pathRight": " h -21 v 5 h -8 v -5 h -7 "
+    },
+    "action": {
+      "width": 36,
+      "height": 8,
+      "pathLeft": " c 2,0 3,1 4,2 l 4,4 c 1,1 2,2 4,2 h 12 c 2,0 3,-1 4,-2 l 4,-4 c 1,-1 2,-2 4,-2 ",
+      "pathRight": " c -2,0 -3,1 -4,2 l -4,4 c -1,1 -2,2 -4,2 h -12 c -2,0 -3,-1 -4,-2 l -4,-4 c -1,-1 -2,-2 -4,-2 "
+    },
+    "quiz_option": {
+      "width": 36,
+      "height": 8,
+      "pathLeft": " h 6 v 4 h 6 v 4 h 12 v -4 h 6 v -4 h 6 ",
+      "pathRight": " h -6 v 4 h -6 v 4 h -12 v -4 h -6 v -4 h -6 "
+    },
+    "create_binding": {
+      "width": 36,
+      "height": 8,
+      "pathLeft": " h 8 q 10,8 20,0 h 8 ",
+      "pathRight": " h -8 q -10,8 -20,0 h -8 "
+    },
+    "requirement": {
+      "width": 36,
+      "height": 8,
+      "pathLeft": " h 10 l 8,8 l 8,-8 h 10 ",
+      "pathRight": " h -10 l -8,8 l -8,-8 h -10 "
+    },
+    "topology_node": {
+      "width": 36,
+      "height": 8,
+      "pathLeft": " h 5 l 7,8 h 12 l 7,-8 h 5 ",
+      "pathRight": " h -5 l -7,8 h -12 l -7,-8 h -5 "
+    },
+    "topology_edge": {
+      "width": 36,
+      "height": 8,
+      "pathLeft": " h 8 v 8 h 20 v -8 h 8 ",
+      "pathRight": " h -8 v 8 h -20 v -8 h -8 "
+    },
+    "highlight_target": {
+      "width": 36,
+      "height": 8,
+      "pathLeft": " h 6 c 4,0 4,8 8,8 h 8 c 4,0 4,-8 8,-8 h 6 ",
+      "pathRight": " h -6 c -4,0 -4,8 -8,8 h -8 c -4,0 -4,-8 -8,-8 h -6 "
+    }
+  },
+  "blocks": [
+    {
+      "type": "lesson_root",
+      "message": "When the main lesson flow starts",
+      "category": "Lesson",
+      "colour": "#2457ff",
+      "kind": "hat",
+      "role": "lesson_root",
+      "toolboxVisible": false,
+      "tooltip": "The single starting point for this lesson.",
+      "fields": [],
+      "stackInput": "flow",
+      "connection": {
+        "next": "lesson_step"
+      },
+      "emit": {
+        "op": "object",
+        "fields": {
+          "flow": {
+            "op": "children",
+            "input": "flow"
+          }
+        }
+      }
+    },
+    {
+      "type": "lesson_step",
+      "message": "Step %1 title %2 keep active %3",
+      "category": "Lesson",
+      "colour": "#2457ff",
+      "kind": "statement",
+      "tooltip": "A lesson step. Put teacher actions inside it.",
+      "fields": [
+        {
+          "name": "id",
+          "type": "slug",
+          "label": "Step id",
+          "default": "welcome",
+          "required": true,
+          "teacherVisible": false
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "label": "Step title",
+          "default": "Welcome",
+          "required": true
+        },
+        {
+          "name": "persistent",
+          "type": "bool",
+          "label": "Persistent",
+          "default": false
+        }
+      ],
+      "connection": {
+        "previous": "lesson_step",
+        "next": "lesson_step"
+      },
+      "statementInputs": [
+        {
+          "name": "actions",
+          "label": "Actions",
+          "check": "action",
+          "required": true
+        }
+      ],
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "template",
+          "value": "step {id}"
+        },
+        "value": {
+          "op": "object",
+          "fields": {
+            "title": {
+              "op": "field",
+              "name": "title"
+            },
+            "persistent": {
+              "op": "when",
+              "field": "persistent",
+              "equals": "TRUE",
+              "then": {
+                "op": "literal",
+                "value": true
+              }
+            },
+            "actions": {
+              "op": "children",
+              "input": "actions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "lesson_branch",
+      "message": "Branch %1",
+      "category": "Flow",
+      "colour": "#ffad0a",
+      "kind": "hat",
+      "role": "lesson_branch",
+      "branchNameField": "name",
+      "tooltip": "A separate named lesson flow that questions can open.",
+      "fields": [
+        {
+          "name": "name",
+          "type": "slug",
+          "label": "Branch name",
+          "default": "extra_help",
+          "required": true
+        }
+      ],
+      "stackInput": "steps",
+      "connection": {
+        "next": "lesson_step"
+      },
+      "emit": {
+        "op": "computedKey",
+        "template": "{name}",
+        "value": {
+          "op": "children",
+          "input": "steps"
+        }
+      }
+    },
+    {
+      "type": "action_explain",
+      "message": "Say %1 wait %2 %3 %4",
+      "category": "Teacher",
+      "colour": "#00a8f5",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "explain"
+      },
+      "tooltip": "Show explanation text to the student.",
+      "fields": [
+        {
+          "name": "text",
+          "type": "textarea",
+          "label": "Message",
+          "default": "Welcome to the lesson.",
+          "required": true
+        },
+        {
+          "name": "wait",
+          "type": "wait_mode",
+          "label": "Continue mode",
+          "default": "next",
+          "options": [
+            {
+              "label": "for Continue",
+              "value": "next"
+            },
+            {
+              "label": "not at all",
+              "value": "none"
+            },
+            {
+              "label": "for a time",
+              "value": "time"
+            }
+          ]
+        },
+        {
+          "name": "time",
+          "type": "number",
+          "label": "Seconds",
+          "default": 1,
+          "min": 0.1,
+          "precision": 0.1,
+          "required": true,
+          "visibleWhen": {
+            "field": "wait",
+            "equals": "time"
+          }
+        },
+        {
+          "name": "time_unit",
+          "type": "label",
+          "label": "Seconds label",
+          "default": "seconds",
+          "visibleWhen": {
+            "field": "wait",
+            "equals": "time"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "explain"
+        },
+        "value": {
+          "op": "object",
+          "fields": {
+            "text": {
+              "op": "field",
+              "name": "text",
+              "coerce": "lines"
+            },
+            "wait": {
+              "op": "field",
+              "name": "wait",
+              "default": "next"
+            },
+            "time": {
+              "op": "when",
+              "field": "wait",
+              "equals": "time",
+              "then": {
+                "op": "field",
+                "name": "time",
+                "coerce": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "action_explain_button",
+      "message": "Wait for the explanation button",
+      "category": "Teacher",
+      "colour": "#00a8f5",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "explain_button"
+      },
+      "tooltip": "Wait until the student finishes the explanation.",
+      "fields": [],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "explain_button"
+        },
+        "value": {
+          "op": "literal",
+          "value": {}
+        }
+      }
+    },
+    {
+      "type": "action_explain_next",
+      "message": "Hide explanation and continue",
+      "category": "Teacher",
+      "colour": "#00a8f5",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "explain_next"
+      },
+      "tooltip": "Finish and hide the current explanation.",
+      "fields": [],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "explain_next"
+        },
+        "value": {
+          "op": "literal",
+          "value": {}
+        }
+      }
+    },
+    {
+      "type": "action_ask",
+      "message": "Ask %1 options %2\nCorrect answers %3 show result %4 default branch %5",
+      "category": "Teacher",
+      "colour": "#00a8f5",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "ask"
+      },
+      "tooltip": "Ask a multiple-choice question. Open Options to edit one answer per row.",
+      "fields": [
+        {
+          "name": "head",
+          "type": "textarea",
+          "label": "Question",
+          "default": "What is the correct answer?",
+          "required": true
+        },
+        {
+          "name": "options",
+          "type": "option_list",
+          "label": "Options",
+          "default": "First option\nSecond option",
+          "required": true
+        },
+        {
+          "name": "correct",
+          "type": "string_list",
+          "label": "Correct option numbers",
+          "default": "1",
+          "required": true
+        },
+        {
+          "name": "show",
+          "type": "bool",
+          "label": "Show result",
+          "default": true
+        },
+        {
+          "name": "default_branch",
+          "type": "branch_ref",
+          "label": "Default branch",
+          "default": ""
+        }
+      ],
+      "statementInputs": [
+        {
+          "name": "routes",
+          "label": "Answer routes",
+          "check": "quiz_option"
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "ask"
+        },
+        "value": {
+          "op": "object",
+          "fields": {
+            "head": {
+              "op": "field",
+              "name": "head"
+            },
+            "options": {
+              "op": "field",
+              "name": "options",
+              "coerce": "lines"
+            },
+            "correct": {
+              "op": "field",
+              "name": "correct",
+              "coerce": "integerList"
+            },
+            "show": {
+              "op": "field",
+              "name": "show",
+              "coerce": "boolean"
+            },
+            "on_answer": {
+              "op": "childrenObject",
+              "input": "routes",
+              "omitEmpty": true
+            },
+            "default": {
+              "op": "when",
+              "field": "default_branch",
+              "notEmpty": true,
+              "then": {
+                "op": "singleKeyMapping",
+                "key": {
+                  "op": "literal",
+                  "value": "goto"
+                },
+                "value": {
+                  "op": "field",
+                  "name": "default_branch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "quiz_answer_route",
+      "message": "Answer %1 opens branch %2",
+      "category": "Flow",
+      "colour": "#ffad0a",
+      "kind": "statement",
+      "tooltip": "Route one answer to a named branch.",
+      "fields": [
+        {
+          "name": "answer",
+          "type": "number",
+          "label": "Answer number",
+          "default": 1,
+          "min": 1,
+          "precision": 1,
+          "required": true
+        },
+        {
+          "name": "branch",
+          "type": "branch_ref",
+          "label": "Branch",
+          "default": "extra_help",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "quiz_option",
+        "next": "quiz_option"
+      },
+      "emit": {
+        "op": "computedKey",
+        "template": "{answer}",
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "goto"
+          },
+          "value": {
+            "op": "field",
+            "name": "branch"
+          }
+        }
+      }
+    },
+    {
+      "type": "action_create_nodes",
+      "message": "Ask student to create these nodes",
+      "category": "Student Task",
+      "colour": "#8b3dff",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "create"
+      },
+      "tooltip": "Create several required nodes as one student task.",
+      "fields": [],
+      "statementInputs": [
+        {
+          "name": "nodes",
+          "label": "Nodes",
+          "check": "create_binding",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "create"
+        },
+        "value": {
+          "op": "childrenObject",
+          "input": "nodes"
+        }
+      }
+    },
+    {
+      "type": "create_node_entry",
+      "message": "Node %1 named %2",
+      "category": "Student Task",
+      "colour": "#8b3dff",
+      "kind": "statement",
+      "tooltip": "One node inside a multi-node creation task.",
+      "fields": [
+        {
+          "name": "node_type",
+          "type": "node_type",
+          "label": "Node type",
+          "default": "layer",
+          "required": true
+        },
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Teacher name",
+          "default": "dense_1",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "definition"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "create_binding",
+        "next": "create_binding"
+      },
+      "emit": {
+        "op": "computedKey",
+        "template": "{alias}",
+        "value": {
+          "op": "field",
+          "name": "node_type"
+        }
+      }
+    },
+    {
+      "type": "action_create_node",
+      "message": "Ask student to create %1 named %2",
+      "category": "Student Task",
+      "colour": "#8b3dff",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "create"
+      },
+      "tooltip": "Wait for the student to create a model node.",
+      "fields": [
+        {
+          "name": "node_type",
+          "type": "node_type",
+          "label": "Node type",
+          "default": "layer",
+          "required": true
+        },
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Teacher name",
+          "default": "dense_1",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "definition"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "create"
+        },
+        "value": {
+          "op": "computedKey",
+          "template": "{alias}",
+          "value": {
+            "op": "field",
+            "name": "node_type"
+          }
+        }
+      }
+    },
+    {
+      "type": "action_require_node",
+      "message": "Wait until node %1 exists",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "dsl": [
+        {
+          "kind": "action",
+          "key": "require"
+        },
+        {
+          "kind": "requirement",
+          "key": "node"
+        }
+      ],
+      "tooltip": "Continue after a named node exists.",
+      "fields": [
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Teacher name",
+          "default": "dense_1",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "require"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "node"
+          },
+          "value": {
+            "op": "singleKeyMapping",
+            "key": {
+              "op": "literal",
+              "value": "bind"
+            },
+            "value": {
+              "op": "field",
+              "name": "alias"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "action_require_connection",
+      "message": "Wait for connection from %1 port %2 to %3 port %4",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "dsl": {
+        "kind": "requirement",
+        "key": "connection"
+      },
+      "tooltip": "Continue after two named nodes are connected.",
+      "fields": [
+        {
+          "name": "from",
+          "type": "slug",
+          "label": "From",
+          "default": "input",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        },
+        {
+          "name": "out_port",
+          "type": "number",
+          "label": "Output port",
+          "default": 0,
+          "min": -1,
+          "precision": 1
+        },
+        {
+          "name": "to",
+          "type": "slug",
+          "label": "To",
+          "default": "dense",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        },
+        {
+          "name": "in_port",
+          "type": "number",
+          "label": "Input port",
+          "default": 0,
+          "min": -1,
+          "precision": 1
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "require"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "connection"
+          },
+          "value": {
+            "op": "object",
+            "fields": {
+              "from": {
+                "op": "field",
+                "name": "from"
+              },
+              "to": {
+                "op": "field",
+                "name": "to"
+              },
+              "out_port": {
+                "op": "field",
+                "name": "out_port",
+                "coerce": "number"
+              },
+              "in_port": {
+                "op": "field",
+                "name": "in_port",
+                "coerce": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "action_require_config",
+      "message": "Wait until %1 property %2 %3 %4",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "dsl": {
+        "kind": "requirement",
+        "key": "config"
+      },
+      "tooltip": "Continue when a node property matches a condition.",
+      "fields": [
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Node",
+          "default": "dense",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        },
+        {
+          "name": "property",
+          "type": "slug",
+          "label": "Property",
+          "default": "neuron_count",
+          "required": true
+        },
+        {
+          "name": "operator",
+          "type": "select",
+          "label": "Comparison",
+          "default": "==",
+          "options": [
+            {
+              "label": "equals",
+              "value": "=="
+            },
+            {
+              "label": "at least",
+              "value": ">="
+            },
+            {
+              "label": "at most",
+              "value": "<="
+            },
+            {
+              "label": "greater than",
+              "value": ">"
+            },
+            {
+              "label": "less than",
+              "value": "<"
+            }
+          ]
+        },
+        {
+          "name": "expected",
+          "type": "text",
+          "label": "Value",
+          "default": "8",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "require"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "config"
+          },
+          "value": {
+            "op": "object",
+            "fields": {
+              "node": {
+                "op": "field",
+                "name": "alias"
+              },
+              "exprs": {
+                "op": "computedKey",
+                "template": "{property}",
+                "value": {
+                  "op": "template",
+                  "value": "{operator} {expected}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "action_require_topology",
+      "message": "Wait for graph rooted at %1",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "dsl": {
+        "kind": "requirement",
+        "key": "topology"
+      },
+      "tooltip": "Describe the nodes and edges that must exist.",
+      "fields": [
+        {
+          "name": "root",
+          "type": "slug",
+          "label": "Root node",
+          "default": "input",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        }
+      ],
+      "statementInputs": [
+        {
+          "name": "nodes",
+          "label": "Expected nodes",
+          "check": "topology_node",
+          "required": true
+        },
+        {
+          "name": "edges",
+          "label": "Expected connections",
+          "check": "topology_edge"
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "require"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "topology"
+          },
+          "value": {
+            "op": "object",
+            "fields": {
+              "root": {
+                "op": "field",
+                "name": "root"
+              },
+              "nodes": {
+                "op": "childrenObject",
+                "input": "nodes"
+              },
+              "edges": {
+                "op": "children",
+                "input": "edges"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "topology_node",
+      "message": "Graph node %1 is %2",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "tooltip": "One node expected in a graph check.",
+      "fields": [
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Graph alias",
+          "default": "dense",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        },
+        {
+          "name": "node_type",
+          "type": "node_type",
+          "label": "Node type",
+          "default": "layer",
+          "required": true
+        }
+      ],
+      "statementInputs": [
+        {
+          "name": "config",
+          "label": "Property conditions",
+          "check": "requirement"
+        }
+      ],
+      "connection": {
+        "previous": "topology_node",
+        "next": "topology_node"
+      },
+      "emit": {
+        "op": "computedKey",
+        "template": "{alias}",
+        "value": {
+          "op": "object",
+          "fields": {
+            "type": {
+              "op": "field",
+              "name": "node_type"
+            },
+            "config": {
+              "op": "childrenObject",
+              "input": "config",
+              "omitEmpty": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "config_condition",
+      "message": "Property %1 %2 %3",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "tooltip": "A property condition used by graph checks.",
+      "fields": [
+        {
+          "name": "property",
+          "type": "slug",
+          "label": "Property",
+          "default": "neuron_count",
+          "required": true
+        },
+        {
+          "name": "operator",
+          "type": "select",
+          "label": "Comparison",
+          "default": "==",
+          "options": [
+            {
+              "label": "equals",
+              "value": "=="
+            },
+            {
+              "label": "at least",
+              "value": ">="
+            },
+            {
+              "label": "at most",
+              "value": "<="
+            },
+            {
+              "label": "greater than",
+              "value": ">"
+            },
+            {
+              "label": "less than",
+              "value": "<"
+            }
+          ]
+        },
+        {
+          "name": "expected",
+          "type": "text",
+          "label": "Value",
+          "default": "8",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "requirement",
+        "next": "requirement"
+      },
+      "emit": {
+        "op": "computedKey",
+        "template": "{property}",
+        "value": {
+          "op": "template",
+          "value": "{operator} {expected}"
+        }
+      }
+    },
+    {
+      "type": "topology_edge",
+      "message": "Connect %1 port %2 to %3 port %4",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "tooltip": "One expected graph connection.",
+      "fields": [
+        {
+          "name": "from",
+          "type": "slug",
+          "label": "From",
+          "default": "input",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        },
+        {
+          "name": "out_port",
+          "type": "number",
+          "label": "Output port",
+          "default": 0,
+          "min": -1,
+          "precision": 1
+        },
+        {
+          "name": "to",
+          "type": "slug",
+          "label": "To",
+          "default": "dense",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        },
+        {
+          "name": "in_port",
+          "type": "number",
+          "label": "Input port",
+          "default": 0,
+          "min": -1,
+          "precision": 1
+        }
+      ],
+      "connection": {
+        "previous": "topology_edge",
+        "next": "topology_edge"
+      },
+      "emit": {
+        "op": "template",
+        "value": "{from}.{out_port} -> {to}.{in_port}"
+      }
+    },
+    {
+      "type": "action_require_wait",
+      "message": "Wait %1 seconds",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "dsl": {
+        "kind": "requirement",
+        "key": "wait"
+      },
+      "tooltip": "Pause this lesson step for a fixed duration.",
+      "fields": [
+        {
+          "name": "time",
+          "type": "number",
+          "label": "Seconds",
+          "default": 1,
+          "min": 0.1,
+          "precision": 0.1,
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "require"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "wait"
+          },
+          "value": {
+            "op": "singleKeyMapping",
+            "key": {
+              "op": "literal",
+              "value": "time"
+            },
+            "value": {
+              "op": "field",
+              "name": "time",
+              "coerce": "number"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "action_require_event",
+      "message": "Wait for event %1",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "dsl": {
+        "kind": "requirement",
+        "key": "event"
+      },
+      "tooltip": "Continue after a Neuralese event occurs.",
+      "fields": [
+        {
+          "name": "event",
+          "type": "event_name",
+          "label": "Event",
+          "default": "ui_mouse_middle",
+          "options": [
+            {
+              "label": "Middle mouse camera move",
+              "value": "ui_mouse_middle"
+            },
+            {
+              "label": "Training started",
+              "value": "train"
+            }
+          ],
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "require"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "event"
+          },
+          "value": {
+            "op": "field",
+            "name": "event"
+          }
+        }
+      }
+    },
+    {
+      "type": "action_require_teacher_lock",
+      "message": "Wait for teacher lock",
+      "category": "Checks",
+      "colour": "#f02d74",
+      "kind": "statement",
+      "dsl": {
+        "kind": "requirement",
+        "key": "teacher_lock"
+      },
+      "tooltip": "Continue after the teacher lock requirement is met.",
+      "fields": [],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "require"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "teacher_lock"
+          },
+          "value": {
+            "op": "literal",
+            "value": {}
+          }
+        }
+      }
+    },
+    {
+      "type": "action_highlight_targets",
+      "message": "Highlight these nodes",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "highlight"
+      },
+      "tooltip": "Highlight several named nodes together.",
+      "fields": [],
+      "statementInputs": [
+        {
+          "name": "targets",
+          "label": "Targets",
+          "check": "highlight_target",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "highlight"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "targets"
+          },
+          "value": {
+            "op": "children",
+            "input": "targets"
+          }
+        }
+      }
+    },
+    {
+      "type": "action_confetti_targets",
+      "message": "Celebrate around these nodes",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "confetti"
+      },
+      "tooltip": "Show one grouped success animation around several nodes.",
+      "fields": [],
+      "statementInputs": [
+        {
+          "name": "targets",
+          "label": "Targets",
+          "check": "highlight_target",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "confetti"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "targets"
+          },
+          "value": {
+            "op": "children",
+            "input": "targets"
+          }
+        }
+      }
+    },
+    {
+      "type": "node_target_bind",
+      "message": "Node %1",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "tooltip": "A named target for highlight or confetti.",
+      "fields": [
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Teacher name",
+          "default": "dense_1",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "highlight_target",
+        "next": "highlight_target"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "bind"
+        },
+        "value": {
+          "op": "field",
+          "name": "alias"
+        }
+      }
+    },
+    {
+      "type": "action_highlight_bind",
+      "message": "Highlight node %1",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "highlight"
+      },
+      "tooltip": "Highlight one named node.",
+      "fields": [
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Teacher name",
+          "default": "dense_1",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "highlight"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "bind"
+          },
+          "value": {
+            "op": "field",
+            "name": "alias"
+          }
+        }
+      }
+    },
+    {
+      "type": "action_confetti_bind",
+      "message": "Celebrate around node %1",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "confetti"
+      },
+      "tooltip": "Show confetti around one named node.",
+      "fields": [
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Teacher name",
+          "default": "dense_1",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "confetti"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "bind"
+          },
+          "value": {
+            "op": "field",
+            "name": "alias"
+          }
+        }
+      }
+    },
+    {
+      "type": "action_confetti_screen",
+      "message": "Celebrate across the whole screen and wait %1",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "confetti"
+      },
+      "tooltip": "Show a full-screen success animation.",
+      "fields": [
+        {
+          "name": "wait",
+          "type": "bool",
+          "label": "Wait",
+          "default": false
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "confetti"
+        },
+        "value": {
+          "op": "object",
+          "fields": {
+            "whole_screen": {
+              "op": "literal",
+              "value": true
+            },
+            "wait": {
+              "op": "field",
+              "name": "wait",
+              "coerce": "boolean"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "action_arrow_node",
+      "message": "Point at node %1",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "arrow"
+      },
+      "tooltip": "Show an arrow pointing to a whole node.",
+      "fields": [
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Node",
+          "default": "dense_1",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "arrow"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "node"
+          },
+          "value": {
+            "op": "field",
+            "name": "alias"
+          }
+        }
+      }
+    },
+    {
+      "type": "action_arrow_from",
+      "message": "Point at output port %1 of %2",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "arrow"
+      },
+      "tooltip": "Show an arrow at an output port.",
+      "fields": [
+        {
+          "name": "out_port",
+          "type": "number",
+          "label": "Output port",
+          "default": 0,
+          "min": 0,
+          "precision": 1
+        },
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Node",
+          "default": "input",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "arrow"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "port"
+          },
+          "value": {
+            "op": "object",
+            "fields": {
+              "from": {
+                "op": "field",
+                "name": "alias"
+              },
+              "out_port": {
+                "op": "field",
+                "name": "out_port",
+                "coerce": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "action_arrow_to",
+      "message": "Point at input port %1 of %2",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "arrow"
+      },
+      "tooltip": "Show an arrow at an input port.",
+      "fields": [
+        {
+          "name": "in_port",
+          "type": "number",
+          "label": "Input port",
+          "default": 0,
+          "min": 0,
+          "precision": 1
+        },
+        {
+          "name": "alias",
+          "type": "slug",
+          "label": "Node",
+          "default": "dense",
+          "required": true,
+          "symbol": {
+            "namespace": "node",
+            "role": "reference"
+          }
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "arrow"
+        },
+        "value": {
+          "op": "singleKeyMapping",
+          "key": {
+            "op": "literal",
+            "value": "port"
+          },
+          "value": {
+            "op": "object",
+            "fields": {
+              "to": {
+                "op": "field",
+                "name": "alias"
+              },
+              "in_port": {
+                "op": "field",
+                "name": "in_port",
+                "coerce": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "action_hide_arrows",
+      "message": "Hide all arrows",
+      "category": "Feedback",
+      "colour": "#ff5a1f",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "hide_arrows"
+      },
+      "tooltip": "Remove lesson arrows from the graph.",
+      "fields": [],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "hide_arrows"
+        },
+        "value": {
+          "op": "literal",
+          "value": {}
+        }
+      }
+    },
+    {
+      "type": "action_multi_input",
+      "message": "Allow multiple model inputs %1",
+      "category": "Student Task",
+      "colour": "#8b3dff",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "multi_input"
+      },
+      "tooltip": "Enable or disable multiple model inputs.",
+      "fields": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "label": "Enabled",
+          "default": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "multi_input"
+        },
+        "value": {
+          "op": "field",
+          "name": "enabled",
+          "coerce": "boolean"
+        }
+      }
+    },
+    {
+      "type": "action_prohibit_deletion",
+      "message": "Protect nodes from deletion %1",
+      "category": "Student Task",
+      "colour": "#8b3dff",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "prohibit_deletion"
+      },
+      "tooltip": "Put one teacher node name on each line.",
+      "fields": [
+        {
+          "name": "aliases",
+          "type": "string_list",
+          "label": "Nodes",
+          "default": "dense_1",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "prohibit_deletion"
+        },
+        "value": {
+          "op": "field",
+          "name": "aliases",
+          "coerce": "lines"
+        }
+      }
+    },
+    {
+      "type": "action_allow_deletion",
+      "message": "Allow deletion of nodes %1",
+      "category": "Student Task",
+      "colour": "#8b3dff",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "allow_deletion"
+      },
+      "tooltip": "Put one teacher node name on each line.",
+      "fields": [
+        {
+          "name": "aliases",
+          "type": "string_list",
+          "label": "Nodes",
+          "default": "dense_1",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "allow_deletion"
+        },
+        "value": {
+          "op": "field",
+          "name": "aliases",
+          "coerce": "lines"
+        }
+      }
+    },
+    {
+      "type": "action_select_where",
+      "message": "Let student select nodes where %1 %2 %3",
+      "category": "Student Task",
+      "colour": "#8b3dff",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "select"
+      },
+      "tooltip": "Limit selection to nodes matching one property condition.",
+      "fields": [
+        {
+          "name": "property",
+          "type": "slug",
+          "label": "Property",
+          "default": "neuron_count",
+          "required": true
+        },
+        {
+          "name": "operator",
+          "type": "select",
+          "label": "Comparison",
+          "default": ">=",
+          "options": [
+            {
+              "label": "equals",
+              "value": "=="
+            },
+            {
+              "label": "at least",
+              "value": ">="
+            },
+            {
+              "label": "at most",
+              "value": "<="
+            },
+            {
+              "label": "greater than",
+              "value": ">"
+            },
+            {
+              "label": "less than",
+              "value": "<"
+            }
+          ]
+        },
+        {
+          "name": "expected",
+          "type": "text",
+          "label": "Value",
+          "default": "8",
+          "required": true
+        }
+      ],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "select"
+        },
+        "value": {
+          "op": "computedKey",
+          "template": "{property}",
+          "value": {
+            "op": "template",
+            "value": "{operator} {expected}"
+          }
+        }
+      }
+    },
+    {
+      "type": "action_select",
+      "message": "Let the student select nodes",
+      "category": "Student Task",
+      "colour": "#8b3dff",
+      "kind": "statement",
+      "dsl": {
+        "kind": "action",
+        "key": "select"
+      },
+      "tooltip": "Open Neuralese node selection.",
+      "fields": [],
+      "connection": {
+        "previous": "action",
+        "next": "action"
+      },
+      "emit": {
+        "op": "singleKeyMapping",
+        "key": {
+          "op": "literal",
+          "value": "select"
+        },
+        "value": {
+          "op": "literal",
+          "value": {}
+        }
+      }
+    }
+  ]
+}

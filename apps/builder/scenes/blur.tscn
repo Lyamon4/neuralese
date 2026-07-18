@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4e4ytk46aneb"]
+
+[ext_resource type="Material" uid="uid://crjr13k12egng" path="res://scenes/splash.tres" id="1_yyivn"]
+[ext_resource type="Script" uid="uid://dljkqorb5u1hq" path="res://scripts/blur.gd" id="2_2dfy7"]
+
+[node name="bg" type="ColorRect"]
+material = ExtResource("1_yyivn")
+instance_shader_parameters/corner_radius_width_add = Vector2(17.915, 2)
+instance_shader_parameters/outline_color = Color(0.693883, 0.6885, 0.85, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.5764706)
+offset_left = -28.0
+offset_top = -35.0
+offset_right = 1202.0
+offset_bottom = 712.0
+mouse_filter = 2
+script = ExtResource("2_2dfy7")

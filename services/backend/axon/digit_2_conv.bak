@@ -1,0 +1,55 @@
+<change_nodes>
+[
+  {"tag": "model_mnist_cnn", "type": "model_name", "config": {"name": "mnist_cnn"}},
+  {"tag": "input_image_small_0", "type": "input_image_small", "config": {}},
+  {"tag": "activation_relu_1", "type": "activation", "config": {"activ": "relu"}},
+  {"tag": "conv2d_layer_1", "type": "conv2d_layer", "config": {"filters": 32, "window": 3, "stride": 1}},
+  {"tag": "maxpool_layer_1", "type": "maxpool_layer", "config": {"group": 2}},
+  {"tag": "activation_relu_2", "type": "activation", "config": {"activ": "relu"}},
+  {"tag": "conv2d_layer_2", "type": "conv2d_layer", "config": {"filters": 64, "window": 3, "stride": 1}},
+  {"tag": "maxpool_layer_2", "type": "maxpool_layer", "config": {"group": 2}},
+  {"tag": "flatten_1", "type": "flatten", "config": {}},
+  {"tag": "activation_relu_3", "type": "activation", "config": {"activ": "relu"}},
+  {"tag": "dense_layer_128", "type": "dense_layer", "config": {"neuron_amount": 128}},
+  {"tag": "dense_layer_10", "type": "dense_layer", "config": {"neuron_amount": 10}},
+  {"tag": "softmax_1", "type": "softmax", "config": {}},
+  {"tag": "out_labels_digits", "type": "out_labels", "config": {"label_names": ["0","1","2","3","4","5","6","7","8","9"], "title": "digits"}},
+  {"tag": "load_dataset_mnist", "type": "load_dataset", "config": {"dataset_name": "mnist"}},
+  {"tag": "train_begin_0", "type": "train_begin", "config": {}},
+  {"tag": "run_model_0", "type": "run_model", "config": {"branches": {"digits": "cross_entropy"}, "mapped": {"digits": "digit"}}},
+  {"tag": "output_map_0", "type": "output_map", "config": {}},
+  {"tag": "train_step_0", "type": "train_step", "config": {"optimizer": "adam", "lr": 1, "momentum": 0.0, "weight_decay": 0}}
+]
+</change_nodes>
+
+
+<connect_ports>
+[
+  {"from": {"tag": "model_mnist_cnn", "port": 0}, "to": {"tag": "input_image_small_0", "port": 0}},
+  {"from": {"tag": "input_image_small_0", "port": 0}, "to": {"tag": "conv2d_layer_1", "port": 1}},
+  {"from": {"tag": "activation_relu_1", "port": 0}, "to": {"tag": "conv2d_layer_1", "port": 0}},
+  {"from": {"tag": "conv2d_layer_1", "port": 0}, "to": {"tag": "maxpool_layer_1", "port": 0}},
+  {"from": {"tag": "maxpool_layer_1", "port": 0}, "to": {"tag": "conv2d_layer_2", "port": 1}},
+  {"from": {"tag": "activation_relu_2", "port": 0}, "to": {"tag": "conv2d_layer_2", "port": 0}},
+  {"from": {"tag": "conv2d_layer_2", "port": 0}, "to": {"tag": "maxpool_layer_2", "port": 0}},
+  {"from": {"tag": "maxpool_layer_2", "port": 0}, "to": {"tag": "flatten_1", "port": 0}},
+  {"from": {"tag": "flatten_1", "port": 0}, "to": {"tag": "dense_layer_128", "port": 1}},
+  {"from": {"tag": "activation_relu_3", "port": 0}, "to": {"tag": "dense_layer_128", "port": 0}},
+  {"from": {"tag": "dense_layer_128", "port": 0}, "to": {"tag": "dense_layer_10", "port": 1}},
+  {"from": {"tag": "dense_layer_10", "port": 0}, "to": {"tag": "softmax_1", "port": 0}},
+  {"from": {"tag": "softmax_1", "port": 0}, "to": {"tag": "out_labels_digits", "port": 0}},
+  {"from": {"tag": "load_dataset_mnist", "port": 0}, "to": {"tag": "train_begin_0", "port": 0}},
+  {"from": {"tag": "train_begin_0", "port": 0}, "to": {"tag": "run_model_0", "port": 0}},
+  {"from": {"tag": "model_mnist_cnn", "port": 0}, "to": {"tag": "run_model_0", "port": 1}},
+  {"from": {"tag": "run_model_0", "port": 0}, "to": {"tag": "output_map_0", "port": 0}},
+  {"from": {"tag": "output_map_0", "port": 0}, "to": {"tag": "train_step_0", "port": 0}}
+]
+</connect_ports>
+
+<delete_nodes>
+[]
+</delete_nodes>
+
+<disconnect_ports>
+[]
+</disconnect_ports>

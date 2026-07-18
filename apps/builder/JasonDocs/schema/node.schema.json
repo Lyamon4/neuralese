@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neuralese.asia/schemas/jasondocs-node.schema.json",
+  "title": "Neuralese JasonDocs Node",
+  "type": "object",
+  "required": ["schema_version", "node_id", "status", "generated", "docs"],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "node_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["stable", "experimental", "hidden", "deprecated"]
+    },
+    "generated": {
+      "type": "object",
+      "required": [
+        "node_id",
+        "created_with",
+        "scene_path",
+        "script_path",
+        "inherits_graph",
+        "server_typename",
+        "title_candidates",
+        "base_config",
+        "ports",
+        "settings",
+        "icon_source",
+        "static_compatible_nodes"
+      ],
+      "additionalProperties": true
+    },
+    "docs": {
+      "type": "object",
+      "required": ["title", "summary", "operation", "compact", "ports", "settings"],
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/lang_text"
+        },
+        "summary": {
+          "$ref": "#/$defs/lang_text"
+        },
+        "operation": {
+          "$ref": "#/$defs/lang_text"
+        },
+        "compact": {
+          "type": "object",
+          "required": ["body"],
+          "properties": {
+            "body": {
+              "$ref": "#/$defs/lang_text"
+            }
+          },
+          "additionalProperties": true
+        },
+        "ports": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["label", "description"],
+            "properties": {
+              "label": {
+                "$ref": "#/$defs/lang_text"
+              },
+              "description": {
+                "$ref": "#/$defs/lang_text"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "settings": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["label", "description"],
+            "properties": {
+              "label": {
+                "$ref": "#/$defs/lang_text"
+              },
+              "description": {
+                "$ref": "#/$defs/lang_text"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "connects_to": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "lang_text": {
+      "type": "object",
+      "required": ["en", "ru", "kz"],
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "ru": {
+          "type": "string"
+        },
+        "kz": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

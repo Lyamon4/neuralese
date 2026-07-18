@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "node_id": "lua_env",
+  "status": "stable",
+  "generated": {
+    "node_id": "lua_env",
+    "created_with": "lua_env",
+    "scene_path": "res://scenes/env_tag.tscn",
+    "scene_uid": "uid://d3wqi2b2fibp6",
+    "root_instance_path": null,
+    "script_path": "res://scripts/env_tag.gd",
+    "inheritance_chain": [
+      "res://scripts/env_tag.gd",
+      "res://scripts/base_graph.gd"
+    ],
+    "inherits_graph": true,
+    "server_typename": "LuaEnv",
+    "layer_name": null,
+    "title_candidates": {
+      "en": "RLEnv",
+      "ru": "",
+      "kz": ""
+    },
+    "base_config": {
+      "meta": "{}",
+      "name": ""
+    },
+    "ports": [
+      {
+        "id": "output_o3_netname",
+        "scene_node": "o3",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "netname",
+        "direction": "output",
+        "datatypes": [
+          "dataset_type"
+        ],
+        "multiple": false,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": "netname"
+      }
+    ],
+    "settings": [
+      {
+        "id": "meta",
+        "source": "base_config",
+        "default": "{}",
+        "ui_kind": null,
+        "ui_path": null,
+        "options": []
+      },
+      {
+        "id": "name",
+        "source": "base_config",
+        "default": "",
+        "ui_kind": null,
+        "ui_path": null,
+        "options": []
+      }
+    ],
+    "icon_source": "res://node_icons/IconLuaEnv.png",
+    "static_compatible_nodes": [
+      {
+        "from_port": "output_o3_netname",
+        "to_node": "train_begin",
+        "to_port": "input_o2_netname",
+        "datatypes": [
+          "dataset_type"
+        ],
+        "confidence": "static_datatype_intersection"
+      }
+    ]
+  },
+  "docs": {
+    "title": {
+      "en": "RLEnv",
+      "ru": "",
+      "kz": ""
+    },
+    "summary": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "operation": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "compact": {
+      "body": {
+        "en": "",
+        "ru": "",
+        "kz": ""
+      }
+    },
+    "ports": {
+      "output_o3_netname": {
+        "label": {
+          "en": "netname",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "settings": {
+      "meta": {
+        "label": {
+          "en": "meta",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      },
+      "name": {
+        "label": {
+          "en": "name",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "connects_to": [],
+    "examples": []
+  }
+}

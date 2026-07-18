@@ -1,0 +1,10 @@
+{
+  "name": "titanic",
+  "size": 891,
+  "inputs": {"x": 8, "datatype": "1d(len:8)"},
+  "outputs": [{"label": "survived", "x": 2, "datatype": "1d", "label_names": ["no", "yes"]}],
+  "input_hints": [{"name": "passenger_features", "value": "len:8", "dtype": "float"}],
+  "fully_local": true,
+  "storage": "numpy"
+}
+

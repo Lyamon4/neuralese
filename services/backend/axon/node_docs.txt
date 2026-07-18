@@ -1,0 +1,128 @@
+**ONLY** following node types are avaiable:
+[activation, dense_layer, conv2d_layer, maxpool_layer, dropout, softmax, flatten, reshape2d, concat, input_1d, out_labels, input_image_small, load_dataset, train_begin, run_model, train_step, output_map]
+**When asked to add node that isn't present in the list above, do not proceed!**
+
+```json
+{
+  "activation": {
+    "config": { "activ": "none | relu | sigmoid | tanh" },
+    "input_ports": {},
+    "output_ports": { "0": "Activation" },
+    "note": "Emits an activation flag for connected layers. Never part of data flow."
+  },
+
+  "dense_layer": {
+    "config": { "neuron_amount": "0 <= N <= 65536" },
+    "input_ports": { "0": "Activation", "1": "Layer1D|Input1D" },
+    "output_ports": { "0": "Layer1D" },
+    "note": "Fully connected layer. Port 0 receives activation config; port 1 receives tensor input."
+  },
+
+  "conv2d_layer": {
+    "config": { "window": "1 <= N <= 11", "filters": "16 <= N <= 128", "stride": "1 <= N <= 4" },
+    "input_ports": { "0": "Activation", "1": "Layer2D|Input2D" },
+    "output_ports": { "0": "Layer2D" },
+    "note": "2D convolutional layer. Port 0 = activation flag, port 1 = feature map input."
+  },
+
+  "maxpool_layer": {
+    "config": { "group": "2 <= N <= 8" },
+    "input_ports": { "0": "Layer2D" },
+    "output_ports": { "0": "Layer2D" }
+  },
+
+  "softmax": {
+    "config": {},
+    "input_ports": { "0": "Layer1D" },
+    "output_ports": { "0": "Layer1D" }
+  },
+
+  "dropout": {
+    "config": {"p": 0.5},
+    "input_ports": { "0": "Layer1D" },
+    "output_ports": { "0": "Layer1D" }
+  },
+
+  "flatten": {
+    "config": {},
+    "input_ports": { "0": "Layer2D|Input2D" },
+    "output_ports": { "0": "Layer1D" },
+    "note": "Flattens tensors."
+  },
+
+  "reshape2d": {
+    "config": { "x": "N", "y": "N" },
+    "input_ports": { "0": "Layer1D|Input1D" },
+    "output_ports": { "0": "Layer2D" },
+    "note": "Multiplication product of x*y *MUST* be equal to 1D inputs vector length."
+  },
+
+  "concat": {
+    "config": { "concat_order": ["layer_in", "layer_in_1", "..."], "uns": "internal saved dynamic slot wiring; do not author manually" },
+    "input_ports": { "dynamic": "Layer1D" },
+    "output_ports": { "0": "Layer1D" },
+    "note": "Visual scene: layer_concat.tscn. Server/export type: Concat/concat. Concatenates multiple 1D layer tensors along the feature/channel axis. The node has a dynamic number of Layer1D input slots; users add slots with the Add+ button. Builder should create the node as type `concat`, connect each branch output into a separate dynamic concat input slot, and connect concat output port 0 to the next Layer1D consumer such as out_labels or dense_layer. `concat_order` is derived from connected dynamic input port names and preserves branch order for compilation. `uns` is Godot's internal persisted slot/connection restoration data and should not be generated directly by Axon/Builder."
+  },
+
+  "out_labels": {
+    "config": { "label_names": "[]", "title": "" },
+    "input_ports": { "0": "Layer1D" },
+    "output_ports": {},
+    "note": "Provides labels to the previous dense layer. *All* inference graphs must end with `out_labels` at every branch. Title must be unique per inference graph.  RULE: **Always** fill the texts array, as it provides actual labels."
+  },
+
+  "input_image_small": {
+    "config": {},
+    "input_ports": { "0": "ModelName" },
+    "output_ports": { "0": "Input2D" }
+  },
+
+  "input_1d": {
+    "config": {"input_features": [{"type": "float"|"sfloat"|"bool"|"int"|"class", "text": "Input feature name 1"}, ...]},
+    "input_ports": { "0": "ModelName" },
+    "output_ports": { "0": "Input1D" },
+    "note": "`Defines a 1-D feature input interface for tabular or numeric datasets. The `input_features` array inside `config` specifies each input column and its normalization type. Every feature entry must include a `type` (data type) and a short `text` label. Following datatypes are supported:
+    `float` datatype (unsigned float 0..1): {'type': 'float', "text": "Feature name here..."}
+    `sfloat` datatype (signed float -1..1): {'type': 'sfloat', "text": "..."}
+    `int` datatype (signed int, auto-normalized into 0..1): {'type': 'int', "min": 0, "max": 100, "text": "..."}
+    `class` datatype (selectable classes, automatically one-hot encoded): {'type': 'class', "classes": ["Dog", "Cat"], "text": "..."}
+    `bool` datatype (auto-converted into 0.0 or 1.0): {'type': 'bool', "text": "..."}"
+  },
+
+
+
+  "load_dataset": {
+    "config": { "dataset_name": "string" },
+    "input_ports": {},
+    "output_ports": { "0": "Dataset" }
+  },
+
+  "train_begin": {
+    "config": {},
+    "input_ports": { "0": "Dataset" },
+    "output_ports": { "0": "TrainData" }
+  },
+
+  "run_model": {
+    "config": { "branches": {out_labels_title: loss_type(mse|cross_entropy)}, "mapped": {out_labels_title: corresponding_dataset_target} },
+    "input_ports": { "0": "TrainData", "1": "ModelName" },
+    "output_ports": { "0": "ModelOutput" },
+    "note": "output_map must follow this node. `branches` property takes title of out_labels per resulting branch. `mapped` maps model branch outputs to corresponding dataset targets (this property is visible as virtual connections to the user)."
+  },
+
+  "output_map": {
+    "input_ports": { "0": "ModelOutput" },
+    "output_ports": { "0": "OutputMapped" },
+    "note": "This node has to be placed after run_model. Graphs without output_map that follows run_model are invalid. Think of run_model and output_map as a single, inseparable block, and never forget to put output_map after run_model"
+  },
+
+  "train_step": {
+    "config": { "optimizer": "sgd|adam", "momentum": "float", "weight_decay": "0|1", "lr": "0|1|2" },
+    "input_ports": { "0": "OutputMapped" },
+    "output_ports": {}
+    "note": "0|1|2 represent the different learning rate numbers. For Adam: 0=1e-1, 1=1e-2, 2=1e-3. For SGD: 0=2e-1, 1=3e-2, 2=1e-2."
+  },
+
+
+}
+```

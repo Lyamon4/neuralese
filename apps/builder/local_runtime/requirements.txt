@@ -1,0 +1,4 @@
+numpy==1.26.4
+onnx==1.14.1
+onnxruntime-training-cpu==1.19.2
+lmdb==2.2.0

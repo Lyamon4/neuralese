@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clj3epgtrcc6"]
+
+[ext_resource type="Shader" uid="uid://c3qd16iom0jv8" path="res://scripts/aiload.gdshader" id="1_8s7in"]
+
+[resource]
+shader = ExtResource("1_8s7in")
+shader_parameter/speed = 2.1100000969651203
+shader_parameter/alpha_power = 1.0
+shader_parameter/breathe_amp = 0.15600000741
+shader_parameter/ring_radius = 0.35000000824279
+shader_parameter/ring_thickness = 0.05900000140547
+shader_parameter/ring_softness = 0.0190000009025
+shader_parameter/warp_freq = 3.126000053485
+shader_parameter/warp_amp = 0.0330000015675
+shader_parameter/thickness_amp = 0.3010000142975
+shader_parameter/thickness_lobes = 2.1200000532
+shader_parameter/softness_amp = 1.0
+shader_parameter/softness_freq = 2.314000086165
+shader_parameter/flow_density = 2.1200000532
+shader_parameter/flow_amp = 0.07999999821186
+shader_parameter/bloom_intensity = 0.350000016625
+shader_parameter/bloom_width = 0.22400001064
+shader_parameter/bloom_var_amp = 0.8770000416575
+shader_parameter/glow = 0.4550000216125
+shader_parameter/c0 = Color(0.95, 0.07599998, 0.4110332, 1)
+shader_parameter/c1 = Color(0.78, 0.72800004, 0, 1)
+shader_parameter/c2 = Color(0.85, 0.15300001, 0.8035334, 1)

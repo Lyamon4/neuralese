@@ -1,0 +1,7 @@
+[gd_resource type="SyntaxHighlighter" script_class="DatasetSyntaxHL" load_steps=2 format=3 uid="uid://c6jrq0dx3d808"]
+
+[ext_resource type="Script" uid="uid://cw6sd3q5if8k2" path="res://scripts/ds_highliter.gd" id="1_2oy6g"]
+
+[resource]
+script = ExtResource("1_2oy6g")
+metadata/_custom_type_script = "uid://cw6sd3q5if8k2"

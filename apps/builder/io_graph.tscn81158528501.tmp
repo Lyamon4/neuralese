@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddl50qlfjt4st"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://base_graph.tscn" id="1_2pdka"]
+[ext_resource type="Script" uid="uid://dad2oa47ouedp" path="res://io_graph.gd" id="2_jeojw"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://Connection.tscn" id="2_rxypt"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://BaseBComponent.tscn" id="3_5xco4"]
+[ext_resource type="Script" uid="uid://7mf5v1esvqbs" path="res://unit.gd" id="3_bp7um"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://theme.tres" id="5_5h31y"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://button_mat.tres" id="5_jeojw"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://button_config.gd" id="6_5khim"]
+[ext_resource type="Script" uid="uid://dog0wpjftm7uk" path="res://validate_line.gd" id="6_pkn4s"]
+
+[sub_resource type="Resource" id="Resource_jeojw"]
+script = ExtResource("6_5khim")
+hover_color = Color(1.10196, 1.86275, 1.25098, 1)
+_hover_scale = 1.03
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_scale = 0.0
+animation_speed = 1.951
+animation_decay = 4.564
+animation_duration = 1.0
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" node_paths=PackedStringArray("unit", "add_button", "input") instance=ExtResource("1_2pdka")]
+mouse_filter = 2
+script = ExtResource("2_jeojw")
+unit = NodePath("connection")
+add_button = NodePath("input/ColorRect2")
+input = NodePath("input")
+padding = 0.0
+
+[node name="ColorRect" parent="." index="0"]
+instance_shader_parameters/corner_radius_add = -4.0
+instance_shader_parameters/tuning = Color(0.05, 0.05, 0.05, 0.505882)
+offset_right = 82.0
+offset_bottom = 30.0
+mouse_filter = 2
+
+[node name="Label" parent="ColorRect/root" index="0"]
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 124.0
+offset_bottom = 48.0
+scale = Vector2(0.461477, 0.461477)
+theme_override_colors/font_color = Color(0, 1, 0.716667, 1)
+text = "getvar"
+
+[node name="connection" type="Control" parent="." index="1"]
+anchors_preset = 0
+offset_left = -85.0
+offset_top = -26.0
+offset_right = 82.0
+offset_bottom = 14.0
+script = ExtResource("3_bp7um")
+
+[node name="o" parent="connection" index="0" instance=ExtResource("2_rxypt")]
+z_index = -9
+layout_mode = 0
+offset_left = 161.0
+offset_top = 6.0
+offset_right = 177.0
+offset_bottom = 41.0
+color = Color(0.46, 1, 0.793, 1)
+connection_type = 1
+area_padding = 10.0
+multiple_splines = true
+
+[node name="Label" type="Label" parent="connection" index="1"]
+z_index = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = 15.0
+offset_right = 327.0
+offset_bottom = 58.0
+scale = Vector2(0.448522, 0.448522)
+theme = ExtResource("5_5h31y")
+text = "Variable name"
+
+[node name="input" type="Control" parent="." index="2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LineEdit" type="LineEdit" parent="input" index="0"]
+layout_mode = 0
+offset_left = -78.0
+offset_top = -32.0
+offset_right = 240.0
+offset_bottom = 16.0
+scale = Vector2(0.475104, 0.475104)
+theme = ExtResource("5_5h31y")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Variable name"
+max_length = 17
+script = ExtResource("6_pkn4s")
+
+[node name="ColorRect2" parent="input" index="1" instance=ExtResource("3_5xco4")]
+material = ExtResource("5_jeojw")
+instance_shader_parameters/corner_radius_add = -2.0
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = 18.0
+offset_top = -13.0
+offset_right = 89.0
+offset_bottom = 29.0
+scale = Vector2(0.583319, 0.583319)
+pivot_offset = Vector2(35.5, 21)
+button_type = 1
+text = "Add"
+base_size = Vector2(71, 42)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_jeojw")
+
+[node name="i" parent="." index="3" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_rxypt")]
+z_index = -9
+layout_mode = 0
+offset_left = -18.0
+offset_top = -74.0
+offset_right = 18.0
+offset_bottom = -57.0
+color = Color(0.458824, 1, 0.792157, 1)
+connection_type = 0
+area_padding = 10.0
+multiple_splines = true
+dir_vector = Vector2(0, -1)
+parent_graph = NodePath("..")
+
+[connection signal="pressed" from="input/ColorRect2" to="." method="_on_color_rect_2_pressed"]

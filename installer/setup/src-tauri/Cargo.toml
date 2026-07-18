@@ -1,0 +1,27 @@
+[package]
+name = "neuralese-setup"
+version = "0.1.0"
+description = "Neuralese Windows setup bootstrapper"
+authors = ["Neuralese"]
+edition = "2021"
+
+[build-dependencies]
+slint-build = "1"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+dirs = "5"
+rfd = "0.15"
+slint = { version = "1", features = ["unstable-winit-030"] }
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.52"
+windows-sys = { version = "0.59", features = ["Win32_UI_WindowsAndMessaging"] }
+
+[target.'cfg(windows)'.build-dependencies]
+winresource = "0.1"
+
+[features]
+default = []

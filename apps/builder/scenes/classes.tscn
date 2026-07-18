@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://lqwdppwgyrum"]
+
+[ext_resource type="Script" uid="uid://xll1qw2va1i0" path="res://scripts/num.gd" id="1_stde1"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="2_2oiay"]
+[ext_resource type="Script" uid="uid://b0wh6bvd6pdc5" path="res://scripts/validate_number.gd" id="3_kgymj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecwuj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k6tqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kve2"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 90.0
+offset_bottom = 103.0
+script = ExtResource("1_stde1")
+cell_type = &"num"
+height = 50.0
+base_field = "num"
+
+[node name="Label" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 28.0
+offset_bottom = 53.0
+scale = Vector2(0.581, 0.581)
+theme = ExtResource("2_2oiay")
+theme_override_colors/font_color = Color(0.029999971, 0.93533313, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.026399974, 0.8230932, 0.88, 0.6)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ecwuj")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_k6tqi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4kve2")
+placeholder_text = "0"
+max_length = 14
+expand_to_text_length = true
+script = ExtResource("3_kgymj")
+max_value = 10.0
+resize_after = 18
+change_always_accepted = false
+metadata/_custom_type_script = "uid://b0wh6bvd6pdc5"
+
+[connection signal="changed" from="Label" to="." method="_on_label_changed"]
+[connection signal="line_enter" from="Label" to="." method="_on_label_line_enter"]

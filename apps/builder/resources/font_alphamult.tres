@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b32bkwpidhiyp"]
+
+[ext_resource type="Shader" uid="uid://d3tgjo3i0d7" path="res://shaders/simple_alphamult.gdshader" id="1_a3m1w"]
+
+[resource]
+shader = ExtResource("1_a3m1w")
+shader_parameter/smoothness = 15.0

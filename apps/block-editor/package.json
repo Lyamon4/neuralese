@@ -1,0 +1,40 @@
+{
+  "name": "neuralese-teacher-tutorial-editor",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5175",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "generate:syntax-parity": "tsx scripts/generate-syntax-parity-inputs.ts",
+    "build:syntax-compiler": "node scripts/build-syntax-compiler.mjs",
+    "export:syntax-compiler": "node scripts/export-syntax-compiler.mjs",
+    "test:syntax-parity": "node scripts/test-syntax-parity.mjs",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@blockly/continuous-toolbox": "^7.0.9",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "blockly": "^12.1.0",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^26.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^25.0.1",
+    "tsx": "^4.22.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.4.3",
+    "vitest": "^3.0.0"
+  }
+}

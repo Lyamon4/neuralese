@@ -1,0 +1,317 @@
+[gd_scene load_steps=21 format=3 uid="uid://7tvsn43p5su"]
+
+[ext_resource type="Script" uid="uid://cu1va3ml6ecvi" path="res://scripts/qhint.gd" id="1_1v1av"]
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="2_fket2"]
+[ext_resource type="Material" uid="uid://cgxipop66ibn2" path="res://resources/sas.tres" id="2_hcxlo"]
+[ext_resource type="Shader" uid="uid://d3tgjo3i0d7" path="res://shaders/simple_alphamult.gdshader" id="3_hcxlo"]
+[ext_resource type="Script" uid="uid://j2b2e8egxqhi" path="res://scripts/layout.gd" id="4_ry3e3"]
+[ext_resource type="Script" uid="uid://b7b5fhplecv3t" path="res://scripts/container.gd" id="5_xyiru"]
+[ext_resource type="Theme" uid="uid://74kwx22ikciq" path="res://resources/theme_headers.tres" id="6_lfqpo"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="7_ecaix"]
+[ext_resource type="FontFile" uid="uid://d0xcffxoyd14k" path="res://game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="7_fket2"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="8_fxad8"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="9_6htrx"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="10_0u8cu"]
+[ext_resource type="Texture2D" uid="uid://b7g2yyenljs56" path="res://game_assets/icons/arr.png" id="11_qbq4r"]
+
+[sub_resource type="Theme" id="Theme_ao4jg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_62uld"]
+shader = ExtResource("3_hcxlo")
+shader_parameter/smoothness = 25.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ih3n3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ccl1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqhq5"]
+shader = ExtResource("2_fket2")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(0.44, 0.44, 0.44, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 8.0
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 0.0
+shader_parameter/mult = 3.0
+shader_parameter/blur_level = 5.384000588239999
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.8990000902025
+shader_parameter/use_bg = false
+
+[sub_resource type="Resource" id="Resource_k76xp"]
+script = ExtResource("9_6htrx")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_qqhq5"]
+
+[node name="Control2" type="Control" node_paths=PackedStringArray("scroll_cont")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1v1av")
+scroll_cont = NodePath("ColorRect/ScrollContainer")
+MIN_WIDTH_PX = 0.0
+IDEAL_LINE_CHARS = 44.0
+MIN_HEIGHT_PX = 0.0
+V_PADDING = 6.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+material = ExtResource("2_hcxlo")
+instance_shader_parameters/corner_radius_width_add = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+instance_shader_parameters/tuning = Color(0.61, 0.61, 0.61, 1)
+layout_mode = 0
+offset_right = 523.00336
+offset_bottom = 238.90277
+scale = Vector2(0.9292482, 0.9292482)
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ao4jg")
+
+[node name="c" type="Control" parent="ColorRect/ScrollContainer"]
+material = SubResource("ShaderMaterial_62uld")
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+script = ExtResource("4_ry3e3")
+
+[node name="text" type="Control" parent="ColorRect/ScrollContainer/c"]
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 363.0
+script = ExtResource("5_xyiru")
+abstract = true
+
+[node name="text" type="RichTextLabel" parent="ColorRect/ScrollContainer/c/text"]
+z_index = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 6.60911
+offset_top = -0.5431676
+offset_right = 401.1683
+offset_bottom = 26.456833
+focus_mode = 2
+theme = ExtResource("6_lfqpo")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_fket2")
+theme_override_fonts/bold_italics_font = ExtResource("7_fket2")
+theme_override_fonts/italics_font = ExtResource("7_fket2")
+theme_override_fonts/mono_font = ExtResource("7_fket2")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+
+[node name="checkbox" type="Control" parent="ColorRect/ScrollContainer/c"]
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 69.0
+offset_right = 363.0
+offset_bottom = 109.0
+script = ExtResource("5_xyiru")
+unit_type = 2
+abstract = true
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ScrollContainer/c/checkbox"]
+material = SubResource("ShaderMaterial_qqhq5")
+instance_shader_parameters/corner_radius_width_add = Vector2(3, 0)
+instance_shader_parameters/outline_color = Color(0.77, 0.77, 0.77, 0.49019608)
+instance_shader_parameters/tuning = Color(1, 1, 1, 0.7764706)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.761387
+offset_top = 1.481987
+offset_right = 1.8110352
+offset_bottom = 1.299118
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6784314, 1, 0.79607844, 1)
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect/ScrollContainer/c/checkbox"]
+layout_mode = 0
+offset_left = 10.913664
+offset_top = 2.5581274
+offset_right = 50.913666
+offset_bottom = 42.55813
+scale = Vector2(0.9083193, 0.9083193)
+focus_mode = 0
+theme = ExtResource("7_ecaix")
+
+[node name="text" type="RichTextLabel" parent="ColorRect/ScrollContainer/c/checkbox"]
+z_index = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 48.532978
+offset_top = 6.9238596
+offset_right = 369.01273
+offset_bottom = 30.923859
+scale = Vector2(0.9504278, 0.9504278)
+focus_mode = 2
+theme = ExtResource("6_lfqpo")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+bbcode_enabled = true
+text = "edf"
+fit_content = true
+selection_enabled = true
+
+[node name="next" type="Control" parent="ColorRect/ScrollContainer/c"]
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 363.0
+offset_bottom = 42.502377
+script = ExtResource("5_xyiru")
+unit_type = 3
+abstract = true
+
+[node name="next" parent="ColorRect/ScrollContainer/c/next" instance=ExtResource("8_fxad8")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-10, -0.5)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 165.00002
+offset_top = 9.999997
+offset_right = 210.50427
+offset_bottom = 35.366684
+scale = Vector2(1.6464939, 1.6464939)
+pivot_offset = Vector2(22.752129, 12.683344)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 1)
+button_type = 1
+placeholder = true
+base_scale_x = 0.44
+text_alignment = Vector2(-0.5, 0)
+text_offset = Vector2(3, 0)
+base_size = Vector2(45.504257, 25.366688)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_k76xp")
+auto_ready = false
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/ScrollContainer/c/next/next"]
+script = ExtResource("10_0u8cu")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": ""
+})
+localizations_kz = Dictionary[String, String]({
+"_": ""
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/ScrollContainer/c/next/next"]
+layout_mode = 0
+offset_left = 10.773822
+offset_top = 2.4982622
+offset_right = 50.773823
+offset_bottom = 42.49826
+scale = Vector2(0.5436975, 0.5436975)
+texture = ExtResource("11_qbq4r")
+
+[node name="radio" type="Control" parent="ColorRect/ScrollContainer/c"]
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 69.0
+offset_right = 363.0
+offset_bottom = 109.0
+script = ExtResource("5_xyiru")
+unit_type = 0
+abstract = true
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ScrollContainer/c/radio"]
+material = SubResource("ShaderMaterial_qqhq5")
+instance_shader_parameters/corner_radius_width_add = Vector2(3, 0)
+instance_shader_parameters/outline_color = Color(0.77, 0.77, 0.77, 0.49019608)
+instance_shader_parameters/tuning = Color(1, 1, 1, 0.7764706)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.761387
+offset_top = 1.481987
+offset_right = 1.8110352
+offset_bottom = 1.299118
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6784314, 1, 0.79607844, 1)
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect/ScrollContainer/c/radio"]
+layout_mode = 0
+offset_left = 11.989805
+offset_top = 3.6342587
+offset_right = 51.989807
+offset_bottom = 43.63426
+scale = Vector2(0.85701483, 0.85701483)
+focus_mode = 0
+theme = ExtResource("7_ecaix")
+button_group = SubResource("ButtonGroup_qqhq5")
+
+[node name="text" type="RichTextLabel" parent="ColorRect/ScrollContainer/c/radio"]
+z_index = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 48.532978
+offset_top = 6.9238596
+offset_right = 369.01273
+offset_bottom = 30.923859
+scale = Vector2(0.9504278, 0.9504278)
+focus_mode = 2
+theme = ExtResource("6_lfqpo")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+bbcode_enabled = true
+text = "edf"
+fit_content = true
+selection_enabled = true
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="child_entered_tree" from="ColorRect/ScrollContainer/c/text" to="ColorRect/ScrollContainer/c/text" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="ColorRect/ScrollContainer/c/checkbox" to="ColorRect/ScrollContainer/c/checkbox" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="ColorRect/ScrollContainer/c/next" to="ColorRect/ScrollContainer/c/next" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="ColorRect/ScrollContainer/c/radio" to="ColorRect/ScrollContainer/c/radio" method="_on_child_entered_tree"]

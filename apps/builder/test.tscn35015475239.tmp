@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbgi78pifb8xh"]
+
+[ext_resource type="Shader" uid="uid://cm0uwt66sanpc" path="res://test.gdshader" id="1_ykrsh"]
+[ext_resource type="Texture2D" uid="uid://ukxnlbmbabr" path="res://icon.svg" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://BaseBComponent.tscn" id="4_ppyta"]
+[ext_resource type="Resource" uid="uid://dfj4adcly3raw" path="res://default_config.tres" id="5_ykrsh"]
+[ext_resource type="Script" uid="uid://b4hd7meqnpke2" path="res://camera_2d.gd" id="6_g14j6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g14j6"]
+shader = ExtResource("1_ykrsh")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -9
+material = SubResource("ShaderMaterial_g14j6")
+position = Vector2(398, 252)
+scale = Vector2(5, 5)
+texture = ExtResource("2_6uqi0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(592, 323)
+process_callback = 0
+position_smoothing_enabled = true
+script = ExtResource("6_g14j6")
+
+[node name="Base" parent="." instance=ExtResource("4_ppyta")]
+instance_shader_parameters/color_mult = Color(0.85, 0.85, 0.85, 1)
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.388235, 0.388235, 0.388235, 0.215686)
+offset_right = 237.0
+text = "Create element..."
+base_size = Vector2(237, 50)
+
+[node name="Base2" parent="Base" instance=ExtResource("4_ppyta")]
+instance_shader_parameters/color_mult = Color(0.69, 1, 0.8605, 1)
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.39, 0.39, 0.39, 0.215686)
+offset_right = 219.0
+offset_bottom = 41.0
+button_type = 1
+text = "Helloooo :З"
+base_size = Vector2(219, 41)
+alignment = Vector2(0, 0)
+config = ExtResource("5_ykrsh")
+
+[node name="Base3" parent="Base" instance=ExtResource("4_ppyta")]
+instance_shader_parameters/color_mult = Color(0.69, 1, 0.8605, 1)
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.39, 0.39, 0.39, 0.215686)
+offset_right = 219.0
+offset_bottom = 41.0
+button_type = 1
+text = "Helloooo :З"
+base_size = Vector2(219, 41)
+alignment = Vector2(0, 0)
+config = ExtResource("5_ykrsh")
+
+[node name="Base4" parent="Base" instance=ExtResource("4_ppyta")]
+instance_shader_parameters/color_mult = Color(0.69, 1, 0.8605, 1)
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.39, 0.39, 0.39, 0.215686)
+offset_right = 219.0
+offset_bottom = 41.0
+button_type = 1
+text = "Helloooo :З"
+base_size = Vector2(219, 41)
+alignment = Vector2(0, 0)
+config = ExtResource("5_ykrsh")
+
+[node name="Base5" parent="Base" instance=ExtResource("4_ppyta")]
+instance_shader_parameters/color_mult = Color(0.69, 1, 0.8605, 1)
+instance_shader_parameters/disabled = true
+instance_shader_parameters/tuning = Color(0.39, 0.39, 0.39, 0.215686)
+offset_right = 219.0
+offset_bottom = 41.0
+button_type = 1
+text = "Helloooo :З"
+base_size = Vector2(219, 41)
+alignment = Vector2(0, 0)
+config = ExtResource("5_ykrsh")

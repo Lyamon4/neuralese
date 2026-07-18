@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdifkrhjy3tt3"]
+
+[ext_resource type="Script" uid="uid://bgyu2e0ykh557" path="res://scripts/flatten.gd" id="1_207yj"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_mavr7"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="3_kgolx"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="4_ygxhn"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="5_mavr7"]
+
+[node name="Base" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("1_207yj")
+server_typename = &"Flatten"
+area_padding = 0.0
+
+[node name="o2" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_mavr7")]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -7.0
+offset_right = -38.0
+offset_bottom = 10.0
+color = Color(1, 0.721569, 0.956863, 1)
+_accepted_datatypes = "layer2d input2d"
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(10, 10, 10, 10)
+origin_offset = Vector2(-5, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+gradient_color = Color(1, 0.721569, 0.956863, 1)
+
+[node name="o" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_mavr7")]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -7.0
+offset_right = 47.0
+offset_bottom = 10.0
+color = Color(1, 0.721569, 0.956863, 1)
+_accepted_datatypes = "layer1d"
+server_name = &"layer_out"
+connection_type = 1
+area_paddings = Vector4(10, 10, 10, 10)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+parent_graph = NodePath("..")
+gradient_color = Color(1, 0.721569, 0.956863, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("3_kgolx")
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.639216)
+layout_mode = 0
+offset_left = -47.0
+offset_top = -18.0
+offset_right = 40.0
+offset_bottom = 21.0
+
+[node name="root" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+self_modulate = Color(1, 0.721569, 0.956863, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 14.0
+offset_top = 3.0
+offset_right = 226.0
+offset_bottom = 46.0
+scale = Vector2(0.419329, 0.419329)
+theme = ExtResource("4_ygxhn")
+text = "Flatten"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label"]
+script = ExtResource("5_mavr7")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Плоск1D"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Жазық1D"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="display_count" type="Label" parent="."]
+self_modulate = Color(0.66, 0.66, 0.66, 1)
+z_index = 1
+layout_mode = 0
+offset_left = -52.0
+offset_top = -1.0
+offset_right = 160.0
+offset_bottom = 42.0
+scale = Vector2(0.465, 0.465)
+theme = ExtResource("4_ygxhn")
+text = "0"
+horizontal_alignment = 1

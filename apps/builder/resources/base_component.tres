@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://3ermqajvihxr"]
+
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="1_1u28k"]
+
+[resource]
+shader = ExtResource("1_1u28k")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/corner_radius = 20.509
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 1.5
+shader_parameter/blur_level = 1.96

@@ -1,0 +1,172 @@
+[gd_scene load_steps=11 format=3 uid="uid://bu8yc76xlia1j"]
+
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="1_lh7aj"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="2_rr0bu"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="3_15ju3"]
+[ext_resource type="Resource" uid="uid://dpcfcsr4yvw5j" path="res://resources/activ.tres" id="4_f8omn"]
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="5_15ju3"]
+[ext_resource type="Script" uid="uid://ynrhp2d5ge1o" path="res://scripts/detatch.gd" id="6_f8omn"]
+[ext_resource type="PackedScene" uid="uid://cuuew2v4inm7k" path="res://scenes/dataset_tab.tscn" id="7_f8omn"]
+
+[sub_resource type="Resource" id="Resource_qn57x"]
+script = ExtResource("2_rr0bu")
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 1.0
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_pf6i0"]
+script = ExtResource("2_rr0bu")
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 1.0
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_naukw"]
+shader = ExtResource("5_15ju3")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(0.44, 0.44, 0.44, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 13.0
+shader_parameter/corner_radius = 16.874
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 2.0
+shader_parameter/mult = 2.0
+shader_parameter/blur_level = 7.0
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.0
+shader_parameter/use_bg = true
+
+[node name="Tests" type="Node2D"]
+
+[node name="type" parent="." instance=ExtResource("1_lh7aj")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-8, -0.3)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.66, 0.66, 0.66, 0.4627451)
+offset_left = 19.0
+offset_top = -4.999998
+offset_right = 75.4156
+offset_bottom = 19.617723
+scale = Vector2(0.97490746, 0.97490746)
+mouse_filter = 1
+button_type = 2
+base_scale_x = 0.43
+resize_after = 4
+text = "Type"
+base_size = Vector2(56.415604, 24.617722)
+expanded_size = 74
+arrangement_padding = Vector2(4, 4)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_qn57x")
+
+[node name="ColorRect2" parent="type" instance=ExtResource("1_lh7aj")]
+material = ExtResource("3_15ju3")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0.3)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.65882355, 0.65882355, 0.65882355, 0.4627451)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"sgd"
+resize_after = 5
+text = "Number"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("4_f8omn")
+
+[node name="ColorRect3" parent="type" instance=ExtResource("1_lh7aj")]
+visible = false
+material = ExtResource("3_15ju3")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0.3)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.65882355, 0.65882355, 0.65882355, 0.4627451)
+layout_mode = 0
+offset_left = -1.36284
+offset_top = 4.08851
+offset_right = 97.63716
+offset_bottom = 40.08851
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+hint = &"adam"
+resize_after = 5
+text = "Slider"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("4_f8omn")
+
+[node name="loss" parent="." instance=ExtResource("1_lh7aj")]
+z_index = 1
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+offset_left = 81.0
+offset_top = 15.999998
+offset_right = 143.79492
+offset_bottom = 41.0
+scale = Vector2(0.85217845, 0.85217845)
+mouse_filter = 1
+button_type = 2
+base_scale_x = 0.45
+resize_after = 5
+text = "MSE"
+base_size = Vector2(62.79492, 25.000002)
+arrangement_padding = Vector2(-9, -9)
+mouse_open = false
+menu_name = &"g"
+dynamic_size = true
+max_size = 70
+config = SubResource("Resource_pf6i0")
+lerp_size_offset = -4.0
+arrange_offset = -8.0
+auto_ready = false
+
+[node name="ColorRect3" parent="loss" instance=ExtResource("1_lh7aj")]
+visible = false
+material = SubResource("ShaderMaterial_naukw")
+instance_shader_parameters/corner_radius_width_add = Vector2(-1, 0.3)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -14.0
+offset_top = 4.0
+offset_right = 106.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(60, 18)
+button_type = 1
+top = true
+hint = &"cross_entropy"
+resize_after = 5
+text = "CrossE"
+base_size = Vector2(120, 36)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("4_f8omn")
+auto_ready = false
+
+[node name="Proc" type="Node" parent="loss" node_paths=PackedStringArray("instance")]
+script = ExtResource("6_f8omn")
+easy = true
+instance = NodePath("../ColorRect3")
+parent_call = "class_unroll"
+one_shot = true
+metadata/_custom_type_script = "uid://cppqde4187p8n"
+
+[node name="Control" parent="." instance=ExtResource("7_f8omn")]

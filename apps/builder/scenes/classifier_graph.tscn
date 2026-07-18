@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://de6mgawywaidj"]
+
+[ext_resource type="Script" uid="uid://itl55srlcsih" path="res://scripts/classifier.gd" id="1_eb5hl"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="2_pa8wt"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="3_7qyfr"]
+[ext_resource type="Script" uid="uid://dog0wpjftm7uk" path="res://scripts/validate_line.gd" id="4_cdbc0"]
+[ext_resource type="Script" uid="uid://7mf5v1esvqbs" path="res://scripts/unit.gd" id="4_n00y3"]
+[ext_resource type="Material" uid="uid://blkv556akjllh" path="res://resources/panel.tres" id="5_lukgp"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="6_m7mi5"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="7_e0fxs"]
+[ext_resource type="Theme" uid="uid://6b4rxqrmq3yb" path="res://resources/theme_no_aa.tres" id="7_eb5hl"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="8_lckd6"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="9_2xc02"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="10_giqb5"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="10_n00y3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa8wt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdbc0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n00y3"]
+
+[sub_resource type="Resource" id="Resource_jeojw"]
+script = ExtResource("10_giqb5")
+hover_color = Color(0.68, 1, 0.834667, 1)
+hover_mult = 1.4
+_hover_scale = 1.037
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdbc0"]
+bg_color = Color(0.273, 0.3, 0.29235002, 0.5137255)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n00y3"]
+bg_color = Color(0.273, 0.3, 0.29235002, 0.5137255)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[node name="Base" type="Control" unique_id=1189744375 node_paths=PackedStringArray("unit", "add_button", "input", "line_edit")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+mouse_filter = 2
+script = ExtResource("1_eb5hl")
+bottom_attached = true
+unit = NodePath("connection")
+add_button = NodePath("input/ColorRect2")
+input = NodePath("input")
+padding = -7.0
+line_edit = NodePath("input/LineEdit")
+unit_offset_y = 2.0
+target_size = 96.0
+input_y_add = 3.0
+server_typename = &"ClassifierNode"
+z_space = 1
+is_head = true
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"label_names": [],
+&"title": ""
+})
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=459654679]
+z_index = 1
+material = ExtResource("2_pa8wt")
+instance_shader_parameters/corner_radius_width_add = Vector2(-2, 0)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+instance_shader_parameters/tuning = Color(0.050980393, 0.050980393, 0.050980393, 0.5411765)
+layout_mode = 0
+offset_left = -87.0
+offset_top = -64.0
+offset_right = 82.0
+offset_bottom = 30.0
+mouse_filter = 2
+
+[node name="root" type="Control" parent="ColorRect" unique_id=656365037]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="LineEdit" parent="ColorRect/root" unique_id=681653508]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 20.05391
+offset_bottom = 53.0
+scale = Vector2(0.414803, 0.414803)
+theme = ExtResource("3_7qyfr")
+theme_override_colors/font_color = Color(0, 1, 0.7176471, 1)
+theme_override_colors/font_placeholder_color = Color(0.3835, 0.65, 0.5744917, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pa8wt")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_cdbc0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n00y3")
+placeholder_text = "Name here..."
+max_length = 25
+expand_to_text_length = true
+script = ExtResource("4_cdbc0")
+resize_after = 18
+metadata/_custom_type_script = "uid://dog0wpjftm7uk"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" unique_id=279875858]
+script = ExtResource("10_n00y3")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Имя группы..."
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Топ атауы..."
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="connection" type="Control" parent="." unique_id=1118060918]
+anchors_preset = 0
+offset_left = -85.0
+offset_top = -32.0
+offset_right = 97.0
+offset_bottom = 20.0
+script = ExtResource("4_n00y3")
+for_conn_size = Vector2(202, 60)
+
+[node name="ColorRect" type="ColorRect" parent="connection" unique_id=660091055]
+z_index = 1
+material = ExtResource("5_lukgp")
+instance_shader_parameters/outline_color = Color(0.501961, 0.501961, 0.501961, 0.490196)
+instance_shader_parameters/tuning = Color(0.5, 0.5, 0.5, 0.490196)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 158.0
+offset_bottom = 45.0
+
+[node name="Label" type="Label" parent="connection" unique_id=519265294]
+z_index = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = 336.0
+offset_bottom = 54.0
+scale = Vector2(0.37028307, 0.37028307)
+theme = ExtResource("3_7qyfr")
+text = "Variable name"
+
+[node name="backline" type="Line2D" parent="connection" unique_id=180693157]
+z_index = 1
+position = Vector2(33, 34)
+points = PackedVector2Array(-14, 0, 113, 0)
+default_color = Color(0.42, 0.42, 0.42, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="actual" type="Line2D" parent="connection" unique_id=1116560328]
+z_index = 1
+position = Vector2(33, 34)
+points = PackedVector2Array(-14, 0, 50, 0)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="Label2" type="Label" parent="connection" unique_id=1976919032]
+modulate = Color(0.73, 0.73, 0.73, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 115.0
+offset_top = 14.0
+offset_right = 251.53384
+offset_bottom = 57.0
+scale = Vector2(0.2633309, 0.2633309)
+theme = ExtResource("3_7qyfr")
+text = "100%"
+horizontal_alignment = 2
+
+[node name="input" type="Control" parent="." unique_id=1922400077]
+z_index = 1
+anchors_preset = 0
+offset_left = -78.0
+offset_top = 39.0
+offset_right = -38.0
+offset_bottom = 79.0
+
+[node name="ColorRect2" parent="input" unique_id=547639689 node_paths=PackedStringArray("graph") instance=ExtResource("8_lckd6")]
+material = ExtResource("9_2xc02")
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = 82.0
+offset_top = -14.0
+offset_right = 170.0
+offset_bottom = 28.0
+scale = Vector2(0.583319, 0.583319)
+pivot_offset = Vector2(44, 21)
+button_type = 1
+text = "Add +"
+base_size = Vector2(88, 42)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_jeojw")
+graph = NodePath("../..")
+
+[node name="Loc" type="Node" parent="input/ColorRect2" unique_id=28130077]
+script = ExtResource("10_n00y3")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Доб.+"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Қос.+"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="LineEdit" parent="input" unique_id=1549709957 node_paths=PackedStringArray("accept_button") instance=ExtResource("7_e0fxs")]
+layout_mode = 0
+offset_left = 3.0000045
+offset_top = -37.0
+offset_right = 308.1963
+offset_bottom = 11.0
+theme = ExtResource("7_eb5hl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cdbc0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n00y3")
+placeholder_text = "Label name"
+max_length = 14
+context_menu_enabled = false
+accept_button = NodePath("../ColorRect2")
+
+[node name="Loc" type="Node" parent="input/LineEdit" unique_id=1316342525]
+script = ExtResource("10_n00y3")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Имя лейбла"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Лейбл атауы"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="ni" parent="." unique_id=1656740849 node_paths=PackedStringArray("parent_graph") instance=ExtResource("6_m7mi5")]
+layout_mode = 0
+offset_left = -95.0
+offset_top = -40.0
+offset_right = -77.0
+offset_bottom = -21.0
+color = Color(0.297, 0.9, 0.72915, 1)
+_accepted_datatypes = "layer1d"
+hint = 1
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(10, 5, 10, 5)
+origin_offset = Vector2(-5, 0)
+unpadded_area = Vector4(10, 10, 0, 10)
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+conn_count_keyword = "classifier"
+gradient_color = Color(0.298039, 0.901961, 0.729412, 1)
+
+[connection signal="changed" from="ColorRect/root/Label" to="." method="_on_label_changed"]
+[connection signal="pressed" from="input/ColorRect2" to="." method="_on_color_rect_2_pressed"]

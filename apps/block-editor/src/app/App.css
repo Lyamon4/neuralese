@@ -1,0 +1,1434 @@
+:root {
+  color-scheme: dark;
+  font-family: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+  color: var(--text);
+  background: var(--bg-deep);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.appShell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 66px minmax(0, 1fr);
+  background: var(--bg-deep);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-width: 0;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--line);
+  background: #1d1f21;
+  box-shadow: none;
+}
+
+.brandBlock,
+.topbarActions {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.brandBlock {
+  gap: 11px;
+}
+
+.topbarActions {
+  gap: 12px;
+}
+
+.brandMark {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(75, 125, 255, 0.48);
+  border-radius: 9px;
+  background: #22262d;
+  box-shadow: none;
+}
+
+.brandMark img {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+  filter: invert(72%) sepia(65%) saturate(1529%) hue-rotate(195deg) brightness(101%);
+}
+
+.brandBlock h1 {
+  max-width: min(52vw, 520px);
+  margin: 0;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 680;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.brandBlock p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.readyState {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #a9c2ff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.primaryButton,
+.iconButton,
+.secondaryButton,
+.workspaceListHeader button,
+.panelEdgeToggle,
+.validationTrigger {
+  color: var(--text);
+  background: #24272a;
+  cursor: pointer;
+  transition:
+    background 130ms ease,
+    border-color 130ms ease,
+    color 130ms ease;
+}
+
+.primaryButton {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(75, 125, 255, 0.62);
+  border-radius: 8px;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 750;
+  box-shadow: none;
+}
+
+.primaryButton:hover:not(:disabled) {
+  border-color: rgba(118, 162, 255, 0.86);
+  background: #292e36;
+  box-shadow: none;
+}
+
+.primaryButton:active:not(:disabled) {
+  background: #2d3340;
+}
+
+.primaryButton:focus-visible,
+.iconButton:focus-visible,
+.secondaryButton:focus-visible,
+.workspaceListHeader button:focus-visible,
+.panelEdgeToggle:focus-visible,
+.validationTrigger:focus-visible,
+.workspaceRow:focus-visible,
+.lessonRow:focus-visible {
+  outline: 2px solid rgba(75, 125, 255, 0.72);
+  outline-offset: 2px;
+}
+
+.field input:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  border-color: rgba(130, 140, 154, 0.18);
+  color: #68717d;
+  background: #202224;
+  box-shadow: none;
+}
+
+.iconButton {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(154, 164, 178, 0.22);
+  border-radius: 10px;
+  padding: 0;
+}
+
+.iconButton:hover,
+.workspaceListHeader button:hover,
+.panelEdgeToggle:hover,
+.secondaryButton:hover {
+  border-color: rgba(75, 125, 255, 0.62);
+  color: #dbe6ff;
+  background: #292e36;
+  box-shadow: none;
+}
+
+.editorGrid {
+  --bundle-column-width: 264px;
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: var(--bundle-column-width) minmax(0, 1fr);
+  gap: 1px;
+  padding: 1px;
+  background: #191a1b;
+}
+
+.editorGrid.bundleHidden {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.leftPanel,
+.workspacePanel {
+  min-width: 0;
+  min-height: 0;
+  background: var(--panel);
+}
+
+.leftPanel {
+  overflow: auto;
+  margin: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 15px;
+  background: #202224;
+  box-shadow: none;
+  scrollbar-color: #555c63 transparent;
+  scrollbar-width: thin;
+}
+
+.workspacePanel {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--bg-canvas);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #dce6f2;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.panelTitle svg,
+.topbar svg,
+.workspaceListHeader svg {
+  stroke-width: 1.7;
+}
+
+.panelEdgeToggle {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: calc(var(--bundle-column-width) - 13px);
+  width: 26px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid rgba(118, 162, 255, 0.42);
+  border-radius: 13px;
+  padding: 0;
+  color: var(--muted);
+  box-shadow: 0 4px 14px var(--soft-shadow);
+}
+
+.editorGrid.bundleHidden .panelEdgeToggle {
+  left: 10px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.field span,
+.workspaceListHeader {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+  min-height: 35px;
+  border: 1px solid rgba(154, 164, 178, 0.24);
+  border-radius: 10px;
+  padding: 0 10px;
+  color: var(--text);
+  background: #191b1d;
+  outline: none;
+  transition:
+    border-color 130ms ease,
+    background 130ms ease;
+}
+
+.field input:hover {
+  border-color: rgba(154, 164, 178, 0.42);
+}
+
+.field input:focus {
+  border-color: rgba(75, 125, 255, 0.72);
+  background: #1e2125;
+  box-shadow: none;
+}
+
+.workspaceListHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 19px 0 8px;
+}
+
+.workspaceListActions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.workspaceListHeader button {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(154, 164, 178, 0.24);
+  border-radius: 10px;
+  padding: 0;
+}
+
+.workspaceListHeader .deleteWorkspaceButton:hover:not(:disabled),
+.workspaceListHeader .deleteLessonButton:hover:not(:disabled) {
+  border-color: rgba(75, 125, 255, 0.62);
+  color: #dbe6ff;
+  background: #292e36;
+  box-shadow: none;
+}
+
+.workspaceListHeader button:disabled {
+  cursor: not-allowed;
+  border-color: rgba(130, 140, 154, 0.14);
+  color: #555d66;
+  background: #202224;
+  box-shadow: none;
+}
+
+.workspaceList,
+.lessonList {
+  display: grid;
+  gap: 7px;
+}
+
+.lessonListHeader {
+  margin-top: 15px;
+}
+
+.lessonList {
+  gap: 5px;
+  padding-left: 8px;
+}
+
+.workspaceRow,
+.lessonRow {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 11px 10px;
+  text-align: left;
+  color: #cfd7e2;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    border-color 130ms ease,
+    background 130ms ease,
+    color 130ms ease;
+}
+
+.workspaceRow:hover,
+.lessonRow:hover {
+  border-color: rgba(154, 164, 178, 0.22);
+  background: #24272a;
+}
+
+.workspaceRow.selected,
+.lessonRow.selected {
+  border-color: rgba(75, 125, 255, 0.62);
+  color: #f4f8ff;
+  background: #242834;
+  box-shadow: none;
+}
+
+.workspaceRow span,
+.workspaceRow small,
+.workspaceRow em,
+.lessonRow span,
+.lessonRow small,
+.lessonRow em {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspaceRow span,
+.lessonRow span {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.workspaceRow small,
+.workspaceRow em,
+.lessonRow small,
+.lessonRow em {
+  color: var(--faint);
+  font-size: 10px;
+}
+
+.workspaceRow em,
+.lessonRow em {
+  justify-self: end;
+  font-style: normal;
+}
+
+.lessonRow {
+  padding: 9px 10px;
+}
+
+.lessonRow span {
+  font-size: 11px;
+}
+
+.blocklyHost {
+  width: 100%;
+  height: 100%;
+  min-height: calc(100dvh - 66px);
+}
+
+.blocklyHost.middleButtonPanning,
+.blocklyHost.middleButtonPanning * {
+  cursor: grabbing !important;
+}
+
+.exportShape {
+  display: grid;
+  gap: 8px;
+  margin: 20px 0 0;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+}
+
+.exportShape strong {
+  color: #cbd4df;
+  font-size: 10px;
+}
+
+.exportShape span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.validationControl {
+  position: relative;
+}
+
+.validationTrigger {
+  min-width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid rgba(240, 82, 139, 0.5);
+  border-radius: 10px;
+  padding: 0 9px;
+  color: var(--validation-title);
+}
+
+.validationTrigger:hover {
+  border-color: rgba(240, 82, 139, 0.78);
+  background: var(--validation-bg);
+}
+
+.validationTrigger span {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.validationPopover {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 9px);
+  right: 0;
+  width: min(360px, calc(100vw - 28px));
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(240, 82, 139, 0.38);
+  border-radius: 10px;
+  padding: 12px;
+  background: var(--validation-bg);
+  box-shadow: 0 12px 30px var(--soft-shadow);
+}
+
+.validationTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff9fbd;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.validationPopover ul {
+  margin: 0;
+  padding-left: 17px;
+  color: var(--validation-text);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.dialogBackdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(7, 9, 12, 0.58);
+  backdrop-filter: blur(4px);
+}
+
+.workspaceDialog {
+  width: min(410px, 100%);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 20px;
+  color: var(--text);
+  background: var(--panel);
+  box-shadow: 0 24px 60px var(--soft-shadow);
+}
+
+.dialogHeading span {
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.dialogHeading h2 {
+  margin: 8px 0 6px;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.dialogHeading p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.dialogField {
+  margin-bottom: 18px;
+}
+
+.dialogField input {
+  min-height: 40px;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.secondaryButton {
+  min-height: 36px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  padding: 0 13px;
+  font-size: 12px;
+}
+
+/* Blockly surface */
+.blocklySvg {
+  background-color: var(--bg-canvas) !important;
+  background-image: var(--grid-image) !important;
+  background-position: var(--workspace-grid-x, 0) var(--workspace-grid-y, 0) !important;
+  background-size: 72px 72px !important;
+}
+
+.blocklyMainBackground {
+  stroke: transparent !important;
+  fill: transparent !important;
+}
+
+.blocklyToolbox {
+  width: 84px !important;
+  padding: 8px 0 10px;
+  border-right: 1px solid rgba(154, 164, 178, 0.14);
+  background: #202224 !important;
+  scrollbar-color: #555c63 transparent;
+  scrollbar-width: thin;
+}
+
+.blocklyToolboxCategoryGroup,
+.blocklyToolboxCategory {
+  width: 100%;
+}
+
+.blocklyTreeRow,
+.blocklyToolboxCategory {
+  border-radius: 13px;
+}
+
+.blocklyTreeRow {
+  min-height: 48px;
+  margin: 2px 4px;
+  padding: 4px 3px !important;
+  overflow: visible;
+}
+
+.blocklyTreeRowContentContainer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px;
+}
+
+.categoryBubble {
+  width: 22px !important;
+  height: 22px !important;
+  flex: 0 0 22px;
+  margin: 0 auto !important;
+  border: 1px solid var(--line-strong) !important;
+  border-radius: 50% !important;
+}
+
+.blocklyToolboxCategory,
+.blocklyToolboxCategory *,
+.blocklyTreeRow,
+.blocklyTreeRow *,
+.blocklyTreeSelected,
+.blocklyTreeSelected * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.blocklyToolboxCategory:hover .blocklyTreeRow {
+  background: #282b2f !important;
+}
+
+.blocklyTreeSelected {
+  outline: none !important;
+  border: 0 !important;
+  border-radius: 13px !important;
+  background: #292d31 !important;
+  box-shadow: none !important;
+}
+
+.blocklyTreeSelected .blocklyTreeLabel,
+.blocklyTreeSelected .blocklyToolboxCategoryLabel {
+  color: #f0f4fa !important;
+}
+
+.blocklyTreeLabel,
+.blocklyToolboxCategoryLabel {
+  color: #d8dee8 !important;
+  font-family: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.blocklyFlyoutLabelText {
+  fill: var(--surface-title) !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+.blocklyFlyoutBackground {
+  fill: #202224 !important;
+  fill-opacity: 0.98 !important;
+  stroke: rgba(154, 164, 178, 0.14);
+  stroke-width: 1px;
+}
+
+.blocklyFlyoutLabelText,
+.blocklyText,
+.blocklyHtmlInput {
+  font-family: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace !important;
+}
+
+.blocklyHtmlInput,
+.blocklyWidgetDiv .blocklyHtmlInput,
+.blocklyHtmlInput:focus {
+  border: 1px solid rgba(190, 203, 219, 0.24) !important;
+  border-radius: 6px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #f1f5f9 !important;
+  background: #17191b !important;
+}
+
+textarea.blocklyOptionListEditor {
+  width: 320px !important;
+  height: 156px !important;
+  min-height: 156px;
+  padding: 10px 12px 10px 30px !important;
+  overflow-y: auto;
+  resize: none;
+  text-align: left;
+  font-size: 12px !important;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.blocklyOptionListEditorBody {
+  position: relative;
+  height: 156px;
+  overflow: hidden;
+}
+
+.blocklyOptionListBullets {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 12px;
+  display: grid;
+  pointer-events: none;
+  color: #7f8995;
+  font-size: 14px;
+  line-height: 19.2px;
+}
+
+.blocklyOptionListBullets span {
+  height: 19.2px;
+}
+
+.blocklyOptionListPanel {
+  width: 344px;
+  display: grid;
+  gap: 9px;
+  border: 1px solid rgba(154, 164, 178, 0.24);
+  border-radius: 10px;
+  padding: 11px;
+  background: #202224;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.blocklyOptionListTitle {
+  color: #edf2f7;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.blocklyOptionListActions {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 7px;
+}
+
+.blocklyOptionListButton {
+  min-height: 30px;
+  border: 1px solid rgba(154, 164, 178, 0.24);
+  border-radius: 7px;
+  padding: 0 10px;
+  color: #e5ebf2;
+  background: #26292d;
+  cursor: pointer;
+}
+
+.blocklyOptionListButton:hover {
+  border-color: rgba(154, 164, 178, 0.46);
+  background: #2b2f34;
+}
+
+.blocklyOptionListButton.add {
+  justify-self: start;
+}
+
+.blocklyOptionListButton.apply {
+  border-color: rgba(75, 125, 255, 0.62);
+  background: #292e36;
+}
+
+.blocklyText {
+  fill: #eef3f8 !important;
+}
+
+.blocklyPath {
+  stroke-width: 1.8px;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition:
+    stroke 130ms ease,
+    fill 130ms ease;
+}
+
+.blocklyPath[fill="#202434"],
+.blocklyPath[style*="#202434"] {
+  stroke: rgba(75, 125, 255, 0.78) !important;
+}
+
+.blocklyPath[fill="#1d2b30"],
+.blocklyPath[style*="#1d2b30"] {
+  stroke: rgba(40, 199, 232, 0.76) !important;
+}
+
+.blocklyPath[fill="#2d281b"],
+.blocklyPath[style*="#2d281b"] {
+  stroke: rgba(242, 182, 50, 0.78) !important;
+}
+
+.blocklyPath[fill="#282133"],
+.blocklyPath[style*="#282133"] {
+  stroke: rgba(167, 122, 255, 0.76) !important;
+}
+
+.blocklyPath[fill="#301f29"],
+.blocklyPath[style*="#301f29"] {
+  stroke: rgba(240, 82, 139, 0.76) !important;
+}
+
+.blocklyPath[fill="#30231d"],
+.blocklyPath[style*="#30231d"] {
+  stroke: rgba(244, 122, 52, 0.76) !important;
+}
+
+.blocklyPath[fill="#23272b"],
+.blocklyPath[style*="#23272b"] {
+  stroke: rgba(135, 145, 159, 0.66) !important;
+}
+
+.blocklyDraggable:hover:not(:has(.blocklyField:hover)) > .blocklyPath {
+  stroke-width: 2px;
+}
+
+.blocklyPathLight {
+  stroke: rgba(255, 255, 255, 0.08) !important;
+  stroke-width: 1px !important;
+}
+
+.blocklyFieldRect,
+.blocklyDropdownRect {
+  fill: #17191b !important;
+  stroke: rgba(190, 203, 219, 0.24) !important;
+  stroke-width: 1.1px !important;
+  rx: 6px;
+  ry: 6px;
+  vector-effect: non-scaling-stroke;
+}
+
+.blocklyEditableField:focus > .blocklyFieldRect,
+.blocklyEditableField:active > .blocklyFieldRect,
+.blocklyEditableField.blocklyActiveFocus > .blocklyFieldRect,
+.blocklyDropdownField:focus > .blocklyDropdownRect,
+.blocklyDropdownField:active > .blocklyDropdownRect,
+.blocklyDropdownField.blocklyActiveFocus > .blocklyDropdownRect {
+  fill: #17191b !important;
+  stroke: rgba(190, 203, 219, 0.24) !important;
+}
+
+.blocklyCheckboxField .blocklyFieldRect {
+  fill: #1c1e20 !important;
+  stroke: rgba(190, 203, 219, 0.32) !important;
+  rx: 999px;
+  ry: 999px;
+}
+
+.blocklyCheckboxField .blocklyText {
+  fill: #d9e0e8 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+.blocklyEditableField:hover > .blocklyFieldRect,
+.blocklyDropdownField:hover > .blocklyDropdownRect {
+  stroke: rgba(190, 203, 219, 0.34) !important;
+}
+
+.blocklyEditableField > .blocklyText,
+.blocklyDropdownField > .blocklyText {
+  fill: #f1f5f9 !important;
+}
+
+.blocklyHost .injectionDiv .blocklyDropdownField .blocklyDropdownText {
+  fill: #f1f5f9 !important;
+}
+
+.blocklyHost .injectionDiv .blocklyDropdownField .blocklyDropdownArrow {
+  fill: #aeb8c6 !important;
+  stroke: #aeb8c6 !important;
+}
+
+.blocklyWidgetDiv .blocklyHtmlInput,
+.blocklyDropDownDiv {
+  color: var(--text) !important;
+  background: #202224 !important;
+}
+
+html body .blocklyDropDownDiv {
+  border: 1px solid rgba(154, 164, 178, 0.24) !important;
+  border-radius: 9px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.28);
+}
+
+.blocklyContextMenu,
+.blocklyWidgetDiv .blocklyMenu {
+  border: 1px solid rgba(154, 164, 178, 0.24) !important;
+  border-radius: 10px !important;
+  padding: 5px !important;
+  color: var(--text) !important;
+  background: #202224 !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.28) !important;
+  font-family: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace !important;
+  font-size: 12px !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.blocklyContextMenu::-webkit-scrollbar,
+.blocklyWidgetDiv .blocklyMenu::-webkit-scrollbar {
+  display: none;
+}
+
+.blocklyWidgetDiv .blocklyMenu:focus {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.28) !important;
+}
+
+.blocklyMenuItem {
+  min-height: 28px;
+  border-radius: 7px;
+  padding: 6px 10px !important;
+  color: #e5ebf2 !important;
+}
+
+.blocklyMenuItemContent {
+  color: #e5ebf2 !important;
+}
+
+.blocklyMenuItemDisabled,
+.blocklyMenuItemDisabled .blocklyMenuItemContent {
+  color: #67717c !important;
+}
+
+.blocklyMenuItemHighlight {
+  background: #2a2e33 !important;
+}
+
+.blocklyMenuSeparator {
+  height: 1px;
+  border: 0;
+  margin: 5px 4px;
+  background: rgba(154, 164, 178, 0.16) !important;
+}
+
+.blocklyMenuItemCheckbox {
+  filter: grayscale(1) brightness(1.4);
+  opacity: 0.76;
+}
+
+html body .blocklyDropDownDiv .blocklyMenu {
+  background: #202224 !important;
+}
+
+html body .blocklyDropDownDiv .blocklyMenuItem .blocklyMenuItemContent {
+  color: #edf2f7 !important;
+}
+
+html body .blocklyDropDownDiv .blocklyMenuItemHighlight,
+html body .blocklyDropDownDiv .blocklyMenuItemSelected {
+  background: #2a2f39 !important;
+}
+
+.blocklySelected > .blocklyPath {
+  stroke-width: 1.8px !important;
+  filter: none !important;
+}
+
+.blocklySelected > .blocklyPathSelected {
+  display: none !important;
+}
+
+.blocklySelected > .blocklyPathLight {
+  display: initial !important;
+}
+
+.blocklyHighlighted > .blocklyPath {
+  filter: none !important;
+}
+
+.blocklyInsertionMarker > .blocklyPath {
+  fill: var(--blockly-insertion-marker-accent, #87919f) !important;
+  fill-opacity: 0.5 !important;
+  stroke: var(--blockly-insertion-marker-accent, #87919f) !important;
+  stroke-opacity: 0.5 !important;
+  stroke-width: 2px !important;
+}
+
+.blocklyScrollbarBackground {
+  fill: transparent !important;
+}
+
+.blocklyScrollbarHandle {
+  fill: #555c63 !important;
+  rx: 5px;
+  ry: 5px;
+}
+
+.blocklyScrollbarHandle:hover {
+  fill: #6a737d !important;
+}
+
+.blocklyZoom > image,
+.blocklyTrash > image {
+  opacity: 0.52;
+  filter: grayscale(1) brightness(1.65);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: #555c63;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6a737d;
+  background-clip: padding-box;
+}
+
+/* Theme-driven surface tokens. Palette values live in editorThemes.json. */
+.topbar {
+  background: var(--topbar);
+}
+
+.brandMark,
+.primaryButton,
+.iconButton,
+.secondaryButton,
+.workspaceListHeader button,
+.panelEdgeToggle,
+.validationTrigger {
+  background: var(--control);
+}
+
+.primaryButton:hover:not(:disabled),
+.iconButton:hover,
+.secondaryButton:hover,
+.workspaceListHeader button:hover,
+.workspaceListHeader .deleteWorkspaceButton:hover:not(:disabled),
+.workspaceListHeader .deleteLessonButton:hover:not(:disabled),
+.panelEdgeToggle:hover {
+  color: var(--text);
+  background: var(--control-hover);
+}
+
+.primaryButton:active:not(:disabled) {
+  background: var(--control-active);
+}
+
+.primaryButton:disabled,
+.workspaceListHeader button:disabled {
+  color: var(--disabled-text);
+  background: var(--disabled-bg);
+}
+
+.readyState {
+  color: var(--ready);
+}
+
+.editorGrid {
+  background: var(--shell-divider);
+}
+
+.leftPanel {
+  background: var(--panel);
+  scrollbar-color: var(--scrollbar) transparent;
+}
+
+.panelTitle {
+  color: var(--surface-title);
+}
+
+.field input {
+  color: var(--text);
+  background: var(--input);
+}
+
+.field input:focus {
+  background: var(--input-focus);
+}
+
+.workspaceRow,
+.lessonRow {
+  color: var(--text);
+}
+
+.workspaceRow:hover,
+.lessonRow:hover {
+  background: var(--control);
+}
+
+.workspaceRow.selected,
+.lessonRow.selected {
+  color: var(--text);
+  background: var(--selected);
+}
+
+.exportShape strong {
+  color: var(--strong-text);
+}
+
+.validationPopover {
+  background: var(--validation-bg);
+}
+
+.validationTitle {
+  color: var(--validation-title);
+}
+
+.validationPopover ul {
+  color: var(--validation-text);
+}
+
+.blocklyToolbox,
+.blocklyFlyoutBackground {
+  background: var(--panel) !important;
+  fill: var(--panel) !important;
+}
+
+.blocklyToolboxCategory:hover .blocklyTreeRow {
+  background: var(--toolbox-hover) !important;
+}
+
+.blocklyTreeSelected {
+  background: var(--toolbox-selected) !important;
+}
+
+.blocklyTreeLabel,
+.blocklyToolboxCategoryLabel,
+.blocklyTreeSelected .blocklyTreeLabel,
+.blocklyTreeSelected .blocklyToolboxCategoryLabel {
+  color: var(--text) !important;
+}
+
+.blocklyHtmlInput,
+.blocklyWidgetDiv .blocklyHtmlInput,
+.blocklyHtmlInput:focus,
+.blocklyFieldRect,
+.blocklyDropdownRect {
+  color: var(--text) !important;
+  fill: var(--field-bg) !important;
+  background: var(--field-bg) !important;
+  stroke: var(--field-border) !important;
+  border-color: var(--field-border) !important;
+}
+
+.blocklyEditableField:focus > .blocklyFieldRect,
+.blocklyEditableField:active > .blocklyFieldRect,
+.blocklyEditableField.blocklyActiveFocus > .blocklyFieldRect,
+.blocklyDropdownField:focus > .blocklyDropdownRect,
+.blocklyDropdownField:active > .blocklyDropdownRect,
+.blocklyDropdownField.blocklyActiveFocus > .blocklyDropdownRect {
+  fill: var(--field-bg) !important;
+  stroke: var(--field-border) !important;
+}
+
+.blocklyEditableField:hover > .blocklyFieldRect,
+.blocklyDropdownField:hover > .blocklyDropdownRect {
+  stroke: var(--field-border-hover) !important;
+}
+
+.blocklyCheckboxField .blocklyFieldRect {
+  fill: var(--field-alt) !important;
+}
+
+.blocklyText,
+.blocklyEditableField > .blocklyText,
+.blocklyDropdownField > .blocklyText,
+.blocklyHost .injectionDiv .blocklyDropdownField .blocklyDropdownText,
+.blocklyCheckboxField .blocklyText {
+  fill: var(--block-text) !important;
+}
+
+.blocklyHost .injectionDiv .blocklyDropdownField .blocklyDropdownArrow {
+  fill: var(--muted) !important;
+  stroke: var(--muted) !important;
+}
+
+.blocklyDropdownArrow {
+  fill: var(--text) !important;
+  stroke: var(--text) !important;
+}
+
+.blocklyDropDownArrow {
+  border-color: var(--line-strong) !important;
+  background: var(--menu) !important;
+}
+
+.blocklyPathLight {
+  stroke: var(--path-light) !important;
+}
+
+.blocklyOptionListPanel,
+.blocklyContextMenu,
+.blocklyWidgetDiv .blocklyMenu,
+.blocklyWidgetDiv .blocklyHtmlInput,
+.blocklyDropDownDiv {
+  color: var(--text) !important;
+  background-color: var(--menu) !important;
+  border-color: var(--line-strong) !important;
+  box-shadow: 0 6px 12px var(--soft-shadow) !important;
+}
+
+.blocklyOptionListTitle,
+.blocklyOptionListButton,
+.blocklyMenuItem,
+.blocklyMenuItemContent,
+html body .blocklyDropDownDiv .blocklyMenuItem .blocklyMenuItemContent {
+  color: var(--menu-item) !important;
+}
+
+.blocklyOptionListButton {
+  background: var(--control);
+}
+
+.blocklyOptionListButton:hover,
+.blocklyMenuItemHighlight {
+  background: var(--menu-hover) !important;
+}
+
+html body .blocklyDropDownDiv .blocklyDropDownContent,
+html body .blocklyDropDownDiv .blocklyDropdownMenu,
+html body .blocklyDropDownDiv .blocklyMenu {
+  border: 0 !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body .blocklyDropDownDiv .blocklyMenuItem,
+html body .blocklyDropDownDiv .blocklyMenuItemContent {
+  border-radius: 7px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body .blocklyDropDownDiv .blocklyMenuItemHighlight {
+  background: var(--menu-hover) !important;
+}
+
+html body .blocklyDropDownDiv .blocklyMenuItemSelected,
+html body .blocklyDropDownDiv .blocklyMenuItemSelected.blocklyMenuItemHighlight {
+  background: var(--menu-selected) !important;
+}
+
+html body .blocklyDropDownDiv .blocklyMenuItemHighlight .blocklyMenuItemContent,
+html body .blocklyDropDownDiv .blocklyMenuItemSelected .blocklyMenuItemContent {
+  background: transparent !important;
+}
+
+html body .blocklyDropDownDiv .blocklyMenuItemHighlight:not(.blocklyMenuItemSelected) .blocklyMenuItemContent {
+  color: var(--blue) !important;
+}
+
+.blocklyMenuItemDisabled,
+.blocklyMenuItemDisabled .blocklyMenuItemContent {
+  color: var(--menu-disabled) !important;
+}
+
+.blocklyScrollbarHandle {
+  fill: var(--scrollbar) !important;
+}
+
+.blocklyScrollbarHandle:hover {
+  fill: var(--scrollbar-hover) !important;
+}
+
+.blocklyZoom > image,
+.blocklyTrash > image {
+  filter: var(--control-image-filter);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+}
+
+@media (max-width: 1100px) {
+  .editorGrid {
+    --bundle-column-width: 238px;
+    grid-template-columns: var(--bundle-column-width) minmax(0, 1fr);
+  }
+
+  .editorGrid.bundleHidden {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 980px) {
+  body {
+    overflow: auto;
+  }
+
+  .appShell {
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .topbar {
+    min-height: 66px;
+    padding-block: 10px;
+  }
+
+  .readyState {
+    display: none;
+  }
+
+  .editorGrid {
+    --bundle-column-width: 220px;
+    grid-template-columns: var(--bundle-column-width) minmax(0, 1fr);
+  }
+
+  .editorGrid.bundleHidden {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blocklyHost {
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .brandBlock h1 {
+    max-width: 80vw;
+  }
+
+  .topbarActions {
+    width: 100%;
+  }
+
+  .topbarActions {
+    display: flex;
+  }
+
+  .topbarActions .primaryButton {
+    flex: 1;
+  }
+
+  .editorGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .panelEdgeToggle {
+    top: 18px;
+    right: 10px;
+    left: auto;
+    width: 34px;
+    height: 34px;
+    transform: none;
+  }
+
+  .editorGrid.bundleHidden .panelEdgeToggle {
+    top: 50%;
+    right: auto;
+    left: 10px;
+    width: 26px;
+    height: 52px;
+    transform: translateY(-50%);
+  }
+
+  .leftPanel {
+    min-height: auto;
+  }
+
+  .blocklyHost {
+    min-height: 640px;
+  }
+
+  .blocklyToolbox {
+    width: 78px !important;
+  }
+
+  .blocklyTreeRow {
+    margin-inline: 4px;
+    padding-inline: 3px !important;
+  }
+}

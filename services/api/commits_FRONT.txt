@@ -1,0 +1,4223 @@
+===COMMIT===
+2026-02-12 10:46 | 6bf6e87 | Hex358 // Pantone 358C
+.
+Files:
+- README.md (+2/-0)
+
+
+===COMMIT===
+2026-02-12 10:45 | b32ed1a | Hex358 // Pantone 358C
+.
+Files:
+- README.md (+89/-0)
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- addons/yaml/bin/~libgdyaml.windows.debug.x86_64.dll (+bin/-bin)
+
+
+===COMMIT===
+2026-02-12 10:38 | 2c833a9 | Hex358 // Pantone 358C
+.
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- addons/yaml/bin/~libgdyaml.windows.debug.x86_64.dll (+bin/-bin)
+- export_presets.cfg (+22/-5)
+- ports.tres (+11/-0)
+- project.godot (+5/-1)
+- resources/alt.tres (+18/-0)
+- resources/confetti.tres (+1/-1)
+- resources/connection.tres (+1/-0)
+- resources/connin.tres (+18/-0)
+- resources/fork.tres (+19/-0)
+- resources/fork.tscn (+36/-0)
+- resources/rounded_crs_abs.tres (+1/-0)
+- resources/theme.tres (+1/-1)
+- resources/theme_base.tres (+1/-1)
+- resources/theme_headers.tres (+1/-1)
+- scenes/Connection.tscn (+37/-2)
+- scenes/bg.tscn (+9/-8)
+- scenes/conv2d.tscn (+1/-0)
+- scenes/default_spline.tscn (+6/-5)
+- scenes/layer.tscn (+1/-0)
+- scenes/project.tscn (+1/-8)
+- scenes/quest.tscn (+1/-1)
+- scripts/arrow_2d.gd (+154/-0)
+- scripts/arrow_2d.gd.uid (+1/-0)
+- scripts/base_graph.gd (+15/-2)
+- scripts/block_component.gd (+2/-0)
+- scripts/camera_2d.gd (+2/-2)
+- scripts/classifier.gd (+7/-0)
+- scripts/connection.gd (+89/-10)
+- scripts/dsl_compile.gd (+144/-14)
+- scripts/dsl_graph_utils.gd (+169/-23)
+- scripts/dsl_registry.gd (+9/-0)
+- scripts/dsl_runtime.gd (+359/-19)
+- scripts/fork.gd (+17/-0)
+- scripts/fork.gd.uid (+1/-0)
+- scripts/glob.gd (+42/-3)
+- scripts/graph_manager.gd (+15/-1)
+- scripts/io_graph.gd (+2/-0)
+- scripts/learner.gd (+18/-1)
+- scripts/lesson_code.gd (+208/-11)
+- scripts/neuron_layer.gd (+2/-2)
+- scripts/quest.gd (+23/-8)
+- scripts/selector_box.gd (+4/-3)
+- scripts/settings.gd (+6/-4)
+- scripts/spline.gd (+45/-0)
+- scripts/ui_manager.gd (+104/-7)
+- scripts/update_state.gd (+139/-0)
+- scripts/update_state.gd.uid (+1/-0)
+- scripts/web.gd (+3/-2)
+- scripts/yaml_comp.gd (+1/-1)
+- shaders/abs_runded.gdshader (+50/-27)
+- shaders/cells.gdshader (+3/-2)
+- shaders/fork.gdshader (+179/-0)
+- shaders/fork.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2026-01-18 14:25 | 4886f2e | Hex358 // Pantone 358C
+.
+Files:
+- export_presets.cfg (+47/-1)
+- game_assets/icons/arr.png (+bin/-bin)
+- game_assets/icons/arr.png.import (+40/-0)
+- resources/confetti.tres (+25/-0)
+- resources/rounded_crs_abs.tres (+10/-0)
+- resources/sas.tres (+18/-0)
+- scenes/activation_node.tscn (+13/-13)
+- scenes/branch_mapping.tscn (+16/-3)
+- scenes/campit.gd (+6/-0)
+- scenes/campit.gd.uid (+1/-0)
+- scenes/classifier_graph.tscn (+2/-2)
+- scenes/confetti.tscn (+21/-0)
+- scenes/conv2d.tscn (+46/-1)
+- scenes/dataset.tscn (+13/-1)
+- scenes/dropout.tscn (+17/-5)
+- scenes/fg.tscn (+12/-5)
+- scenes/flatten.tscn (+13/-1)
+- scenes/hint.tscn (+317/-0)
+- scenes/input_1d.tscn (+11/-0)
+- scenes/input_graph.tscn (+17/-5)
+- scenes/lanpop.tscn (+28/-0)
+- scenes/layer.tscn (+13/-1)
+- scenes/layer_concat.tscn (+11/-0)
+- scenes/lessonlist.tscn (+1/-0)
+- scenes/maxpool.tscn (+24/-1)
+- scenes/menus.tscn (+59/-3)
+- scenes/menus.tscn.bak (+705/-0)
+- scenes/netname.tscn (+11/-0)
+- scenes/neuron.tscn (+74/-10)
+- scenes/project.tscn (+8/-1)
+- scenes/quest.tscn (+17/-9)
+- scenes/reshape.tscn (+13/-1)
+- scenes/run_model.tscn (+16/-3)
+- scenes/signup.tscn (+4/-2)
+- scenes/softmax.tscn (+16/-3)
+- scenes/train_begin.tscn (+12/-0)
+- scenes/train_input.tscn (+57/-1)
+- scripts/base_graph.gd (+126/-20)
+- scripts/block_component.gd (+60/-8)
+- scripts/camera_2d.gd (+136/-52)
+- scripts/cmenu.gd (+296/-98)
+- scripts/confetti'.gd (+0/-0)
+- scripts/confetti'.gd.uid (+1/-0)
+- scripts/connection.gd (+2/-0)
+- scripts/container.gd (+1/-1)
+- scripts/cookie_manager.gd (+1/-1)
+- scripts/dsl_compile.gd (+643/-1)
+- scripts/dsl_graph_utils.gd (+106/-1)
+- scripts/dsl_registry.gd (+106/-763)
+- scripts/dsl_runtime.gd (+450/-1)
+- scripts/fcplot.gd (+0/-0)
+- scripts/fcplot.gd.uid (+1/-0)
+- scripts/glob.gd (+55/-14)
+- scripts/graph_manager.gd (+26/-4)
+- scripts/image_draw.gd (+1/-0)
+- scripts/lanpop.gd (+15/-0)
+- scripts/lanpop.gd.uid (+1/-0)
+- scripts/learner.gd (+87/-12)
+- scripts/lesson_code.gd (+182/-36)
+- scripts/lesson_header.gd (+12/-3)
+- scripts/lessonlist.gd (+3/-0)
+- scripts/loc.gd (+1/-0)
+- scripts/menus.gd (+1/-0)
+- scripts/meow.gd (+21/-0)
+- scripts/meow.gd.uid (+1/-0)
+- scripts/neuron_config.gd (+27/-0)
+- scripts/plot_draw.gd (+231/-0)
+- scripts/plot_draw.gd.uid (+1/-0)
+- scripts/plotv.gdshader (+34/-0)
+- scripts/plotv.gdshader.uid (+1/-0)
+- scripts/qhint.gd (+82/-0)
+- scripts/qhint.gd.uid (+1/-0)
+- scripts/quest.gd (+159/-34)
+- scripts/scalefg.gd (+4/-0)
+- scripts/scalefg.gd.uid (+1/-0)
+- scripts/selector_box.gd (+0/-2)
+- scripts/ui_manager.gd (+53/-7)
+- scripts/web.gd (+10/-0)
+- scripts/works_list.gd (+3/-1)
+- scripts/yaml_comp.gd (+158/-21)
+- shaders/abs_runded.gdshader (+79/-0)
+- shaders/abs_runded.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2026-01-05 16:57 | c161e11 | Hex358 // Pantone 358C
+madness
+Files:
+- export_presets.cfg (+1/-1)
+- scripts/base_graph.gd (+0/-1)
+- scripts/dsl_compile.gd (+1/-0)
+- scripts/dsl_compile.gd.uid (+1/-0)
+- scripts/dsl_graph_utils.gd (+1/-0)
+- scripts/dsl_graph_utils.gd.uid (+1/-0)
+- scripts/dsl_registry.gd (+177/-77)
+- scripts/dsl_runtime.gd (+1/-0)
+- scripts/dsl_runtime.gd.uid (+1/-0)
+- scripts/lesson_code.gd (+110/-30)
+- scripts/run_manager.gd (+1/-1)
+- scripts/ui_manager.gd (+5/-5)
+- scripts/yaml_comp.gd (+0/-1)
+
+
+===COMMIT===
+2026-01-04 11:06 | ca8747f | Hex358 // Pantone 358C
+.
+Files:
+- game_assets/icons/ch.png (+bin/-bin)
+- game_assets/icons/ch.png.import (+40/-0)
+- game_assets/icons/check_box_outline_blank_32dp_434343_FILL0_wght700_GRAD0_opsz40.png (+bin/-bin)
+- game_assets/icons/check_box_outline_blank_32dp_434343_FILL0_wght700_GRAD0_opsz40.png.import (+40/-0)
+- game_assets/icons/check_on.png (+bin/-bin)
+- game_assets/icons/check_on.png.import (+40/-0)
+- game_assets/icons/check_wrong.png (+bin/-bin)
+- game_assets/icons/check_wrong.png.import (+40/-0)
+- game_assets/icons/lock.png (+bin/-bin)
+- game_assets/icons/lock.png.import (+40/-0)
+- game_assets/icons/lock_open.png (+bin/-bin)
+- game_assets/icons/lock_open.png.import (+40/-0)
+- game_assets/icons/nong.png (+bin/-bin)
+- game_assets/icons/nong.png.import (+40/-0)
+- game_assets/icons/radio_off.png (+bin/-bin)
+- game_assets/icons/radio_off.png.import (+40/-0)
+- game_assets/icons/radio_on.png (+bin/-bin)
+- game_assets/icons/radio_on.png.import (+40/-0)
+- game_assets/icons/should_on.png (+bin/-bin)
+- game_assets/icons/should_on.png.import (+40/-0)
+- game_assets/icons/yesg.png (+bin/-bin)
+- game_assets/icons/yesg.png.import (+40/-0)
+- resources/theme.tres (+9/-1)
+- scenes/cbox.tscn (+12/-0)
+- scenes/fg.tscn (+6/-6)
+- scenes/graph_shadow.tscn (+4/-4)
+- scenes/lessonlist.tscn (+5/-2)
+- scenes/quest.tscn (+150/-121)
+- scenes/quest_legacy.tscn (+330/-0)
+- scenes/settings.tscn (+61/-10)
+- scenes/topr.tscn (+6/-5)
+- scenes/workslist.tscn (+1/-1)
+- scripts/aibox.gd (+1/-1)
+- scripts/base_graph.gd (+90/-6)
+- scripts/block_component.gd (+49/-9)
+- scripts/block_component.gd.bak (+1305/-0)
+- scripts/bubble_unit_legacy.gd (+249/-0)
+- scripts/bubble_unit_legacy.gd.uid (+1/-0)
+- scripts/c_legacy.gd (+18/-0)
+- scripts/c_legacy.gd.uid (+1/-0)
+- scripts/cli.gd (+16/-16)
+- scripts/container.gd (+121/-12)
+- scripts/ds_obj_serialize.gd (+36/-0)
+- scripts/dsl_registry.gd (+156/-27)
+- scripts/dsl_single.gd (+1/-0)
+- scripts/glob.gd (+160/-8)
+- scripts/learner.gd (+33/-12)
+- scripts/lesson_code.gd (+43/-3)
+- scripts/lesson_header.gd (+4/-0)
+- scripts/lessonlist.gd (+37/-3)
+- scripts/loc.gd (+9/-0)
+- scripts/quest.gd (+201/-42)
+- scripts/quest_legacy.gd (+217/-0)
+- scripts/quest_legacy.gd.uid (+1/-0)
+- scripts/reshape.gd (+8/-5)
+- scripts/run_manager.gd (+1/-0)
+- scripts/settings.gd (+31/-5)
+- scripts/top_panel.gd (+6/-3)
+- scripts/ui_manager.gd (+48/-6)
+- scripts/validate_line.gd (+1/-0)
+- scripts/yaml_comp.gd (+94/-58)
+
+
+===COMMIT===
+2025-12-30 23:03 | 7ddcc34 | Hex358 // Pantone 358C
+.
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- addons/yaml/CHANGELOG.md (+312/-0)
+- addons/yaml/LICENSE (+21/-0)
+- addons/yaml/README.md (+766/-0)
+- addons/yaml/bin/libgdyaml.android.debug.arm64.so (+bin/-bin)
+- addons/yaml/bin/libgdyaml.android.debug.x86_64.so (+bin/-bin)
+- addons/yaml/bin/libgdyaml.android.release.arm64.so (+bin/-bin)
+- addons/yaml/bin/libgdyaml.android.release.x86_64.so (+bin/-bin)
+- addons/yaml/bin/libgdyaml.linux.debug.x86_64.so (+bin/-bin)
+- addons/yaml/bin/libgdyaml.linux.release.x86_64.so (+bin/-bin)
+- addons/yaml/bin/libgdyaml.macos.debug.dylib (+bin/-bin)
+- addons/yaml/bin/libgdyaml.macos.release.dylib (+bin/-bin)
+- addons/yaml/bin/libgdyaml.windows.debug.x86_64.dll (+bin/-bin)
+- addons/yaml/bin/libgdyaml.windows.release.x86_64.dll (+bin/-bin)
+- addons/yaml/bin/~libgdyaml.windows.debug.x86_64.dll (+bin/-bin)
+- addons/yaml/editor/code_edit.gd (+14/-0)
+- addons/yaml/editor/code_edit.gd.uid (+1/-0)
+- addons/yaml/editor/code_editor.gd (+389/-0)
+- addons/yaml/editor/code_editor.gd.uid (+1/-0)
+- addons/yaml/editor/document.gd (+136/-0)
+- addons/yaml/editor/document.gd.uid (+1/-0)
+- addons/yaml/editor/document_manager.gd (+568/-0)
+- addons/yaml/editor/document_manager.gd.uid (+1/-0)
+- addons/yaml/editor/editor_shortcuts.gd (+166/-0)
+- addons/yaml/editor/editor_shortcuts.gd.uid (+1/-0)
+- addons/yaml/editor/file_list.gd (+107/-0)
+- addons/yaml/editor/file_list.gd.uid (+1/-0)
+- addons/yaml/editor/file_system.gd (+101/-0)
+- addons/yaml/editor/file_system.gd.uid (+1/-0)
+- addons/yaml/editor/find_replace_bar.gd (+496/-0)
+- addons/yaml/editor/find_replace_bar.gd.uid (+1/-0)
+- addons/yaml/editor/menu_bar.gd (+91/-0)
+- addons/yaml/editor/menu_bar.gd.uid (+1/-0)
+- addons/yaml/editor/session_manager.gd (+109/-0)
+- addons/yaml/editor/session_manager.gd.uid (+1/-0)
+- addons/yaml/editor/status_bar.gd (+64/-0)
+- addons/yaml/editor/status_bar.gd.uid (+1/-0)
+- addons/yaml/editor/syntax_highlighting/editor_syntax_highlighter.gd (+21/-0)
+- addons/yaml/editor/syntax_highlighting/editor_syntax_highlighter.gd.uid (+1/-0)
+- addons/yaml/editor/syntax_highlighting/syntax_highlighter.gd (+20/-0)
+- addons/yaml/editor/syntax_highlighting/syntax_highlighter.gd.uid (+1/-0)
+- addons/yaml/editor/syntax_highlighting/yaml_syntax_parser.gd (+384/-0)
+- addons/yaml/editor/syntax_highlighting/yaml_syntax_parser.gd.uid (+1/-0)
+- addons/yaml/editor/validator.gd (+109/-0)
+- addons/yaml/editor/validator.gd.uid (+1/-0)
+- addons/yaml/editor/yaml_editor.gd (+357/-0)
+- addons/yaml/editor/yaml_editor.gd.uid (+1/-0)
+- addons/yaml/editor/yaml_editor.tscn (+407/-0)
+- addons/yaml/examples/assets/material.tres (+3/-0)
+- addons/yaml/examples/assets/risky_resource.tres (+11/-0)
+- addons/yaml/examples/assets/simple_scene.tscn (+21/-0)
+- addons/yaml/examples/classes/my_custom_class.gd (+53/-0)
+- addons/yaml/examples/classes/my_custom_class.gd.uid (+1/-0)
+- addons/yaml/examples/classes/my_custom_resource.gd (+53/-0)
+- addons/yaml/examples/classes/my_custom_resource.gd.uid (+1/-0)
+- addons/yaml/examples/classes/my_string_class.gd (+18/-0)
+- addons/yaml/examples/classes/my_string_class.gd.uid (+1/-0)
+- addons/yaml/examples/data/custom_tag.yaml (+5/-0)
+- addons/yaml/examples/data/multi_document.yaml (+5/-0)
+- addons/yaml/examples/data/simple.yaml (+7/-0)
+- addons/yaml/examples/data/supported_syntax.yaml (+179/-0)
+- addons/yaml/examples/example_base.gd (+66/-0)
+- addons/yaml/examples/example_base.gd.uid (+1/-0)
+- addons/yaml/examples/example_basic_usage.gd (+140/-0)
+- addons/yaml/examples/example_basic_usage.gd.uid (+1/-0)
+- addons/yaml/examples/example_custom_class.gd (+237/-0)
+- addons/yaml/examples/example_custom_class.gd.uid (+1/-0)
+- addons/yaml/examples/example_error_handling.gd (+161/-0)
+- addons/yaml/examples/example_error_handling.gd.uid (+1/-0)
+- addons/yaml/examples/example_multi_document.gd (+258/-0)
+- addons/yaml/examples/example_multi_document.gd.uid (+1/-0)
+- addons/yaml/examples/example_resource_referencing.gd (+172/-0)
+- addons/yaml/examples/example_resource_referencing.gd.uid (+1/-0)
+- addons/yaml/examples/example_security.gd (+206/-0)
+- addons/yaml/examples/example_security.gd.uid (+1/-0)
+- addons/yaml/examples/example_speed_benchmark.gd (+204/-0)
+- addons/yaml/examples/example_speed_benchmark.gd.uid (+1/-0)
+- addons/yaml/examples/example_style_system.gd (+359/-0)
+- addons/yaml/examples/example_style_system.gd.uid (+1/-0)
+- addons/yaml/examples/example_validation.gd (+107/-0)
+- addons/yaml/examples/example_validation.gd.uid (+1/-0)
+- addons/yaml/examples/example_variants.gd (+163/-0)
+- addons/yaml/examples/example_variants.gd.uid (+1/-0)
+- addons/yaml/examples/yaml_examples.tscn (+47/-0)
+- addons/yaml/icon-schema.svg (+1/-0)
+- addons/yaml/icon-schema.svg.import (+43/-0)
+- addons/yaml/icon.png (+bin/-bin)
+- addons/yaml/icon.png.import (+40/-0)
+- addons/yaml/icon.svg (+16/-0)
+- addons/yaml/icon.svg.import (+43/-0)
+- addons/yaml/plugin.cfg (+6/-0)
+- addons/yaml/plugin.gd (+172/-0)
+- addons/yaml/plugin.gd.uid (+1/-0)
+- addons/yaml/yaml.gdextension (+31/-0)
+- addons/yaml/yaml.gdextension.uid (+1/-0)
+- addons/yaml/yaml_resource.gd (+57/-0)
+- addons/yaml/yaml_resource.gd.uid (+1/-0)
+- addons/yaml/yaml_resource_format.gd (+54/-0)
+- addons/yaml/yaml_resource_format.gd.uid (+1/-0)
+- game_assets/icons/book.png (+bin/-bin)
+- game_assets/icons/book.png.import (+40/-0)
+- game_assets/icons/good.png (+bin/-bin)
+- game_assets/icons/good.png.import (+40/-0)
+- game_assets/icons/upload.png (+bin/-bin)
+- game_assets/icons/upload.png.import (+40/-0)
+- project.godot (+6/-0)
+- resources/font_alphamult.tres (+1/-1)
+- scenes/classroom_create.tscn (+154/-0)
+- scenes/conv2d.tscn (+2/-1)
+- scenes/fg.tscn (+76/-10)
+- scenes/lessonlist.tscn (+8/-9)
+- scenes/maxpool.tscn (+3/-1)
+- scenes/menus.tscn (+1/-1)
+- scenes/project_create.tscn (+25/-2)
+- scenes/quest.tscn (+286/-0)
+- scenes/settings.tscn (+256/-155)
+- scenes/topr.tscn (+8/-2)
+- scenes/workslist.tscn (+1/-1)
+- scripts/aibox.gd (+5/-4)
+- scripts/animspin.gd (+7/-8)
+- scripts/base_graph.gd (+35/-0)
+- scripts/block_component.gd (+3/-1)
+- scripts/classroom_create.gd (+36/-0)
+- scripts/classroom_create.gd.uid (+1/-0)
+- scripts/cmenu.gd (+1/-1)
+- scripts/connection.gd (+1/-1)
+- scripts/container.gd (+47/-0)
+- scripts/container.gd.uid (+1/-0)
+- scripts/cookie_manager.gd (+8/-1)
+- scripts/dsl_registry.gd (+553/-0)
+- scripts/dsl_registry.gd.uid (+1/-0)
+- scripts/dsl_single.gd (+16/-0)
+- scripts/{lua_lesson_runner_singleton.gd.uid => dsl_single.gd.uid} (+0/-0)
+- scripts/glob.gd (+65/-36)
+- scripts/graph_manager.gd (+6/-1)
+- scripts/layout.gd (+18/-0)
+- scripts/layout.gd.uid (+1/-0)
+- scripts/learner.gd (+282/-9)
+- scripts/lesson_code.gd (+107/-0)
+- scripts/lesson_code.gd.uid (+1/-0)
+- scripts/lesson_header.gd (+59/-0)
+- scripts/lesson_header.gd.uid (+1/-0)
+- scripts/lessonlist.gd (+105/-0)
+- scripts/lessonlist.gd.uid (+1/-0)
+- scripts/loc.gd (+9/-0)
+- scripts/lua_lesson_runner.gd (+0/-115)
+- scripts/lua_lesson_runner.gd.uid (+0/-1)
+- scripts/lua_lesson_runner_singleton.gd (+0/-20)
+- scripts/lua_procedure.gd (+26/-11)
+- scripts/path_open.gd (+19/-4)
+- scripts/quest.gd (+103/-0)
+- scripts/quest.gd.uid (+1/-0)
+- scripts/run_m.gd (+2/-1)
+- scripts/selector_box.gd (+2/-0)
+- scripts/settings.gd (+277/-51)
+- scripts/splash_menu.gd (+10/-3)
+- scripts/top_panel.gd (+3/-3)
+- scripts/train_begin.gd (+8/-0)
+- scripts/ui_manager.gd (+12/-3)
+- scripts/web.gd (+42/-9)
+- scripts/workslist.gd (+9/-6)
+- scripts/yaml_comp.gd (+154/-0)
+- scripts/yaml_comp.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-12-26 22:08 | 60d6eb4 | Hex358 // Pantone 358C
+Delete ~libluaapi.windows.template_debug.x86_64.dll
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+
+
+===COMMIT===
+2025-12-26 22:08 | d8bf077 | Hex358 // Pantone 358C
+lessons
+Files:
+- game_assets/icons/account.png (+bin/-bin)
+- game_assets/icons/account.png.import (+40/-0)
+- game_assets/icons/bigre.png (+bin/-bin)
+- game_assets/icons/bigre.png.import (+40/-0)
+- game_assets/icons/ok.png (+bin/-bin)
+- game_assets/icons/ok.png.import (+40/-0)
+- game_assets/icons/question.png (+bin/-bin)
+- game_assets/icons/question.png.import (+40/-0)
+- game_assets/icons/setts.png (+bin/-bin)
+- game_assets/icons/setts.png.import (+40/-0)
+- game_assets/icons/usr.png (+bin/-bin)
+- game_assets/icons/usr.png.import (+40/-0)
+- game_assets/icons/warn.png (+bin/-bin)
+- game_assets/icons/warn.png.import (+40/-0)
+- project.godot (+1/-0)
+- scenes/ai_help.tscn (+4/-3)
+- scenes/dataset_create.tscn (+1/-0)
+- scenes/fg.tscn (+41/-67)
+- scenes/input_1d.tscn (+4/-2)
+- scenes/layer.tscn (+2/-1)
+- scenes/lessonlist.tscn (+211/-0)
+- scenes/menus.tscn (+2/-1)
+- scenes/path_open.tscn (+0/-1)
+- scenes/reshape.tscn (+3/-1)
+- scenes/settings.tscn (+920/-0)
+- scenes/signup.tscn (+71/-10)
+- scenes/workslist.tscn (+368/-0)
+- scripts/animspin.gd (+19/-0)
+- scripts/animspin.gd.uid (+1/-0)
+- scripts/block_component.gd (+30/-6)
+- scripts/cmenu.gd (+5/-3)
+- scripts/confirm.gd (+105/-0)
+- scripts/confirm.gd.uid (+1/-0)
+- scripts/dataset_create.gd (+1/-1)
+- scripts/dataset_tab.gd (+1/-1)
+- scripts/ds_obj_serialize.gd (+2/-0)
+- scripts/file_grid_extender.gd (+350/-0)
+- scripts/file_grid_extender.gd.uid (+1/-0)
+- scripts/filegrid.gd (+45/-249)
+- scripts/glob.gd (+119/-16)
+- scripts/grid_vis.gd (+268/-0)
+- scripts/grid_vis.gd.uid (+1/-0)
+- scripts/icon_text_grid.gd (+58/-0)
+- scripts/icon_text_grid.gd.uid (+1/-0)
+- scripts/input_1d.gd (+7/-0)
+- scripts/learner.gd (+21/-0)
+- scripts/learner.gd.uid (+1/-0)
+- scripts/locoffset.gd (+9/-0)
+- scripts/locoffset.gd.uid (+1/-0)
+- scripts/lua_lesson_runner.gd (+115/-0)
+- scripts/lua_lesson_runner.gd.uid (+1/-0)
+- scripts/lua_lesson_runner_singleton.gd (+20/-0)
+- scripts/lua_lesson_runner_singleton.gd.uid (+1/-0)
+- scripts/lua_procedure.gd (+316/-0)
+- scripts/lua_procedure.gd.uid (+1/-0)
+- scripts/path_open.gd (+3/-1)
+- scripts/project_create.gd (+1/-1)
+- scripts/settings.gd (+175/-0)
+- scripts/settings.gd.uid (+1/-0)
+- scripts/signup.gd (+32/-11)
+- scripts/splash_menu.gd (+24/-17)
+- scripts/top_panel.gd (+40/-5)
+- scripts/train_input.gd (+1/-1)
+- scripts/transcriber.gd (+8/-0)
+- scripts/ui_manager.gd (+32/-0)
+- scripts/validate_number.gd (+9/-2)
+- scripts/web.gd (+186/-49)
+- scripts/works.gd (+11/-2)
+- scripts/works_list.gd (+3/-1)
+- scripts/works_unroll.gd (+13/-2)
+- scripts/workslist.gd (+123/-0)
+- scripts/workslist.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-12-16 22:30 | 3069d92 | Hex358 // Pantone 358C
+.
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- scenes/neuron.tscn (+1/-22)
+- scripts/run_m.gd (+2/-1)
+- scripts/run_manager.gd (+1/-0)
+
+
+===COMMIT===
+2025-12-14 17:32 | a588b56 | Hex358 // Pantone 358C
+stable
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- export_presets.cfg (+5/-5)
+- nnetsarm.exe (+bin/-bin)
+- nnetsx86.exe (+bin/-bin)
+- project.godot (+1/-0)
+- scenes/bg.tscn (+1/-1)
+- scripts/branches.gd (+2/-0)
+- scripts/cmenu.gd (+14/-8)
+- scripts/graph_manager.gd (+1/-0)
+- scripts/splash_menu.gd (+1/-0)
+
+
+===COMMIT===
+2025-12-09 23:38 | 812297d | Hex358 // Pantone 358C
+.
+Files:
+- scenes/aiload.tscn (+27/-3)
+- scenes/fg.tscn (+11/-13)
+- scenes/input_graph.tscn (+4/-4)
+- scripts/ai_help.gd (+9/-7)
+- scripts/aiload2.tres (+27/-0)
+- scripts/bokeh.gdshader (+67/-32)
+- scripts/camera_2d.gd (+46/-22)
+- scripts/ccc.gd (+15/-1)
+- scripts/glob.gd (+20/-0)
+- scripts/lua_process.gd (+53/-14)
+- scripts/mist.gd (+3/-2)
+- scripts/sockets.gd (+2/-1)
+- scripts/transcriber.gd (+16/-1)
+- scripts/ui_manager.gd (+9/-0)
+- scripts/web.gd (+3/-2)
+
+
+===COMMIT===
+2025-12-06 18:38 | a1f2909 | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+6/-0)
+- scenes/aiload.tscn (+2/-1)
+- scenes/bg.tscn (+12/-1)
+- scenes/dropout.tscn (+2/-2)
+- scenes/fg.tscn (+8/-7)
+- scenes/input_1d.tscn (+7/-2)
+- scenes/model_export.tscn (+13/-14)
+- scenes/works.tscn (+1/-0)
+- scripts/ai_help.gd (+18/-3)
+- scripts/ai_text.gd (+9/-1)
+- scripts/aiload.gdshader (+1/-1)
+- scripts/base_graph.gd (+10/-0)
+- scripts/bg.gd (+16/-0)
+- scripts/bg.gd.uid (+1/-0)
+- scripts/block_component.gd (+7/-1)
+- scripts/bokeh.gdshader (+1/-1)
+- scripts/ccc.gd (+20/-1)
+- scripts/cookie_manager.gd (+6/-1)
+- scripts/dataset_tab.gd (+8/-0)
+- scripts/ds_obj_serialize.gd (+3/-0)
+- scripts/glob.gd (+126/-5)
+- scripts/graph_script_parser.gd (+58/-43)
+- scripts/input_1d.gd (+22/-0)
+- scripts/mist.gd (+28/-0)
+- scripts/mist.gd.uid (+1/-0)
+- scripts/model_export.gd (+5/-1)
+- scripts/path_open.gd (+17/-0)
+- scripts/run_manager.gd (+1/-1)
+- scripts/selector_box.gd (+14/-4)
+- scripts/splash_menu.gd (+0/-1)
+- scripts/texture_rect.gd (+1/-0)
+- scripts/top_panel.gd (+3/-0)
+- scripts/transcriber.gd (+2/-2)
+- scripts/ui_manager.gd (+45/-1)
+- scripts/virtualt.gd (+1/-1)
+- scripts/works.gd (+38/-0)
+
+
+===COMMIT===
+2025-11-30 10:19 | 3d0d088 | Hex358 // Pantone 358C
+stuff
+Files:
+- export_presets.cfg (+2/-2)
+- libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- nnetsarm.console.exe (+bin/-bin)
+- nnetsarm.exe (+bin/-bin)
+- nnetsarm.pck (+bin/-bin)
+- nnetsx86.console.exe (+bin/-bin)
+- nnetsx86.exe (+bin/-bin)
+- nnetsx86.pck (+bin/-bin)
+- resources/add_button.tres (+1/-0)
+- scenes/aiload.tscn (+10/-18)
+- scenes/bg.tscn (+1/-1)
+- scenes/dataset_tab.tscn (+3/-2)
+- scenes/env_tab.tscn (+4/-3)
+- scenes/fg.tscn (+31/-1)
+- scenes/menus.tscn (+18/-1)
+- scenes/model_export.tscn (+67/-13)
+- scenes/project.tscn (+4/-1)
+- scenes/scene_create.tscn (+24/-1)
+- scenes/train_begin.tscn (+3/-2)
+- scenes/works.tscn (+74/-2)
+- scripts/aiload.gdshader (+132/-0)
+- scripts/aiload.gdshader.uid (+1/-0)
+- scripts/aiload.tres (+27/-0)
+- scripts/bokeh.gdshader (+93/-0)
+- scripts/bokeh.gdshader.uid (+1/-0)
+- scripts/ccc.gd (+111/-0)
+- scripts/ccc.gd.uid (+1/-0)
+- scripts/cmenu.gd (+1/-0)
+- scripts/cookie_manager.gd (+6/-3)
+- scripts/glob.gd (+369/-38)
+- scripts/loc.gd (+53/-61)
+- scripts/loc3.gd (+13/-0)
+- scripts/loc3.gd.uid (+1/-0)
+- scripts/loc4.gd (+13/-0)
+- scripts/loc4.gd.uid (+1/-0)
+- scripts/model_export.gd (+25/-3)
+- scripts/moving_analytics.gd (+35/-0)
+- scripts/run_manager.gd (+2/-1)
+- scripts/train_begin.gd (+2/-0)
+- scripts/train_input.gd (+23/-5)
+- scripts/transcriber.gd (+1/-1)
+- scripts/virtualt.gd (+1/-1)
+- scripts/works.gd (+16/-0)
+- scripts/works_unroll.gd (+2/-0)
+- shaders/ai_progress.gdshader (+93/-114)
+
+
+===COMMIT===
+2025-11-28 08:04 | 9ed56c4 | Hex358 // Pantone 358C
+smth
+Files:
+- scenes/project.tscn (+1/-0)
+- scripts/camera_2d.gd (+3/-0)
+- scripts/dataset_node.gd (+19/-0)
+- scripts/dataset_tab.gd (+5/-2)
+- scripts/ds_obj_serialize.gd (+15/-0)
+- scripts/glob.gd (+17/-9)
+- scripts/loc2a.gd (+3/-2)
+- scripts/run_m.gd (+1/-0)
+- scripts/run_manager.gd (+45/-25)
+- scripts/train_begin.gd (+2/-1)
+- scripts/train_input.gd (+1/-1)
+- scripts/virtualt.gd (+6/-0)
+
+
+===COMMIT===
+2025-11-26 22:54 | ba3198c | Hex358 // Pantone 358C
+.
+Files:
+- scenes/aiload.tscn (+1/-1)
+- scenes/dataset_tab.tscn (+10/-1)
+- scenes/menus.tscn (+1/-0)
+- scenes/project.tscn (+1/-1)
+- scripts/cell.gd (+1/-1)
+- scripts/cli.gd (+28/-4)
+- scripts/cmenu.gd (+58/-32)
+- scripts/dataset_helpers.gd (+97/-87)
+- scripts/dataset_node.gd (+27/-7)
+- scripts/dataset_tab.gd (+54/-6)
+- scripts/ds_obj_serialize.gd (+17/-10)
+- scripts/glob.gd (+85/-56)
+- scripts/graph_manager.gd (+1/-0)
+- scripts/graph_script_parser.gd (+3/-3)
+- scripts/run_manager.gd (+9/-3)
+- scripts/top_panel.gd (+5/-1)
+- scripts/virtualt.gd (+15/-4)
+
+
+===COMMIT===
+2025-11-26 07:24 | 347a992 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/aiload.tscn (+30/-0)
+- scenes/dataset_tab.tscn (+1/-0)
+- scenes/works.tscn (+11/-0)
+- scripts/camera_2d.gd (+2/-2)
+- scripts/dataset_tab.gd (+67/-75)
+- scripts/ds_obj_probe.gd (+125/-127)
+- scripts/ds_obj_serialize.gd (+486/-311)
+- scripts/glob.gd (+76/-43)
+- scripts/graph_script_parser.gd (+8/-0)
+- scripts/run_m.gd (+1/-1)
+- scripts/run_manager.gd (+90/-49)
+- scripts/virtualt.gd (+4/-1)
+- scripts/web.gd (+4/-3)
+- shaders/ai_progress.gdshader (+136/-0)
+- shaders/ai_progress.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2025-11-24 08:12 | 13124ea | Hex358 // Pantone 358C
+DSS
+Files:
+- scenes/dataset_tab.tscn (+23/-0)
+- scripts/cell.gd (+9/-0)
+- scripts/dataset_create.gd (+3/-0)
+- scripts/dataset_tab.gd (+101/-0)
+- scripts/ds_obj_probe.gd (+204/-0)
+- scripts/ds_obj_probe.gd.uid (+1/-0)
+- scripts/ds_obj_serialize.gd (+330/-185)
+- scripts/edit_graph.gd (+7/-1)
+- scripts/env_tab.gd (+14/-2)
+- scripts/floatcell.gd (+2/-2)
+- scripts/glob.gd (+35/-6)
+- scripts/img.gd (+4/-4)
+- scripts/num.gd (+1/-1)
+- scripts/run_manager.gd (+60/-55)
+- scripts/text_cell.gd (+1/-1)
+- scripts/virtualt.gd (+10/-4)
+
+
+===COMMIT===
+2025-11-23 17:01 | 26c351e | Hex358 // Pantone 358C
+pre ds load
+Files:
+- scenes/augment_tune.tscn (+2/-3)
+- scenes/input_1d.tscn (+3/-3)
+- scenes/input_graph.tscn (+3/-3)
+- scenes/io_graph.tscn (+4/-6)
+- scenes/menus.tscn (+0/-1)
+- scenes/netname.tscn (+3/-2)
+- scenes/neuron.tscn (+0/-1)
+- scenes/train_begin.tscn (+2/-2)
+- scenes/works.tscn (+6/-0)
+- scripts/block_component.gd (+4/-1)
+- scripts/cli.gd (+8/-1)
+- scripts/cmenu.gd (+132/-46)
+- scripts/dataset_node.gd (+2/-0)
+- scripts/ds_obj_serialize.gd (+40/-10)
+- scripts/glob.gd (+34/-6)
+- scripts/graph_manager.gd (+40/-6)
+- scripts/input_1d.gd (+14/-2)
+- scripts/input_graph.gd (+14/-2)
+- scripts/loc.gd (+7/-4)
+- scripts/lua_process.gd (+114/-31)
+- scripts/run_manager.gd (+82/-3)
+- scripts/splash_menu.gd (+1/-0)
+- scripts/train_begin.gd (+7/-1)
+- scripts/virtualt.gd (+9/-2)
+
+
+===COMMIT===
+2025-11-22 00:15 | 87dac4a | Hex358 // Pantone 358C
+.
+Files:
+- game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf (+bin/-bin)
+- scenes/ai_help.tscn (+4/-1)
+- scenes/augment_transform.tscn (+3/-3)
+- scenes/classifier_graph.tscn (+9/-0)
+- scenes/dataset_create.tscn (+35/-1)
+- scenes/dataset_tab.tscn (+14/-0)
+- scenes/env_tab.tscn (+9/-0)
+- scenes/fg.tscn (+18/-0)
+- scenes/input_1d.tscn (+21/-4)
+- scenes/input_graph.tscn (+4/-2)
+- scenes/layer_concat.tscn (+2/-3)
+- scenes/menus.tscn (+18/-0)
+- scenes/model_export.tscn (+10/-1)
+- scenes/netname.tscn (+3/-0)
+- scenes/select_dataset.tscn (+10/-4)
+- scenes/signup.tscn (+16/-1)
+- scenes/splash.tscn (+12/-0)
+- scenes/train_begin.tscn (+7/-4)
+- scripts/ai_help.gd (+7/-1)
+- scripts/base_graph.gd (+11/-5)
+- scripts/dataset.gd (+12/-2)
+- scripts/dataset_node.gd (+3/-0)
+- scripts/detatch.gd (+7/-1)
+- scripts/ds_obj_serialize.gd (+296/-0)
+- scripts/ds_obj_serialize.gd.uid (+1/-0)
+- scripts/glob.gd (+15/-3)
+- scripts/graph_manager.gd (+38/-4)
+- scripts/list_datasets.gd (+2/-1)
+- scripts/listds.gd (+8/-1)
+- scripts/loc.gd (+6/-3)
+- scripts/loc2a.gd (+7/-0)
+- scripts/loc2a.gd.uid (+1/-0)
+- scripts/model_export.gd (+12/-3)
+- scripts/run_manager.gd (+10/-3)
+- scripts/train_begin.gd (+4/-2)
+- scripts/virtualt.gd (+7/-185)
+
+
+===COMMIT===
+2025-11-21 00:19 | a6b4853 | Hex358 // Pantone 358C
+loc
+Files:
+- scenes/ai_help.tscn (+10/-1)
+- scenes/classifier_graph.tscn (+26/-1)
+- scenes/dataset_tab.tscn (+20/-3)
+- scenes/env_tab.tscn (+26/-1)
+- scenes/fg.tscn (+53/-1)
+- scenes/input_1d.tscn (+18/-1)
+- scenes/input_graph.tscn (+14/-5)
+- scenes/layer_concat.tscn (+10/-1)
+- scenes/loca.gd (+1/-0)
+- scenes/loca.gd.uid (+1/-0)
+- scenes/menus.tscn (+66/-5)
+- scenes/model_export.tscn (+34/-1)
+- scenes/netname.tscn (+10/-1)
+- scenes/select_dataset.tscn (+19/-4)
+- scenes/signup.tscn (+42/-1)
+- scenes/splash.tscn (+34/-1)
+- scenes/train_begin.tscn (+18/-1)
+- scenes/works.tscn (+19/-1)
+- scripts/ai_help.gd (+9/-0)
+- scripts/block_component.gd (+9/-0)
+- scripts/detatch.gd (+1/-1)
+- scripts/env_tab.gd (+4/-3)
+- scripts/glob.gd (+25/-0)
+- scripts/layer_concat.gd (+2/-2)
+- scripts/loc.gd (+154/-0)
+- scripts/loc.gd.uid (+1/-0)
+- scripts/loc2.gd (+7/-0)
+- scripts/loc2.gd.uid (+1/-0)
+- scripts/model_export.gd (+14/-2)
+- scripts/path_open.gd (+4/-0)
+- scripts/text.gd (+3/-1)
+- scripts/transcriber.gd (+1/-1)
+- scripts/virtualt.gd (+131/-6)
+
+
+===COMMIT===
+2025-11-19 23:22 | 06bcde7 | Hex358 // Pantone 358C
+mic
+Files:
+- scenes/env_tab.tscn (+1/-0)
+- scenes/works.tscn (+2/-0)
+- scripts/ai_help.gd (+41/-3)
+- scripts/ai_text.gd (+120/-24)
+- scripts/base_graph.gd (+3/-2)
+- scripts/block_component.gd (+6/-1)
+- scripts/glob.gd (+1/-0)
+- scripts/graph_script_parser.gd (+5/-0)
+- scripts/model_export.gd (+13/-1)
+- scripts/transcriber.gd (+46/-59)
+- scripts/web.gd (+3/-1)
+- scripts/works.gd (+4/-0)
+
+
+===COMMIT===
+2025-11-18 23:16 | f76cf7c | Hex358 // Pantone 358C
+.
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- default_bus_layout.tres (+3/-0)
+- project.godot (+5/-0)
+- resources/theme.tres (+17/-1)
+- scenes/model_export.tscn (+18/-2)
+- scripts/env_tab.gd (+10/-5)
+- scripts/glob.gd (+8/-7)
+- scripts/input_1d.gd (+2/-2)
+- scripts/lua_process.gd (+60/-23)
+- scripts/model_export.gd (+17/-2)
+- scripts/transcriber.gd (+145/-50)
+- scripts/web.gd (+175/-47)
+
+
+===COMMIT===
+2025-11-17 23:31 | 57a6eea | Hex358 // Pantone 358C
+bf/c
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- scenes/env_tab.tscn (+2/-7)
+- scenes/layer_concat.tscn (+1/-1)
+- scenes/project.tscn (+1/-26)
+- scripts/env_tab.gd (+3/-1)
+- scripts/input_1d.gd (+2/-2)
+- scripts/layer_concat.gd (+3/-1)
+- scripts/lua_process.gd (+114/-16)
+- scripts/reshape.gd (+3/-12)
+- scripts/run_manager.gd (+11/-0)
+- scripts/transcriber.gd (+87/-0)
+- scripts/transcriber.gd.uid (+1/-0)
+- scripts/web.gd (+2/-1)
+
+
+===COMMIT===
+2025-11-16 22:22 | 7e799e0 | Hex358 // Pantone 358C
+concat
+Files:
+- scenes/dataset_tab.tscn (+2/-4)
+- scenes/input_1d.tscn (+25/-1)
+- scenes/layer_concat.tscn (+172/-0)
+- scenes/menus.tscn (+18/-0)
+- scenes/project.tscn (+27/-2)
+- scripts/base_graph.gd (+35/-22)
+- scripts/block_component.gd (+1/-0)
+- scripts/camera_2d.gd (+2/-2)
+- scripts/classifier.gd (+3/-1)
+- scripts/cmenu.gd (+2/-0)
+- scripts/conn_slider.gd (+2/-0)
+- scripts/connection.gd (+9/-0)
+- scripts/glob.gd (+11/-3)
+- scripts/graph_manager.gd (+33/-2)
+- scripts/input_1d.gd (+18/-1)
+- scripts/io_graph.gd (+7/-0)
+- scripts/layer_concat.gd (+119/-0)
+- scripts/layer_concat.gd.uid (+1/-0)
+- scripts/lua_process.gd (+4/-4)
+- scripts/reshape.gd (+1/-1)
+- scripts/run_manager.gd (+2/-0)
+- scripts/selector_box.gd (+2/-1)
+- scripts/train_begin.gd (+5/-3)
+
+
+===COMMIT===
+2025-11-16 12:10 | e48aaa9 | Hex358 // Pantone 358C
+comm
+Files:
+- scenes/ai_help.tscn (+1/-0)
+- scenes/classes.tscn (+47/-0)
+- scenes/dataset_tab.tscn (+28/-18)
+- scenes/fg.tscn (+0/-3)
+- scenes/float.tscn (+15/-14)
+- scenes/model_export.tscn (+116/-14)
+- scenes/train_begin.tscn (+11/-9)
+- scripts/ai_help.gd (+5/-0)
+- scripts/block_component.gd (+5/-2)
+- scripts/branches.gd (+2/-1)
+- scripts/cell.gd (+9/-0)
+- scripts/cli.gd (+52/-13)
+- scripts/cookie_manager.gd (+17/-0)
+- scripts/dataset.gd (+1/-1)
+- scripts/dataset_create.gd (+1/-1)
+- scripts/dataset_node.gd (+17/-1)
+- scripts/dataset_tab.gd (+61/-6)
+- scripts/floatcell.gd (+49/-10)
+- scripts/glob.gd (+162/-24)
+- scripts/graph_script_parser.gd (+26/-10)
+- scripts/h_slider.gd (+1/-0)
+- scripts/h_slider.gd.uid (+1/-0)
+- scripts/image_draw.gd (+5/-0)
+- scripts/img.gd (+48/-3)
+- scripts/input_1d.gd (+20/-3)
+- scripts/input_graph.gd (+13/-1)
+- scripts/label_auto_resize.gd (+4/-0)
+- scripts/model_export.gd (+37/-1)
+- scripts/num.gd (+29/-5)
+- scripts/path_open.gd (+9/-3)
+- scripts/run_m.gd (+24/-1)
+- scripts/run_manager.gd (+5/-1)
+- scripts/sakuta.gd (+36/-0)
+- scripts/splash_menu.gd (+3/-1)
+- scripts/text_cell.gd (+12/-5)
+- scripts/top_panel.gd (+5/-1)
+- scripts/train_begin.gd (+3/-2)
+- scripts/train_input.gd (+1/-1)
+- scripts/ui_manager.gd (+4/-0)
+- scripts/validate_number.gd (+27/-4)
+- scripts/virtualt.gd (+140/-34)
+
+
+===COMMIT===
+2025-11-14 09:39 | b622e22 | Hex358 // Pantone 358C
+float
+Files:
+- scenes/dataset_tab.tscn (+4/-4)
+- scenes/float.tscn (+56/-0)
+- scripts/cell.gd (+4/-0)
+- scripts/cli.gd (+66/-15)
+- scripts/dataset_tab.gd (+5/-1)
+- scripts/floatcell.gd (+67/-0)
+- scripts/floatcell.gd.uid (+1/-0)
+- scripts/num.gd (+6/-0)
+- scripts/splash_menu.gd (+6/-2)
+- scripts/value.gd (+1/-1)
+- scripts/virtualt.gd (+10/-6)
+
+
+===COMMIT===
+2025-11-13 21:47 | 5030626 | Hex358 // Pantone 358C
+reg
+Files:
+- game_assets/icons/none.png (+bin/-bin)
+- game_assets/icons/none.png.import (+40/-0)
+- scenes/cell.tscn (+1/-0)
+- scenes/dataset_tab.tscn (+148/-20)
+- scenes/img.tscn (+3/-2)
+- scenes/num.tscn (+2/-2)
+- scripts/cell.gd (+6/-1)
+- scripts/cli.gd (+293/-135)
+- scripts/control_2.gd (+6/-0)
+- scripts/control_2.gd.uid (+1/-0)
+- scripts/dataset_helpers.gd (+1/-0)
+- scripts/dataset_tab.gd (+27/-10)
+- scripts/ds_highliter.gd (+15/-5)
+- scripts/glob.gd (+2/-2)
+- scripts/img.gd (+64/-2)
+- scripts/num.gd (+7/-2)
+- scripts/path_open.gd (+19/-6)
+- scripts/sakuta.gd (+3/-0)
+- scripts/splash_menu.gd (+8/-3)
+- scripts/text_cell.gd (+3/-2)
+- scripts/value.gd (+6/-0)
+- scripts/value.gd.uid (+1/-0)
+- scripts/virtualt.gd (+200/-31)
+
+
+===COMMIT===
+2025-11-12 22:37 | 4f955ff | Hex358 // Pantone 358C
+com
+Files:
+- game_assets/icons/1.png (+bin/-bin)
+- game_assets/icons/dir.png (+bin/-bin)
+- game_assets/icons/dir.png.import (+40/-0)
+- game_assets/icons/file.png (+bin/-bin)
+- game_assets/icons/file.png.import (+40/-0)
+- game_assets/icons/refresh.png (+bin/-bin)
+- game_assets/icons/refresh.png.import (+40/-0)
+- game_assets/icons/undo.png (+bin/-bin)
+- game_assets/icons/undo.png.import (+40/-0)
+- scenes/BaseBComponent.tscn (+0/-1)
+- scenes/cell.tscn (+33/-12)
+- scenes/dataset_create.tscn (+55/-2)
+- scenes/dataset_tab.tscn (+29/-44)
+- scenes/env_tab.tscn (+8/-0)
+- scenes/img.tscn (+90/-0)
+- scenes/num.tscn (+47/-0)
+- scenes/other_procnodes.gd (+9/-2)
+- scenes/path_open.tscn (+250/-25)
+- scenes/select_dataset.tscn (+7/-2)
+- scenes/train_begin.tscn (+4/-4)
+- scripts/block_component.gd (+35/-10)
+- scripts/branches.gd (+4/-0)
+- scripts/cell.gd (+14/-4)
+- scripts/classifier.gd (+23/-0)
+- scripts/cli.gd (+386/-55)
+- scripts/cmdparse.gd (+8/-5)
+- scripts/dataset_create.gd (+66/-8)
+- scripts/dataset_helpers.gd (+15/-4)
+- scripts/dataset_tab.gd (+36/-21)
+- scripts/filegrid.gd (+351/-0)
+- scripts/filegrid.gd.uid (+1/-0)
+- scripts/glob.gd (+36/-23)
+- scripts/graph_script_parser.gd (+0/-10)
+- scripts/img.gd (+61/-0)
+- scripts/img.gd.uid (+1/-0)
+- scripts/lua_process.gd (+164/-68)
+- scripts/num.gd (+66/-0)
+- scripts/num.gd.uid (+1/-0)
+- scripts/path_open.gd (+170/-8)
+- scripts/run_m.gd (+15/-5)
+- scripts/sakuta.gd (+1/-0)
+- scripts/splash_menu.gd (+4/-1)
+- scripts/text_cell.gd (+56/-6)
+- scripts/top_panel.gd (+2/-2)
+- scripts/unr.gd (+17/-1)
+- scripts/validate_line.gd (+34/-20)
+- scripts/validate_number.gd (+1/-0)
+- scripts/virtualt.gd (+176/-64)
+
+
+===COMMIT===
+2025-11-10 22:36 | 88442ae | Hex358 // Pantone 358C
+csv
+Files:
+- game_assets/icons/tree.png (+bin/-bin)
+- game_assets/icons/tree.png.import (+40/-0)
+- project.godot (+6/-0)
+- scenes/dataset_create.tscn (+2/-2)
+- scenes/dataset_tab.tscn (+106/-52)
+- scenes/path_open.tscn (+134/-0)
+- scenes/select_dataset.tscn (+21/-4)
+- scripts/block_component.gd (+17/-5)
+- scripts/cell.gd (+3/-0)
+- scripts/cli.gd (+318/-14)
+- scripts/cmdparse.gd (+48/-50)
+- scripts/console.gd (+11/-0)
+- scripts/dataset_create.gd (+23/-0)
+- scripts/dataset_create.gd.uid (+1/-0)
+- scripts/dataset_helpers.gd (+123/-0)
+- scripts/dataset_helpers.gd.uid (+1/-0)
+- scripts/dataset_tab.gd (+148/-53)
+- scripts/env_tab.gd (+16/-14)
+- scripts/glob.gd (+13/-0)
+- scripts/loader.gd (+10/-9)
+- scripts/overl.gd (+42/-45)
+- scripts/path_open.gd (+22/-0)
+- scripts/path_open.gd.uid (+1/-0)
+- scripts/procedural_nodes22.gd (+2/-2)
+- scripts/selector_box.gd (+2/-0)
+- scripts/splash_menu.gd (+10/-1)
+- scripts/text_cell.gd (+3/-0)
+- scripts/ui_manager.gd (+2/-0)
+- scripts/virtualt.gd (+511/-85)
+- scripts/win_graph.gd (+2/-0)
+
+
+===COMMIT===
+2025-11-09 23:59 | bb0222e | Hex358 // Pantone 358C
+stuff
+Files:
+- resources/dscli.tres (+7/-0)
+- resources/font_alphamult.tres (+1/-0)
+- resources/theme_base.tres (+22/-2)
+- scenes/conv2d.tscn (+3/-0)
+- scenes/dataset_tab.tscn (+122/-18)
+- scenes/env_tab.tscn (+33/-7)
+- scenes/input_1d.tscn (+1/-0)
+- scenes/input_graph.tscn (+1/-0)
+- scenes/layer.tscn (+1/-0)
+- scenes/menus.tscn (+2/-0)
+- scenes/other_procnodes.gd (+1/-0)
+- scenes/run_model.tscn (+1/-0)
+- scenes/train_begin.tscn (+1/-0)
+- scripts/ai_help.gd (+1/-1)
+- scripts/base_graph.gd (+7/-2)
+- scripts/block_component.gd (+36/-4)
+- scripts/camera_2d.gd (+9/-0)
+- scripts/cli.gd (+52/-0)
+- scripts/cli.gd.uid (+1/-0)
+- scripts/cmdparse.gd (+171/-0)
+- scripts/cmdparse.gd.uid (+1/-0)
+- scripts/code_edit.gd (+1/-1)
+- scripts/connection.gd (+23/-11)
+- scripts/dataset_tab.gd (+23/-11)
+- scripts/ds_highliter.gd (+124/-0)
+- scripts/ds_highliter.gd.uid (+1/-0)
+- scripts/edit_graph.gd (+14/-6)
+- scripts/env_tab.gd (+81/-21)
+- scripts/glob.gd (+21/-3)
+- scripts/graph_manager.gd (+15/-1)
+- scripts/graph_script_parser.gd (+5/-4)
+- scripts/loader.gd (+7/-6)
+- scripts/lua_envs.gd (+2/-54)
+- scripts/lua_process.gd (+126/-37)
+- scripts/run_m.gd (+1/-1)
+- scripts/run_manager.gd (+20/-4)
+- scripts/scene_create.gd (+1/-1)
+- scripts/virtualt.gd (+25/-11)
+- scripts/win_graph.gd (+4/-0)
+
+
+===COMMIT===
+2025-11-09 00:32 | 40c1ba0 | Hex358 // Pantone 358C
+billion changes
+Files:
+- scenes/cell.tscn (+2/-2)
+- scenes/dataset_tab.tscn (+113/-6)
+- scenes/tests.tscn (+7/-7)
+- scripts/cell.gd (+1/-1)
+- scripts/dataset_tab.gd (+24/-5)
+- scripts/glob.gd (+1/-0)
+- scripts/loader.gd (+3/-4)
+- scripts/overl.gd (+102/-4)
+- scripts/text_cell.gd (+1/-1)
+- scripts/validate_line.gd (+26/-6)
+- scripts/virtualt.gd (+77/-33)
+
+
+===COMMIT===
+2025-11-08 17:58 | 70f4c5b | Hex358 // Pantone 358C
+in case my laptop explodes
+Files:
+- resources/panels_mat.tres (+3/-2)
+- scenes/dataset_tab.tscn (+4/-1)
+- scenes/fg.tscn (+16/-2)
+- scripts/cell.gd (+3/-1)
+- scripts/loader.gd (+23/-7)
+- scripts/model_export.gd (+4/-0)
+- scripts/overl.gd (+11/-0)
+- scripts/overl.gd.uid (+1/-0)
+- scripts/text_cell.gd (+2/-2)
+- scripts/top_panel.gd (+2/-0)
+- scripts/virtualt.gd (+242/-80)
+
+
+===COMMIT===
+2025-11-08 10:01 | ca1b5bf | Hex358 // Pantone 358C
+.
+Files:
+- scenes/cell.tscn (+23/-0)
+- scenes/dataset_tab.tscn (+40/-11)
+- scenes/fg.tscn (+13/-1)
+- scenes/input_graph.tscn (+2/-2)
+- scenes/layer.tscn (+1/-1)
+- scenes/model_export.tscn (+158/-14)
+- scripts/ai_help.gd (+16/-3)
+- scripts/base_graph.gd (+33/-2)
+- scripts/block_component.gd (+2/-0)
+- scripts/camera_2d.gd (+13/-0)
+- scripts/cell.gd (+35/-0)
+- scripts/cell.gd.uid (+1/-0)
+- scripts/connection.gd (+25/-16)
+- scripts/cookie_manager.gd (+11/-2)
+- scripts/dataset_tab.gd (+21/-9)
+- scripts/env_tab.gd (+5/-5)
+- scripts/glob.gd (+101/-24)
+- scripts/graph_manager.gd (+5/-0)
+- scripts/input_1d.gd (+12/-4)
+- scripts/input_graph.gd (+11/-4)
+- scripts/loader.gd (+19/-0)
+- scripts/loader.gd.uid (+1/-0)
+- scripts/lua_process.gd (+126/-107)
+- scripts/model_export.gd (+36/-2)
+- scripts/run_manager.gd (+15/-13)
+- scripts/selector_box.gd (+36/-2)
+- scripts/signup.gd (+1/-0)
+- scripts/splash_menu.gd (+4/-1)
+- scripts/text_cell.gd (+16/-0)
+- scripts/text_cell.gd.uid (+1/-0)
+- scripts/top_panel.gd (+22/-6)
+- scripts/train_begin.gd (+11/-6)
+- scripts/virtualt.gd (+710/-0)
+- scripts/virtualt.gd.uid (+1/-0)
+- scripts/works.gd (+8/-1)
+- scripts/works_list.gd (+1/-0)
+
+
+===COMMIT===
+2025-11-05 13:53 | f2c2abb | Hex358 // Pantone 358C
+some
+Files:
+- scenes/fg.tscn (+1/-1)
+- scenes/menus.tscn (+2/-2)
+- scripts/base_graph.gd (+98/-41)
+- scripts/connection.gd (+68/-22)
+- scripts/edit_graph.gd (+7/-2)
+- scripts/glob.gd (+78/-10)
+- scripts/graph_manager.gd (+36/-10)
+- scripts/graph_script_parser.gd (+2/-2)
+- scripts/image_draw.gd (+2/-1)
+- scripts/lua_process.gd (+4/-3)
+- scripts/run_manager.gd (+19/-15)
+- scripts/selector_box.gd (+5/-2)
+- scripts/socket_connection.gd (+2/-0)
+- scripts/spline.gd (+14/-0)
+
+
+===COMMIT===
+2025-11-04 22:03 | 36849e3 | Hex358 // Pantone 358C
+convinence
+Files:
+- scenes/maxpool.tscn (+2/-0)
+- scenes/menus.tscn (+20/-2)
+- scripts/adraw.gd (+1/-0)
+- scripts/base_graph.gd (+198/-24)
+- scripts/connection.gd (+4/-1)
+- scripts/glob.gd (+14/-2)
+- scripts/graph_shadow.gd (+2/-1)
+- scripts/netname.gd (+1/-1)
+- scripts/run_m.gd (+3/-2)
+- scripts/selector_box.gd (+2/-2)
+
+
+===COMMIT===
+2025-11-04 20:50 | 74ebd04 | Hex358 // Pantone 358C
+comfort
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll~RF1d802f31.TMP (+bin/-bin)
+- game_assets/icons/box.png (+bin/-bin)
+- game_assets/icons/box.png.import (+40/-0)
+- game_assets/icons/chat.png (+bin/-bin)
+- game_assets/icons/chat.png.import (+40/-0)
+- project.godot (+10/-0)
+- scenes/ai_help.tscn (+2/-2)
+- scenes/dataset.tscn (+1/-0)
+- scenes/dataset_create.tscn (+132/-0)
+- scenes/dataset_tab.tscn (+42/-142)
+- scenes/dropout.tscn (+3/-1)
+- scenes/env_tab.tscn (+76/-1)
+- scenes/env_tab.tscn17126522370.tmp (+475/-0)
+- scenes/fg.tscn (+107/-31)
+- scenes/input_graph.tscn (+4/-4)
+- scenes/menus.tscn (+2/-3)
+- scenes/model_export.tscn (+133/-0)
+- scenes/project_create.tscn (+122/-6)
+- scenes/scene_create.tscn (+3/-3)
+- scenes/select_dataset.tscn (+3/-3)
+- scenes/train_begin.tscn (+3/-2)
+- scenes/works.tscn (+2/-2)
+- scripts/base_graph.gd (+158/-3)
+- scripts/block_component.gd (+5/-3)
+- scripts/camera_2d.gd (+1/-1)
+- scripts/classifier.gd (+66/-15)
+- scripts/cmenu.gd (+3/-3)
+- scripts/connection.gd (+96/-44)
+- scripts/console.gd (+21/-0)
+- scripts/console.gd.uid (+1/-0)
+- scripts/conv_2d.gd (+6/-0)
+- scripts/dataset_node.gd (+2/-0)
+- scripts/dataset_tab.gd (+116/-7)
+- scripts/dropout.gd (+7/-1)
+- scripts/env_tab.gd (+103/-3)
+- scripts/glob.gd (+121/-3)
+- scripts/graph_manager.gd (+28/-4)
+- scripts/graph_script_parser.gd (+3/-0)
+- scripts/image_draw.gd (+1/-1)
+- scripts/input_1d.gd (+29/-6)
+- scripts/input_graph.gd (+9/-3)
+- scripts/io_graph.gd (+12/-8)
+- scripts/lua_process.gd (+180/-10)
+- scripts/maxpool.gd (+2/-1)
+- scripts/model_export.gd (+29/-0)
+- scripts/model_export.gd.uid (+1/-0)
+- scripts/netname.gd (+25/-6)
+- scripts/neuron_config.gd (+2/-0)
+- scripts/neuron_layer.gd (+4/-1)
+- scripts/procedural_nodes22.gd (+19/-0)
+- scripts/procedural_nodes22.gd.uid (+1/-0)
+- scripts/reshape.gd (+5/-0)
+- scripts/run_m.gd (+7/-0)
+- scripts/run_manager.gd (+42/-8)
+- scripts/selector_box.gd (+32/-2)
+- scripts/socket_connection.gd (+3/-0)
+- scripts/splash_menu.gd (+2/-1)
+- scripts/spline.gd (+1/-14)
+- scripts/top_panel.gd (+19/-3)
+- scripts/train_begin.gd (+14/-1)
+- scripts/train_input.gd (+10/-1)
+- scripts/train_rl.gd (+7/-0)
+- scripts/ui_manager.gd (+2/-0)
+- scripts/unit.gd (+2/-1)
+- scripts/unr.gd (+2/-1)
+
+
+===COMMIT===
+2025-11-01 21:44 | 1dc2dbb | Hex358 // Pantone 358C
+.
+Files:
+- game_assets/icons/data.png (+bin/-bin)
+- game_assets/icons/data.png.import (+40/-0)
+- resources/rounded_corners.tres (+1/-2)
+- scenes/augment_tune.tscn (+109/-6)
+- scenes/branch_mapping.tscn (+1/-1)
+- scenes/dataset_tab.tscn (+403/-0)
+- scenes/dropout.tscn (+154/-0)
+- scenes/fg.tscn (+191/-60)
+- scenes/input_graph.tscn (+19/-15)
+- scenes/menus.tscn (+64/-1)
+- scenes/run_model.tscn (+1/-1)
+- scenes/train_begin.tscn (+44/-1)
+- scenes/train_input.tscn (+2/-2)
+- scripts/base_graph.gd (+7/-1)
+- scripts/block_component.gd (+3/-2)
+- scripts/cmenu.gd (+8/-6)
+- scripts/connection.gd (+5/-2)
+- scripts/dataset_tab.gd (+192/-0)
+- scripts/dataset_tab.gd.uid (+1/-0)
+- scripts/dropout.gd (+40/-0)
+- scripts/dropout.gd.uid (+1/-0)
+- scripts/env_tab.gd (+1/-1)
+- scripts/glob.gd (+16/-9)
+- scripts/graph_manager.gd (+3/-2)
+- scripts/graph_script_parser.gd (+2/-2)
+- scripts/image_draw.gd (+1/-1)
+- scripts/image_tune.gd (+27/-1)
+- scripts/img_pusher.gd (+17/-0)
+- scripts/img_pusher.gd.uid (+1/-0)
+- scripts/procedural_nodes1.gd (+19/-0)
+- scripts/procedural_nodes1.gd.uid (+1/-0)
+- scripts/run_m.gd (+21/-8)
+- scripts/subctx.gd (+21/-0)
+- scripts/subctx.gd.uid (+1/-0)
+- scripts/subctx_menu.gd (+82/-0)
+- scripts/subctx_menu.gd.uid (+1/-0)
+- scripts/top_panel.gd (+54/-13)
+- scripts/train_begin.gd (+4/-2)
+- shaders/augment_tune.gdshader (+21/-54)
+- shaders/rounded.gdshader (+1/-1)
+
+
+===COMMIT===
+2025-10-31 21:11 | 5c622cc | Hex358 // Pantone 358C
+validation shit
+Files:
+- scenes/ai_help.tscn (+2/-1)
+- scenes/project.tscn (+1/-1)
+- scenes/train_rl.tscn (+1/-1)
+- scripts/ai_help.gd (+3/-3)
+- scripts/ai_text.gd (+1/-1)
+- scripts/base_graph.gd (+3/-0)
+- scripts/dataset.gd (+1/-9)
+- scripts/dataset_node.gd (+3/-0)
+- scripts/glob.gd (+30/-3)
+- scripts/graph_manager.gd (+2/-2)
+- scripts/graph_script_parser.gd (+138/-108)
+- scripts/run_m.gd (+4/-1)
+
+
+===COMMIT===
+2025-10-30 21:37 | 61a3415 | Hex358 // Pantone 358C
+.
+Files:
+- resources/panel.tres (+2/-1)
+- scenes/dataset.tscn (+1/-1)
+- scenes/env_tag.tscn (+129/-0)
+- scenes/menus.tscn (+36/-28)
+- scenes/project.tscn (+1/-1)
+- scenes/run_model.tscn (+1/-1)
+- scenes/select_dataset.tscn (+0/-2)
+- scenes/train_begin.tscn (+87/-45)
+- scenes/train_input.tscn (+6/-71)
+- scenes/train_rl.tscn (+482/-0)
+- scenes/tt.tscn (+189/-0)
+- scripts/ai_help.gd (+17/-9)
+- scripts/ai_text.gd (+10/-2)
+- scripts/base_graph.gd (+9/-2)
+- scripts/branches.gd (+12/-2)
+- scripts/camera_2d.gd (+3/-1)
+- scripts/cmenu.gd (+4/-0)
+- scripts/connection.gd (+7/-0)
+- scripts/dataset.gd (+22/-7)
+- scripts/dataset_node.gd (+7/-0)
+- scripts/env_tag.gd (+55/-0)
+- scripts/env_tag.gd.uid (+1/-0)
+- scripts/glob.gd (+40/-4)
+- scripts/graph_manager.gd (+15/-2)
+- scripts/graph_script_parser.gd (+60/-9)
+- scripts/input_1d.gd (+1/-1)
+- scripts/input_graph.gd (+4/-4)
+- scripts/label_auto_resize.gd (+32/-1)
+- scripts/project.gd (+4/-1)
+- scripts/run_m.gd (+11/-6)
+- scripts/run_manager.gd (+3/-2)
+- scripts/sakuta.gd (+20/-0)
+- scripts/train_begin.gd (+49/-21)
+- scripts/train_input.gd (+6/-3)
+- scripts/train_rl.gd (+161/-0)
+- scripts/train_rl.gd.uid (+1/-0)
+- scripts/ui_manager.gd (+2/-1)
+
+
+===COMMIT===
+2025-10-28 19:13 | 9c07cdf | Hex358 // Pantone 358C
+beg
+Files:
+- scenes/run_model.tscn (+19/-2)
+- scenes/select_dataset.tscn (+2/-0)
+- scenes/train_begin.tscn (+97/-8)
+- scripts/base_graph.gd (+3/-0)
+- scripts/branches.gd (+8/-2)
+- scripts/connection.gd (+1/-0)
+- scripts/dataset.gd (+13/-4)
+- scripts/dataset_node.gd (+16/-3)
+- scripts/input_1d.gd (+30/-5)
+- scripts/input_graph.gd (+11/-0)
+- scripts/label_auto_resize.gd (+30/-3)
+- scripts/run_m.gd (+32/-1)
+- scripts/sakuta.gd (+3/-0)
+- scripts/sakuta.gd.uid (+1/-0)
+- scripts/train_begin.gd (+30/-5)
+
+
+===COMMIT===
+2025-10-27 22:14 | 7ebeacd | Hex358 // Pantone 358C
+marisa
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll~RF374b589d.TMP (+bin/-bin)
+- resources/button_mat.tres (+4/-0)
+- resources/graph.tres (+1/-0)
+- scenes/BaseBComponent.tscn (+1/-0)
+- scenes/fg.tscn (+23/-2)
+- scenes/input_1d.tscn (+57/-85)
+- scenes/menus.tscn (+29/-1)
+- scenes/project.tscn (+1/-1)
+- scenes/tags.tscn (+99/-0)
+- scenes/tests.tscn (+89/-4)
+- scenes/topr.tscn (+111/-0)
+- scripts/ai_text.gd (+8/-2)
+- scripts/aibox.gd (+32/-0)
+- scripts/aibox.gd.uid (+1/-0)
+- scripts/base_graph.gd (+7/-2)
+- scripts/block_component.gd (+33/-11)
+- scripts/camera_2d.gd (+6/-2)
+- scripts/classifier.gd (+2/-0)
+- scripts/conn_slider.gd (+2/-2)
+- scripts/detatch.gd (+5/-1)
+- scripts/glob.gd (+11/-4)
+- scripts/graph_script_parser.gd (+112/-33)
+- scripts/h_flow_container.gd (+191/-0)
+- scripts/h_flow_container.gd.uid (+1/-0)
+- scripts/input_1d.gd (+113/-15)
+- scripts/input_graph.gd (+4/-2)
+- scripts/io_graph.gd (+17/-2)
+- scripts/procedural_nodes.gd (+13/-1)
+- scripts/run_m.gd (+9/-7)
+- scripts/run_manager.gd (+2/-1)
+- scripts/ui_manager.gd (+205/-0)
+- scripts/validate_line.gd (+15/-1)
+- shaders/smooth_extents.gdshaderinc (+1/-1)
+
+
+===COMMIT===
+2025-10-25 23:32 | d0eca80 | Hex358 // Pantone 358C
+test
+Files:
+- scenes/ai_help.tscn (+1/-1)
+- scenes/augment_tune.tscn (+140/-0)
+- scenes/branch_mapping.tscn (+14/-12)
+- scenes/classifier_graph.tscn (+41/-14)
+- scenes/input_1d.tscn (+424/-16)
+- scenes/input_graph.tscn (+1/-1)
+- scenes/layer.tscn (+4/-2)
+- scenes/maxpool.tscn (+5/-5)
+- scenes/reshape.tscn (+10/-6)
+- scenes/run_model.tscn (+2/-1)
+- scenes/tests.tscn (+87/-0)
+- scenes/train_begin.tscn (+2/-1)
+- scenes/train_input.tscn (+17/-3)
+- scripts/ai_help.gd (+21/-1)
+- scripts/base_graph.gd (+1/-0)
+- scripts/block_component.gd (+9/-1)
+- scripts/branches.gd (+2/-2)
+- scripts/conn_slider.gd (+10/-1)
+- scripts/connection.gd (+2/-2)
+- scripts/dataset_node.gd (+1/-0)
+- scripts/glob.gd (+12/-3)
+- scripts/graph_manager.gd (+3/-3)
+- scripts/graph_script_parser.gd (+311/-150)
+- scripts/image_draw.gd (+2/-0)
+- scripts/image_tune.gd (+40/-0)
+- scripts/image_tune.gd.uid (+1/-0)
+- scripts/input_1d.gd (+167/-17)
+- scripts/input_graph.gd (+21/-3)
+- scripts/io_graph.gd (+3/-1)
+- scripts/moving_analytics.gd (+3/-1)
+- scripts/run_m.gd (+36/-4)
+- scripts/run_manager.gd (+5/-3)
+- scripts/splash_menu.gd (+1/-0)
+- scripts/text.gd (+1/-1)
+- scripts/train_begin.gd (+1/-0)
+- scripts/train_input.gd (+7/-2)
+- scripts/ui_manager.gd (+1/-1)
+- scripts/validate_number.gd (+154/-31)
+- shaders/augment_tune.gdshader (+66/-0)
+- shaders/augment_tune.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2025-10-23 23:03 | 47a1c1c | Hex358 // Pantone 358C
+sewerslvt
+Files:
+- scenes/branch_mapping.tscn (+0/-4)
+- scenes/input_1d.tscn (+252/-0)
+- scenes/input_graph.tscn (+7/-6)
+- scenes/menus.tscn (+18/-0)
+- scenes/project.tscn (+1/-1)
+- scenes/run_model.tscn (+0/-3)
+- scripts/ai_help.gd (+6/-1)
+- scripts/base_graph.gd (+11/-1)
+- scripts/block_component.gd (+2/-2)
+- scripts/camera_2d.gd (+4/-4)
+- scripts/classifier.gd (+1/-1)
+- scripts/cmenu.gd (+3/-1)
+- scripts/conn_slider.gd (+32/-0)
+- scripts/conn_slider.gd.uid (+1/-0)
+- scripts/glob.gd (+22/-16)
+- scripts/graph_manager.gd (+41/-23)
+- scripts/graph_script_parser.gd (+209/-106)
+- scripts/input_1d.gd (+126/-0)
+- scripts/input_1d.gd.uid (+1/-0)
+- scripts/io_graph.gd (+4/-0)
+- scripts/selector_box.gd (+1/-1)
+- scripts/ui_manager.gd (+11/-1)
+
+
+===COMMIT===
+2025-10-23 08:00 | 1e4fb35 | Hex358 // Pantone 358C
+ai
+Files:
+- scripts/works.gd (+1/-1)
+
+
+===COMMIT===
+2025-10-23 07:59 | b4210a6 | Hex358 // Pantone 358C
+ai stuff
+Files:
+- scenes/ai_help.tscn (+1/-1)
+- scripts/ai_help.gd (+8/-7)
+- scripts/glob.gd (+24/-2)
+- scripts/graph_script_parser.gd (+1/-0)
+
+
+===COMMIT===
+2025-10-22 22:08 | 8a9040a | Hex358 // Pantone 358C
+ai stuff
+Files:
+- scenes/ai_help.tscn (+52/-8)
+- scripts/ai_help.gd (+57/-5)
+- scripts/ai_text.gd (+7/-0)
+- scripts/glob.gd (+13/-3)
+- scripts/graph_manager.gd (+23/-3)
+- scripts/splash_menu.gd (+9/-1)
+- scripts/ui_manager.gd (+25/-4)
+
+
+===COMMIT===
+2025-10-21 22:47 | c08ea5a | Hex358 // Pantone 358C
+ai...
+Files:
+- scenes/ai_help.tscn (+3/-3)
+- scenes/branch_mapping.tscn (+5/-6)
+- scenes/classifier_graph.tscn (+2/-1)
+- scenes/input_graph.tscn (+4/-4)
+- scenes/layer.tscn (+3/-0)
+- scenes/run_model.tscn (+4/-4)
+- scripts/ai_help.gd (+32/-15)
+- scripts/ai_text.gd (+3/-0)
+- scripts/base_graph.gd (+11/-0)
+- scripts/branches.gd (+16/-5)
+- scripts/classifier.gd (+10/-0)
+- scripts/connection.gd (+4/-0)
+- scripts/cookie_manager.gd (+1/-1)
+- scripts/dataset_node.gd (+8/-0)
+- scripts/flatten.gd (+9/-2)
+- scripts/glob.gd (+49/-11)
+- scripts/graph_manager.gd (+21/-1)
+- scripts/graph_script_parser.gd (+1/-2)
+- scripts/neuron_layer.gd (+15/-1)
+- scripts/reshape.gd (+4/-2)
+- scripts/run_m.gd (+33/-1)
+- scripts/socket_connection.gd (+1/-1)
+- scripts/softmax_node.gd (+13/-0)
+- scripts/top_panel.gd (+1/-1)
+- scripts/train_begin.gd (+8/-4)
+- scripts/ui_manager.gd (+9/-0)
+
+
+===COMMIT===
+2025-10-21 06:59 | dcdacf3 | Hex358 // Pantone 358C
+comm
+Files:
+- scenes/classifier_graph.tscn (+3/-2)
+- scenes/run_model.tscn (+18/-0)
+- scripts/branches.gd (+4/-2)
+
+
+===COMMIT===
+2025-10-20 22:01 | 3defdba | Hex358 // Pantone 358C
+ui
+Files:
+- scenes/ai_help.tscn (+5/-47)
+- scenes/branch_mapping.tscn (+36/-3)
+- scripts/ai_help.gd (+9/-0)
+- scripts/branches.gd (+27/-3)
+- scripts/connection.gd (+82/-73)
+- scripts/graph_manager.gd (+91/-0)
+- scripts/run_m.gd (+18/-2)
+- scripts/spline.gd (+68/-23)
+- scripts/train_begin.gd (+1/-1)
+
+
+===COMMIT===
+2025-10-19 22:02 | f4a1a32 | Hex358 // Pantone 358C
+test
+Files:
+- scenes/branch_mapping.tscn (+1/-1)
+- scenes/classifier_graph.tscn (+2/-2)
+- scenes/neuron.tscn (+1/-1)
+- scenes/run_model.tscn (+1/-1)
+- scripts/classifier.gd (+2/-2)
+- scripts/connection.gd (+9/-5)
+- scripts/conv_2d.gd (+1/-0)
+- scripts/glob.gd (+1/-1)
+- scripts/graph_manager.gd (+13/-2)
+- scripts/graph_script_parser.gd (+5/-2)
+- scripts/maxpool.gd (+1/-1)
+- scripts/run_m.gd (+3/-1)
+- scripts/train_begin.gd (+13/-8)
+
+
+===COMMIT===
+2025-10-19 13:16 | b59de39 | Hex358 // Pantone 358C
+ю
+Files:
+- scenes/branch_mapping.tscn (+234/-0)
+- scenes/classifier_graph.tscn (+2/-1)
+- scenes/input_graph.tscn (+4/-4)
+- scenes/menus.tscn (+20/-2)
+- scenes/project.tscn (+1/-1)
+- scenes/run_model.tscn (+24/-3)
+- scripts/base_graph.gd (+27/-0)
+- scripts/branches.gd (+90/-0)
+- scripts/branches.gd.uid (+1/-0)
+- scripts/classifier.gd (+14/-4)
+- scripts/cmenu.gd (+8/-0)
+- scripts/connection.gd (+16/-9)
+- scripts/glob.gd (+4/-2)
+- scripts/graph_manager.gd (+44/-18)
+- scripts/io_graph.gd (+10/-0)
+- scripts/run_m.gd (+18/-9)
+- scripts/train_begin.gd (+34/-0)
+
+
+===COMMIT===
+2025-10-18 21:22 | 70010de | Hex358 // Pantone 358C
+upfdare
+Files:
+- scenes/ai_help.tscn (+2/-1)
+- scenes/classifier_graph.tscn (+24/-7)
+- scenes/menus.tscn (+2/-2)
+- scenes/train_input.tscn (+2/-2)
+- scripts/base_graph.gd (+3/-1)
+- scripts/block_component.gd (+1/-1)
+- scripts/classifier.gd (+22/-1)
+- scripts/glob.gd (+13/-5)
+- scripts/graph_manager.gd (+5/-0)
+- scripts/graph_script_parser.gd (+3/-4)
+- scripts/input_graph.gd (+11/-4)
+- scripts/netname.gd (+13/-6)
+- scripts/run_m.gd (+39/-6)
+- scripts/run_manager.gd (+3/-2)
+- scripts/socket_connection.gd (+4/-0)
+- scripts/sockets.gd (+2/-0)
+- scripts/softmax_node.gd (+1/-1)
+- scripts/text.gd (+14/-13)
+- scripts/train_begin.gd (+2/-1)
+- scripts/train_input.gd (+2/-1)
+
+
+===COMMIT===
+2025-10-17 22:45 | d8acd86 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/conv2d.tscn (+16/-16)
+- scenes/dataset.tscn (+1/-1)
+- scenes/menus.tscn (+8/-5)
+- scenes/select_dataset.tscn (+2/-54)
+- scenes/train_begin.tscn (+69/-4)
+- scenes/train_input.tscn (+4/-3)
+- scripts/ai_help.gd (+3/-5)
+- scripts/base_graph.gd (+5/-4)
+- scripts/block_component.gd (+4/-0)
+- scripts/conv_2d.gd (+3/-1)
+- scripts/cookie_manager.gd (+3/-0)
+- scripts/glob.gd (+4/-1)
+- scripts/graph_script_parser.gd (+2/-0)
+- scripts/input_graph.gd (+3/-3)
+- scripts/moving_analytics.gd (+11/-3)
+- scripts/run_m.gd (+1/-1)
+- scripts/run_manager.gd (+13/-19)
+- scripts/socket_connection.gd (+22/-17)
+- scripts/sockets.gd (+2/-2)
+- scripts/text.gd (+3/-0)
+- scripts/train_begin.gd (+69/-0)
+- scripts/train_input.gd (+18/-21)
+
+
+===COMMIT===
+2025-10-17 14:33 | 3da1b75 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/input_graph.tscn (+2/-0)
+- scripts/base_graph.gd (+21/-1)
+- scripts/block_component.gd (+13/-3)
+- scripts/camera_2d.gd (+81/-50)
+- scripts/classifier.gd (+2/-2)
+- scripts/flatten.gd (+9/-7)
+- scripts/glob.gd (+105/-2)
+- scripts/graph_manager.gd (+6/-0)
+- scripts/graph_script_parser.gd (+29/-1)
+- scripts/input_graph.gd (+10/-3)
+- scripts/neuron_config.gd (+2/-1)
+- scripts/neuron_layer.gd (+12/-10)
+- scripts/run_m.gd (+1/-0)
+- scripts/run_manager.gd (+10/-3)
+- scripts/ui_manager.gd (+1/-0)
+
+
+===COMMIT===
+2025-10-16 22:21 | cc503ae | Hex358 // Pantone 358C
+ю
+Files:
+- project.godot (+1/-0)
+- scenes/ai_help.tscn (+1/-0)
+- scenes/dataset.tscn (+69/-22)
+- scenes/input_graph.tscn (+52/-8)
+- scenes/select_dataset.tscn (+182/-0)
+- scripts/ai_help.gd (+1/-1)
+- scripts/ai_text.gd (+7/-1)
+- scripts/base_graph.gd (+4/-1)
+- scripts/conv_2d.gd (+2/-0)
+- scripts/dataset.gd (+53/-0)
+- scripts/dataset.gd.uid (+1/-0)
+- scripts/dataset_node.gd (+11/-2)
+- scripts/glob.gd (+14/-266)
+- scripts/graph_script_parser.gd (+306/-0)
+- scripts/graph_script_parser.gd.uid (+1/-0)
+- scripts/input_graph.gd (+3/-0)
+- scripts/list_datasets.gd (+47/-0)
+- scripts/list_datasets.gd.uid (+1/-0)
+- scripts/listds.gd (+23/-0)
+- scripts/listds.gd.uid (+1/-0)
+- scripts/maxpool.gd (+3/-0)
+- scripts/neuron_layer.gd (+2/-0)
+- scripts/splash_menu.gd (+2/-0)
+- scripts/text.gd (+3/-0)
+- scripts/ui_manager.gd (+13/-7)
+
+
+===COMMIT===
+2025-10-16 07:39 | 5da5827 | Hex358 // Pantone 358C
+.
+Files:
+- scripts/glob.gd (+69/-0)
+- scripts/graph_manager.gd (+2/-0)
+
+
+===COMMIT===
+2025-10-15 22:27 | be58d6b | Hex358 // Pantone 358C
+ai building, pre export
+Files:
+- scenes/ai_help.tscn (+2/-2)
+- scenes/menus.tscn (+1/-31)
+- scenes/run_model.tscn (+4/-1)
+- scenes/train_input.tscn (+1/-0)
+- scripts/ai_help.gd (+27/-11)
+- scripts/ai_text.gd (+3/-2)
+- scripts/base_graph.gd (+23/-6)
+- scripts/glob.gd (+304/-2)
+- scripts/graph_manager.gd (+3/-1)
+- scripts/image_draw.gd (+2/-1)
+- scripts/run_m.gd (+42/-2)
+- scripts/socket_connection.gd (+9/-0)
+
+
+===COMMIT===
+2025-10-15 07:25 | 6cd4406 | Hex358 // Pantone 358C
+stuff
+Files:
+- scenes/augment_transform.tscn (+1/-1)
+- scenes/classifier_graph.tscn (+3/-0)
+- scripts/ai_help.gd (+18/-4)
+- scripts/camera_2d.gd (+28/-18)
+- scripts/classifier.gd (+17/-1)
+- scripts/connection.gd (+11/-3)
+- scripts/glob.gd (+8/-0)
+- scripts/run_m.gd (+2/-1)
+- scripts/socket_connection.gd (+1/-0)
+- scripts/splash_menu.gd (+6/-3)
+
+
+===COMMIT===
+2025-10-14 07:41 | 35fd06d | Hex358 // Pantone 358C
+.
+Files:
+- scenes/ai_help.tscn (+18/-10)
+- scripts/ai_help.gd (+27/-8)
+- scripts/text.gd (+11/-0)
+
+
+===COMMIT===
+2025-10-13 22:24 | 60f90d8 | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+10/-0)
+- resources/theme_headers.tres (+1/-0)
+- scenes/ai_help.tscn (+18/-22)
+- scripts/ai_help.gd (+39/-35)
+- scripts/ai_text.gd (+10/-0)
+- scripts/ai_text.gd.uid (+1/-0)
+- scripts/base_graph.gd (+1/-1)
+- scripts/block_component.gd (+1/-0)
+- scripts/glob.gd (+2/-2)
+- scripts/netname.gd (+3/-0)
+- scripts/text.gd (+166/-2)
+- scripts/top_panel.gd (+1/-1)
+
+
+===COMMIT===
+2025-10-13 16:40 | 3fa8937 | ученик8
+a
+Files:
+- resources/theme_headers.tres (+4/-2)
+- scripts/ai_help.gd (+1/-1)
+
+
+===COMMIT===
+2025-10-13 16:34 | 4050fa6 | ученик8
+informatics
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- game_assets/icons/mic.png (+bin/-bin)
+- game_assets/icons/mic.png.import (+40/-0)
+- game_assets/icons/send.png (+bin/-bin)
+- scenes/ai_help.tscn (+64/-71)
+- scripts/ai_help.gd (+50/-0)
+
+
+===COMMIT===
+2025-10-13 15:57 | 09d9d13 | ученик8
+a
+Files:
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf.import (+1/-0)
+- game_assets/fonts/JetBrainsSans[wght]-VF.ttf.import (+1/-0)
+- game_assets/icons/act.png.import (+6/-0)
+- game_assets/icons/bias.png.import (+6/-0)
+- game_assets/icons/icon.svg.import (+6/-0)
+- scenes/ai_help.tscn (+12/-5)
+- scripts/ai_help.gd (+14/-2)
+- scripts/block_component.gd (+1/-1)
+- scripts/top_panel.gd (+1/-1)
+
+
+===COMMIT===
+2025-10-13 07:51 | 09ba2f7 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/ai_help.tscn (+5/-5)
+
+
+===COMMIT===
+2025-10-13 07:48 | d0c0471 | Hex358 // Pantone 358C
+something
+Files:
+- resources/theme_headers.tres (+1/-1)
+- scenes/ai_help.tscn (+87/-20)
+- scripts/ai_help.gd (+11/-0)
+- scripts/camera_2d.gd (+3/-3)
+- scripts/ui_manager.gd (+1/-1)
+
+
+===COMMIT===
+2025-10-12 23:13 | 6a7e0a2 | Hex358 // Pantone 358C
+ai
+Files:
+- game_assets/icons/send.png (+bin/-bin)
+- game_assets/icons/send.png.import (+40/-0)
+- resources/theme_headers.tres (+50/-7)
+- scenes/ai_help.tscn (+252/-0)
+- scenes/backupps.tscn (+25/-0)
+- scenes/dataset.tscn (+1/-0)
+- scenes/fg.tscn (+1/-0)
+- scenes/hourglass.tscn (+3/-2)
+- scenes/input_graph.tscn (+4/-3)
+- scenes/run_model.tscn (+2/-1)
+- scenes/train_begin.tscn (+1/-0)
+- scenes/train_input.tscn (+2/-2)
+- scripts/ai_help.gd (+5/-0)
+- scripts/ai_help.gd.uid (+1/-0)
+- scripts/base_graph.gd (+428/-4)
+- scripts/block_component.gd (+5/-2)
+- scripts/blur.gd (+7/-0)
+- scripts/camera_2d.gd (+13/-7)
+- scripts/connection.gd (+1/-1)
+- scripts/conv_2d.gd (+1/-1)
+- scripts/cookie_manager.gd (+18/-0)
+- scripts/dataset_node.gd (+5/-3)
+- scripts/env_tab.gd (+7/-0)
+- scripts/glob.gd (+41/-17)
+- scripts/graph_manager.gd (+15/-1)
+- scripts/hourglass.gd (+36/-0)
+- scripts/input_graph.gd (+6/-0)
+- scripts/maxpool.gd (+7/-2)
+- scripts/project_create.gd (+5/-0)
+- scripts/signup.gd (+2/-0)
+- scripts/splash_menu.gd (+21/-8)
+- scripts/text.gd (+8/-0)
+- scripts/text.gd.uid (+1/-0)
+- scripts/top_panel.gd (+24/-7)
+- scripts/train_input.gd (+4/-1)
+- scripts/ui_manager.gd (+23/-2)
+- scripts/works.gd (+6/-1)
+- scripts/works_list.gd (+3/-1)
+
+
+===COMMIT===
+2025-10-11 23:16 | 34a3909 | Hex358 // Pantone 358C
+remote save/load done
+Files:
+- scenes/conv2d.tscn (+1/-0)
+- scenes/dataset.tscn (+2/-0)
+- scenes/fg.tscn (+2/-1)
+- scenes/menus.tscn (+2/-25)
+- scenes/train_input.tscn (+6/-0)
+- scenes/works.tscn (+4/-3)
+- scripts/block_component.gd (+5/-2)
+- scripts/conv_2d.gd (+3/-1)
+- scripts/dataset_node.gd (+14/-0)
+- scripts/flatten.gd (+1/-1)
+- scripts/glob.gd (+54/-2)
+- scripts/msgpack.gd (+35/-41)
+- scripts/project_create.gd (+1/-2)
+- scripts/top_panel.gd (+4/-0)
+- scripts/works.gd (+3/-4)
+- scripts/works_list.gd (+9/-2)
+
+
+===COMMIT===
+2025-10-11 20:48 | d1ea474 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/menus.tscn (+22/-0)
+- scenes/works.tscn (+56/-4)
+- scripts/base_graph.gd (+2/-2)
+- scripts/block_component.gd (+14/-16)
+- scripts/cookie_manager.gd (+1/-1)
+- scripts/edit_graph.gd (+3/-0)
+- scripts/glob.gd (+31/-13)
+- scripts/graph_manager.gd (+1/-1)
+- scripts/project_create.gd (+9/-6)
+- scripts/works.gd (+6/-3)
+- scripts/works_list.gd (+11/-0)
+
+
+===COMMIT===
+2025-10-11 18:58 | 1dcf15c | Hex358 // Pantone 358C
+save/load system done
+Files:
+- game_assets/icons/1.png (+bin/-bin)
+- game_assets/icons/1.png.import (+40/-0)
+- game_assets/icons/2.png (+bin/-bin)
+- game_assets/icons/2.png.import (+40/-0)
+- game_assets/icons/3.png (+bin/-bin)
+- game_assets/icons/3.png.import (+40/-0)
+- game_assets/icons/4.png (+bin/-bin)
+- game_assets/icons/4.png.import (+40/-0)
+- game_assets/icons/help.png (+bin/-bin)
+- game_assets/icons/help.png.import (+40/-0)
+- game_assets/icons/hourglass.png (+bin/-bin)
+- game_assets/icons/hourglass.png.import (+40/-0)
+- game_assets/icons/splines.png (+bin/-bin)
+- game_assets/icons/splines.png.import (+40/-0)
+- game_assets/icons/wonder.png (+bin/-bin)
+- game_assets/icons/wonder.png.import (+40/-0)
+- project.godot (+5/-0)
+- scenes/augment_transform.tscn (+47/-38)
+- scenes/bg.tscn (+5/-1)
+- scenes/blur.tscn (+16/-0)
+- scenes/dataset.tscn (+6/-5)
+- scenes/env_tab.tscn (+10/-6)
+- scenes/fg.tscn (+47/-15)
+- scenes/hourglass.tscn (+17/-0)
+- scenes/input_graph.tscn (+20/-9)
+- scenes/netname.tscn (+1/-0)
+- scenes/project.tscn (+1/-1)
+- scenes/project_create.tscn (+16/-0)
+- scenes/scene_create.tscn (+132/-0)
+- scenes/signup.tscn (+212/-0)
+- scenes/splash.tres (+1/-1)
+- scenes/splash.tscn (+11/-15)
+- scenes/train_begin.tscn (+16/-16)
+- scenes/works.tscn (+207/-0)
+- scripts/augment_transform.gd (+20/-14)
+- scripts/block_component.gd (+44/-16)
+- scripts/blur.gd (+4/-0)
+- scripts/blur.gd.uid (+1/-0)
+- scripts/camera_2d.gd (+2/-1)
+- scripts/connection.gd (+7/-2)
+- scripts/cookie_manager.gd (+3/-0)
+- scripts/env_tab.gd (+24/-7)
+- scripts/glob.gd (+80/-21)
+- scripts/graph_manager.gd (+5/-1)
+- scripts/hourglass.gd (+14/-0)
+- scripts/hourglass.gd.uid (+1/-0)
+- scripts/msgpack.gd (+1/-0)
+- scripts/project_create.gd (+30/-0)
+- scripts/project_create.gd.uid (+1/-0)
+- scripts/scene_create.gd (+22/-0)
+- scripts/scene_create.gd.uid (+1/-0)
+- scripts/selector_box.gd (+1/-1)
+- scripts/signup.gd (+41/-0)
+- scripts/signup.gd.uid (+1/-0)
+- scripts/splash_menu.gd (+94/-18)
+- scripts/sub_viewport.gd (+6/-0)
+- scripts/sub_viewport.gd.uid (+1/-0)
+- scripts/top_panel.gd (+32/-6)
+- scripts/train_input.gd (+2/-1)
+- scripts/ui_manager.gd (+45/-3)
+- scripts/validate_line.gd (+19/-0)
+- scripts/works.gd (+45/-0)
+- scripts/works.gd.uid (+1/-0)
+- scripts/works_list.gd (+25/-0)
+- scripts/works_list.gd.uid (+1/-0)
+- scripts/works_unroll.gd (+22/-0)
+- scripts/works_unroll.gd.uid (+1/-0)
+- shaders/augment_transform.gdshader (+10/-12)
+- shaders/block.gdshader (+2/-2)
+
+
+===COMMIT===
+2025-10-10 07:33 | 66a0d8e | Hex358 // Pantone 358C
+.
+Files:
+- api/__pycache__/graph_core.cpython-312.pyc (+bin/-bin)
+- api/__pycache__/node_types.cpython-312.pyc (+bin/-bin)
+- api/__pycache__/package_nodes.cpython-312.pyc (+bin/-bin)
+- api/api.py (+0/-27)
+- api/ff.py (+0/-120)
+- api/genai.py (+0/-22)
+- api/graph_core.py (+0/-151)
+- api/node_types.py (+0/-14)
+- api/package_nodes.py (+0/-0)
+- api/prompt (+0/-136)
+- api/ttest.py (+0/-191)
+- demo/HelloLua.gd (+0/-32)
+- demo/HelloLua.gd.uid (+0/-1)
+- demo/HelloLua.tscn (+0/-6)
+- game_assets/icons/dot.png (+bin/-bin)
+- game_assets/icons/dot.png.import (+40/-0)
+- project.godot (+6/-0)
+- resources/theme_headers.tres (+27/-1)
+- scenes/augment_transform.tscn (+166/-0)
+- scenes/conv2d.tscn (+1/-1)
+- scenes/fg.tscn (+14/-7)
+- scenes/flatten.tscn (+1/-1)
+- scenes/input_graph.tscn (+1/-1)
+- scenes/menus.tscn (+18/-0)
+- scenes/splash.tscn (+143/-6)
+- scenes/train_input.tscn (+1/-0)
+- scripts/augment_transform.gd (+89/-0)
+- scripts/augment_transform.gd.uid (+1/-0)
+- scripts/block_component.gd (+8/-3)
+- scripts/cmenu.gd (+2/-0)
+- scripts/cookie_manager.gd (+66/-0)
+- scripts/cookie_manager.gd.uid (+1/-0)
+- scripts/end.gd (+6/-0)
+- scripts/end.gd.uid (+1/-0)
+- scripts/glob.gd (+52/-5)
+- scripts/graph_manager.gd (+3/-4)
+- scripts/image_draw.gd (+7/-0)
+- scripts/msgpack.gd (+408/-0)
+- scripts/msgpack.gd.uid (+1/-0)
+- scripts/run_manager.gd (+5/-9)
+- scripts/selector_box.gd (+1/-1)
+- scripts/splash_menu.gd (+40/-40)
+- scripts/top_panel.gd (+9/-0)
+- scripts/train_input.gd (+20/-4)
+- scripts/ui_manager.gd (+12/-3)
+- scripts/validate_line.gd (+31/-0)
+- scripts/web.gd (+26/-22)
+- shaders/augment_transform.gdshader (+126/-0)
+- shaders/augment_transform.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2025-10-08 07:12 | ae2ae92 | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+1/-1)
+- scenes/env_tab.tscn (+40/-29)
+- scenes/fg.tscn (+1/-1)
+- scenes/menus.tscn (+1/-1)
+- scenes/other_procnodes.gd (+3/-2)
+- scenes/splash.tres (+17/-0)
+- scenes/splash.tscn (+56/-0)
+- scripts/block_component.gd (+2/-2)
+- scripts/env_tab.gd (+49/-1)
+- scripts/glob.gd (+27/-0)
+- scripts/graph_manager.gd (+25/-20)
+- scripts/graph_shadow.gd (+2/-1)
+- scripts/splash_menu.gd (+69/-0)
+- scripts/splash_menu.gd.uid (+1/-0)
+- scripts/ui_manager.gd (+26/-0)
+- scripts/unr.gd (+1/-2)
+
+
+===COMMIT===
+2025-10-06 20:55 | a938e61 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/menus.tscn (+2/-0)
+
+
+===COMMIT===
+2025-10-06 20:48 | 0efb29d | Hex358 // Pantone 358C
+.
+Files:
+- scripts/graph_manager.gd (+2/-2)
+
+
+===COMMIT===
+2025-10-06 18:50 | c81fcd8 | Hex358 // Pantone 358C
+.
+Files:
+- resources/panels_mat.tres (+2/-2)
+- scenes/fg.tscn (+0/-24)
+- scripts/top_panel.gd (+1/-1)
+
+
+===COMMIT===
+2025-10-06 18:09 | 63f30a0 | Hex358 // Pantone 358C
+client side saving
+Files:
+- scenes/neuron.tscn (+3/-0)
+- scripts/base_graph.gd (+2/-1)
+- scripts/graph_manager.gd (+8/-8)
+- scripts/neuron_config.gd (+10/-2)
+
+
+===COMMIT===
+2025-10-05 22:23 | 37e4e26 | Hex358 // Pantone 358C
+peter griffin
+Files:
+- scenes/project.tscn (+1/-1)
+- scripts/graph_manager.gd (+4/-9)
+
+
+===COMMIT===
+2025-10-05 22:19 | f8ca781 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/project.tscn (+1/-0)
+- scripts/base_graph.gd (+25/-12)
+- scripts/cmenu.gd (+15/-15)
+- scripts/connection.gd (+28/-1)
+- scripts/glob.gd (+1/-1)
+- scripts/graph_manager.gd (+96/-8)
+- scripts/project.gd (+24/-0)
+- scripts/run_manager.gd (+7/-7)
+
+
+===COMMIT===
+2025-10-04 21:53 | 95c388b | Hex358 // Pantone 358C
+.
+Files:
+- scenes/conv2d.tscn (+26/-26)
+- scenes/dataset.tscn (+1/-1)
+- scenes/flatten.tscn (+0/-1)
+- scenes/run_model.tscn (+1/-0)
+- scenes/softmax.tscn (+3/-2)
+- scenes/train_begin.tscn (+4/-4)
+- scripts/base_graph.gd (+21/-10)
+- scripts/block_component.gd (+35/-51)
+- scripts/env_tab.gd (+5/-3)
+- scripts/flatten.gd (+10/-1)
+- scripts/graph_manager.gd (+48/-18)
+- scripts/label_auto_resize.gd (+20/-0)
+- scripts/maxpool.gd (+3/-3)
+- scripts/netname.gd (+68/-7)
+- scripts/neuron_layer.gd (+5/-1)
+- scripts/run_m.gd (+19/-35)
+- scripts/run_manager.gd (+9/-9)
+- scripts/softmax_node.gd (+11/-0)
+- scripts/softmax_node.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-10-03 07:38 | ea1a880 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/env_tab.tscn (+3/-14)
+- scenes/run_model.tscn (+91/-7)
+- scenes/train_begin.tscn (+1/-1)
+- scripts/base_graph.gd (+8/-0)
+- scripts/conn.gd (+1/-0)
+- scripts/env_tab.gd (+5/-1)
+- scripts/graph_manager.gd (+7/-1)
+- scripts/io_graph.gd (+4/-0)
+- scripts/label_auto_resize.gd (+22/-10)
+- scripts/lua_process.gd (+43/-8)
+- scripts/netname.gd (+7/-3)
+- scripts/run_m.gd (+93/-5)
+- scripts/run_manager.gd (+17/-4)
+
+
+===COMMIT===
+2025-10-01 22:36 | 5974eef | Hex358 // Pantone 358C
+.
+Files:
+- scenes/netname.tscn (+1/-1)
+- scenes/run_model.tscn (+1/-1)
+- scenes/train_input.tscn (+1/-1)
+- scripts/netname.gd (+9/-2)
+- scripts/run_m.gd (+5/-0)
+- scripts/run_manager.gd (+1/-2)
+
+
+===COMMIT===
+2025-10-01 22:25 | 0c86ada | Hex358 // Pantone 358C
+.
+Files:
+- game_assets/icons/rect.png (+bin/-bin)
+- game_assets/icons/rect.png.import (+40/-0)
+- resources/rounded_corners.tres (+1/-1)
+- scenes/dataset.tscn (+77/-0)
+- scenes/env_tab.tscn (+51/-42)
+- scenes/input_graph.tscn (+10/-7)
+- scenes/menus.tscn (+58/-76)
+- scenes/netname.tscn (+82/-0)
+- scenes/neuron.tscn (+3/-7)
+- scenes/run_model.gd (+6/-0)
+- scenes/run_model.gd.uid (+1/-0)
+- scenes/run_model.tscn (+233/-0)
+- scenes/train_begin.tscn (+32/-29)
+- scenes/train_input.tscn (+30/-131)
+- scripts/block_component.gd (+18/-5)
+- scripts/classifier.gd (+2/-1)
+- scripts/cmenu.gd (+4/-0)
+- scripts/conn.gd (+3/-0)
+- scripts/conn.gd.uid (+1/-0)
+- scripts/connection.gd (+5/-3)
+- scripts/dataset_node.gd (+1/-0)
+- scripts/dataset_node.gd.uid (+1/-0)
+- scripts/edit_graph.gd (+1/-1)
+- scripts/env_tab.gd (+1/-1)
+- scripts/graph_manager.gd (+19/-1)
+- scripts/lua_envs.gd (+2/-2)
+- scripts/netname.gd (+29/-0)
+- scripts/netname.gd.uid (+1/-0)
+- scripts/out.gd (+3/-0)
+- scripts/out.gd.uid (+1/-0)
+- scripts/run_m.gd (+21/-0)
+- scripts/run_m.gd.uid (+1/-0)
+- scripts/run_manager.gd (+33/-13)
+- scripts/train_begin.gd (+1/-0)
+- scripts/train_begin.gd.uid (+1/-0)
+- scripts/train_input.gd (+1/-1)
+
+
+===COMMIT===
+2025-10-01 08:58 | d91edc6 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/train_begin.tscn (+11/-1)
+- scripts/block_component.gd (+1/-1)
+- scripts/connection.gd (+5/-2)
+
+
+===COMMIT===
+2025-10-01 07:33 | 10b180f | Hex358 // Pantone 358C
+.
+Files:
+- game_assets/icons/flag.png (+bin/-bin)
+- game_assets/icons/flag.png.import (+40/-0)
+- game_assets/icons/hide.png (+bin/-bin)
+- game_assets/icons/hide.png.import (+40/-0)
+- game_assets/icons/stop.png (+bin/-bin)
+- game_assets/icons/stop.png.import (+40/-0)
+- resources/another_corners.tres (+8/-0)
+- resources/rounded_corners.tres (+1/-1)
+- scenes/env_tab.tscn (+163/-64)
+- scenes/fg.tscn (+24/-0)
+- scenes/input_graph.tscn (+23/-3)
+- scenes/menus.tscn (+86/-51)
+- scenes/other_procnodes.gd (+1/-0)
+- scenes/train_begin.tscn (+78/-0)
+- scenes/train_input.tscn (+1/-1)
+- scripts/block_component.gd (+140/-15)
+- scripts/cmenu.gd (+6/-0)
+- scripts/code_edit.gd (+43/-6)
+- scripts/connection.gd (+16/-9)
+- scripts/env_tab.gd (+57/-14)
+- scripts/glob.gd (+10/-0)
+- scripts/graph_manager.gd (+2/-1)
+- scripts/image_draw.gd (+1/-0)
+- scripts/label_auto_resize.gd (+1/-1)
+- scripts/lua_envs.gd (+27/-16)
+- scripts/lua_highliter.gd (+11/-10)
+- scripts/lua_process.gd (+170/-26)
+- scripts/ui_manager.gd (+12/-0)
+- scripts/unr.gd (+1/-1)
+
+
+===COMMIT===
+2025-09-29 21:54 | be9bd73 | Hex358 // Pantone 358C
+lua
+Files:
+- addons/luaAPI/LICENSE (+126/-0)
+- addons/luaAPI/README.md (+137/-0)
+- addons/luaAPI/bin/.gdignore (+0/-0)
+- addons/luaAPI/bin/libluaapi.ios.template_debug.arm64.dylib (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.ios.template_debug.universal.simulator.dylib (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.ios.template_release.arm64.dylib (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.ios.template_release.universal.simulator.dylib (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.linux.template_debug.x86_32.so (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.linux.template_debug.x86_64.so (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.linux.template_release.x86_32.so (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.linux.template_release.x86_64.so (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.macos.template_debug.universal.dylib (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.macos.template_release.universal.dylib (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.windows.template_debug.x86_32.dll (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.windows.template_release.x86_32.dll (+bin/-bin)
+- addons/luaAPI/bin/libluaapi.windows.template_release.x86_64.dll (+bin/-bin)
+- addons/luaAPI/bin/~libluaapi.windows.template_debug.x86_64.dll (+bin/-bin)
+- addons/luaAPI/luaAPI.gdextension (+27/-0)
+- addons/luaAPI/luaAPI.gdextension.uid (+1/-0)
+- demo/HelloLua.gd (+32/-0)
+- demo/HelloLua.gd.uid (+1/-0)
+- demo/HelloLua.tscn (+6/-0)
+- export_presets.cfg (+1/-1)
+- nnets.apk.idsig (+bin/-bin)
+- project.godot (+1/-0)
+- scenes/env_tab.tscn (+18/-36)
+- scenes/other_procnodes.gd (+1/-1)
+- scripts/block_component.gd (+34/-14)
+- scripts/code_edit.gd (+20/-0)
+- scripts/code_edit.gd.uid (+1/-0)
+- scripts/glob.gd (+5/-0)
+- scripts/lua_envs.gd (+71/-0)
+- scripts/lua_highliter.gd (+2/-5)
+- scripts/lua_process.gd (+165/-0)
+- scripts/lua_process.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-09-28 20:34 | 4afd065 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/env_tab.tscn (+0/-1)
+
+
+===COMMIT===
+2025-09-28 20:32 | a7f4da9 | Hex358 // Pantone 358C
+.
+Files:
+- scripts/env_tab.gd (+3/-0)
+
+
+===COMMIT===
+2025-09-28 20:15 | 1998cea | Hex358 // Pantone 358C
+.
+Files:
+- scenes/env_tab.tscn (+20/-7)
+- scripts/env_tab.gd (+35/-28)
+
+
+===COMMIT===
+2025-09-28 14:35 | 9d49ef0 | Hex358 // Pantone 358C
+stretch
+Files:
+- project.godot (+1/-0)
+- scenes/env_tab.tscn (+1/-1)
+- scripts/block_component.gd (+2/-0)
+- scripts/env_tab.gd (+126/-18)
+- scripts/lua_envs.gd (+1/-0)
+- scripts/lua_envs.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-09-28 10:53 | 23736c9 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/env_tab.tscn (+55/-15)
+- scenes/menus.tscn (+51/-0)
+- scenes/train_input.tscn (+1/-0)
+- scripts/base_graph.gd (+1/-0)
+- scripts/block_component.gd (+97/-41)
+- scripts/env_tab.gd (+15/-5)
+- scripts/unr.gd (+3/-2)
+
+
+===COMMIT===
+2025-09-27 22:35 | 3c619a8 | Hex358 // Pantone 358C
+.
+Files:
+- export_presets.cfg (+73/-0)
+- game_assets/icons/build.png (+bin/-bin)
+- game_assets/icons/build.png.import (+40/-0)
+- game_assets/icons/download.png (+bin/-bin)
+- game_assets/icons/download.png.import (+40/-0)
+- game_assets/icons/game.png (+bin/-bin)
+- game_assets/icons/game.png.import (+40/-0)
+- game_assets/icons/login.png (+bin/-bin)
+- game_assets/icons/login.png.import (+40/-0)
+- game_assets/icons/save.png (+bin/-bin)
+- game_assets/icons/save.png.import (+40/-0)
+- game_assets/icons/share.png (+bin/-bin)
+- game_assets/icons/share.png.import (+40/-0)
+- game_assets/icons/user.png (+bin/-bin)
+- game_assets/icons/user.png.import (+40/-0)
+- resources/fg_block.tres (+17/-0)
+- resources/lua.tres (+69/-0)
+- resources/rounded_corners.tres (+8/-0)
+- resources/theme_base.tres (+6/-1)
+- scenes/bg.tscn (+4/-4)
+- scenes/classifier_graph.tscn (+7/-8)
+- scenes/env_tab.tscn (+256/-0)
+- scenes/fg.tscn (+159/-68)
+- scenes/input_graph.tscn (+13/-11)
+- scenes/layer.tscn (+1/-0)
+- scenes/other_procnodes.gd (+17/-0)
+- scenes/other_procnodes.gd.uid (+1/-0)
+- scenes/project.tscn (+13/-7)
+- scenes/reshape.tscn (+2/-0)
+- scenes/softmax.tscn (+10/-10)
+- scenes/train_input.tscn (+33/-14)
+- scripts/base_graph.gd (+31/-0)
+- scripts/block_component.gd (+62/-16)
+- scripts/classifier.gd (+41/-4)
+- scripts/connection.gd (+27/-5)
+- scripts/detatch_menu.gd (+9/-0)
+- scripts/env_tab.gd (+48/-0)
+- scripts/env_tab.gd.uid (+1/-0)
+- scripts/glob.gd (+33/-4)
+- scripts/graph_manager.gd (+24/-7)
+- scripts/image_draw.gd (+3/-2)
+- scripts/input_graph.gd (+5/-0)
+- scripts/io_graph.gd (+4/-0)
+- scripts/label_auto_resize.gd (+26/-0)
+- scripts/label_auto_resize.gd.uid (+1/-0)
+- scripts/lua_highliter.gd (+53/-0)
+- scripts/lua_highliter.gd.uid (+1/-0)
+- scripts/reshape.gd (+5/-4)
+- scripts/top_panel.gd (+22/-0)
+- scripts/unr.gd (+25/-0)
+- scripts/unr.gd.uid (+1/-0)
+- scripts/win_graph.gd (+39/-0)
+- scripts/win_graph.gd.uid (+1/-0)
+- shaders/rounded.gdshader (+16/-0)
+- shaders/rounded.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2025-09-25 22:52 | 9ef03bb | Hex358 // Pantone 358C
+.
+Files:
+- scenes/classifier_graph.tscn (+3/-2)
+- scripts/classifier.gd (+1/-1)
+
+
+===COMMIT===
+2025-09-25 22:47 | fef1318 | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+6/-0)
+- resources/graph.tres (+2/-2)
+- resources/panel.tres (+3/-3)
+- resources/theme_base.tres (+72/-0)
+- resources/theme_no_aa.tres (+82/-0)
+- resources/theme_non_aa.tres (+72/-0)
+- scenes/base_graph.tscn (+2/-2)
+- scenes/classifier_graph.tscn (+196/-0)
+- scenes/conv2d.tscn (+4/-4)
+- scenes/fg.tscn (+75/-7)
+- scenes/graph_shadow.tscn (+4/-4)
+- scenes/layer.tscn (+0/-1)
+- scenes/menus.tscn (+18/-0)
+- scenes/softmax.tscn (+5/-5)
+- scenes/train_input.tscn (+63/-1)
+- scenes/trainwindow.tscn (+52/-0)
+- scripts/base_graph.gd (+4/-4)
+- scripts/block_component.gd (+4/-3)
+- scripts/classifier.gd (+13/-0)
+- scripts/classifier.gd.uid (+1/-0)
+- scripts/cmenu.gd (+2/-0)
+- scripts/connection.gd (+1/-0)
+- scripts/glob.gd (+7/-0)
+- scripts/graph_manager.gd (+17/-3)
+- scripts/io_graph.gd (+5/-2)
+- scripts/moving_analytics.gd (+3/-1)
+- scripts/project.gd (+11/-18)
+- scripts/run_manager.gd (+107/-0)
+- scripts/run_manager.gd.uid (+1/-0)
+- scripts/selector_box.gd (+4/-1)
+- scripts/train_input.gd (+26/-6)
+- scripts/ui_manager.gd (+5/-2)
+- scripts/unit.gd (+11/-5)
+- scripts/validate_line.gd (+9/-2)
+- scripts/validate_number.gd (+8/-2)
+- scripts/web.gd (+72/-39)
+
+
+===COMMIT===
+2025-09-24 07:44 | e973392 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/input_graph.tscn (+11/-11)
+- scenes/train_input.tscn (+3/-46)
+- scripts/graph_manager.gd (+3/-0)
+- scripts/train_input.gd (+2/-1)
+
+
+===COMMIT===
+2025-09-23 22:04 | bb2e889 | Hex358 // Pantone 358C
+new stuff
+Files:
+- project.godot (+5/-1)
+- resources/context_menu.tres (+1/-1)
+- resources/panels_mat.tres (+3/-3)
+- scenes/conv2d.tscn (+0/-1)
+- scenes/fg.tscn (+2/-6)
+- scenes/graph_shadow.tscn (+25/-0)
+- scenes/input_graph.tscn (+11/-11)
+- scenes/maxpool.tscn (+7/-4)
+- scenes/menus.tscn (+43/-18)
+- scenes/train_input.tscn (+3/-10)
+- scripts/base_graph.gd (+53/-5)
+- scripts/camera_2d.gd (+1/-1)
+- scripts/connection.gd (+2/-1)
+- scripts/conv_2d.gd (+3/-2)
+- scripts/glob.gd (+6/-0)
+- scripts/graph_manager.gd (+11/-13)
+- scripts/graph_shadow.gd (+21/-0)
+- scripts/graph_shadow.gd.uid (+1/-0)
+- scripts/image_draw.gd (+2/-0)
+- scripts/io_graph.gd (+14/-7)
+- scripts/project.gd (+22/-7)
+- scripts/selector_box.gd (+49/-0)
+- scripts/selector_box.gd.uid (+1/-0)
+- scripts/sockets.gd (+2/-1)
+- scripts/train_input.gd (+6/-1)
+- scripts/ui_manager.gd (+3/-0)
+- shaders/graph_shadow.gdshader (+57/-0)
+- shaders/graph_shadow.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2025-09-09 21:22 | a0d9a1b | Hex358 // Pantone 358C
+ю
+Files:
+- scripts/base_graph.gd (+3/-0)
+- scripts/conv_2d.gd (+8/-3)
+- scripts/maxpool.gd (+20/-0)
+- scripts/neuron_layer.gd (+0/-1)
+
+
+===COMMIT===
+2025-09-09 07:40 | d37e600 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/conv2d.tscn (+5/-3)
+- scripts/conv_2d.gd (+21/-8)
+- scripts/maxpool.gd (+1/-1)
+- scripts/neuron_layer.gd (+2/-1)
+
+
+===COMMIT===
+2025-09-08 21:51 | f26f44f | Hex358 // Pantone 358C
+...
+Files:
+- scenes/conv2d.tscn (+4/-3)
+- scenes/maxpool.tscn (+43/-6)
+- scripts/adraw.gd (+4/-4)
+- scripts/conv_2d.gd (+53/-39)
+- scripts/glob.gd (+2/-2)
+- scripts/maxpool.gd (+29/-5)
+- scripts/ui_manager.gd (+1/-1)
+- scripts/validate_line.gd (+1/-1)
+- scripts/validate_number.gd (+27/-9)
+
+
+===COMMIT===
+2025-09-08 19:14 | d7864fb | Hex358 // Pantone 358C
+.
+Files:
+- scenes/conv2d.tscn (+1/-1)
+- scenes/maxpool.tscn (+6/-23)
+- scripts/adraw.gd (+60/-23)
+- scripts/connection.gd (+2/-1)
+- scripts/conv_2d.gd (+36/-8)
+- scripts/maxpool.gd (+36/-17)
+- scripts/train_input.gd (+4/-3)
+
+
+===COMMIT===
+2025-09-07 16:26 | bcbdb61 | Hex358 // Pantone 358C
+./.
+Files:
+- scenes/conv2d.tscn (+1/-1)
+- scenes/maxpool.tscn (+2/-1)
+- scripts/adraw.gd (+10/-7)
+- scripts/input_graph.gd (+2/-1)
+- scripts/maxpool.gd (+2/-1)
+
+
+===COMMIT===
+2025-09-07 14:59 | 81a9cad | Hex358 // Pantone 358C
+.
+Files:
+- resources/panels_mat.tres (+1/-1)
+- scenes/backups.tscn (+183/-0)
+- scenes/conv2d.tscn (+100/-171)
+- scenes/default_spline.tscn (+3/-3)
+- scenes/layer.tscn (+1/-1)
+- scenes/maxpool.tscn (+149/-0)
+- scenes/menus.tscn (+17/-0)
+- scenes/reshape.tscn (+6/-6)
+- scenes/train_input.tscn (+1/-1)
+- scripts/adraw.gd (+24/-0)
+- scripts/adraw.gd.uid (+1/-0)
+- scripts/base_graph.gd (+8/-6)
+- scripts/cmenu.gd (+2/-0)
+- scripts/connection.gd (+3/-3)
+- scripts/conv_2d.gd (+117/-77)
+- scripts/glob.gd (+3/-0)
+- scripts/graph_manager.gd (+5/-0)
+- scripts/maxpool.gd (+50/-0)
+- scripts/maxpool.gd.uid (+1/-0)
+- scripts/neuron_layer.gd (+1/-1)
+- scripts/reshape.gd (+2/-2)
+- scripts/ui_manager.gd (+3/-0)
+- scripts/validate_line.gd (+5/-0)
+- scripts/validate_number.gd (+26/-8)
+
+
+===COMMIT===
+2025-09-06 17:31 | 285ac39 | Hex358 // Pantone 358C
+.
+Files:
+- resources/panels_mat.tres (+3/-3)
+- scenes/conv2d.tscn (+115/-20)
+- scenes/fg.tscn (+1/-1)
+- scenes/neuron.tscn (+0/-13)
+- scenes/reshape.tscn (+4/-0)
+- scripts/base_graph.gd (+21/-4)
+- scripts/block_component.gd (+5/-3)
+- scripts/camera_2d.gd (+1/-1)
+- scripts/connection.gd (+1/-1)
+- scripts/conv_2d.gd (+55/-16)
+- scripts/glob.gd (+5/-0)
+- scripts/graph_manager.gd (+7/-0)
+- scripts/input_graph.gd (+1/-0)
+- scripts/io_graph.gd (+3/-5)
+- scripts/neuron_config.gd (+4/-0)
+- scripts/neuron_layer.gd (+4/-10)
+- scripts/neuron_unit.gd (+1/-1)
+- scripts/reshape.gd (+10/-3)
+- scripts/ui_manager.gd (+1/-1)
+- scripts/validate_number.gd (+1/-1)
+- shaders/smooth_extents.gdshaderinc (+23/-6)
+
+
+===COMMIT===
+2025-09-05 20:28 | 776af41 | Hex358 // Pantone 358C
+.
+Files:
+- resources/activ.tres (+2/-0)
+- resources/add_button.tres (+1/-0)
+- resources/connection.tres (+1/-0)
+- resources/default_config.tres (+2/-0)
+- resources/graph.tres (+1/-0)
+- resources/panel.tres (+1/-0)
+- resources/theme.tres (+1/-0)
+- scenes/bg.tscn (+11/-6)
+- scenes/conv2d.tscn (+107/-7)
+- scenes/flatten.tscn (+1/-0)
+- scenes/layer.tscn (+2/-0)
+- scripts/base_graph.gd (+0/-5)
+- scripts/color_rect.gd (+2/-2)
+- scripts/conv_2d.gd (+35/-9)
+- scripts/graph_manager.gd (+2/-3)
+- scripts/input_graph.gd (+9/-0)
+- scripts/texture_rect.gd (+5/-0)
+- scripts/validate_number.gd (+19/-11)
+- shaders/bg.gdshader (+12/-0)
+- shaders/bg.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2025-09-05 08:06 | ad73367 | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+4/-0)
+- resources/context_menu.tres (+1/-0)
+- resources/neuron_graph.tres (+2/-1)
+- resources/panels_mat.tres (+4/-3)
+- scenes/bg.tscn (+37/-7)
+- scenes/conv2d.tscn (+25/-10)
+- scenes/fg.tscn (+8/-9)
+- scenes/project.tscn (+2/-3)
+- scripts/color_rect.gd (+7/-2)
+- scripts/connection.gd (+3/-3)
+- scripts/conv_2d.gd (+24/-3)
+- scripts/glob.gd (+3/-2)
+- scripts/texture_rect.gd (+5/-0)
+- scripts/texture_rect.gd.uid (+1/-0)
+- shaders/block.gdshader (+17/-6)
+- shaders/block.gdshader.bak (+126/-0)
+
+
+===COMMIT===
+2025-09-04 07:39 | eb6bbbf | Hex358 // Pantone 358C
+.
+Files:
+- scenes/conv2d.tscn (+14/-13)
+- scenes/default_spline.tscn (+0/-1)
+- scripts/conv_2d.gd (+30/-29)
+- scripts/graph_manager.gd (+1/-1)
+- scripts/io_graph.gd (+1/-1)
+
+
+===COMMIT===
+2025-09-03 21:16 | 2c2d9fc | Hex358 // Pantone 358C
+ю
+Files:
+- scenes/conv2d.tscn (+13/-14)
+- scripts/base_graph.gd (+9/-0)
+- scripts/connection.gd (+7/-2)
+- scripts/conv_2d.gd (+6/-3)
+- scripts/glob.gd (+18/-4)
+- scripts/graph_manager.gd (+16/-3)
+- scripts/reshape.gd (+16/-16)
+
+
+===COMMIT===
+2025-09-03 08:00 | ac3a542 | Hex358 // Pantone 358C
+..
+Files:
+- scenes/conv2d.tscn (+4/-4)
+- scenes/default_spline.tscn (+2/-1)
+- scripts/conv_2d.gd (+56/-11)
+- scripts/spline.gd (+1/-1)
+
+
+===COMMIT===
+2025-09-02 21:34 | c15517a | Hex358 // Pantone 358C
+.
+Files:
+- scenes/conv2d.tscn (+4/-2)
+- scenes/default_spline.tscn (+2/-2)
+- scenes/flatten.tscn (+3/-3)
+- scenes/layer.tscn (+1/-0)
+- scenes/project.tscn (+1/-1)
+- scenes/reshape.tscn (+2/-2)
+- scripts/connection.gd (+16/-1)
+- scripts/conv_2d.gd (+148/-36)
+- scripts/flatten.gd (+9/-1)
+- scripts/glob.gd (+3/-0)
+- scripts/io_graph.gd (+7/-4)
+- scripts/neuron_layer.gd (+2/-0)
+- scripts/reshape.gd (+13/-10)
+- scripts/spline.gd (+149/-12)
+- scripts/validate_line.gd (+10/-1)
+- scripts/validate_number.gd (+0/-1)
+
+
+===COMMIT===
+2025-09-01 22:00 | 871983f | Hex358 // Pantone 358C
+.
+Files:
+- resources/theme.tres (+0/-1)
+- scenes/conv2d.tscn (+136/-0)
+- scenes/flatten.tscn (+33/-20)
+- scenes/input_graph.tscn (+1/-1)
+- scenes/layer.tscn (+4/-0)
+- scenes/menus.tscn (+18/-14)
+- scenes/reshape.tscn (+12/-6)
+- scripts/base_graph.gd (+96/-2)
+- scripts/base_layer.gd (+13/-0)
+- scripts/base_layer.gd.uid (+1/-0)
+- scripts/block_component.gd (+8/-0)
+- scripts/cmenu.gd (+2/-0)
+- scripts/connection.gd (+16/-5)
+- scripts/conv_2d.gd (+72/-0)
+- scripts/conv_2d.gd.uid (+1/-0)
+- scripts/detatch_menu.gd (+4/-4)
+- scripts/flatten.gd (+36/-0)
+- scripts/flatten.gd.uid (+1/-0)
+- scripts/glob.gd (+22/-0)
+- scripts/graph_manager.gd (+71/-18)
+- scripts/input_graph.gd (+6/-9)
+- scripts/io_graph.gd (+2/-2)
+- scripts/neuron_layer.gd (+23/-17)
+- scripts/neuron_unit.gd (+1/-21)
+- scripts/reshape.gd (+131/-3)
+- scripts/ui_manager.gd (+24/-0)
+- scripts/validate_line.gd (+10/-0)
+
+
+===COMMIT===
+2025-08-31 10:32 | 7fe4c7c | Hex358 // Pantone 358C
+.
+Files:
+- resources/theme.tres (+1/-0)
+- scenes/flatten.tscn (+3/-3)
+- scenes/input_graph.tscn (+1/-1)
+- scenes/layer.tscn (+5/-5)
+- scenes/project.tscn (+1/-0)
+- scenes/reshape.tscn (+2/-2)
+- scenes/softmax.tscn (+2/-2)
+- scenes/train_input.tscn (+2/-1)
+- scripts/block_component.gd (+13/-9)
+- scripts/graph_manager.gd (+32/-6)
+- scripts/input_graph.gd (+9/-6)
+- scripts/train_input.gd (+2/-1)
+- scripts/ui_manager.gd (+6/-3)
+
+
+===COMMIT===
+2025-08-29 23:17 | eb7babd | Hex358 // Pantone 358C
+.
+Files:
+- export_presets.cfg (+42/-0)
+- project.godot (+1/-1)
+- resources/theme.tres (+3/-0)
+- scenes/fg.tscn (+2/-4)
+- scenes/flatten.tscn (+80/-0)
+- scenes/input_graph.tscn (+3/-3)
+- scenes/io_graph.tscn (+0/-1)
+- scenes/layer.tscn (+4/-5)
+- scenes/menus.tscn (+40/-0)
+- scenes/moving_analytics.tscn (+9/-35)
+- scenes/neuron.tscn (+10/-0)
+- scenes/project.tscn (+1/-7)
+- scenes/reshape.tscn (+119/-0)
+- scenes/softmax.tscn (+32/-21)
+- scenes/train_input.tscn (+412/-35)
+- scenes/validate.tscn (+1/-2)
+- scripts/base_graph.gd (+9/-1)
+- scripts/block_component.gd (+68/-18)
+- scripts/button_config.gd (+2/-0)
+- scripts/cmenu.gd (+4/-0)
+- scripts/drawer.gd (+82/-14)
+- scripts/glob.gd (+14/-1)
+- scripts/graph_manager.gd (+3/-2)
+- scripts/input_graph.gd (+1/-1)
+- scripts/moving_analytics.gd (+165/-31)
+- scripts/project.gd (+4/-3)
+- scripts/reshape.gd (+11/-0)
+- scripts/reshape.gd.uid (+1/-0)
+- scripts/train_input.gd (+112/-4)
+- scripts/ui_manager.gd (+13/-5)
+- scripts/web.gd (+1/-1)
+- scripts/wrapper.gd (+3/-0)
+- shaders/block.gdshader (+7/-15)
+
+
+===COMMIT===
+2025-08-26 21:43 | 3ec74fe | Hex358 // Pantone 358C
+ю
+Files:
+- scenes/menus.tscn (+1/-0)
+- scenes/moving_analytics.tscn (+1/-1)
+- scenes/train_input.tscn (+117/-29)
+- scripts/drawer.gd (+6/-0)
+- scripts/glob.gd (+2/-0)
+- scripts/graph_manager.gd (+0/-5)
+- scripts/moving_analytics.gd (+26/-8)
+- scripts/train_input.gd (+1/-1)
+
+
+===COMMIT===
+2025-08-25 21:57 | 2100b26 | Hex358 // Pantone 358C
+miu
+Files:
+- resources/circle.tres (+2/-0)
+- scenes/input_graph.tscn (+6/-5)
+- scenes/moving_analytics.tscn (+24/-5)
+- scenes/project.tscn (+0/-5)
+- scripts/drawer.gd (+38/-0)
+- scripts/drawer.gd.uid (+1/-0)
+- scripts/graph_manager.gd (+4/-4)
+- scripts/moving_analytics.gd (+32/-87)
+- shaders/circle.gdshader (+8/-0)
+
+
+===COMMIT===
+2025-08-24 13:43 | f4f912a | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+1/-0)
+- resources/circle.tres (+6/-0)
+- scenes/circle.tscn (+8/-0)
+- scenes/layer.tscn (+1/-1)
+- scenes/moving_analytics.tscn (+28/-0)
+- scenes/project.gd (+0/-10)
+- scenes/project.tscn (+10/-5)
+- scripts/graph_manager.gd (+1/-1)
+- scripts/moving_analytics.gd (+102/-0)
+- scripts/moving_analytics.gd.uid (+1/-0)
+- scenes/unit.gd => scripts/neuron_unit.gd (+0/-0)
+- scenes/unit.gd.uid => scripts/neuron_unit.gd.uid (+0/-0)
+- scripts/project.gd (+12/-0)
+- {scenes => scripts}/project.gd.uid (+0/-0)
+- scripts/socket_connection.gd (+63/-0)
+- scripts/socket_connection.gd.uid (+1/-0)
+- scripts/sockets.gd (+20/-53)
+- scripts/web.gd (+2/-2)
+- shaders/circle.gdshader (+10/-0)
+- shaders/circle.gdshader.uid (+1/-0)
+
+
+===COMMIT===
+2025-08-23 11:19 | 30f0b2e | Hex358 // Pantone 358C
+.
+Files:
+- scenes/layer.tscn (+5/-5)
+- scenes/neuron.tscn (+1/-1)
+- scenes/project.gd (+10/-0)
+- scenes/project.gd.uid (+1/-0)
+- scenes/project.tscn (+8/-1)
+- scenes/softmax.tscn (+2/-2)
+- scenes/train_input.tscn (+2/-3)
+- scripts/graph_manager.gd (+6/-2)
+- scripts/sockets.gd (+57/-0)
+- scripts/sockets.gd.uid (+1/-0)
+- scripts/web.gd (+1/-1)
+
+
+===COMMIT===
+2025-08-20 21:48 | bc8d6e1 | Hex358 // Pantone 358C
+attention is all u need
+Files:
+- scenes/default_spline.tscn (+2/-2)
+- scenes/input_graph.tscn (+5/-4)
+- scenes/layer.tscn (+4/-5)
+- scenes/menus.tscn (+21/-3)
+- scenes/neuron.tscn (+0/-1)
+- scenes/softmax.tscn (+51/-0)
+- scenes/train_input.tscn (+2/-2)
+- scripts/block_component.gd (+2/-0)
+- scripts/cmenu.gd (+2/-0)
+- scripts/connection.gd (+6/-3)
+- scripts/graph_manager.gd (+5/-2)
+- scripts/image_draw.gd (+6/-1)
+- scripts/input_graph.gd (+13/-0)
+- scripts/neuron_layer.gd (+2/-1)
+- scripts/train_input.gd (+7/-1)
+
+
+===COMMIT===
+2025-08-19 21:57 | 676a19f | Hex358 // Pantone 358C
+.
+Files:
+- resources/theme.tres (+19/-1)
+- scenes/fg.tscn (+0/-4)
+- scenes/input_graph.tscn (+27/-7)
+- scenes/layer.tscn (+9/-1)
+- scenes/menus.tscn (+21/-3)
+- scenes/neuron.tscn (+14/-25)
+- scenes/train_input.tscn (+52/-0)
+- scenes/unit.gd (+1/-1)
+- scripts/activ.gd (+5/-0)
+- scripts/activ.gd.uid (+1/-0)
+- scripts/base_graph.gd (+6/-6)
+- scripts/block_component.gd (+11/-5)
+- scripts/camera_2d.gd (+1/-1)
+- scripts/cmenu.gd (+3/-1)
+- scripts/connection.gd (+14/-3)
+- scripts/graph_manager.gd (+3/-2)
+- scripts/image_draw.gd (+127/-0)
+- scripts/image_draw.gd.uid (+1/-0)
+- scripts/input_graph.gd (+14/-0)
+- scripts/input_graph.gd.uid (+1/-0)
+- scripts/neuron_config.gd (+6/-0)
+- scripts/neuron_layer.gd (+20/-5)
+- scripts/train_input.gd (+8/-0)
+- scripts/train_input.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-08-19 13:10 | 4eb1c38 | Hex358 // Pantone 358C
+.
+Files:
+- resources/activ.tres (+16/-0)
+- scenes/BaseBComponent.tscn (+0/-1)
+- scenes/activation_node.tscn (+180/-0)
+- scenes/bg.tscn (+2/-2)
+- scenes/default_spline.tscn (+2/-0)
+- scenes/fg.tscn (+2/-0)
+- scenes/layer.tscn (+41/-34)
+- scenes/menus.tscn (+0/-10)
+- scenes/neuron.tscn (+83/-62)
+- scripts/base_graph.gd (+4/-1)
+- scripts/block_component.gd (+6/-1)
+- scripts/connection.gd (+5/-0)
+- scripts/detatch_menu.gd (+4/-4)
+- scripts/graph_manager.gd (+9/-8)
+- scripts/neuron_layer.gd (+4/-1)
+- scripts/ui_manager.gd (+1/-1)
+
+
+===COMMIT===
+2025-08-18 20:27 | 1dc1750 | Hex358 // Pantone 358C
+ю
+Files:
+- api/__pycache__/graph_core.cpython-312.pyc (+bin/-bin)
+- api/__pycache__/node_types.cpython-312.pyc (+bin/-bin)
+- api/__pycache__/package_nodes.cpython-312.pyc (+bin/-bin)
+- api/api.py (+27/-0)
+- api/ff.py (+120/-0)
+- api/genai.py (+22/-0)
+- api/graph_core.py (+151/-0)
+- api/node_types.py (+14/-0)
+- api/package_nodes.py (+0/-0)
+- api/prompt (+136/-0)
+- api/ttest.py (+191/-0)
+
+
+===COMMIT===
+2025-08-18 20:26 | 8749f80 | Hex358 // Pantone 358C
+ю
+Files:
+- {assets => game_assets}/fonts/JetBrainsMono-VariableFont_wght.ttf (+bin/-bin)
+- {assets => game_assets}/fonts/JetBrainsMono-VariableFont_wght.ttf.import (+8/-8)
+- {assets => game_assets}/fonts/JetBrainsSans[wght]-VF.ttf (+bin/-bin)
+- {assets => game_assets}/fonts/JetBrainsSans[wght]-VF.ttf.import (+3/-3)
+- {assets => game_assets}/icons/act.png (+bin/-bin)
+- {assets => game_assets}/icons/act.png.import (+3/-3)
+- {assets => game_assets}/icons/bias.png (+bin/-bin)
+- {assets => game_assets}/icons/bias.png.import (+3/-3)
+- {assets => game_assets}/icons/icon.svg (+0/-0)
+- {assets => game_assets}/icons/icon.svg.import (+3/-3)
+- project.godot (+2/-1)
+- resources/panels_mat.tres (+2/-2)
+- resources/theme.tres (+1/-1)
+- resources/theme_headers.tres (+1/-1)
+- scenes/input_graph.tscn (+1/-0)
+- scenes/layer.tscn (+2/-0)
+- scenes/neuron.tscn (+1/-0)
+- scripts/base_graph.gd (+1/-0)
+- scripts/graph_manager.gd (+42/-20)
+- scripts/neuron_layer.gd (+9/-6)
+
+
+===COMMIT===
+2025-08-18 13:13 | beb17e7 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/fg.tscn (+2/-2)
+- scripts/graph_manager.gd (+0/-1)
+
+
+===COMMIT===
+2025-08-18 13:04 | fbb52ef | Hex358 // Pantone 358C
+.
+Files:
+- scenes/BaseBComponent.tscn (+1/-0)
+- scenes/default_spline.tscn (+2/-2)
+- scenes/fg.tscn (+2/-0)
+- scenes/input_graph.tscn (+13/-10)
+- scenes/io_graph.tscn (+1/-0)
+- scenes/layer.tscn (+17/-8)
+- scenes/line_drawer.tscn (+32/-0)
+- scenes/menus.tscn (+15/-5)
+- scenes/neuron.tscn (+82/-13)
+- scenes/project.tscn (+7/-1)
+- scenes/unit.gd (+73/-3)
+- scripts/base_graph.gd (+17/-2)
+- scripts/block_component.gd (+15/-5)
+- scripts/cmenu.gd (+4/-4)
+- scripts/connection.gd (+15/-3)
+- scripts/detatch_menu.gd (+11/-9)
+- scripts/follow_menus.gd (+4/-0)
+- scripts/follow_menus.gd.uid (+1/-0)
+- scripts/glob.gd (+1/-0)
+- scripts/graph_manager.gd (+87/-39)
+- scripts/io_graph.gd (+1/-0)
+- scripts/linebatch.gd (+101/-0)
+- scripts/linebatch.gd.uid (+1/-0)
+- scripts/linetest.gd (+16/-0)
+- scripts/linetest.gd.uid (+1/-0)
+- scripts/neuron_layer.gd (+40/-12)
+- scripts/spline.gd (+33/-20)
+- scripts/top_panel.gd (+4/-4)
+- scripts/web.gd (+12/-7)
+
+
+===COMMIT===
+2025-08-17 14:16 | 3693882 | Hex358 // Pantone 358C
+.
+Files:
+- scenes/layer.tscn (+15/-1)
+- scenes/neuron.tscn (+57/-3)
+- scenes/unit.gd (+7/-0)
+- scripts/base_graph.gd (+1/-0)
+- scripts/block_component.gd (+26/-15)
+- scripts/io_graph.gd (+14/-8)
+- scripts/neuron_layer.gd (+51/-26)
+
+
+===COMMIT===
+2025-08-16 22:12 | d4f4e22 | Hex358 // Pantone 358C
+.
+Files:
+- resources/panel.tres (+2/-0)
+- scenes/fg.tscn (+1/-0)
+- scenes/io_graph.tscn (+9/-7)
+- scenes/layer.tscn (+58/-6)
+- scenes/menus.tscn (+1/-1)
+- scenes/neuron.tscn (+6/-5)
+- scenes/project.tscn (+1/-16)
+- scripts/base_graph.gd (+8/-5)
+- scripts/block_component.gd (+3/-6)
+- scripts/cmenu.gd (+1/-1)
+- scripts/connection.gd (+15/-1)
+- scripts/io_graph.gd (+18/-5)
+- scripts/neuron_layer.gd (+33/-4)
+- scripts/top_panel.gd (+4/-4)
+- scripts/validate_line.gd (+33/-0)
+- scripts/validate_number.gd (+14/-2)
+
+
+===COMMIT===
+2025-08-16 15:31 | 4387a9a | Hex358 // Pantone 358C
+.
+Files:
+- resources/neuron_graph.tres (+3/-1)
+- scenes/layer.tscn (+63/-0)
+- scenes/neuron.tscn (+30/-100)
+- scripts/base_graph.gd (+4/-0)
+- scripts/cmenu.gd (+1/-1)
+- scripts/graph_manager.gd (+1/-0)
+- scripts/io_graph.gd (+7/-4)
+- scripts/layer.gd (+1/-0)
+- scripts/layer.gd.uid (+1/-0)
+- scripts/neuron_config.gd (+1/-0)
+- scripts/neuron_config.gd.uid (+1/-0)
+- scripts/neuron_layer.gd (+10/-4)
+- scripts/validate_number.gd (+7/-2)
+
+
+===COMMIT===
+2025-08-16 14:06 | 51e4ce4 | Hex358 // Pantone 358C
+.
+Files:
+- resources/add_button.tres (+1/-1)
+- resources/connection.tres (+1/-1)
+- resources/context_menu.tres (+1/-1)
+- resources/graph.tres (+1/-1)
+- resources/panels_mat.tres (+2/-2)
+- scenes/fg.tscn (+2/-2)
+- scenes/io_graph.tscn (+4/-4)
+- scenes/neuron.tscn (+1/-1)
+- scripts/glob.gd (+1/-0)
+- shaders/block.gdshader (+1/-2)
+
+
+===COMMIT===
+2025-08-15 23:24 | 753db06 | Hex358 // Pantone 358C
+ю
+Files:
+- resources/connection.tres (+3/-1)
+- resources/graph.tres (+3/-1)
+- scenes/fg.tscn (+9/-4)
+- scenes/io_graph.tscn (+2/-2)
+
+
+===COMMIT===
+2025-08-15 23:08 | 81bc71c | Hex358 // Pantone 358C
+.
+Files:
+- resources/add_button.tres (+3/-1)
+- resources/context_menu.tres (+3/-1)
+- resources/panels_mat.tres (+3/-1)
+- scenes/BaseBComponent.tscn (+0/-1)
+- scenes/fg.tscn (+2/-2)
+- scenes/io_graph.tscn (+5/-5)
+- scenes/menus.tscn (+0/-9)
+- scenes/neuron.tscn (+5/-5)
+- scripts/base_graph.gd (+10/-1)
+- scripts/block_component.gd (+4/-0)
+- scripts/connection.gd (+13/-8)
+- scripts/graph_manager.gd (+11/-8)
+- scripts/web.gd (+51/-26)
+- shaders/block.gdshader (+57/-10)
+
+
+===COMMIT===
+2025-08-15 16:45 | e5bf3f0 | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+1/-0)
+- resources/panel.tres (+1/-1)
+- resources/panels_mat.tres (+1/-1)
+- scenes/bg.tscn (+3/-3)
+- scenes/fg.tscn (+1/-1)
+- scripts/web.gd (+33/-0)
+- scripts/web.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-08-15 14:36 | 7299db2 | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+5/-0)
+- resources/add_button.tres (+2/-2)
+- resources/context_menu.tres (+1/-1)
+- resources/default_config.tres (+4/-3)
+- resources/font_alphamult.tres (+6/-0)
+- resources/neuron_graph.tres (+1/-1)
+- resources/panels_mat.tres (+1/-1)
+- scenes/BaseBComponent.tscn (+4/-7)
+- scenes/bg.tscn (+2/-2)
+- scenes/default_spline.tscn (+2/-2)
+- scenes/fg.tscn (+71/-11)
+- scenes/input_graph.tscn (+37/-0)
+- scenes/io_graph.tscn (+35/-35)
+- scenes/menus.tscn (+31/-109)
+- scenes/neuron.tscn (+107/-82)
+- scenes/{test.tscn => project.tscn} (+18/-18)
+- scenes/unit.gd (+3/-0)
+- scenes/unit.gd.uid (+1/-0)
+- scenes/validate.tscn (+17/-0)
+- scripts/base_graph.gd (+57/-16)
+- scripts/block_component.gd (+22/-9)
+- scripts/camera_2d.gd (+9/-7)
+- scripts/cmenu.gd (+3/-1)
+- scripts/connection.gd (+40/-15)
+- scripts/glob.gd (+49/-0)
+- scripts/graph_manager.gd (+94/-18)
+- scripts/graphic.gd (+20/-0)
+- scripts/graphic.gd.uid (+1/-0)
+- scripts/io_graph.gd (+59/-27)
+- scripts/neuron_layer.gd (+22/-0)
+- scripts/neuron_layer.gd.uid (+1/-0)
+- scripts/queue.gd (+50/-0)
+- scripts/queue.gd.uid (+1/-0)
+- scripts/spline.gd (+5/-3)
+- scripts/submenu.gd (+7/-3)
+- scripts/top_panel.gd (+4/-2)
+- scripts/ui_manager.gd (+1/-1)
+- scripts/unit.gd (+11/-3)
+- scripts/validate_line.gd (+16/-4)
+- scripts/validate_number.gd (+13/-0)
+- scripts/validate_number.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-08-13 19:04 | b957ae2 | Hex358 // Pantone 358C
+.
+Files:
+- resources/panels_mat.tres (+1/-1)
+- scenes/BaseBComponent.tscn (+1/-0)
+- scenes/fg.tscn (+92/-7)
+- scenes/io_graph.tscn (+3/-2)
+- scripts/base_graph.gd (+1/-4)
+- scripts/block_component.gd (+38/-8)
+- scripts/connection.gd (+1/-1)
+- scripts/submenu.gd (+38/-0)
+- scripts/submenu.gd.uid (+1/-0)
+- scripts/submenu_neuron.gd (+1/-0)
+- scripts/submenu_neuron.gd.uid (+1/-0)
+- scripts/top_panel.gd (+8/-0)
+- scripts/ui_manager.gd (+1/-0)
+- shaders/block.gdshader (+2/-1)
+
+
+===COMMIT===
+2025-08-13 15:22 | 6650b7b | Hex358 // Pantone 358C
+deltas
+Files:
+- scenes/BaseBComponent.tscn (+0/-1)
+- scenes/bg.tscn (+1/-1)
+- scenes/default_spline.tscn (+7/-3)
+- scenes/io_graph.tscn (+3/-2)
+- scripts/base_graph.gd (+17/-8)
+- scripts/block_component.gd (+10/-2)
+- scripts/button_config.gd (+3/-0)
+- scripts/camera_2d.gd (+1/-0)
+- scripts/connection.gd (+19/-8)
+- scripts/edit_graph.gd (+1/-1)
+- scripts/glob.gd (+34/-0)
+- scripts/graph_manager.gd (+113/-34)
+- scripts/io_graph.gd (+4/-2)
+- scripts/spline.gd (+10/-7)
+
+
+===COMMIT===
+2025-08-12 21:42 | b6c06ac | Hex358 // Pantone 358C
+.
+Files:
+- assets/fonts/JetBrainsSans[wght]-VF.ttf (+bin/-bin)
+- assets/fonts/JetBrainsSans[wght]-VF.ttf.import (+35/-0)
+- resources/add_button.tres (+1/-1)
+- resources/context_menu.tres (+1/-1)
+- resources/panels_mat.tres (+3/-3)
+- resources/theme_headers.tres (+7/-0)
+- scenes/bg.tscn (+5/-5)
+- scenes/fg.tscn (+19/-8)
+- scenes/io_graph.tscn (+2/-1)
+- scenes/neuron.tscn (+1/-0)
+- scenes/test.tscn (+9/-1)
+- scripts/base_graph.gd (+10/-6)
+- scripts/block_component.gd (+22/-28)
+- scripts/camera_2d.gd (+12/-8)
+- scripts/cmenu.gd (+1/-1)
+- scripts/connection.gd (+2/-0)
+- scripts/glob.gd (+13/-1)
+- scripts/graph_manager.gd (+46/-10)
+- scripts/gview.gd (+6/-0)
+- scripts/gview.gd.uid (+1/-0)
+- scripts/storer.gd (+5/-0)
+- scripts/storer.gd.uid (+1/-0)
+- {scenes => scripts}/top_panel.gd (+0/-0)
+- {scenes => scripts}/top_panel.gd.uid (+0/-0)
+- shaders/cells.gdshader (+9/-6)
+
+
+===COMMIT===
+2025-08-12 16:12 | ab98409 | Hex358 // Pantone 358C
+/
+Files:
+- resources/panels_mat.tres (+14/-0)
+- scenes/bg.tscn (+28/-0)
+- scenes/fg.tscn (+17/-0)
+- scenes/menus.tscn (+316/-0)
+- scenes/test.tscn (+10/-340)
+- scenes/top_panel.gd (+8/-0)
+- scenes/top_panel.gd.uid (+1/-0)
+- scenes/vbox.tscn (+3/-1)
+- scripts/base_graph.gd (+3/-2)
+- scripts/block_component.gd (+33/-10)
+- scripts/camera_2d.gd (+9/-8)
+- scripts/glob.gd (+18/-8)
+- scripts/scrollcont.gd (+4/-0)
+- scripts/scrollcont.gd.uid (+1/-0)
+- scripts/ui_manager.gd (+13/-0)
+
+
+===COMMIT===
+2025-08-12 13:55 | 4b4415d | Hex358 // Pantone 358C
+pre organize
+Files:
+- assets/icons/act.png (+bin/-bin)
+- assets/icons/act.png.import (+34/-0)
+- assets/icons/bias.png (+bin/-bin)
+- assets/icons/bias.png.import (+34/-0)
+- scenes/BaseBComponent.tscn (+1/-1)
+- scenes/io_graph.tscn (+4/-2)
+- scenes/neuron.tscn (+68/-27)
+- scenes/test.tscn (+16/-3)
+- scripts/base_graph.gd (+4/-5)
+- scripts/block_component.gd (+35/-2)
+- scripts/camera_2d.gd (+1/-2)
+- scripts/io_graph.gd (+10/-9)
+
+
+===COMMIT===
+2025-08-12 11:09 | e7cd3ac | Hex358 // Pantone 358C
+.
+Files:
+- project.godot (+1/-0)
+- resources/graph.tres (+3/-3)
+- resources/neuron_graph.tres (+4/-4)
+- scenes/BaseBComponent.tscn (+1/-9)
+- scenes/base_graph.tscn (+0/-8)
+- scenes/default_spline.tscn (+1/-1)
+- scenes/io_graph.tscn (+13/-6)
+- scenes/neuron.tscn (+39/-18)
+- scenes/test.tscn (+27/-18)
+- scripts/base_graph.gd (+30/-8)
+- scripts/block_component.gd (+17/-11)
+- scripts/camera_2d.gd (+4/-4)
+- scripts/cmenu.gd (+5/-6)
+- scripts/color_rect.gd (+3/-1)
+- scripts/connection.gd (+23/-10)
+- scripts/edit_graph.gd (+1/-1)
+- scripts/glob.gd (+17/-27)
+- scripts/graph_manager.gd (+90/-3)
+- scripts/io_graph.gd (+8/-4)
+- scripts/spline.gd (+38/-8)
+- scripts/validate_line.gd (+3/-2)
+- shaders/cells.gdshader (+14/-31)
+
+
+===COMMIT===
+2025-08-10 10:59 | 41c969c | Hex358 // Pantone 358C
+.
+Files:
+- JetBrainsMono-VariableFont_wght.ttf => assets/fonts/JetBrainsMono-VariableFont_wght.ttf (+bin/-bin)
+- JetBrainsMono-VariableFont_wght.ttf.import => assets/fonts/JetBrainsMono-VariableFont_wght.ttf.import (+3/-3)
+- icon.svg => assets/icons/icon.svg (+0/-0)
+- icon.svg.import => assets/icons/icon.svg.import (+3/-3)
+- project.godot (+4/-4)
+- add_button.tres => resources/add_button.tres (+1/-1)
+- base_component.tres => resources/base_component.tres (+1/-1)
+- button.tres => resources/button.tres (+1/-1)
+- button_mat.tres => resources/button_mat.tres (+1/-1)
+- connection.tres => resources/connection.tres (+1/-1)
+- context_menu.tres => resources/context_menu.tres (+1/-1)
+- default_config.tres => resources/default_config.tres (+1/-1)
+- graph.tres => resources/graph.tres (+1/-1)
+- lite_config.tres => resources/lite_config.tres (+1/-1)
+- neuron_conn'.tres => resources/neuron_conn'.tres (+1/-1)
+- neuron_graph.tres => resources/neuron_graph.tres (+1/-1)
+- panel.tres => resources/panel.tres (+1/-1)
+- python.tres => resources/python.tres (+1/-1)
+- theme.tres => resources/theme.tres (+1/-1)
+- unroll_button.tres => resources/unroll_button.tres (+1/-1)
+- BaseBComponent.tscn => scenes/BaseBComponent.tscn (+10/-10)
+- Connection.tscn => scenes/Connection.tscn (+4/-4)
+- base_graph.tscn => scenes/base_graph.tscn (+6/-6)
+- default_spline.tscn => scenes/default_spline.tscn (+2/-2)
+- io_graph.tscn => scenes/io_graph.tscn (+10/-10)
+- loop.tscn => scenes/loop.tscn (+3/-3)
+- loop1.tscn => scenes/loop1.tscn (+3/-3)
+- neuron.tscn => scenes/neuron.tscn (+3/-3)
+- test.tscn => scenes/test.tscn (+14/-14)
+- vbox.tscn => scenes/vbox.tscn (+2/-2)
+- base_graph.gd => scripts/base_graph.gd (+0/-0)
+- base_graph.gd.uid => scripts/base_graph.gd.uid (+0/-0)
+- block_component.gd => scripts/block_component.gd (+0/-0)
+- block_component.gd.uid => scripts/block_component.gd.uid (+0/-0)
+- button_config.gd => scripts/button_config.gd (+0/-0)
+- button_config.gd.uid => scripts/button_config.gd.uid (+0/-0)
+- camera_2d.gd => scripts/camera_2d.gd (+0/-0)
+- camera_2d.gd.uid => scripts/camera_2d.gd.uid (+0/-0)
+- cmenu.gd => scripts/cmenu.gd (+0/-0)
+- cmenu.gd.uid => scripts/cmenu.gd.uid (+0/-0)
+- color_rect.gd => scripts/color_rect.gd (+0/-0)
+- color_rect.gd.uid => scripts/color_rect.gd.uid (+0/-0)
+- connection.gd => scripts/connection.gd (+0/-0)
+- connection.gd.uid => scripts/connection.gd.uid (+0/-0)
+- detatch.gd => scripts/detatch.gd (+0/-0)
+- detatch.gd.uid => scripts/detatch.gd.uid (+0/-0)
+- detatch_menu.gd => scripts/detatch_menu.gd (+0/-0)
+- detatch_menu.gd.uid => scripts/detatch_menu.gd.uid (+0/-0)
+- edit_graph.gd => scripts/edit_graph.gd (+0/-0)
+- edit_graph.gd.uid => scripts/edit_graph.gd.uid (+0/-0)
+- glob.gd => scripts/glob.gd (+7/-11)
+- glob.gd.uid => scripts/glob.gd.uid (+0/-0)
+- graph_manager.gd => scripts/graph_manager.gd (+0/-0)
+- graph_manager.gd.uid => scripts/graph_manager.gd.uid (+0/-0)
+- io_graph.gd => scripts/io_graph.gd (+0/-0)
+- io_graph.gd.uid => scripts/io_graph.gd.uid (+0/-0)
+- line_edit.gd => scripts/line_edit.gd (+0/-0)
+- line_edit.gd.uid => scripts/line_edit.gd.uid (+0/-0)
+- loop.gd => scripts/loop.gd (+0/-0)
+- loop.gd.uid => scripts/loop.gd.uid (+0/-0)
+- loop_1.gd => scripts/loop_1.gd (+0/-0)
+- loop_1.gd.uid => scripts/loop_1.gd.uid (+0/-0)
+- menus.gd => scripts/menus.gd (+0/-0)
+- menus.gd.uid => scripts/menus.gd.uid (+0/-0)
+- procedural_nodes.gd => scripts/procedural_nodes.gd (+0/-0)
+- procedural_nodes.gd.uid => scripts/procedural_nodes.gd.uid (+0/-0)
+- python.gd => scripts/python.gd (+0/-0)
+- python.gd.uid => scripts/python.gd.uid (+0/-0)
+- spline.gd => scripts/spline.gd (+0/-0)
+- spline.gd.uid => scripts/spline.gd.uid (+0/-0)
+- ui_manager.gd => scripts/ui_manager.gd (+0/-0)
+- ui_manager.gd.uid => scripts/ui_manager.gd.uid (+0/-0)
+- unit.gd => scripts/unit.gd (+0/-0)
+- unit.gd.uid => scripts/unit.gd.uid (+0/-0)
+- validate_line.gd => scripts/validate_line.gd (+0/-0)
+- validate_line.gd.uid => scripts/validate_line.gd.uid (+0/-0)
+- wrapper.gd => scripts/wrapper.gd (+0/-0)
+- wrapper.gd.uid => scripts/wrapper.gd.uid (+0/-0)
+- block.gdshader => shaders/block.gdshader (+2/-2)
+- block.gdshader.uid => shaders/block.gdshader.uid (+0/-0)
+- cells.gdshader => shaders/cells.gdshader (+0/-0)
+- cells.gdshader.uid => shaders/cells.gdshader.uid (+0/-0)
+- curve.gdshader => shaders/curve.gdshader (+0/-0)
+- curve.gdshader.uid => shaders/curve.gdshader.uid (+0/-0)
+- interpolate.gdshader => shaders/interpolate.gdshader (+0/-0)
+- interpolate.gdshader.uid => shaders/interpolate.gdshader.uid (+0/-0)
+- msdaf.gdshader => shaders/msdaf.gdshader (+0/-0)
+- msdaf.gdshader.uid => shaders/msdaf.gdshader.uid (+0/-0)
+- simple_alphamult.gdshader => shaders/simple_alphamult.gdshader (+1/-1)
+- simple_alphamult.gdshader.uid => shaders/simple_alphamult.gdshader.uid (+0/-0)
+- smooth_extents.gdshaderinc => shaders/smooth_extents.gdshaderinc (+0/-0)
+- smooth_extents.gdshaderinc.uid => shaders/smooth_extents.gdshaderinc.uid (+0/-0)
+- std.gdshaderinc => shaders/std.gdshaderinc (+0/-0)
+- std.gdshaderinc.uid => shaders/std.gdshaderinc.uid (+0/-0)
+- test.gdshader => shaders/test.gdshader (+0/-0)
+- test.gdshader.uid => shaders/test.gdshader.uid (+0/-0)
+
+
+===COMMIT===
+2025-08-10 10:49 | a1da7f3 | Hex358 // Pantone 358C
+.
+Files:
+- graph.tres (+1/-1)
+- loop.tscn (+0/-8)
+- loop1.tscn (+0/-8)
+
+
+===COMMIT===
+2025-08-10 09:44 | 43d6b3b | hex358
+Organize files into directories and update paths
+Files:
+- JetBrainsMono-VariableFont_wght.ttf => assets/fonts/JetBrainsMono-VariableFont_wght.ttf (+bin/-bin)
+- JetBrainsMono-VariableFont_wght.ttf.import => assets/fonts/JetBrainsMono-VariableFont_wght.ttf.import (+1/-1)
+- icon.svg => assets/icons/icon.svg (+0/-0)
+- icon.svg.import => assets/icons/icon.svg.import (+1/-1)
+- io_graph.tscn81158528501.tmp (+0/-130)
+- project.godot (+4/-4)
+- add_button.tres => resources/add_button.tres (+1/-1)
+- base_component.tres => resources/base_component.tres (+1/-1)
+- button.tres => resources/button.tres (+1/-1)
+- button_mat.tres => resources/button_mat.tres (+1/-1)
+- connection.tres => resources/connection.tres (+1/-1)
+- context_menu.tres => resources/context_menu.tres (+1/-1)
+- default_config.tres => resources/default_config.tres (+1/-1)
+- graph.tres => resources/graph.tres (+1/-1)
+- lite_config.tres => resources/lite_config.tres (+1/-1)
+- neuron_conn'.tres => resources/neuron_conn.tres (+1/-1)
+- neuron_graph.tres => resources/neuron_graph.tres (+1/-1)
+- panel.tres => resources/panel.tres (+1/-1)
+- python.tres => resources/python.tres (+1/-1)
+- theme.tres => resources/theme.tres (+1/-1)
+- unroll_button.tres => resources/unroll_button.tres (+1/-1)
+- BaseBComponent.tscn => scenes/BaseBComponent.tscn (+5/-5)
+- Connection.tscn => scenes/Connection.tscn (+2/-2)
+- base_graph.tscn => scenes/base_graph.tscn (+3/-3)
+- default_spline.tscn => scenes/default_spline.tscn (+1/-1)
+- io_graph.tscn => scenes/io_graph.tscn (+10/-10)
+- loop.tscn => scenes/loop.tscn (+3/-3)
+- loop1.tscn => scenes/loop1.tscn (+3/-3)
+- neuron.tscn => scenes/neuron.tscn (+3/-3)
+- test.tscn => scenes/test.tscn (+14/-14)
+- vbox.tscn => scenes/vbox.tscn (+1/-1)
+- base_graph.gd => scripts/base_graph.gd (+0/-0)
+- base_graph.gd.uid => scripts/base_graph.gd.uid (+0/-0)
+- block_component.gd => scripts/block_component.gd (+0/-0)
+- block_component.gd.uid => scripts/block_component.gd.uid (+0/-0)
+- button_config.gd => scripts/button_config.gd (+0/-0)
+- button_config.gd.uid => scripts/button_config.gd.uid (+0/-0)
+- camera_2d.gd => scripts/camera_2d.gd (+0/-0)
+- camera_2d.gd.uid => scripts/camera_2d.gd.uid (+0/-0)
+- cmenu.gd => scripts/cmenu.gd (+0/-0)
+- cmenu.gd.uid => scripts/cmenu.gd.uid (+0/-0)
+- color_rect.gd => scripts/color_rect.gd (+0/-0)
+- color_rect.gd.uid => scripts/color_rect.gd.uid (+0/-0)
+- connection.gd => scripts/connection.gd (+0/-0)
+- connection.gd.uid => scripts/connection.gd.uid (+0/-0)
+- detatch.gd => scripts/detatch.gd (+0/-0)
+- detatch.gd.uid => scripts/detatch.gd.uid (+0/-0)
+- detatch_menu.gd => scripts/detatch_menu.gd (+0/-0)
+- detatch_menu.gd.uid => scripts/detatch_menu.gd.uid (+0/-0)
+- edit_graph.gd => scripts/edit_graph.gd (+0/-0)
+- edit_graph.gd.uid => scripts/edit_graph.gd.uid (+0/-0)
+- glob.gd => scripts/glob.gd (+10/-10)
+- glob.gd.uid => scripts/glob.gd.uid (+0/-0)
+- graph_manager.gd => scripts/graph_manager.gd (+0/-0)
+- graph_manager.gd.uid => scripts/graph_manager.gd.uid (+0/-0)
+- io_graph.gd => scripts/io_graph.gd (+0/-0)
+- io_graph.gd.uid => scripts/io_graph.gd.uid (+0/-0)
+- line_edit.gd => scripts/line_edit.gd (+0/-0)
+- line_edit.gd.uid => scripts/line_edit.gd.uid (+0/-0)
+- loop.gd => scripts/loop.gd (+0/-0)
+- loop.gd.uid => scripts/loop.gd.uid (+0/-0)
+- loop_1.gd => scripts/loop_1.gd (+0/-0)
+- loop_1.gd.uid => scripts/loop_1.gd.uid (+0/-0)
+- menus.gd => scripts/menus.gd (+0/-0)
+- menus.gd.uid => scripts/menus.gd.uid (+0/-0)
+- procedural_nodes.gd => scripts/procedural_nodes.gd (+0/-0)
+- procedural_nodes.gd.uid => scripts/procedural_nodes.gd.uid (+0/-0)
+- python.gd => scripts/python.gd (+0/-0)
+- python.gd.uid => scripts/python.gd.uid (+0/-0)
+- spline.gd => scripts/spline.gd (+0/-0)
+- spline.gd.uid => scripts/spline.gd.uid (+0/-0)
+- ui_manager.gd => scripts/ui_manager.gd (+0/-0)
+- ui_manager.gd.uid => scripts/ui_manager.gd.uid (+0/-0)
+- unit.gd => scripts/unit.gd (+0/-0)
+- unit.gd.uid => scripts/unit.gd.uid (+0/-0)
+- validate_line.gd => scripts/validate_line.gd (+0/-0)
+- validate_line.gd.uid => scripts/validate_line.gd.uid (+0/-0)
+- wrapper.gd => scripts/wrapper.gd (+0/-0)
+- wrapper.gd.uid => scripts/wrapper.gd.uid (+0/-0)
+- block.gdshader => shaders/block.gdshader (+2/-2)
+- block.gdshader.uid => shaders/block.gdshader.uid (+0/-0)
+- cells.gdshader => shaders/cells.gdshader (+0/-0)
+- cells.gdshader.uid => shaders/cells.gdshader.uid (+0/-0)
+- curve.gdshader => shaders/curve.gdshader (+0/-0)
+- curve.gdshader.uid => shaders/curve.gdshader.uid (+0/-0)
+- interpolate.gdshader => shaders/interpolate.gdshader (+0/-0)
+- interpolate.gdshader.uid => shaders/interpolate.gdshader.uid (+0/-0)
+- msdaf.gdshader => shaders/msdaf.gdshader (+0/-0)
+- msdaf.gdshader.uid => shaders/msdaf.gdshader.uid (+0/-0)
+- simple_alphamult.gdshader => shaders/simple_alphamult.gdshader (+1/-1)
+- simple_alphamult.gdshader.uid => shaders/simple_alphamult.gdshader.uid (+0/-0)
+- smooth_extents.gdshaderinc => shaders/smooth_extents.gdshaderinc (+0/-0)
+- smooth_extents.gdshaderinc.uid => shaders/smooth_extents.gdshaderinc.uid (+0/-0)
+- std.gdshaderinc => shaders/std.gdshaderinc (+0/-0)
+- std.gdshaderinc.uid => shaders/std.gdshaderinc.uid (+0/-0)
+- test.gdshader => shaders/test.gdshader (+0/-0)
+- test.gdshader.uid => shaders/test.gdshader.uid (+0/-0)
+- test.tscn2060694781.tmp (+0/-91)
+- test.tscn35015475239.tmp (+0/-81)
+
+
+===COMMIT===
+2025-08-09 20:50 | 1edcf7c | Hex358 // Pantone 358C
+.
+Files:
+- add_button.tres (+1/-0)
+- base_graph.gd (+26/-4)
+- block.gdshader (+1/-1)
+- block_component.gd (+56/-20)
+- button_mat.tres (+1/-0)
+- camera_2d.gd (+1/-1)
+- cmenu.gd (+6/-3)
+- connection.gd (+16/-4)
+- connection.tres (+1/-0)
+- default_spline.tscn (+12/-5)
+- edit_graph.gd (+1/-0)
+- glob.gd (+16/-1)
+- graph.tres (+1/-0)
+- io_graph.gd (+2/-0)
+- io_graph.tscn (+11/-7)
+- loop.tscn (+8/-1)
+- loop1.tscn (+10/-0)
+- neuron.tscn (+30/-3)
+- neuron_graph.tres (+5/-4)
+- panel.tres (+1/-0)
+- python.gd (+61/-0)
+- python.gd.uid (+1/-0)
+- python.tres (+101/-0)
+- spline.gd (+40/-45)
+- test.tscn (+67/-13)
+- theme.tres (+1/-83)
+- vbox.tscn (+0/-1)
+
+
+===COMMIT===
+2025-08-08 21:18 | ad1bff7 | Hex358 // Pantone 358C
+.
+Files:
+- base_graph.gd (+5/-1)
+- block.gdshader (+2/-1)
+- connection.gd (+8/-0)
+- context_menu.tres (+2/-1)
+- edit_graph.gd (+7/-1)
+- glob.gd (+11/-0)
+- io_graph.gd (+44/-6)
+- loop.tscn (+1/-0)
+- test.tscn (+2/-0)
+- ui_manager.gd (+19/-0)
+- unit.gd (+7/-1)
+- validate_line.gd (+3/-3)
+
+
+===COMMIT===
+2025-08-07 23:37 | fc83c9f | Hex358 // Pantone 358C
+.юююю
+Files:
+- Connection.tscn (+1/-1)
+- add_button.tres (+1/-1)
+- base_graph.gd (+3/-2)
+- block.gdshader (+1/-1)
+- block_component.gd (+3/-4)
+- camera_2d.gd (+4/-4)
+- cells.gdshader (+44/-0)
+- cells.gdshader.uid (+1/-0)
+- cmenu.gd (+1/-1)
+- color_rect.gd (+5/-0)
+- color_rect.gd.uid (+1/-0)
+- connection.gd (+4/-4)
+- context_menu.tres (+1/-1)
+- edit_graph.gd (+4/-0)
+- graph.tres (+1/-1)
+- io_graph.tscn (+1/-2)
+- loop.tscn (+0/-2)
+- neuron.tscn (+5/-40)
+- neuron_conn'.tres (+2/-2)
+- neuron_graph.tres (+3/-3)
+- panel.tres (+1/-1)
+- spline.gd (+7/-7)
+- test.tscn (+58/-12)
+- unit.gd (+4/-2)
+- validate_line.gd (+2/-1)
+
+
+===COMMIT===
+2025-08-07 17:00 | 40f41b5 | Hex358 // Pantone 358C
+.
+Files:
+- base_graph.gd (+6/-3)
+- block.gdshader (+6/-3)
+- block_component.gd (+20/-6)
+- camera_2d.gd (+1/-1)
+- cmenu.gd (+2/-2)
+- connection.gd (+23/-15)
+- default_spline.tscn (+2/-2)
+- glob.gd (+6/-26)
+- graph_manager.gd (+28/-0)
+- graph_manager.gd.uid (+1/-0)
+- io_graph.gd (+27/-4)
+- io_graph.tscn (+56/-34)
+- io_graph.tscn81158528501.tmp (+130/-0)
+- line_edit.gd (+0/-12)
+- loop.tscn (+12/-14)
+- neuron.tscn (+54/-0)
+- neuron_conn'.tres (+13/-0)
+- neuron_graph.tres (+13/-0)
+- panel.tres (+13/-0)
+- project.godot (+2/-0)
+- spline.gd (+32/-16)
+- test.tscn (+1/-1)
+- theme.tres (+1/-1)
+- ui_manager.gd (+12/-0)
+- ui_manager.gd.uid (+1/-0)
+- unit.gd (+11/-0)
+- unit.gd.uid (+1/-0)
+- validate_line.gd (+39/-0)
+- validate_line.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-08-06 21:25 | b7c9c98 | Hex358 // Pantone 358C
+.
+Files:
+- base_graph.gd (+7/-4)
+- block_component.gd (+4/-3)
+- connection.gd (+1/-1)
+- graph.tres (+2/-2)
+- io_graph.gd (+48/-0)
+- io_graph.gd.uid (+1/-0)
+- io_graph.tscn (+85/-43)
+- test.tscn (+7/-0)
+- theme.tres (+18/-9)
+
+
+===COMMIT===
+2025-08-06 15:36 | 16a6ec9 | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+2/-5)
+- Connection.tscn (+5/-6)
+- add_button.tres (+13/-0)
+- base_component.tres (+2/-1)
+- base_graph.gd (+12/-13)
+- block_component.gd (+93/-31)
+- button_mat.tres (+13/-0)
+- connection.gd (+6/-3)
+- connection.tres (+13/-0)
+- curve.gdshader (+1/-1)
+- io_graph.tscn (+49/-41)
+- procedural_nodes.gd (+21/-5)
+- test.tscn (+5/-34)
+- theme.tres (+1/-1)
+- wrapper.gd (+4/-0)
+- wrapper.gd.uid (+1/-0)
+
+
+===COMMIT===
+2025-08-06 10:27 | df7d68d | Hex358 // Pantone 358C
+backup
+Files:
+- Connection.tscn (+5/-0)
+- base_graph.gd (+21/-6)
+- base_graph.tscn (+2/-23)
+- block.gdshader (+5/-6)
+- block_component.gd (+5/-4)
+- camera_2d.gd (+6/-5)
+- cmenu.gd (+4/-1)
+- connection.gd (+9/-4)
+- context_menu.tres (+2/-2)
+- default_spline.tscn (+3/-2)
+- glob.gd (+8/-5)
+- graph.tres (+3/-3)
+- io_graph.tscn (+71/-0)
+- line_edit.gd (+13/-0)
+- line_edit.gd.uid (+1/-0)
+- loop.gd (+5/-0)
+- loop.gd.uid (+1/-0)
+- loop.tscn (+42/-0)
+- loop1.tscn (+34/-0)
+- loop_1.gd (+1/-0)
+- loop_1.gd.uid (+1/-0)
+- project.godot (+7/-0)
+- spline.gd (+22/-11)
+- test.tscn (+36/-25)
+- theme.tres (+26/-1)
+- unroll_button.tres (+2/-2)
+
+
+===COMMIT===
+2025-08-04 22:41 | 2ea5a77 | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+3/-0)
+- base_graph.gd (+17/-18)
+- base_graph.tscn (+8/-17)
+- block_component.gd (+62/-28)
+- camera_2d.gd (+41/-1)
+- cmenu.gd (+12/-5)
+- connection.gd (+26/-4)
+- context_menu.tres (+1/-1)
+- default_spline.tscn (+2/-2)
+- glob.gd (+44/-21)
+- menus.gd (+5/-0)
+- menus.gd.uid (+1/-0)
+- procedural_nodes.gd (+1/-0)
+- project.godot (+10/-0)
+- spline.gd (+10/-5)
+- test.tscn (+100/-48)
+- vbox.tscn (+1/-0)
+
+
+===COMMIT===
+2025-08-03 15:04 | fc9d7cd | Hex358 // Pantone 358C
+.
+Files:
+- base_graph.gd (+6/-1)
+- base_graph.tscn (+4/-5)
+- block_component.gd (+5/-0)
+- connection.gd (+15/-7)
+- default_spline.tscn (+2/-2)
+- detatch.gd (+8/-9)
+- glob.gd (+13/-6)
+
+
+===COMMIT===
+2025-08-03 12:46 | 4b1dafe | Hex358 // Pantone 358C
+.
+Files:
+- detatch.gd (+9/-8)
+
+
+===COMMIT===
+2025-08-03 12:45 | 90f59a5 | Hex358 // Pantone 358C
+scroll
+Files:
+- BaseBComponent.tscn (+7/-1)
+- base_graph.tscn (+1/-1)
+- block.gdshader (+7/-19)
+- block_component.gd (+119/-40)
+- camera_2d.gd (+1/-1)
+- connection.gd (+17/-12)
+- detatch.gd (+14/-2)
+- detatch_menu.gd (+17/-5)
+- glob.gd (+6/-5)
+- procedural_nodes.gd (+8/-2)
+- simple_alphamult.gdshader (+20/-0)
+- simple_alphamult.gdshader.uid (+1/-0)
+- smooth_extents.gdshaderinc (+12/-0)
+- smooth_extents.gdshaderinc.uid (+1/-0)
+- test.tscn (+17/-7)
+- theme.tres (+91/-1)
+- vbox.tscn (+14/-0)
+
+
+===COMMIT===
+2025-08-02 14:15 | d1f589f | Hex358 // Pantone 358C
+ю
+Files:
+- base_graph.gd (+15/-55)
+- base_graph.tscn (+15/-6)
+- block_component.gd (+1/-1)
+- glob.gd (+2/-3)
+- test.tscn (+0/-8)
+
+
+===COMMIT===
+2025-08-01 21:28 | 477aa6d | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+0/-2)
+- base_graph.gd (+65/-26)
+- block.gdshader (+5/-5)
+- glob.gd (+17/-0)
+
+
+===COMMIT===
+2025-08-01 19:56 | d3647c9 | Hex358 // Pantone 358C
+node
+Files:
+- base_graph.gd (+75/-20)
+- base_graph.tscn (+5/-4)
+- block_component.gd (+3/-2)
+- camera_2d.gd (+2/-2)
+- cmenu.gd (+1/-1)
+- connection.gd (+20/-17)
+- default_spline.tscn (+4/-2)
+- detatch.gd (+1/-1)
+- detatch_menu.gd (+20/-7)
+- edit_graph.gd (+2/-0)
+- edit_graph.gd.uid (+1/-0)
+- glob.gd (+22/-9)
+- spline.gd (+12/-31)
+- test.tscn (+47/-10)
+
+
+===COMMIT===
+2025-08-01 12:59 | 49c0572 | Hex358 // Pantone 358C
+.
+Files:
+- block_component.gd (+1/-1)
+- connection.gd (+30/-24)
+- curve.gdshader (+1/-1)
+- default_spline.tscn (+5/-12)
+- detatch.gd (+1/-2)
+- detatch_menu.gd (+6/-2)
+- spline.gd (+56/-7)
+
+
+===COMMIT===
+2025-08-01 11:37 | 1ddd4bf | Hex358 // Pantone 358C
+.
+Files:
+- block_component.gd (+9/-9)
+- connection.gd (+1/-1)
+- curve.gdshader (+14/-0)
+- curve.gdshader.uid (+1/-0)
+- default_spline.tscn (+6/-2)
+- detatch.gd (+3/-2)
+- detatch_menu.gd (+18/-4)
+- procedural_nodes.gd (+5/-5)
+- spline.gd (+9/-0)
+- test.tscn (+8/-8)
+
+
+===COMMIT===
+2025-07-31 21:57 | 70d78ca | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+8/-20)
+- base_graph.gd (+6/-1)
+- base_graph.tscn (+4/-4)
+- block.gdshader (+0/-3)
+- block_component.gd (+67/-58)
+- connection.gd (+19/-17)
+- default_config.tres (+0/-1)
+- detatch.gd (+12/-7)
+- detatch_menu.gd (+17/-3)
+- lite_config.tres (+1/-1)
+- procedural_nodes.gd (+16/-7)
+- test.tscn (+34/-34)
+
+
+===COMMIT===
+2025-07-31 16:10 | 397babf | Hex358 // Pantone 358C
+,
+Files:
+- BaseBComponent.tscn (+1/-0)
+- base_graph.tscn (+4/-4)
+- block_component.gd (+14/-10)
+- connection.gd (+11/-4)
+- detatch.gd (+6/-1)
+- detatch_menu.gd (+5/-0)
+- procedural_nodes.gd (+7/-7)
+- test.tscn (+8/-2)
+
+
+===COMMIT===
+2025-07-31 13:55 | 61de9e8 | Hex358 // Pantone 358C
+ю
+Files:
+- BaseBComponent.tscn (+6/-5)
+- base_graph.gd (+37/-5)
+- base_graph.tscn (+26/-20)
+- block_component.gd (+91/-34)
+- connection.gd (+106/-92)
+- context_menu.tres (+3/-2)
+- default_spline.tscn (+4/-1)
+- detatch.gd (+7/-0)
+- detatch.gd.uid (+1/-0)
+- detatch_menu.gd (+3/-0)
+- detatch_menu.gd.uid (+1/-0)
+- glob.gd (+84/-3)
+- procedural_nodes.gd (+22/-0)
+- procedural_nodes.gd.uid (+1/-0)
+- project.godot (+4/-4)
+- spline.gd (+7/-0)
+- spline.gd.uid (+1/-0)
+- test.tscn (+67/-7)
+- unroll_button.tres (+2/-1)
+
+
+===COMMIT===
+2025-07-30 15:04 | 331c80a | Hex358 // Pantone 358C
+graphs
+Files:
+- BaseBComponent.tscn (+6/-6)
+- Connection.tscn (+11/-0)
+- JetBrainsMono-VariableFont_wght.ttf.import (+11/-2)
+- base_graph.gd (+0/-2)
+- base_graph.tscn (+18/-2)
+- block.gdshader (+42/-25)
+- camera_2d.gd (+4/-3)
+- connection.gd (+111/-0)
+- connection.gd.uid (+1/-0)
+- default_spline.tscn (+9/-0)
+- glob.gd (+10/-0)
+- graph.tres (+2/-1)
+- interpolate.gdshader (+25/-0)
+- interpolate.gdshader.uid (+1/-0)
+- msdaf.gdshader (+33/-0)
+- msdaf.gdshader.uid (+1/-0)
+- test.tscn (+1/-1)
+- theme.tres (+1/-0)
+
+
+===COMMIT===
+2025-07-29 22:24 | ca6b48a | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+1/-0)
+- base_graph.gd (+4/-35)
+- base_graph.tscn (+11/-11)
+- block.gdshader (+4/-3)
+- block_component.gd (+79/-68)
+- camera_2d.gd (+57/-15)
+- cmenu.gd (+8/-5)
+- context_menu.tres (+1/-1)
+- glob.gd (+31/-2)
+- graph.tres (+2/-2)
+- lite_config.tres (+2/-2)
+- test.tscn (+13/-4)
+- test.tscn2060694781.tmp (+91/-0)
+- unroll_button.tres (+2/-2)
+
+
+===COMMIT===
+2025-07-29 14:33 | 9877ad0 | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+10/-4)
+- base_component.tres (+1/-0)
+- base_graph.gd (+52/-0)
+- base_graph.gd.uid (+1/-0)
+- base_graph.tscn (+45/-0)
+- block_component.gd (+96/-51)
+- camera_2d.gd (+6/-2)
+- cmenu.gd (+13/-0)
+- cmenu.gd.uid (+1/-0)
+- context_menu.tres (+1/-1)
+- glob.gd (+25/-0)
+- graph.tres (+12/-0)
+- test.tscn (+18/-31)
+- unroll_button.tres (+3/-3)
+
+
+===COMMIT===
+2025-07-29 10:03 | 7fa6d27 | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+0/-3)
+- block.gdshader (+4/-4)
+- block_component.gd (+12/-7)
+- button_config.gd (+0/-4)
+- context_menu.tres (+12/-0)
+- default_config.tres (+4/-4)
+- lite_config.tres (+15/-0)
+- test.tscn (+40/-23)
+- unroll_button.tres (+4/-3)
+
+
+===COMMIT===
+2025-07-28 21:11 | 2020dd6 | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+11/-5)
+- block_component.gd (+91/-41)
+- button_config.gd (+20/-0)
+- button_config.gd.uid (+1/-0)
+- default_config.tres (+16/-0)
+- glob.gd (+10/-6)
+- test.tscn (+47/-10)
+- test.tscn35015475239.tmp (+81/-0)
+- unroll_button.tres (+11/-0)
+
+
+===COMMIT===
+2025-07-28 13:11 | 9f61086 | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+3/-4)
+- context_window.tres => base_component.tres (+5/-5)
+- block.gdshader (+17/-12)
+- block_component.gd (+153/-107)
+- glob.gd (+9/-0)
+- glob.gd.uid (+1/-0)
+- project.godot (+4/-0)
+- std.gdshaderinc (+9/-0)
+- std.gdshaderinc.uid (+1/-0)
+- test.tscn (+16/-6)
+
+
+===COMMIT===
+2025-07-27 20:42 | e829152 | Hex358 // Pantone 358C
+.
+Files:
+- BaseBComponent.tscn (+37/-0)
+- BlockButton.tscn (+0/-31)
+- ContextMenu.tscn (+0/-28)
+- block.gd.uid (+0/-1)
+- block.gd => block_component.gd (+45/-21)
+- block_component.gd.uid (+1/-0)
+- test.tscn (+12/-20)
+
+
+===COMMIT===
+2025-07-27 17:48 | 600b882 | Hex358 // Pantone 358C
+.
+Files:
+- BlockButton.tscn (+31/-0)
+- ContextMenu.tscn (+28/-0)
+- PanelBlock.tscn (+0/-15)
+- block.gd (+123/-21)
+- block.gdshader (+10/-3)
+- blur.gdshader (+0/-38)
+- blur.gdshader.uid (+0/-1)
+- button.tres (+11/-0)
+- context_window.tres (+11/-0)
+- project.godot (+4/-0)
+- test.gdshader (+14/-0)
+- test.gdshader.uid (+1/-0)
+- test.tscn (+27/-29)
+- theme.tres (+7/-0)
+
+
+===COMMIT===
+2025-07-26 20:05 | 1734168 | Hex358 // Pantone 358C
+init
+Files:
+- block.gdshader (+13/-15)
+- export_presets.cfg (+216/-0)
+- test.tscn (+2/-2)
+
+
+===COMMIT===
+2025-07-26 19:56 | fd43189 | Hex358 // Pantone 358C
+init
+Files:
+- .editorconfig (+4/-0)
+- .gitignore (+3/-0)
+- JetBrainsMono-VariableFont_wght.ttf (+bin/-bin)
+- JetBrainsMono-VariableFont_wght.ttf.import (+35/-0)
+- PanelBlock.tscn (+15/-0)
+- block.gd (+30/-0)
+- block.gd.uid (+1/-0)
+- block.gdshader (+60/-0)
+- block.gdshader.uid (+1/-0)
+- blur.gdshader (+38/-0)
+- blur.gdshader.uid (+1/-0)
+- camera_2d.gd (+12/-0)
+- camera_2d.gd.uid (+1/-0)
+- icon.svg (+1/-0)
+- icon.svg.import (+37/-0)
+- project.godot (+53/-0)
+- test.tscn (+46/-0)
+
+
+===COMMIT===
+2025-07-26 19:50 | b15f49d | Hex358 // Pantone 358C
+Initial commit
+Files:
+- .gitattributes (+2/-0)

@@ -1,0 +1,10 @@
+{
+  "name": "mnist",
+  "size": 70000,
+  "inputs": {"x": 28, "y": 28, "datatype": "2d"},
+  "outputs": [{"label": "digit", "x": 10, "datatype": "1d", "label_names": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]}],
+  "input_hints": [{"name": "image", "value": "28x28", "dtype": "image"}],
+  "fully_local": true,
+  "storage": "numpy"
+}
+

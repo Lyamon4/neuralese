@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bqmfiaej167wg"]
+
+[ext_resource type="Shader" uid="uid://brnf5ik26ibje" path="res://shaders/fork.gdshader" id="1_oiybs"]
+
+[resource]
+shader = ExtResource("1_oiybs")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(0.69, 0.69, 0.69, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 1.9570000929575
+shader_parameter/corner_radius_corners = Vector4(10, 0, 0, 10)
+shader_parameter/blurred_background = false
+shader_parameter/outline_width = 1.7
+shader_parameter/mult = 2.0
+shader_parameter/blur_level = 7.0
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.0
+shader_parameter/use_bg = true

@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://2angf8j1gof7"]
+
+[ext_resource type="Script" uid="uid://cggl1sm73d2q6" path="res://scripts/cta.gd" id="1_cb2et"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="1_dujj5"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="2_cb2et"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="3_p2b6q"]
+
+[sub_resource type="Resource" id="Resource_dujj5"]
+script = ExtResource("2_cb2et")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Cta" type="Node2D" unique_id=1343822123 node_paths=PackedStringArray("input_cta", "tutorial_cta")]
+script = ExtResource("1_cb2et")
+input_cta = NodePath("input")
+tutorial_cta = NodePath("tutorial")
+
+[node name="input" parent="." unique_id=2143935757 instance=ExtResource("1_dujj5")]
+z_index = -90
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(1, 0.95, 0, 1)
+instance_shader_parameters/tuning = Color(0.75, 0.75, 0.75, 0.75686276)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -48.000004
+offset_right = 67.47958
+offset_bottom = 46.40556
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(68.23979, 47.20278)
+mouse_filter = 1
+color = Color(1, 1, 1, 0.91764706)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.6
+resize_after = 13
+text = "+ Create"
+text_offset = Vector2(0, -3)
+base_size = Vector2(136.47958, 94.40556)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_dujj5")
+
+[node name="Loc" type="Node" parent="input" unique_id=2024643846]
+script = ExtResource("3_p2b6q")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"login": "+ Создать"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "+ Құру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="tutorial" parent="." unique_id=1476280450 instance=ExtResource("1_dujj5")]
+visible = false
+z_index = -90
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.3019608, 1, 0.5568628, 1)
+instance_shader_parameters/tuning = Color(0.27058825, 0.8392157, 0.47843137, 0.8980392)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = 80.00002
+offset_right = 67.47958
+offset_bottom = 125.33133
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(68.23979, 22.665653)
+mouse_filter = 1
+color = Color(1, 1, 1, 0.91764706)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.6
+resize_after = 13
+text = "Tutorial"
+base_size = Vector2(136.47958, 45.331306)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_dujj5")
+
+[node name="Loc" type="Node" parent="tutorial" unique_id=1676409790]
+script = ExtResource("3_p2b6q")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Туториал"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Туториал"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[connection signal="released" from="input" to="." method="_on_input_released"]
+[connection signal="released" from="tutorial" to="." method="_on_tutorial_released"]

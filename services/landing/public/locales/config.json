@@ -1,0 +1,14 @@
+{
+  "contact_email": "contact.neuralese@gmail.com",
+  "download_url": "https://s3.ru1.storage.beget.cloud/a0fa578a7118-3d-tours/neuralese%2FNeuralese-Setup.exe",
+  "video_axon_mentor": {
+    "default": "https://s3.ru1.storage.beget.cloud/a0fa578a7118-3d-tours/neuralese%2Faxon_mentor.mp4",
+    "en": "https://s3.ru1.storage.beget.cloud/a0fa578a7118-3d-tours/neuralese%2Faxon_eng.mp4"
+  },
+  "video_car_sim": "https://s3.ru1.storage.beget.cloud/a0fa578a7118-3d-tours/neuralese%2Fcar_sim.mp4",
+  "video_visual_editor": "https://s3.ru1.storage.beget.cloud/a0fa578a7118-3d-tours/neuralese%2Fvisual_editor.mp4",
+  "video_main_demo": {
+    "default": "https://s3.ru1.storage.beget.cloud/a0fa578a7118-3d-tours/neuralese%2Fmain_demo.mp4",
+    "en": "https://s3.ru1.storage.beget.cloud/a0fa578a7118-3d-tours/neuralese%2Fvisual_editor_eng.mp4"
+  }
+}

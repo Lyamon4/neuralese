@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://wd63efdi6bdn"]
+
+[ext_resource type="Material" uid="uid://bywlioi5cvbjn" path="res://resources/add_button.tres" id="1_gbfpr"]
+[ext_resource type="Script" uid="uid://dbelub2yuo5rm" path="res://scripts/block_component.gd" id="2_b3f76"]
+[ext_resource type="Resource" uid="uid://dfj4adcly3raw" path="res://resources/default_config.tres" id="3_ei1qp"]
+[ext_resource type="Material" uid="uid://b32bkwpidhiyp" path="res://resources/font_alphamult.tres" id="4_gbfpr"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="5_mtdh6"]
+
+[node name="ColorRect" type="ColorRect"]
+material = ExtResource("1_gbfpr")
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.439216)
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("2_b3f76")
+base_size = Vector2(200, 50)
+max_size = 190
+config = ExtResource("3_ei1qp")
+
+[node name="Label" type="Label" parent="."]
+material = ExtResource("4_gbfpr")
+layout_mode = 0
+offset_left = 100.0
+offset_top = 25.0
+offset_right = 330.0
+offset_bottom = 68.0
+scale = Vector2(0.643, 0.643)
+theme = ExtResource("5_mtdh6")

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cyyhr5tmi4ljw"]
+
+[ext_resource type="Material" uid="uid://c2h5h1y840vgq" path="res://resources/connection.tres" id="1_dbnlc"]
+[ext_resource type="Script" uid="uid://ul6inll13x6l" path="res://scripts/connection.gd" id="2_5i2vu"]
+[ext_resource type="Shader" uid="uid://cctmdphlc5qao" path="res://shaders/abs_runded.gdshader" id="3_m1bpc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cx763"]
+shader = ExtResource("3_m1bpc")
+shader_parameter/corner_radius = 10.000000475
+shader_parameter/bg_fill = false
+shader_parameter/outline_width = 20.0
+shader_parameter/outline_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/background_color = Color(0.79, 0.79, 0.79, 0)
+
+[node name="ColorRect" type="ColorRect" unique_id=1178528860]
+material = ExtResource("1_dbnlc")
+instance_shader_parameters/tuning = Color(0.78, 0.78, 0.78, 1)
+offset_left = -5.0
+offset_top = -18.0
+offset_right = 4.0
+offset_bottom = 22.0
+color = Color(0.491557, 0.67, 0.4422, 1)
+script = ExtResource("2_5i2vu")
+area_paddings = Vector4(10, 10, 10, 0)
+
+[node name="plot" type="ColorRect" parent="." unique_id=887394607]
+visible = false
+self_modulate = Color(0.74, 0.74, 0.74, 1)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_cx763")
+clip_contents = true
+layout_mode = 0
+offset_left = 14.999999
+offset_top = 5.999999
+offset_right = 41.063362
+offset_bottom = 28.805439
+scale = Vector2(0.3069443, 0.3069443)
+color = Color(1.0964829, 1.0964829, 1.0964829, 1)
+
+[node name="plot3" type="ColorRect" parent="." unique_id=1427110039]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_cx763")
+clip_contents = true
+layout_mode = 0
+offset_left = 14.999999
+offset_top = 4.9999995
+offset_right = 34.54752
+offset_bottom = 34.321278
+scale = Vector2(0.3069443, 0.3069443)

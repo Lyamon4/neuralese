@@ -1,0 +1,1073 @@
+[gd_scene format=3 uid="uid://co81wbc7nvnue"]
+
+[ext_resource type="Script" uid="uid://bahiwylqyse57" path="res://scripts/settings.gd" id="1_4ppmf"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="2_oe2nd"]
+[ext_resource type="Texture2D" uid="uid://d5x5onii6xe6" path="res://game_assets/icons/account.png" id="3_01roj"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="5_6dbjw"]
+[ext_resource type="Texture2D" uid="uid://kdt71jk5swyh" path="res://game_assets/icons/user.png" id="6_7kvyq"]
+[ext_resource type="Material" uid="uid://crjr13k12egng" path="res://scenes/splash.tres" id="6_g5y2q"]
+[ext_resource type="Script" uid="uid://bjncugq5805ty" path="res://scripts/label_auto_resize.gd" id="7_oe2nd"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="8_aisiw"]
+[ext_resource type="Script" uid="uid://jddq7jx1kwhn" path="res://scripts/confirm.gd" id="9_1g033"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="10_01roj"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="10_gcetw"]
+[ext_resource type="Texture2D" uid="uid://ub1op705m38e" path="res://game_assets/icons/bigre.png" id="10_wqwn7"]
+[ext_resource type="Script" uid="uid://b0wh6bvd6pdc5" path="res://scripts/validate_number.gd" id="11_wqwn7"]
+[ext_resource type="Theme" uid="uid://74kwx22ikciq" path="res://resources/theme_headers.tres" id="12_3gwh8"]
+[ext_resource type="Script" uid="uid://eagmr8s4yhhg" path="res://scripts/animspin.gd" id="12_7kvyq"]
+[ext_resource type="Script" uid="uid://cink4uduoxu4b" path="res://scripts/end.gd" id="14_w3ind"]
+[ext_resource type="Material" uid="uid://jm8oyahk342s" path="res://resources/context_menu.tres" id="16_g5y2q"]
+[ext_resource type="Script" uid="uid://dqpr2y7tbsc13" path="res://scripts/works_list.gd" id="17_k00b3"]
+[ext_resource type="Script" uid="uid://3iluo5wg2wdh" path="res://scripts/works_unroll.gd" id="18_aisiw"]
+[ext_resource type="Texture2D" uid="uid://d01lsypo4hh53" path="res://game_assets/icons/upload.png" id="20_aisiw"]
+[ext_resource type="Texture2D" uid="uid://dyts034lekboy" path="res://game_assets/icons/lock.png" id="20_f1e71"]
+[ext_resource type="FontFile" uid="uid://d0xcffxoyd14k" path="res://game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="22_gcetw"]
+
+[sub_resource type="Resource" id="Resource_5kbvu"]
+script = ExtResource("5_6dbjw")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_aisiw"]
+script = ExtResource("5_6dbjw")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 1.0
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g033"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.34, 0.34, 0.34, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 1.541
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01roj"]
+bg_color = Color(0.17, 0.17, 0.17, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.35, 0.35, 0.35, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 1.541
+
+[sub_resource type="Resource" id="Resource_7kvyq"]
+script = ExtResource("5_6dbjw")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.02
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_g5y2q"]
+script = ExtResource("5_6dbjw")
+hover_color = Color(1.300188, 1.300188, 1.300188, 1)
+hover_mult = 1.15
+_hover_scale = 1.01
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.99
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_k00b3"]
+script = ExtResource("5_6dbjw")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.02
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 1.0
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Node2D" type="Control" unique_id=1088075713 node_paths=PackedStringArray("loader")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4ppmf")
+loader = NodePath("ColorRect/studentjoin/Question/Node")
+typename = "settings"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1961192255]
+z_index = 8
+material = ExtResource("6_g5y2q")
+instance_shader_parameters/corner_radius_width_add = Vector2(9.365, 1)
+instance_shader_parameters/outline_color = Color(0.85, 0.85, 0.85, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.7529412)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 99.0
+offset_right = 788.0
+offset_bottom = 358.0
+
+[node name="Account" type="Sprite2D" parent="ColorRect" unique_id=2131762907]
+self_modulate = Color(0.64, 0.64, 0.64, 1)
+position = Vector2(400.99997, 76)
+scale = Vector2(0.84386927, 0.84386927)
+texture = ExtResource("3_01roj")
+
+[node name="Control" type="Control" parent="ColorRect" unique_id=1572282489]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 39.0
+offset_right = 216.0
+offset_bottom = 79.0
+
+[node name="Label" type="Label" parent="ColorRect/Control" unique_id=1062643781]
+layout_mode = 0
+offset_right = 143.0
+offset_bottom = 37.0
+scale = Vector2(0.96432805, 0.96432805)
+pivot_offset = Vector2(0, 18.5)
+theme = ExtResource("12_3gwh8")
+text = "Username"
+script = ExtResource("7_oe2nd")
+auto_get_base_size = true
+base_size = Vector2(143, 37)
+pivoting = true
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Label2" type="Label" parent="ColorRect/Control" unique_id=397487438]
+modulate = Color(0.62, 0.62, 0.62, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 30.999998
+offset_right = 146.0
+offset_bottom = 68.0
+scale = Vector2(0.61480826, 0.61480826)
+theme = ExtResource("12_3gwh8")
+text = "Teacher"
+
+[node name="Loc" type="Node" parent="ColorRect/Control/Label2" unique_id=1413726509]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"student": "Ученик",
+"teacher": "Учитель"
+})
+localizations_kz = Dictionary[String, String]({
+"student": "Студент",
+"teacher": "Мұғалім"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="root" type="Control" parent="ColorRect" unique_id=1365801325]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="i" type="Sprite2D" parent="ColorRect/root" unique_id=129153613]
+position = Vector2(23.000015, 21)
+scale = Vector2(0.9496938, 0.9496938)
+texture = ExtResource("6_7kvyq")
+
+[node name="Label" type="Label" parent="ColorRect/root" unique_id=891110185]
+modulate = Color(0.41, 0.41, 0.41, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 140.84766
+offset_bottom = 52.0
+scale = Vector2(0.600218, 0.600218)
+theme = ExtResource("8_aisiw")
+text = "/profile"
+
+[node name="buts" type="Control" parent="ColorRect" unique_id=1957617617]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 72.0
+offset_bottom = 136.0
+
+[node name="train" parent="ColorRect/buts" unique_id=1070104644 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 1
+offset_left = 7.1279297
+offset_top = 2.212822
+offset_right = 76.359924
+offset_bottom = 27.212826
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(34.615997, 12.500002)
+mouse_filter = 1
+color = Color(0.59, 0.59, 0.59, 1)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 6
+text = "Logout"
+base_size = Vector2(69.231995, 25.000004)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_5kbvu")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/buts/train" unique_id=1230574285]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Выход"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Шығу"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="lang" parent="ColorRect/buts" unique_id=1357896537 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 97.1279
+offset_top = 2.212822
+offset_right = 141.27298
+offset_bottom = 27.212826
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(22.07254, 12.500002)
+mouse_filter = 1
+color = Color(0.59, 0.59, 0.59, 1)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 6
+text = "ENG"
+base_size = Vector2(44.14508, 25.000004)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_aisiw")
+in_splash = true
+
+[node name="studentjoin" type="Control" parent="ColorRect" unique_id=813201741]
+visible = false
+anchors_preset = 0
+offset_left = -326.0
+offset_top = -99.0
+offset_right = -286.0
+offset_bottom = -59.0
+
+[node name="Question" type="Sprite2D" parent="ColorRect/studentjoin" unique_id=876714001]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(737, 300)
+scale = Vector2(0.94126606, 0.94126606)
+texture = ExtResource("10_wqwn7")
+
+[node name="Node" type="Node" parent="ColorRect/studentjoin/Question" unique_id=863157506]
+script = ExtResource("12_7kvyq")
+
+[node name="confirm" type="Control" parent="ColorRect/studentjoin" unique_id=712819435]
+anchors_preset = 0
+offset_left = 432.0
+offset_top = 270.0
+offset_right = 472.0
+offset_bottom = 310.0
+scale = Vector2(1.4605539, 1.4605539)
+script = ExtResource("9_1g033")
+
+[node name="LineEdit6" parent="ColorRect/studentjoin/confirm" unique_id=1868116981 instance=ExtResource("10_01roj")]
+layout_mode = 0
+offset_left = -45.872982
+offset_top = 6.0000153
+offset_right = -2.9143639
+offset_bottom = 54.000015
+scale = Vector2(0.6052335, 0.6052335)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1g033")
+theme_override_styles/focus = SubResource("StyleBoxFlat_01roj")
+placeholder_text = "_"
+alignment = 1
+max_length = 1
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("11_wqwn7")
+min_value = 0.0
+max_value = 2048.0
+allow_float = false
+decimal_places = 2
+empty_on_min = false
+resize_after = 4
+change_always_accepted = false
+
+[node name="LineEdit" parent="ColorRect/studentjoin/confirm" unique_id=212620192 instance=ExtResource("10_01roj")]
+layout_mode = 0
+offset_left = -7.3240614
+offset_top = 6.0000153
+offset_right = 35.634556
+offset_bottom = 54.000015
+scale = Vector2(0.6052335, 0.6052335)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1g033")
+theme_override_styles/focus = SubResource("StyleBoxFlat_01roj")
+placeholder_text = "_"
+alignment = 1
+max_length = 1
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("11_wqwn7")
+min_value = 0.0
+max_value = 2048.0
+allow_float = false
+decimal_places = 2
+empty_on_min = false
+resize_after = 4
+change_always_accepted = false
+
+[node name="LineEdit2" parent="ColorRect/studentjoin/confirm" unique_id=1865598555 instance=ExtResource("10_01roj")]
+layout_mode = 0
+offset_left = 30.675968
+offset_top = 6.0000153
+offset_right = 73.63458
+offset_bottom = 54.000015
+scale = Vector2(0.6052335, 0.6052335)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1g033")
+theme_override_styles/focus = SubResource("StyleBoxFlat_01roj")
+placeholder_text = "_"
+alignment = 1
+max_length = 1
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("11_wqwn7")
+min_value = 0.0
+max_value = 2048.0
+allow_float = false
+decimal_places = 2
+empty_on_min = false
+resize_after = 4
+change_always_accepted = false
+
+[node name="LineEdit3" parent="ColorRect/studentjoin/confirm" unique_id=54786580 instance=ExtResource("10_01roj")]
+layout_mode = 0
+offset_left = 84.214645
+offset_top = 6.0000153
+offset_right = 127.17326
+offset_bottom = 54.000015
+scale = Vector2(0.6052335, 0.6052335)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1g033")
+theme_override_styles/focus = SubResource("StyleBoxFlat_01roj")
+placeholder_text = "_"
+alignment = 1
+max_length = 1
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("11_wqwn7")
+min_value = 0.0
+max_value = 2048.0
+allow_float = false
+decimal_places = 2
+empty_on_min = false
+resize_after = 4
+change_always_accepted = false
+
+[node name="LineEdit4" parent="ColorRect/studentjoin/confirm" unique_id=982545470 instance=ExtResource("10_01roj")]
+layout_mode = 0
+offset_left = 122.214645
+offset_top = 6.0000153
+offset_right = 165.17323
+offset_bottom = 54.000015
+scale = Vector2(0.6052335, 0.6052335)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1g033")
+theme_override_styles/focus = SubResource("StyleBoxFlat_01roj")
+placeholder_text = "_"
+alignment = 1
+max_length = 1
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("11_wqwn7")
+min_value = 0.0
+max_value = 2048.0
+allow_float = false
+decimal_places = 2
+empty_on_min = false
+resize_after = 4
+change_always_accepted = false
+
+[node name="LineEdit5" parent="ColorRect/studentjoin/confirm" unique_id=1652876308 instance=ExtResource("10_01roj")]
+layout_mode = 0
+offset_left = 160.21461
+offset_top = 6.0000153
+offset_right = 203.17323
+offset_bottom = 54.000046
+scale = Vector2(0.6052335, 0.6052335)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1g033")
+theme_override_styles/focus = SubResource("StyleBoxFlat_01roj")
+placeholder_text = "_"
+alignment = 1
+max_length = 1
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("11_wqwn7")
+min_value = 0.0
+max_value = 2048.0
+allow_float = false
+decimal_places = 2
+empty_on_min = false
+resize_after = 4
+change_always_accepted = false
+
+[node name="Label2" type="Label" parent="ColorRect/studentjoin/confirm" unique_id=1963193870]
+modulate = Color(0.62, 0.62, 0.62, 1)
+layout_mode = 0
+offset_left = 65.04383
+offset_top = 1.3693466
+offset_right = 208.04382
+offset_bottom = 38.369347
+scale = Vector2(0.61480826, 0.61480826)
+theme = ExtResource("12_3gwh8")
+text = "_"
+
+[node name="Loc" type="Node" parent="ColorRect/studentjoin/confirm/Label2" unique_id=2133854601]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"student": "Ученик",
+"teacher": "Учитель"
+})
+localizations_kz = Dictionary[String, String]({
+"student": "Студент",
+"teacher": "Мұғалім"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Label2" type="Label" parent="ColorRect/studentjoin" unique_id=401202148]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 230.0
+offset_right = 814.0
+offset_bottom = 267.0
+theme = ExtResource("12_3gwh8")
+text = "Join a classroom +"
+
+[node name="Loc" type="Node" parent="ColorRect/studentjoin/Label2" unique_id=371057602]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"join a classroom": "Зайти в класс +"
+})
+localizations_kz = Dictionary[String, String]({
+"join a classroom": "Кеңсеге барыңыз +"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="studentyes" type="Control" parent="ColorRect" unique_id=1786778104]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="train" parent="ColorRect/studentyes" unique_id=2011250148 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.60784316)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 243.0
+offset_top = 135.02328
+offset_right = 320.36517
+offset_bottom = 160.02328
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.4018645, 1.4018645)
+pivot_offset = Vector2(38.682587, 12.5)
+mouse_filter = 1
+color = Color(0.7, 0.434, 0.434, 1)
+button_type = 1
+top = true
+hint = &"Add"
+base_scale_x = 0.45
+resize_after = 8
+text = "- Leave"
+base_size = Vector2(77.36517, 25)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_7kvyq")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/studentyes/train" unique_id=70254287]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "-  Уйти"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "-  Шығу"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="train2" parent="ColorRect/studentyes" unique_id=569429952 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.7764706)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.99996
+offset_top = 137.02332
+offset_right = 195.26529
+offset_bottom = 160.88197
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.4018645, 1.4018645)
+pivot_offset = Vector2(56.132664, 11.929329)
+mouse_filter = 1
+color = Color(0.5848, 0.86, 0.6857067, 1)
+button_type = 1
+top = true
+hint = &"Add"
+base_scale_x = 0.45
+resize_after = 17
+text = "Lesson list"
+base_size = Vector2(112.26533, 23.858658)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_7kvyq")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/studentyes/train2" unique_id=1026293061]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Ваши уроки"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Сабақтар"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Control" type="Control" parent="ColorRect/studentyes" unique_id=1687571815]
+anchors_preset = 0
+offset_left = 33.0
+offset_top = 171.0
+offset_right = 404.0
+offset_bottom = 211.0
+
+[node name="name" type="Label" parent="ColorRect/studentyes/Control" unique_id=950006753]
+modulate = Color(0.5019608, 1, 0.68235296, 1)
+layout_mode = 1
+offset_left = 107.0
+offset_top = -44.0
+offset_right = 330.632
+offset_bottom = -7.0
+scale = Vector2(0.9927022, 0.9927022)
+pivot_offset = Vector2(0, 18.5)
+theme = ExtResource("12_3gwh8")
+text = "Class: ffffff"
+script = ExtResource("7_oe2nd")
+auto_get_base_size = true
+base_size = Vector2(223.63199, 37)
+pivoting = true
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Label" type="Label" parent="ColorRect/studentyes/Control" unique_id=1506343769]
+modulate = Color(0.5, 1, 0.6833333, 1)
+layout_mode = 0
+offset_top = -44.162907
+offset_right = 85.0
+offset_bottom = -7.1629066
+scale = Vector2(0.993, 0.993)
+pivot_offset = Vector2(0, 18.5)
+theme = ExtResource("12_3gwh8")
+text = "Class: "
+script = ExtResource("7_oe2nd")
+auto_get_base_size = true
+base_size = Vector2(94, 37)
+pivoting = true
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Loc" type="Node" parent="ColorRect/studentyes/Control/Label" unique_id=116171852]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Класс: "
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Сынып: "
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="classroomstatus" type="Control" parent="ColorRect" unique_id=507885743]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="list" parent="ColorRect/classroomstatus" unique_id=1630323769 instance=ExtResource("2_oe2nd")]
+z_index = 3
+material = ExtResource("16_g5y2q")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 0)
+instance_shader_parameters/tuning = Color(0.509804, 0.509804, 0.509804, 0.439216)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 202.0
+offset_right = 547.0
+offset_bottom = 202.0
+scale = Vector2(0.9, 0.9)
+color = Color(1, 1, 1, 0)
+script = ExtResource("17_k00b3")
+tune_mult = 2.2
+top = true
+hint = &"no_ctx"
+base_size = Vector2(527, 0)
+static_mode = true
+expanded_size = 262
+arrangement_padding = Vector2(12, 5)
+mouse_open = false
+dynamic_size = true
+max_size = 262
+config = null
+in_splash = true
+
+[node name="name" parent="ColorRect/classroomstatus/list" unique_id=1028510117 instance=ExtResource("2_oe2nd")]
+z_index = 5
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.63909996, 0.83, 0.7090966, 1)
+instance_shader_parameters/tuning = Color(0.5251, 0.59, 0.5488966, 0.6509804)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 221.333
+offset_right = 436.0
+offset_bottom = 264.44446
+pivot_offset = Vector2(118, 21.555733)
+button_type = 1
+placeholder = true
+text = "aaaaaaaaaaaaaaaaa"
+text_alignment = Vector2(-1, -1)
+text_offset = Vector2(13, 6)
+base_size = Vector2(236, 43.111465)
+alignment = Vector2(0.5, 0.5)
+mouse_open = false
+config = SubResource("Resource_g5y2q")
+in_splash = true
+still_hover_in_block = true
+
+[node name="ProceduralNodes" type="Node" parent="ColorRect/classroomstatus/list" unique_id=306331403 node_paths=PackedStringArray("instance", "parent_easy")]
+script = ExtResource("18_aisiw")
+easy = true
+instance = NodePath("../name")
+parent_call = "unroll"
+parent_easy = NodePath("../../../..")
+metadata/_custom_type_script = "uid://cppqde4187p8n"
+
+[node name="Control" type="Control" parent="ColorRect/classroomstatus" unique_id=1562211730]
+anchors_preset = 0
+offset_left = 33.0
+offset_top = 135.0
+offset_right = 365.0
+offset_bottom = 175.0
+
+[node name="name" type="Label" parent="ColorRect/classroomstatus/Control" unique_id=1320500855]
+modulate = Color(0.5019608, 1, 0.68235296, 1)
+layout_mode = 1
+offset_left = 43.0
+offset_top = -41.0
+offset_right = 266.632
+offset_bottom = -4.0
+scale = Vector2(0.9927022, 0.9927022)
+pivot_offset = Vector2(0, 18.5)
+theme = ExtResource("12_3gwh8")
+text = "Class: ffffff"
+script = ExtResource("7_oe2nd")
+auto_get_base_size = true
+base_size = Vector2(223.63199, 37)
+pivoting = true
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Label2" type="Label" parent="ColorRect/classroomstatus" unique_id=730151224]
+modulate = Color(0.62, 0.62, 0.62, 1)
+layout_mode = 0
+offset_left = 379.99997
+offset_top = 91.8371
+offset_right = 523.0
+offset_bottom = 131.8371
+scale = Vector2(0.8624752, 0.8624752)
+theme = ExtResource("12_3gwh8")
+theme_override_fonts/font = ExtResource("22_gcetw")
+text = "535-616"
+
+[node name="left" parent="ColorRect/classroomstatus" unique_id=1178975034 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-10, -0.3)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.78039217)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 359.0
+offset_top = 94.0
+offset_right = 379.23773
+offset_bottom = 113.56917
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.4018645, 1.4018645)
+pivot_offset = Vector2(10.118866, 9.784584)
+mouse_filter = 1
+color = Color(0.475, 0.95, 0.6491666, 0.22745098)
+button_type = 1
+top = true
+hint = &"Add"
+base_scale_x = 0.45
+resize_after = 15
+text = "<"
+base_size = Vector2(20.237732, 19.569168)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_k00b3")
+in_splash = true
+
+[node name="lock" parent="ColorRect/classroomstatus" unique_id=564103753 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-10, -0.3)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.78039217)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 391.0
+offset_top = 94.0
+offset_right = 411.23773
+offset_bottom = 113.56917
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.4018645, 1.4018645)
+pivot_offset = Vector2(10.118866, 9.784584)
+mouse_filter = 1
+color = Color(0.475, 0.95, 0.6491666, 0.22745098)
+button_type = 1
+top = true
+hint = &"Add"
+base_scale_x = 0.45
+resize_after = 15
+base_size = Vector2(20.237732, 19.569168)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_k00b3")
+in_splash = true
+
+[node name="t" type="TextureRect" parent="ColorRect/classroomstatus/lock" unique_id=1435628585]
+layout_mode = 0
+offset_left = 3.6140137
+offset_top = 3.518219
+offset_right = 43.614014
+offset_bottom = 43.51822
+scale = Vector2(0.31402862, 0.31402862)
+texture = ExtResource("20_f1e71")
+
+[node name="right" parent="ColorRect/classroomstatus" unique_id=899882835 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-10, -0.3)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.78039217)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 422.99994
+offset_top = 93.83705
+offset_right = 443.23767
+offset_bottom = 113.40622
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.4018645, 1.4018645)
+pivot_offset = Vector2(10.118866, 9.784584)
+mouse_filter = 1
+color = Color(0.475, 0.95, 0.6491666, 0.22745098)
+button_type = 1
+top = true
+hint = &"Add"
+base_scale_x = 0.45
+resize_after = 15
+text = ">"
+base_size = Vector2(20.237732, 19.569168)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_k00b3")
+in_splash = true
+
+[node name="Control2" type="Control" parent="ColorRect/classroomstatus" unique_id=975199608]
+anchors_preset = 0
+offset_left = 33.0
+offset_top = 169.0
+offset_right = 379.0
+offset_bottom = 209.0
+
+[node name="Label" type="Label" parent="ColorRect/classroomstatus/Control2" unique_id=460617136]
+modulate = Color(0.48, 0.96, 0.65599996, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = -44.162903
+offset_right = 283.0
+offset_bottom = -7.162903
+scale = Vector2(0.993, 0.993)
+pivot_offset = Vector2(0, 18.5)
+theme = ExtResource("12_3gwh8")
+text = "1. (...)"
+script = ExtResource("7_oe2nd")
+auto_get_base_size = true
+base_size = Vector2(280, 37)
+pivoting = true
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="num" type="Label" parent="ColorRect/classroomstatus" unique_id=1097425160]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 214.0
+offset_top = 158.0
+offset_right = 286.64423
+offset_bottom = 198.0
+grow_horizontal = 0
+scale = Vector2(0.7833585, 0.7833585)
+pivot_offset = Vector2(0, 18.5)
+theme = ExtResource("12_3gwh8")
+theme_override_fonts/font = ExtResource("22_gcetw")
+text = "0/0"
+
+[node name="cont" parent="ColorRect/classroomstatus" unique_id=471916275 instance=ExtResource("2_oe2nd")]
+visible = false
+instance_shader_parameters/corner_radius_width_add = Vector2(-10, -0.3)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(1, 1, 1, 0.6)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 167.99997
+offset_top = 127.93213
+offset_right = 284.19418
+offset_bottom = 149.68971
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.4018645, 1.4018645)
+pivot_offset = Vector2(58.097107, 10.878792)
+mouse_filter = 1
+color = Color(0.83599997, 0.95, 0.8777999, 1)
+button_type = 1
+top = true
+hint = &"Add"
+base_scale_x = 0.45
+resize_after = 15
+text = "Continue  >"
+base_size = Vector2(116.194214, 21.757584)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_7kvyq")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/classroomstatus/cont" unique_id=1057510922]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Продолжить >"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Жалғастыру >"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="upload" parent="ColorRect/classroomstatus" unique_id=1477833344 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 36.00006
+offset_top = 99.99999
+offset_right = 65.8808
+offset_bottom = 125.00001
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(14.940369, 12.500008)
+mouse_filter = 1
+color = Color(0.5369, 0.59, 0.55636996, 1)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 6
+base_size = Vector2(29.880737, 25.000015)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_5kbvu")
+in_splash = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/classroomstatus/upload" unique_id=400034241]
+layout_mode = 0
+offset_left = 3.5431519
+offset_top = 1.0303955
+offset_right = 43.54315
+offset_bottom = 41.030396
+scale = Vector2(0.5542652, 0.5542652)
+texture = ExtResource("20_aisiw")
+
+[node name="classroomcr" type="Control" parent="ColorRect" unique_id=915598070]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="train2" parent="ColorRect/classroomcr" unique_id=473615261 instance=ExtResource("2_oe2nd")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.7764706)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.999985
+offset_top = 123.793976
+offset_right = 289.7876
+offset_bottom = 152.0796
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.4018645, 1.4018645)
+pivot_offset = Vector2(85.89381, 14.142815)
+mouse_filter = 1
+color = Color(0, 1, 0.36666656, 1)
+button_type = 1
+top = true
+hint = &"Add"
+base_scale_x = 0.45
+resize_after = 18
+text = "+ Create Classroom"
+base_size = Vector2(171.78761, 28.28563)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_7kvyq")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/classroomcr/train2" unique_id=1644105338]
+script = ExtResource("10_gcetw")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "+ Создать класс"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "+ Класс құру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Node" type="Node" parent="." unique_id=1840748513]
+script = ExtResource("14_w3ind")
+
+[connection signal="released" from="ColorRect/buts/train" to="." method="_on_logout"]
+[connection signal="released" from="ColorRect/buts/lang" to="." method="_on_lang_released"]
+[connection signal="valid" from="ColorRect/studentjoin/confirm" to="." method="_on_confirm_valid"]
+[connection signal="released" from="ColorRect/studentyes/train" to="." method="leave_press"]
+[connection signal="released" from="ColorRect/studentyes/train2" to="." method="_on_llist_released"]
+[connection signal="child_button_release" from="ColorRect/classroomstatus/list" to="." method="_on_list_child_button_release"]
+[connection signal="released" from="ColorRect/classroomstatus/left" to="." method="_on_left_released"]
+[connection signal="released" from="ColorRect/classroomstatus/lock" to="." method="_on_lock_released"]
+[connection signal="released" from="ColorRect/classroomstatus/right" to="." method="_on_right_released"]
+[connection signal="released" from="ColorRect/classroomstatus/cont" to="." method="_on_continue_released"]
+[connection signal="released" from="ColorRect/classroomstatus/upload" to="." method="_on_upload_released"]
+[connection signal="released" from="ColorRect/classroomcr/train2" to="." method="classroom_create"]

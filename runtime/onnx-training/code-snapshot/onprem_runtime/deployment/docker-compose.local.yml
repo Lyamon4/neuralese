@@ -1,0 +1,23 @@
+name: neuralese-onprem
+
+services:
+  runtime:
+    platform: linux/amd64
+    build:
+      context: ../..
+      dockerfile: onprem_runtime/deployment/Dockerfile
+    env_file:
+      - .env.example
+    environment:
+      NEURALESE_RUNTIME_MODE: ${NEURALESE_RUNTIME_MODE:-local_school}
+      NEURALESE_STORAGE_DIR: ${NEURALESE_STORAGE_DIR:-/data/jobs}
+      NEURALESE_PUBLIC_DATASET_DIR: ${NEURALESE_PUBLIC_DATASET_DIR:-/data/datasets}
+      NEURALESE_MAX_PARALLEL_JOBS: ${NEURALESE_MAX_PARALLEL_JOBS:-1}
+      NEURALESE_PORT: ${NEURALESE_PORT:-8010}
+      NEURALESE_AUTH_TOKEN: ${NEURALESE_AUTH_TOKEN:-}
+    ports:
+      - "${NEURALESE_PORT:-8010}:8010"
+    volumes:
+      - ./data/jobs:/data/jobs
+      - ./data/datasets:/data/datasets:ro
+    restart: unless-stopped

@@ -1,0 +1,10 @@
+config_version=5
+
+[application]
+config/name="Neuralese Syntax Compiler"
+config/features=PackedStringArray("4.3")
+run/main_loop_type="SyntaxParityRunner"
+run/main_scene="res://main.tscn"
+
+[editor_plugins]
+enabled=PackedStringArray("res://addons/yaml/plugin.cfg")

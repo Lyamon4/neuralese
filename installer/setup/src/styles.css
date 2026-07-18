@@ -1,0 +1,276 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  color: #ffffff;
+  background: transparent;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.window-shell {
+  width: 520px;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #171721;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.titlebar {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 8px 18px;
+  user-select: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.window-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.window-btn {
+  width: 30px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.window-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.window-btn.close:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.content {
+  height: calc(100% - 52px);
+  padding: 26px 30px 28px;
+}
+
+.screen {
+  display: none;
+  height: 100%;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0 0 22px;
+  font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 560;
+  letter-spacing: -0.035em;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.path-row {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.path-input {
+  width: 100%;
+  height: 42px;
+  min-width: 0;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  outline: none;
+  background: #171721;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+  cursor: default;
+}
+
+.path-input:focus {
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.actions.split {
+  justify-content: flex-start;
+}
+
+.primary-btn,
+.secondary-btn {
+  height: 38px;
+  min-width: 94px;
+  padding: 0 18px;
+  border-radius: 11px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.primary-btn {
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.primary-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.secondary-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.secondary-btn:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+.secondary-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.browse-btn {
+  min-width: 78px;
+  padding: 0 12px;
+}
+
+.screen-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.progress-percent {
+  color: rgba(255, 255, 255, 0.60);
+  font-size: 13px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: #ffffff;
+  transition: width 140ms linear;
+}
+
+.status-text {
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.file-text {
+  margin-top: 8px;
+  max-width: 100%;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 11px;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.error-text {
+  margin-top: 4px;
+  max-height: 112px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  line-height: 1.45;
+}

@@ -1,0 +1,273 @@
+lesson_title: Урок 3 — Обучаем модель Iris
+flow:
+- step welcome:
+    title: Что значит “обучить” модель
+    actions:
+    - explain:
+        text:
+        - До этого мы собирали модель как схему. Теперь научим её на примерах.
+        - 'Обучение похоже на тренировку: модель делает попытку, сравнивает ответ с правильным и чуть-чуть меняет свои внутренние
+          веса.'
+        - 'Сегодня мы соберём полный путь: данные Iris → запуск модели → сравнение с правильным ответом → шаг обучения.'
+        wait: next
+    - explain_next: {}
+- step build_iris_model_start:
+    title: 'Сначала вход: четыре измерения цветка'
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=BEIGE][b]Ввод1D[/b][/color] для Iris.
+        - 'Добавь 4 признака типа [b]float[/b]: sepal_length, sepal_width, petal_length, petal_width.'
+        - Модель будет смотреть только на эти четыре числа и по ним угадывать вид цветка.
+        wait: none
+    - create:
+        inp: input_1d
+    - require:
+        config:
+          node: inp
+          exprs:
+            input_features: input_features.size() == 4
+    - prohibit_deletion: inp
+    - confetti:
+        bind: inp
+    - explain_next: {}
+- step build_iris_hidden:
+    title: Слой, который учится замечать паттерны
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=LIGHT_SKY_BLUE][b]Активация[/b][/color] ReLU и [color=CADET_BLUE][b]ПлотнСлой[/b][/color] на [b]8
+          нейронов[/b].
+        - Соедини [color=BEIGE]Ввод1D[/color] с портом данных слоя, а [color=LIGHT_SKY_BLUE]Активация[/color] — с верхним
+          портом активации.
+        - Этот скрытый слой будет искать связи между четырьмя измерениями цветка.
+        wait: none
+    - create:
+        relu: neuron
+        hidden: layer
+    - require:
+        topology:
+          root: inp
+          nodes:
+            inp:
+              type: input_1d
+            relu:
+              type: neuron
+              config:
+                activ: == 'relu'
+            hidden:
+              type: layer
+              config:
+                neuron_count: == 8
+          edges:
+          - inp.0 -> hidden.1
+          - relu.0 -> hidden.0
+    - prohibit_deletion:
+      - relu
+      - hidden
+    - confetti:
+        targets:
+        - bind: relu
+        - bind: hidden
+    - explain_next: {}
+- step build_iris_head:
+    title: 'Выход: три класса Iris'
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Добавь второй [color=CADET_BLUE][b]ПлотнСлой[/b][/color] на [b]3 нейрона[/b].
+        - После него добавь [color=PINK][b]Софтмакс[/b][/color] и [color=WHITE][b]ВыводОтвет[/b][/color].
+        - 'В группе ответов укажи title [b]iris[/b] и метки: setosa, versicolor, virginica.'
+        wait: none
+    - create:
+        logits: layer
+        soft: softmax
+        labels: classifier
+    - require:
+        topology:
+          root: inp
+          nodes:
+            inp:
+              type: input_1d
+            hidden:
+              type: layer
+              config:
+                neuron_count: == 8
+            logits:
+              type: layer
+              config:
+                neuron_count: == 3
+            soft:
+              type: softmax
+            labels:
+              type: classifier
+              config:
+                label_names: label_names.size() == 3
+          edges:
+          - inp.0 -> hidden.1
+          - hidden.0 -> logits.1
+          - logits.0 -> soft.0
+          - soft.0 -> labels.0
+    - prohibit_deletion:
+      - logits
+      - soft
+      - labels
+    - confetti:
+        targets:
+        - bind: logits
+        - bind: soft
+        - bind: labels
+    - explain:
+        text:
+        - 'Теперь модель умеет выдавать не просто числа, а понятный ответ: какой вид цветка она выбрала.'
+        wait: next
+    - explain_next: {}
+- step dataset_chain:
+    title: Датасет и старт обучающей цепочки
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Чтобы учиться, модели нужны примеры. Создай [color=PLUM][b]Датасет[/b][/color] и выбери dataset_name [b]iris[/b].
+        - После него создай [color=LIGHT_STEEL_BLUE][b]НачОбучения[/b][/color] и соедини [color=PLUM]Датасет[/color] → [color=LIGHT_STEEL_BLUE]НачОбучения[/color].
+        - '[color=LIGHT_STEEL_BLUE]НачОбучения[/color] начинает поток обучающих примеров: по одному примеру модель будет пробовать
+          отвечать и исправляться.'
+        wait: none
+    - create:
+        data: dataset
+        begin: train_begin
+    - require:
+        topology:
+          root: data
+          nodes:
+            data:
+              type: dataset
+              config:
+                dataset_name: == 'iris'
+            begin:
+              type: train_begin
+          edges:
+          - data.0 -> begin.0
+    - prohibit_deletion:
+      - data
+      - begin
+    - confetti:
+        targets:
+        - bind: data
+        - bind: begin
+    - explain_next: {}
+- step run_model_and_map:
+    title: Запускаем модель на обучающих примерах
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=LIGHT_STEEL_BLUE][b]ЗапускМодели[/b][/color] и [color=LIGHT_STEEL_BLUE][b]КартаВывода[/b][/color].
+        - Соедини [color=LIGHT_STEEL_BLUE]НачОбучения[/color] → [color=LIGHT_STEEL_BLUE]ЗапускМодели[/color] → [color=LIGHT_STEEL_BLUE]КартаВывода[/color].
+        wait: none
+    - create:
+        run: run_model
+        map: output_map
+    - require:
+        topology:
+          root: data
+          nodes:
+            data:
+              type: dataset
+              config:
+                dataset_name: == 'iris'
+            begin:
+              type: train_begin
+            run:
+              type: run_model
+              config:
+                branches: branches.size() > 0
+            map:
+              type: output_map
+          edges:
+          - data.0 -> begin.0
+          - begin.0 -> run.0
+          - run.0 -> map.0
+    - prohibit_deletion:
+      - run
+      - map
+    - confetti:
+        targets:
+        - bind: run
+        - bind: map
+    - explain:
+        text:
+        - 'В [color=LIGHT_STEEL_BLUE]ЗапускМодели[/color] настрой ветку [b]iris[/b]: loss [b]cross_entropy[/b], mapped target
+          [b]species[/b].'
+        - 'Так мы говорим системе: “сравни ответ модели iris с правильным видом цветка из датасета”.'
+        wait: next
+    - explain_next: {}
+- step train_step:
+    title: Шаг, который меняет модель
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=LIGHT_STEEL_BLUE][b]ШагОбучения[/b][/color] и подключи его после [color=LIGHT_STEEL_BLUE]КартаВывода[/color].
+        - Выбери optimizer [b]adam[/b] и learning rate [b]1[/b].
+        wait: none
+    - create:
+        step: train_input
+    - require:
+        topology:
+          root: data
+          nodes:
+            data:
+              type: dataset
+              config:
+                dataset_name: == 'iris'
+            begin:
+              type: train_begin
+            run:
+              type: run_model
+            map:
+              type: output_map
+            step:
+              type: train_input
+              config:
+                optimizer: == 'adam'
+                lr: == 1
+          edges:
+          - data.0 -> begin.0
+          - begin.0 -> run.0
+          - run.0 -> map.0
+          - map.0 -> step.0
+    - prohibit_deletion: step
+    - confetti:
+        bind: step
+    - explain:
+        text:
+        - '[color=LIGHT_STEEL_BLUE]ШагОбучения[/color] — это момент, когда модель действительно учится: ошибка превращается
+          в маленькое изменение весов.'
+        wait: next
+    - explain_next: {}
+- step start_training:
+    title: Запускаем обучение
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - 'Теперь всё готово: есть модель, есть датасет и есть цепочка обучения.'
+        - Запусти тренировку и понаблюдай, как модель постепенно становится лучше.
+        - 'Главная идея: нейросеть не знает ответ заранее. Она учится на многих маленьких попытках.'
+        wait: none
+    - require:
+        event: train
+    - confetti:
+        whole_screen: true
+        wait: false
+    - explain:
+        text:
+        - Отличная работа. Ты собрал полный цикл обучения для Iris.
+        - На следующем уроке перейдём к изображениям — там вместо списка чисел появится 2D-картинка, а значит понадобятся
+          свёртки и пуллинг.
+        wait: next
+    - explain_next: {}

@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnhvvwjmwgaag"]
+
+[ext_resource type="Shader" uid="uid://c3qd16iom0jv8" path="res://scripts/aiload.gdshader" id="1_2q7gl"]
+[ext_resource type="Script" uid="uid://do5hthod4hc25" path="res://scripts/ccc.gd" id="2_kj870"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7trxg"]
+shader = ExtResource("1_2q7gl")
+shader_parameter/speed = 1.8220000832851202
+shader_parameter/alpha_power = 1.0
+shader_parameter/breathe_amp = 0.0690000032775
+shader_parameter/ring_radius = 0.34500000800529
+shader_parameter/ring_thickness = 0.061000001500470004
+shader_parameter/ring_softness = 0.0290000013775
+shader_parameter/warp_freq = 3.05200004997
+shader_parameter/warp_amp = 0.0110000005225
+shader_parameter/thickness_amp = 0.2270000107825
+shader_parameter/thickness_lobes = 2.1200000532
+shader_parameter/softness_amp = 1.0
+shader_parameter/softness_freq = 3.74800015428
+shader_parameter/flow_density = 2.18400005624
+shader_parameter/flow_amp = 0.070000003325
+shader_parameter/bloom_intensity = 0.306000014535
+shader_parameter/bloom_width = 0.22000001045
+shader_parameter/bloom_var_amp = 0.8770000416575
+shader_parameter/glow = 0.4550000216125
+shader_parameter/c0 = Color(0.95, 0.07599998, 0.4110332, 1)
+shader_parameter/c1 = Color(0.78, 0.72800004, 0, 1)
+shader_parameter/c2 = Color(0.85, 0.15300001, 0.8035334, 1)
+
+[node name="Aiload" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7trxg")
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 400.0
+mouse_filter = 2
+script = ExtResource("2_kj870")
+MARGIN = -300.0
+NOISE_STRENGTH_MOVE = 0.1

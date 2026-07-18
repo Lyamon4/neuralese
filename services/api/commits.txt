@@ -1,0 +1,1521 @@
+===COMMIT===
+Hash: 6bf6e874b5e898ecce6ce02b308ee516430055fa
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2026-02-12 10:46:12 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: b32ed1a1676a10f7a09f82e5994dfdcc0b3f4410
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2026-02-12 10:45:46 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 2c833a9e34c9f704a18f8bd31f2aacc9e73244aa
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2026-02-12 10:38:07 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 4886f2ed63302e19ee9c7e9915799b0cef1f5dfc
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2026-01-18 14:25:22 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: c161e118cb6052fd414bca7637ebf0cdf1423828
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2026-01-05 16:57:56 +0500
+Message:
+madness
+
+
+===COMMIT===
+Hash: ca8747fd14d99226e111a3722157737430323bd2
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2026-01-04 11:06:09 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 7ddcc343ee2f1fda47648921b537da544d810a45
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-12-30 23:03:57 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 60d6eb46ac57c79dc1626db2af45de1ff029c069
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-12-26 22:08:47 +0500
+Message:
+Delete ~libluaapi.windows.template_debug.x86_64.dll
+
+
+===COMMIT===
+Hash: d8bf0778eb5bdb09985b5f17ee8da70357169a26
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-12-26 22:08:25 +0500
+Message:
+lessons
+
+
+===COMMIT===
+Hash: 3069d92afc8d983f1e348e5166ab6abec1928028
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-12-16 22:30:46 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: a588b5666829719f95532d97f1b22c0d918f294c
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-12-14 17:32:32 +0500
+Message:
+stable
+
+
+===COMMIT===
+Hash: 812297d58e5b761c8c29d336dbf2bb0523dc1e26
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-12-09 23:38:18 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: a1f2909321bb7790bafc16b613a142001fc6f728
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-12-06 18:38:58 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 3d0d088cb29949821c29fc5c5a50d8192839054c
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-30 10:19:34 +0500
+Message:
+stuff
+
+
+===COMMIT===
+Hash: 9ed56c453a8d274b03b87ac4489e26b9dc9cea22
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-28 08:04:22 +0500
+Message:
+smth
+
+
+===COMMIT===
+Hash: ba3198ce17a09d0012e4cb5fac2facf0e650933a
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-26 22:54:46 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 347a9929dde7b4de35164792929f05f1621e42f4
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-26 07:24:53 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 13124ea65053518ffa3e472ae7a186933ee31d67
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-24 08:12:02 +0500
+Message:
+DSS
+
+
+===COMMIT===
+Hash: 26c351edbdf87d0828f34e08b098f92a6dee84e3
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-23 17:01:08 +0500
+Message:
+pre ds load
+
+
+===COMMIT===
+Hash: 87dac4a089ca8349a7bec748f61db831aadf14ec
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-22 00:15:13 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: a6b485351379e571f88053817cfacba937ceda21
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-21 00:19:12 +0500
+Message:
+loc
+
+
+===COMMIT===
+Hash: 06bcde7124b028cbf94fd5efc2649b670f637988
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-19 23:22:22 +0500
+Message:
+mic
+
+
+===COMMIT===
+Hash: f76cf7ce23ef33c25f80224487e7477b1161c482
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-18 23:16:02 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 57a6eea175d514408ad1240eba3a72859f6099b3
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-17 23:31:01 +0500
+Message:
+bf/c
+
+
+===COMMIT===
+Hash: 7e799e00e7a61d7a2c08a0992dec5f3e02fb766d
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-16 22:22:27 +0500
+Message:
+concat
+
+
+===COMMIT===
+Hash: e48aaa936f56717c62acb225e475704dde9d2a8d
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-16 12:10:08 +0500
+Message:
+comm
+
+
+===COMMIT===
+Hash: b622e2293b5859d58ab9e4cb770d0f1d806db067
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-14 09:39:30 +0500
+Message:
+float
+
+
+===COMMIT===
+Hash: 5030626e55744089decfb718093c26419fed3efe
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-13 21:47:30 +0500
+Message:
+reg
+
+
+===COMMIT===
+Hash: 4f955ffbe93262ca6f334ecbb1672467bfd7e67e
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-12 22:37:56 +0500
+Message:
+com
+
+
+===COMMIT===
+Hash: 88442ae6748b14e0d5a89ad4466cf8e2604a8649
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-10 22:36:15 +0500
+Message:
+csv
+
+
+===COMMIT===
+Hash: bb0222e6de2b932c1ed6e1a4782d4d41bece686d
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-09 23:59:59 +0500
+Message:
+stuff
+
+
+===COMMIT===
+Hash: 40c1ba0baa604ba53ccba54baea2cf2931132e05
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-09 00:32:22 +0500
+Message:
+billion changes
+
+
+===COMMIT===
+Hash: 70f4c5b0b730114e110f08fb92c2a88e8521d861
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-08 17:58:12 +0500
+Message:
+in case my laptop explodes
+
+
+===COMMIT===
+Hash: ca1b5bfcca792055fae6c0767278c94ed4cfb012
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-08 10:01:13 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: f2c2abb0f6d4ae0041980efdf49318a152cfcd89
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-05 13:53:00 +0500
+Message:
+some
+
+
+===COMMIT===
+Hash: 36849e31f9e083c3f578b85ba31eea47751390e1
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-04 22:03:02 +0500
+Message:
+convinence
+
+
+===COMMIT===
+Hash: 74ebd04fde570c7dd89649a4430abfd82bf074f7
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-04 20:50:08 +0500
+Message:
+comfort
+
+
+===COMMIT===
+Hash: 1dc2dbbe50f54bcff1acfb3308c04d92e9d0db50
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-11-01 21:44:30 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 5c622ccaa2486d181f0842e0f9d304fa68747ed3
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-31 21:11:19 +0500
+Message:
+validation shit
+
+
+===COMMIT===
+Hash: 61a34156eb384806e4c708a5daf6c804af4340d4
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-30 21:37:55 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 9c07cdf1d87492a5bac437752ce5906f53cd5d6f
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-28 19:13:15 +0500
+Message:
+beg
+
+
+===COMMIT===
+Hash: 7ebeacd6f0675a06dd2e4d1bc3eb64d26823b266
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-27 22:14:35 +0500
+Message:
+marisa
+
+
+===COMMIT===
+Hash: d0eca80fc798fd1d12f59070569a37ce2ebbd2ac
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-25 23:32:55 +0500
+Message:
+test
+
+
+===COMMIT===
+Hash: 47a1c1ca8dccaf9736f31aa72dd090e3ab438e72
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-23 23:03:02 +0500
+Message:
+sewerslvt
+
+
+===COMMIT===
+Hash: 1e4fb351941fca337c0960d9df3268d183be4ed4
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-23 08:00:02 +0500
+Message:
+ai
+
+
+===COMMIT===
+Hash: b4210a6931c17e5cf502c3cb9fb3f4ba08964a13
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-23 07:59:07 +0500
+Message:
+ai stuff
+
+
+===COMMIT===
+Hash: 8a9040a8f9f2fc8d32f801976373d1f04f4d7e6d
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-22 22:08:09 +0500
+Message:
+ai stuff
+
+
+===COMMIT===
+Hash: c08ea5aa2bc3c51a978bf4852d8e5b3035d6b4af
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-21 22:47:48 +0500
+Message:
+ai...
+
+
+===COMMIT===
+Hash: dcdacf311cfd6c90b72bec6bde05012189ebc56c
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-21 06:59:40 +0500
+Message:
+comm
+
+
+===COMMIT===
+Hash: 3defdba207e509c2481b11653d1c95b0db09bd7d
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-20 22:01:27 +0500
+Message:
+ui
+
+
+===COMMIT===
+Hash: f4a1a32c39357472da6e29e0c48009196a48c1e9
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-19 22:02:59 +0500
+Message:
+test
+
+
+===COMMIT===
+Hash: b59de39daf8721cba0ed1a5cabb482446686c4f3
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-19 13:16:26 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: 70010de92b477690209aa8bb6409f7a033c36aab
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-18 21:22:45 +0500
+Message:
+upfdare
+
+
+===COMMIT===
+Hash: d8acd8650356870f09b4e75c40ec1748741fa4d9
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-17 22:45:12 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 3da1b75cded4901cc9b6232e7c076e2cad7a46e5
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-17 14:33:57 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: cc503aeb2c1f8059575ab8c92e61b69652c27404
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-16 22:21:29 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: 5da58279059d3cc8267b299fe1df34b4e9b90ba2
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-16 07:39:25 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: be58d6bd5185e521388505e8055408b629cbaf5b
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-15 22:27:57 +0500
+Message:
+ai building, pre export
+
+
+===COMMIT===
+Hash: 6cd4406cd2182f424377c7fabd7b1871a918c25e
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-15 07:25:48 +0500
+Message:
+stuff
+
+
+===COMMIT===
+Hash: 35fd06d2db73e30f9e8af81b78f87bfb01a63802
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-14 07:41:35 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 60f90d8e6d211cf8b2a3187a34745882d8d6f734
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-13 22:24:17 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 3fa89379d85167607f63a7f5f09783a2fe079e9c
+Author: СѓС‡РµРЅРёРє8
+Email: nicekatya2020@gmail.com
+Date: 2025-10-13 16:40:36 +0600
+Message:
+a
+
+
+===COMMIT===
+Hash: 4050fa6c5b06d1a85f857091761de35a08ae1664
+Author: СѓС‡РµРЅРёРє8
+Email: nicekatya2020@gmail.com
+Date: 2025-10-13 16:34:14 +0600
+Message:
+informatics
+
+
+===COMMIT===
+Hash: 09d9d13816d09f6d417772656daeef17a95eadf4
+Author: СѓС‡РµРЅРёРє8
+Email: nye.ivangay@gmail.com
+Date: 2025-10-13 15:57:30 +0600
+Message:
+a
+
+
+===COMMIT===
+Hash: 09ba2f7cadf04980a2fc408ff097b80e543c9233
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-13 07:51:05 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: d0c047172c216e1b2c7ae91fdac59e26430eebab
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-13 07:48:55 +0500
+Message:
+something
+
+
+===COMMIT===
+Hash: 6a7e0a284a1d6fa8d1e5f962821afd34ea5e9793
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-12 23:13:31 +0500
+Message:
+ai
+
+
+===COMMIT===
+Hash: 34a3909745b28361b186d3bb518e13b1193f608d
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-11 23:16:27 +0500
+Message:
+remote save/load done
+remote save/load done, moving to implementing AI assistance
+
+
+===COMMIT===
+Hash: d1ea474322aac391b68f8cdfbd0dc7cfde46d9c4
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-11 20:48:29 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 1dcf15cf285c4563b4522be6488e6de2cab24d5a
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-11 18:58:36 +0500
+Message:
+save/load system done
+
+
+===COMMIT===
+Hash: 66a0d8ea0a5c2112d490e336b4ba41b5f0a5ee83
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-10 07:33:45 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: ae2ae92b929a998663459a63822a0eb5e160556f
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-08 07:12:00 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: a938e61c2147615586c468001ad687cc328e09a7
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-06 20:55:19 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 0efb29d11e18cf6b117e0f90847ce5d9c38033bf
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-06 20:48:57 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: c81fcd8782fa0e62d4bc50625521c475d8c3e7dd
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-06 18:50:50 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 63f30a0e1aea1c5b6ed44097bb82fcfd72ac52fc
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-06 18:09:20 +0500
+Message:
+client side saving
+
+
+===COMMIT===
+Hash: 37e4e26f1e0cb8b7c982aab1f07be4d944644480
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-05 22:23:11 +0500
+Message:
+peter griffin
+
+
+===COMMIT===
+Hash: f8ca7811f75a37d9e57378aa6089a2cacbcc5b30
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-05 22:19:31 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 95c388b64baee7d74d049c72d3337341bf6d10f7
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-04 21:53:26 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: ea1a880e2d3cc65d57c4a8ab539d165fe72c34cf
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-03 07:38:06 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 5974eef2a2cf527a9a9e10868d3ea56fff2669d8
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-01 22:36:48 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 0c86adaf0b59baed2b97f95aaca317ab85b96897
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-01 22:25:52 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: d91edc6be37ba48e5f5202c487655e89506002a2
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-01 08:58:39 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 10b180f0edad5efce897fb893510937364a407f2
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-10-01 07:33:12 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: be9bd736294d4b10013c202c40dd24def7d98367
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-29 21:54:29 +0500
+Message:
+lua
+
+
+===COMMIT===
+Hash: 4afd065ed4b2693042b8124acf43fe4367c4b0bc
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-28 20:34:10 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: a7f4da9dc394ffdf2b3eaf25821eb25e2e6f976c
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-28 20:32:58 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 1998cea1f9872a737dc8c235c1293bd884f3917d
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-28 20:15:23 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 9d49ef0f868ef38709fa55bb926636318f8a65c3
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-28 14:35:00 +0500
+Message:
+stretch
+
+
+===COMMIT===
+Hash: 23736c9df10ecaaf40dd4514ca7d14b0263fc359
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-28 10:53:14 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 3c619a82e1d733a66d15b47c40e50053771b3274
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-27 22:35:39 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 9ef03bbc71f6cc0660565cea90c42c8b830236cf
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-25 22:52:40 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: fef13181137ff67cd23b419130ce898415a7bdad
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-25 22:47:11 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: e973392f04bf04229187106beb1f162493509e19
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-24 07:44:07 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: bb2e88907352f854b60734d6349e12c3a8f5c2da
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-23 22:04:06 +0500
+Message:
+new stuff
+
+
+===COMMIT===
+Hash: a0d9a1ba729875d43b6f7e69ac0f6d3fc789fbab
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-09 21:22:46 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: d37e600cab744dd2d23cb2d06c0f259ce593e0b6
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-09 07:40:15 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: f26f44fe25bcec0377d7b91055f16bf7c5095122
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-08 21:51:12 +0500
+Message:
+...
+
+
+===COMMIT===
+Hash: d7864fb1a86d48e2ad003b89c77338ad0e9326d7
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-08 19:14:57 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: bcbdb61ebacffb0e9b5a3893ff170f080720100d
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-07 16:26:21 +0500
+Message:
+./.
+
+
+===COMMIT===
+Hash: 81a9cad4baa6a40fd8a1c26110d8fb276b0a2fdc
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-07 14:59:01 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 285ac39ca57e2b50d25e9cb04c7461bd637d83e1
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-06 17:31:06 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 776af410b89cd03b539186381b9408b31a75b89c
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-05 20:28:46 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: ad73367f11dfee2a7ddb359f00c43c4589fd7c10
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-05 08:06:35 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: eb6bbbff79b702aace7d7931582dc7e7159a5885
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-04 07:39:43 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 2c2d9fcd8ec4cb564b2493ac5b5acbcb3ce92d83
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-03 21:16:23 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: ac3a542b87f6781fb157983ad5dcb5b84af4fc31
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-03 08:00:17 +0500
+Message:
+..
+
+
+===COMMIT===
+Hash: c15517afa0b34d2e6fc2cd83795999976e289f43
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-02 21:34:05 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 871983faa4ed45c58f6ccfa85ce8700b018a8849
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-09-01 22:00:20 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 7fe4c7c1704a225c1151b364ea5bcdb640b3bc94
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-31 10:32:41 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: eb7babd93498dbaf82446507826c2f60ac2d0187
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-29 23:17:10 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 3ec74fe68812defbb2c253ee5b66287ff4dd9d57
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-26 21:43:42 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: 2100b26f0a604715506bbfc445a95700cbe46098
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-25 21:57:24 +0500
+Message:
+miu
+
+
+===COMMIT===
+Hash: f4f912a6785e14abcb8e933917d1a22762f9161a
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-24 13:43:32 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 30f0b2ee57ba5ecab0d8a50a9c77e638e09ccbc0
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-23 11:19:09 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: bc8d6e11a74798c464af11f3f05d0fe20fcb7320
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-20 21:48:58 +0500
+Message:
+attention is all u need
+
+
+===COMMIT===
+Hash: 676a19f1a703e001278acfccd16c40e254927cee
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-19 21:57:31 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 4eb1c38d8527fde8bacb51e9f6b1388f226cd1ac
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-19 13:10:56 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 1dc17500a8ea4290929abdd5bc014c2fd5d4b11c
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-18 20:27:18 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: 8749f8051e441f079d9621bf68c2f82cae1a6f1a
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-18 20:26:20 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: beb17e79096cf3410c219aec89d18ca8146577ef
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-18 13:13:50 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: fbb52efb53de30768d89da88cadb2b56f5d55bc6
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-18 13:04:47 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 36938825ca44fb71f09a97dca07b4bafb14f3a98
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-17 14:16:15 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: d4f4e222ed90bf977b54d5efd75d7302c269cfe4
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-16 22:12:56 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 4387a9ad5daf2dcb24e5ad4ee49f1dc9e6a1625b
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-16 15:31:11 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 51e4ce49b956f133bd139e1b194868fb7b46e22c
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-16 14:06:54 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 753db069046c249ddc49bfbda9fe1df69a33b6b2
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-15 23:24:24 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: 81bc71c92ac95123fa9d98554a8e9d7c7c708ec9
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-15 23:08:42 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: e5bf3f0ab023f0d5db4bc8071bcb0dcce80f2227
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-15 16:45:05 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 7299db27e4739718b5751adbf160f4d89e59a64a
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-15 14:36:19 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: b957ae2ea5ea908290af66e1eb88fd28e7e5247f
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-13 19:04:59 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 6650b7bb11bcce3e1409ab8635130e6bcc4680f8
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-13 15:22:52 +0500
+Message:
+deltas
+
+
+===COMMIT===
+Hash: b6c06acac2ee914a6b617116d77287b2a97497a8
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-12 21:42:49 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: ab98409f5676b5a5519264c2069bf06d6416b01f
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-12 16:12:34 +0500
+Message:
+/
+
+
+===COMMIT===
+Hash: 4b4415dffaeb66c54f7a8cdf6224c0a6ce2ff0de
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-12 13:55:04 +0500
+Message:
+pre organize
+
+
+===COMMIT===
+Hash: e7cd3ac54046190d9bbb7796fdfd0011257a252e
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-12 11:09:10 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 41c969cb57ef584e60ffa043a603cbdbb98b18e4
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-10 10:59:23 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: a1da7f3aede22b2f0614e1314cc7e8d320e1d2fd
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-10 10:49:11 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 43d6b3bd0947edb8c7ee99d28412c6af25e3f8ec
+Author: hex358
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-10 09:44:15 +0500
+Message:
+Organize files into directories and update paths
+
+
+===COMMIT===
+Hash: 1edcf7cfd8cba39283c57ea0c3fa88145f15802e
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-09 20:50:35 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: ad1bff733e862d9f57c74c6888321a21f899c1e7
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-08 21:18:57 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: fc83c9f072506ed1afd30cb6b8a9b682b36d72bc
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-07 23:37:47 +0500
+Message:
+.СЋСЋСЋСЋ
+
+
+===COMMIT===
+Hash: 40f41b572dc7a29dbc849eb0321813f040e9aea9
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-07 17:00:33 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: b7c9c9814318a62df374a07201aa2fe407219920
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-06 21:25:01 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 16a6ec9e2cef33da3c4603807862419b597aedcb
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-06 15:36:41 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: df7d68df54197630f56312d7a79cb73f7f4e88c5
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-06 10:27:25 +0500
+Message:
+backup
+
+
+===COMMIT===
+Hash: 2ea5a7743f5acb963797a2c77dc80b850360b462
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-04 22:41:39 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: fc9d7cd065267447cdae47c90073f09fd7fb7bdd
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-03 15:04:01 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 4b1dafeb1d0cd9868561fe1af858807a2a387634
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-03 12:46:14 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 90f59a5242505a0a7e6a262c4c71c57c5a58ac97
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-03 12:45:16 +0500
+Message:
+scroll
+
+
+===COMMIT===
+Hash: d1f589f37063c1bc2fd7385166a47cd1eec05948
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-02 14:15:40 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: 477aa6da9d5734db18a2b5ed705f3c998fa67586
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-01 21:28:56 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: d3647c9a6ffe5184290bb64bd48fbb5df7632d8c
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-01 19:56:24 +0500
+Message:
+node
+
+
+===COMMIT===
+Hash: 49c0572b39f3c3559ab2b3aae7da45228050c46b
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-01 12:59:28 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 1ddd4bf05b3d8f3d27615b1f427c63a9bc6ff78f
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-08-01 11:37:58 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 70d78ca0771d61c0331aca77423000b1c78b29e3
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-31 21:57:34 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 397babf46889b6be42cdb5133aac00d61bd7a1fd
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-31 16:10:29 +0500
+Message:
+,
+
+
+===COMMIT===
+Hash: 61de9e8e92760e3fede63e1834bfea402eda9523
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-31 13:55:51 +0500
+Message:
+СЋ
+
+
+===COMMIT===
+Hash: 331c80a74f1ac3d1cfe8ea76bb696164f2942ffd
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-30 15:04:01 +0500
+Message:
+graphs
+
+
+===COMMIT===
+Hash: ca6b48a5ec199c22a1324428dabd054a0376b260
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-29 22:24:25 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 9877ad073a9e29201742ad97b6e1331d491978fd
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-29 14:33:59 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 7fa6d27d520c9acd4ca79d2834ecdd618901bfc3
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-29 10:03:40 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 2020dd618caf32d5fd00c9e214066d0c5c52c229
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-28 21:11:43 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 9f6108671ef170ea3555dbab70a6502004e2732f
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-28 13:11:21 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: e829152da74b86b183a30064b5ab0cffbcc436fa
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-27 20:42:00 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 600b8823a3adbe8fa8922c200291811d8022f73a
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-27 17:48:05 +0500
+Message:
+.
+
+
+===COMMIT===
+Hash: 1734168afe0a115ef58e1bccb2f450e47dfc4c86
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-26 20:05:53 +0500
+Message:
+init
+
+
+===COMMIT===
+Hash: fd431890c029cc9dc687baa3060f3a0a4a46d1f3
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-26 19:56:06 +0500
+Message:
+init
+
+
+===COMMIT===
+Hash: b15f49d3f27200acd164bcc86ea0f953161ef844
+Author: Hex358 // Pantone 358C
+Email: 165776088+hex358@users.noreply.github.com
+Date: 2025-07-26 19:50:19 +0500
+Message:
+Initial commit
+

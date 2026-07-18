@@ -1,0 +1,393 @@
+import "../fonts/Inter.ttf";
+import "../fonts/Montserrat.ttf";
+
+component WindowButton inherits Rectangle {
+    in property <image> icon;
+    callback clicked();
+
+    width: 30px;
+    height: 30px;
+    background: touch.has-hover ? #272734 : #00000000;
+    border-radius: 8px;
+
+    Image {
+        x: (parent.width - 14px) / 2;
+        y: (parent.height - 14px) / 2;
+        width: 14px;
+        height: 14px;
+        source: root.icon;
+        image-fit: contain;
+    }
+
+    touch := TouchArea {
+        width: parent.width;
+        height: parent.height;
+        clicked => { root.clicked(); }
+    }
+}
+
+component SetupButton inherits Rectangle {
+    in property <string> label;
+    in property <bool> primary: false;
+    callback clicked();
+
+    height: 42px;
+    background: touch.has-hover ? (root.primary ? #3d3d49 : #242430) : (root.primary ? #30303b : #1a1a24);
+    border-color: root.primary ? #676573 : #373646;
+    border-width: 1px;
+    border-radius: 12px;
+
+    Text {
+        width: parent.width;
+        height: parent.height;
+        text: root.label;
+        color: #f6f5fa;
+        font-family: "Inter";
+        font-size: 14px;
+        font-weight: 700;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+
+    touch := TouchArea {
+        width: parent.width;
+        height: parent.height;
+        clicked => { root.clicked(); }
+    }
+}
+
+export component AppWindow inherits Window {
+    width: 520px;
+    height: 320px;
+    title: "Neuralese Setup";
+    no-frame: true;
+    background: transparent;
+    in property <length> title-pad: 8px;
+    in property <length> title-brand-pad: 17px;
+    in property <length> pad: 32px;
+    in property <length> gap: 14px;
+    in property <length> bottom-pad: 36px;
+    in property <length> field-height: 42px;
+    in property <length> browse-width: 100px;
+    in property <length> action-width: 104px;
+
+    in-out property <string> install_path;
+    in-out property <int> screen: 0;
+    in-out property <float> progress: 0;
+    in-out property <string> phase;
+    in-out property <string> current_file;
+    in-out property <string> error_message;
+
+    callback browse_clicked();
+    callback install_clicked();
+    callback retry_clicked();
+    callback launch_clicked();
+    callback finish_clicked();
+    callback minimize_clicked();
+    callback close_clicked();
+    callback title_pressed();
+
+    Rectangle {
+        x: 0px;
+        y: 0px;
+        width: parent.width;
+        height: parent.height;
+        background: #171721;
+        border-color: #2d2c3a;
+        border-width: 1px;
+        border-radius: 20px;
+
+        Rectangle {
+            x: 0px;
+            y: 0px;
+            width: parent.width;
+            height: 48px;
+            background: #00000000;
+
+            drag-area := TouchArea {
+                x: 0px;
+                y: 0px;
+                width: parent.width - root.title-pad - 76px;
+                height: parent.height;
+                pointer-event(event) => {
+                    if (event.button == PointerEventButton.left && event.kind == PointerEventKind.down) {
+                        root.title_pressed();
+                    }
+                }
+            }
+
+            Image {
+                x: root.title-brand-pad;
+                y: (parent.height - 24px) / 2;
+                width: 24px;
+                height: 24px;
+                source: @image-url("../icons/icon.png");
+                image-fit: contain;
+            }
+
+            Text {
+                x: root.title-brand-pad + 38px;
+                y: 0px;
+                height: parent.height;
+                text: "Neuralese Setup";
+                color: #ffffff;
+                font-family: "Montserrat";
+                font-size: 15px;
+                font-weight: 700;
+                vertical-alignment: center;
+            }
+
+            WindowButton {
+                x: parent.width - root.title-pad - 70px;
+                y: (parent.height - self.height) / 2;
+                icon: @image-url("minimize.svg");
+                clicked => { root.minimize_clicked(); }
+            }
+
+            WindowButton {
+                x: parent.width - root.title-pad - 30px;
+                y: (parent.height - self.height) / 2;
+                icon: @image-url("close.svg");
+                clicked => { root.close_clicked(); }
+            }
+        }
+
+        // Ready screen
+        Rectangle {
+            visible: root.screen == 0;
+            x: root.pad;
+            y: 88px;
+            width: parent.width - root.pad * 2;
+            height: parent.height - 88px;
+            background: #00000000;
+
+            Text {
+                x: 0px;
+                y: 0px;
+                text: "Install";
+                color: #ffffff;
+                font-family: "Montserrat";
+                font-size: 28px;
+                font-weight: 700;
+            }
+
+            Text {
+                x: 0px;
+                y: 54px;
+                text: "Location";
+                color: #95929f;
+                font-family: "Inter";
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            Rectangle {
+                x: 0px;
+                y: 76px;
+                width: parent.width - root.gap - root.browse-width;
+                height: root.field-height;
+                background: #171721;
+                border-color: #393746;
+                border-width: 1px;
+                border-radius: 13px;
+
+                Text {
+                    x: 14px;
+                    y: 0px;
+                    width: parent.width - 28px;
+                    height: parent.height;
+                    text: root.install_path;
+                    color: #f0eef5;
+                    font-family: "Inter";
+                    font-size: 13px;
+                    font-weight: 600;
+                    vertical-alignment: center;
+                    overflow: elide;
+                }
+            }
+
+            SetupButton {
+                x: parent.width - root.browse-width;
+                y: 76px;
+                width: root.browse-width;
+                height: root.field-height;
+                label: "Browse";
+                clicked => { root.browse_clicked(); }
+            }
+
+            SetupButton {
+                x: parent.width - root.action-width;
+                y: parent.height - root.bottom-pad - root.field-height;
+                width: root.action-width;
+                primary: true;
+                label: "Install";
+                clicked => { root.install_clicked(); }
+            }
+        }
+
+        // Installing screen
+        Rectangle {
+            visible: root.screen == 1;
+            x: root.pad;
+            y: 84px;
+            width: parent.width - root.pad * 2;
+            height: parent.height - 84px;
+            background: #00000000;
+
+            Text {
+                x: 0px;
+                y: 0px;
+                text: "Installing";
+                color: #ffffff;
+                font-family: "Montserrat";
+                font-size: 28px;
+                font-weight: 700;
+            }
+
+            Text {
+                x: parent.width - 80px;
+                y: 8px;
+                width: 80px;
+                text: Math.round(root.progress) + "%";
+                color: #a7a4b0;
+                font-family: "Inter";
+                font-size: 15px;
+                font-weight: 700;
+                horizontal-alignment: right;
+            }
+
+            Rectangle {
+                x: 0px;
+                y: 58px;
+                width: parent.width;
+                height: 7px;
+                background: #2c2c36;
+                border-radius: 4px;
+                clip: true;
+
+                Rectangle {
+                    x: 0px;
+                    y: 0px;
+                    width: max(0px, min(parent.width, parent.width * root.progress / 100));
+                    height: parent.height;
+                    background: #f7f7fb;
+                    border-radius: 4px;
+                }
+            }
+
+            Text {
+                x: 0px;
+                y: 88px;
+                width: parent.width;
+                text: root.phase;
+                color: #d7d4df;
+                font-family: "Inter";
+                font-size: 14px;
+                font-weight: 700;
+                overflow: elide;
+            }
+
+            Text {
+                x: 0px;
+                y: 116px;
+                width: parent.width;
+                text: root.current_file;
+                color: #7d7a86;
+                font-family: "Inter";
+                font-size: 12px;
+                font-weight: 700;
+                overflow: elide;
+            }
+        }
+
+        // Done screen
+        Rectangle {
+            visible: root.screen == 2;
+            x: root.pad;
+            y: 88px;
+            width: parent.width - root.pad * 2;
+            height: parent.height - 88px;
+            background: #00000000;
+
+            Text {
+                x: 0px;
+                y: 0px;
+                text: "Installed";
+                color: #ffffff;
+                font-family: "Montserrat";
+                font-size: 28px;
+                font-weight: 700;
+            }
+
+            Text {
+                x: 0px;
+                y: 54px;
+                width: parent.width;
+                text: "Neuralese is ready to launch.";
+                color: #d7d4df;
+                font-family: "Inter";
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            SetupButton {
+                x: parent.width - root.action-width * 2 - root.gap;
+                y: parent.height - root.bottom-pad - root.field-height;
+                width: root.action-width;
+                primary: true;
+                label: "Launch";
+                clicked => { root.launch_clicked(); }
+            }
+
+            SetupButton {
+                x: parent.width - root.action-width;
+                y: parent.height - root.bottom-pad - root.field-height;
+                width: root.action-width;
+                primary: true;
+                label: "Finish";
+                clicked => { root.finish_clicked(); }
+            }
+        }
+
+        // Error screen
+        Rectangle {
+            visible: root.screen == 3;
+            x: root.pad;
+            y: 88px;
+            width: parent.width - root.pad * 2;
+            height: parent.height - 88px;
+            background: #00000000;
+
+            Text {
+                x: 0px;
+                y: 0px;
+                text: "Install failed";
+                color: #ffffff;
+                font-family: "Montserrat";
+                font-size: 28px;
+                font-weight: 700;
+            }
+
+            Text {
+                x: 0px;
+                y: 54px;
+                width: parent.width;
+                height: 92px;
+                text: root.error_message;
+                color: #d7d4df;
+                font-family: "Inter";
+                font-size: 13px;
+                wrap: word-wrap;
+            }
+
+            SetupButton {
+                x: parent.width - root.action-width;
+                y: parent.height - root.bottom-pad - root.field-height;
+                width: root.action-width;
+                primary: true;
+                label: "Retry";
+                clicked => { root.retry_clicked(); }
+            }
+        }
+    }
+}

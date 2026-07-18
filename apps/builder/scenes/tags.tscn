@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://3ysaq3xq2pay"]
+
+[ext_resource type="FontFile" uid="uid://d0xcffxoyd14k" path="res://game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="1_pjlq0"]
+[ext_resource type="Script" uid="uid://c5wj6kutpjb3x" path="res://scripts/h_flow_container.gd" id="1_voq10"]
+[ext_resource type="FontFile" uid="uid://cgdpqvf45jw1j" path="res://game_assets/fonts/JetBrainsSans[wght]-VF.ttf" id="2_qrx2d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2foe"]
+bg_color = Color(0, 0, 0, 0.3647059)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivxl0"]
+bg_color = Color(0, 0, 0, 0.3647059)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mp7q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_2x4gj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik8i5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaosw"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.21, 0.21, 0.21, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe0r0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="Theme" id="Theme_2a60n"]
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_pjlq0")
+LineEdit/font_sizes/font_size = 20
+LineEdit/fonts/font = ExtResource("1_pjlq0")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_j2foe")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_ivxl0")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_7mp7q")
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_2x4gj")
+RichTextLabel/fonts/bold_italics_font = ExtResource("2_qrx2d")
+RichTextLabel/fonts/italics_font = ExtResource("2_qrx2d")
+RichTextLabel/fonts/mono_font = ExtResource("2_qrx2d")
+RichTextLabel/fonts/normal_font = ExtResource("2_qrx2d")
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_ik8i5")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_iaosw")
+TextEdit/fonts/font = ExtResource("1_pjlq0")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_iaosw")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_iaosw")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_qe0r0")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_right = 235.0
+offset_bottom = 40.0
+theme = SubResource("Theme_2a60n")
+script = ExtResource("1_voq10")
+chip_color = Color(0.16, 0.16, 0.16, 1)
+font_size = 18
+border_color = Color(0.41, 0.41, 0.41, 1)

@@ -1,0 +1,711 @@
+[gd_scene format=3 uid="uid://coifi5ok0t7lo"]
+
+[ext_resource type="Script" uid="uid://cvwlkwi2gv6rf" path="res://scripts/input_1d.gd" id="1_gbdyi"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="2_7nifx"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="3_pxsba"]
+[ext_resource type="Script" uid="uid://ghud5xtg3ftl" path="res://scripts/conn_slider.gd" id="5_ca2jg"]
+[ext_resource type="Material" uid="uid://blkv556akjllh" path="res://resources/panel.tres" id="6_pm2c6"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="7_0td0h"]
+[ext_resource type="Theme" uid="uid://6b4rxqrmq3yb" path="res://resources/theme_no_aa.tres" id="8_6ybxu"]
+[ext_resource type="Script" uid="uid://bjncugq5805ty" path="res://scripts/label_auto_resize.gd" id="9_pm2c6"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="9_tpmcl"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="10_m57n5"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="11_273vt"]
+[ext_resource type="Resource" uid="uid://dpcfcsr4yvw5j" path="res://resources/activ.tres" id="12_gbdyi"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="12_ov5bv"]
+[ext_resource type="Script" uid="uid://b0wh6bvd6pdc5" path="res://scripts/validate_number.gd" id="13_7nifx"]
+[ext_resource type="PackedScene" uid="uid://3ysaq3xq2pay" path="res://scenes/tags.tscn" id="14_pxsba"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="15_nsvjh"]
+[ext_resource type="Script" uid="uid://bigshts3ul8jd" path="res://scripts/loc2a.gd" id="16_1fsst"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nifx"]
+bg_color = Color(0.24, 0.24, 0.24, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.59, 0.59, 0.59, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxsba"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 4.0
+
+[sub_resource type="Resource" id="Resource_nsvjh"]
+script = ExtResource("11_273vt")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.101
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.96
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_pxsba"]
+script = ExtResource("11_273vt")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.02
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.96
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsvjh"]
+bg_color = Color(0.3, 0.29880002, 0.27600002, 0.5137255)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fsst"]
+bg_color = Color(0.35, 0.345275, 0.31849998, 0.5137255)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="Resource" id="Resource_ca2jg"]
+script = ExtResource("11_273vt")
+hover_color = Color(1, 1, 1, 1)
+hover_mult = 1.4
+_hover_scale = 1.037
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_7nifx"]
+script = ExtResource("11_273vt")
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.0
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 1.0
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_gbdyi"]
+script = ExtResource("11_273vt")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" type="Control" unique_id=1291857126 node_paths=PackedStringArray("unit", "add_button", "input", "line_edit")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+mouse_filter = 2
+script = ExtResource("1_gbdyi")
+bottom_attached = true
+unit = NodePath("connection")
+add_button = NodePath("input/ColorRect2")
+input = NodePath("input")
+padding = -7.0
+line_edit = NodePath("input/LineEdit")
+unit_offset_y = 5.0
+target_size = 100.0
+size_add = -6.0
+input_y_add = 6.0
+server_typename = &"InputNode"
+is_input = true
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"input_features": []
+})
+
+[node name="o2" parent="." unique_id=1106655147 instance=ExtResource("12_ov5bv")]
+visible = false
+instance_shader_parameters/corner_radius_width_add = Vector2(4.5, 0)
+layout_mode = 0
+offset_left = -96.0
+offset_top = -57.0
+offset_right = -76.0
+offset_bottom = -36.0
+color = Color(0.7019608, 0.4, 1, 1)
+config_conn = true
+_accepted_datatypes = "netname"
+hint = 1
+server_name = &"RunModel"
+connection_type = 0
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(-1, 0)
+conn_count_keyword = "netname"
+gradient_color = Color(0.7019608, 0.4, 1, 1)
+
+[node name="o" parent="." unique_id=1121905084 instance=ExtResource("12_ov5bv")]
+instance_shader_parameters/corner_radius_width_add = Vector2(0, 0)
+instance_shader_parameters/extents = Vector4(0, 0, 0, 0)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 56.0
+offset_top = -32.0
+offset_right = 72.0
+offset_bottom = -11.0
+color = Color(1, 0.988235, 0.6, 1)
+_accepted_datatypes = "input1d"
+server_name = &"input_out"
+connection_type = 1
+area_paddings = Vector4(20, 20, 20, 20)
+multiple_splines = true
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+gradient_color = Color(1, 0.988235, 0.6, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2101102181]
+material = ExtResource("2_7nifx")
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/outline_color = Color(0.8901961, 0.8862745, 0.8, 1)
+instance_shader_parameters/tuning = Color(0.050980393, 0.050980393, 0.050980393, 0.5411765)
+layout_mode = 0
+offset_left = -87.0
+offset_top = -65.0
+offset_right = 63.0
+offset_bottom = 30.0
+
+[node name="root" type="Control" parent="ColorRect" unique_id=1259938506]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label2" type="Label" parent="ColorRect/root" unique_id=776030050]
+z_index = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 49.0
+scale = Vector2(0.48953125, 0.48953125)
+theme = ExtResource("3_pxsba")
+theme_override_colors/font_color = Color(1, 0.986667, 0.6, 1)
+text = "Input1D"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label2" unique_id=1878059063]
+script = ExtResource("15_nsvjh")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Ввод1D"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Кіріс1D"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="connection" type="Control" parent="." unique_id=553045949]
+anchors_preset = 0
+offset_left = -85.0
+offset_top = -32.0
+offset_right = 63.0
+offset_bottom = 20.0
+script = ExtResource("5_ca2jg")
+
+[node name="ColorRect" type="ColorRect" parent="connection" unique_id=553595145]
+material = ExtResource("6_pm2c6")
+instance_shader_parameters/outline_color = Color(0.501961, 0.501961, 0.501961, 0.490196)
+instance_shader_parameters/tuning = Color(0.5, 0.5, 0.5, 0.490196)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 140.0
+offset_bottom = 45.0
+
+[node name="val" parent="connection" unique_id=1373931920 instance=ExtResource("7_0td0h")]
+visible = false
+layout_mode = 0
+offset_left = 82.0
+offset_top = 17.0
+offset_right = 197.02847
+offset_bottom = 64.4323
+scale = Vector2(0.42165363, 0.42165363)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7nifx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pxsba")
+placeholder_text = "0"
+max_length = 9
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("13_7nifx")
+min_value = -1000000.0
+max_value = 1000000.0
+allow_float = false
+decimal_places = 2
+empty_on_min = true
+resize_after = 6
+change_always_accepted = false
+
+[node name="Label" type="Label" parent="connection" unique_id=416577925]
+z_index = 1
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 338.77704
+offset_bottom = 55.0
+scale = Vector2(0.37028307, 0.37028307)
+theme = ExtResource("3_pxsba")
+script = ExtResource("9_pm2c6")
+simple = true
+simple_letters = 9
+metadata/_custom_type_script = "uid://bjncugq5805ty"
+
+[node name="Label2" type="Label" parent="connection" unique_id=1092493914]
+modulate = Color(0.73, 0.73, 0.73, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 98.0
+offset_top = 14.0
+offset_right = 234.53384
+offset_bottom = 57.0
+scale = Vector2(0.2633309, 0.2633309)
+theme = ExtResource("3_pxsba")
+text = "100%"
+horizontal_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="connection" unique_id=1654146217]
+layout_mode = 0
+offset_left = 11.999999
+offset_top = 27.0
+offset_right = 150.9751
+offset_bottom = 43.0
+scale = Vector2(0.8850506, 0.8850506)
+focus_mode = 1
+mouse_force_pass_scroll_events = false
+max_value = 11.0
+step = 0.0
+
+[node name="bool" parent="connection" unique_id=1514569529 node_paths=PackedStringArray("graph_root") instance=ExtResource("9_tpmcl")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 112.0
+offset_top = 14.999998
+offset_right = 136.99118
+offset_bottom = 38.628365
+scale = Vector2(0.733764, 0.733764)
+pivot_offset = Vector2(12.49559, 11.814183)
+mouse_filter = 1
+color = Color(0.85, 0.85, 0.85, 1)
+button_type = 1
+top = true
+base_scale_x = 0.45
+resize_after = 6
+text = "I"
+base_size = Vector2(24.99118, 23.628366)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_nsvjh")
+graph_root = NodePath("../..")
+auto_ready = false
+
+[node name="loss" parent="connection" unique_id=1092814210 node_paths=PackedStringArray("graph_root") instance=ExtResource("9_tpmcl")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 69.0
+offset_top = 14.999998
+offset_right = 146.2243
+offset_bottom = 38.628365
+scale = Vector2(0.733764, 0.733764)
+pivot_offset = Vector2(38.612152, 11.814183)
+mouse_filter = 1
+color = Color(0.85, 0.85, 0.85, 1)
+button_type = 1
+top = true
+base_scale_x = 0.45
+resize_after = 8
+text = "ClassFirst"
+base_size = Vector2(77.224304, 23.628366)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_pxsba")
+graph_root = NodePath("../..")
+auto_ready = false
+
+[node name="input" type="Control" parent="." unique_id=339200454]
+z_index = 1
+anchors_preset = 0
+offset_left = -78.0
+offset_top = 39.0
+offset_right = -38.0
+offset_bottom = 79.0
+
+[node name="LineEdit" parent="input" unique_id=205070396 node_paths=PackedStringArray("accept_button") instance=ExtResource("7_0td0h")]
+layout_mode = 0
+offset_left = 0.9999948
+offset_top = -37.0
+offset_right = 276.72906
+offset_bottom = 11.0
+theme = ExtResource("8_6ybxu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsvjh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1fsst")
+placeholder_text = "Feature name"
+max_length = 14
+context_menu_enabled = false
+accept_button = NodePath("../ColorRect2")
+
+[node name="Loc" type="Node" parent="input/LineEdit" unique_id=1250554944]
+script = ExtResource("15_nsvjh")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Имя признака"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Белгі атауы"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="ColorRect2" parent="input" unique_id=1722446865 node_paths=PackedStringArray("graph") instance=ExtResource("9_tpmcl")]
+material = ExtResource("10_m57n5")
+instance_shader_parameters/corner_radius_width_add = Vector2(-2, 0)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = 66.0
+offset_top = -13.0
+offset_right = 150.00208
+offset_bottom = 21.714619
+scale = Vector2(0.583319, 0.583319)
+pivot_offset = Vector2(42.001038, 17.35731)
+button_type = 1
+text = "Add +"
+base_size = Vector2(84.002075, 34.71462)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_ca2jg")
+graph = NodePath("../..")
+
+[node name="Loc" type="Node" parent="input/ColorRect2" unique_id=1581366111]
+script = ExtResource("15_nsvjh")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Доб.+"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Қос.+"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="type" parent="input" unique_id=1323852569 node_paths=PackedStringArray("graph", "graph_root") instance=ExtResource("9_tpmcl")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-8, -0.3)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.66, 0.66, 0.66, 0.4627451)
+layout_mode = 0
+offset_left = -1.0
+offset_top = -4.999998
+offset_right = 45.158226
+offset_bottom = 15.514769
+scale = Vector2(0.97490746, 0.97490746)
+mouse_filter = 1
+button_type = 2
+base_scale_x = 0.4
+resize_after = 5
+text = "float"
+base_size = Vector2(46.158226, 20.514767)
+expanded_size = 97
+arrangement_padding = Vector2(3, 2)
+mouse_open = false
+menu_name = &"g"
+max_size = 0
+config = SubResource("Resource_7nifx")
+graph = NodePath("..")
+graph_root = NodePath("../..")
+
+[node name="ColorRect2" parent="input/type" unique_id=1195173657 instance=ExtResource("9_tpmcl")]
+material = ExtResource("10_m57n5")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0.3)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.65882355, 0.65882355, 0.65882355, 0.4627451)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 26.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 11)
+color = Color(1, 1, 1, 0)
+button_type = 1
+top = true
+hint = &"float"
+base_scale_x = 0.6
+resize_after = 5
+text = "float"
+text_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+base_size = Vector2(99, 22)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("12_gbdyi")
+
+[node name="ColorRect6" parent="input/type" unique_id=1338162392 instance=ExtResource("9_tpmcl")]
+material = ExtResource("10_m57n5")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0.3)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.65882355, 0.65882355, 0.65882355, 0.4627451)
+layout_mode = 0
+offset_left = -0.9999962
+offset_top = 4.0000014
+offset_right = 98.0
+offset_bottom = 26.000002
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 11)
+color = Color(1, 1, 1, 0)
+button_type = 1
+top = true
+hint = &"sfloat"
+base_scale_x = 0.6
+resize_after = 5
+text = "sfloat"
+text_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+base_size = Vector2(99, 22)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("12_gbdyi")
+
+[node name="ColorRect3" parent="input/type" unique_id=1919943638 instance=ExtResource("9_tpmcl")]
+material = ExtResource("10_m57n5")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0.3)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.65882355, 0.65882355, 0.65882355, 0.4627451)
+layout_mode = 0
+offset_left = -1.36284
+offset_top = 4.08851
+offset_right = 97.63716
+offset_bottom = 26.08851
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 11)
+color = Color(1, 1, 1, 0)
+button_type = 1
+top = true
+hint = &"int"
+base_scale_x = 0.6
+resize_after = 5
+text = "int"
+text_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+base_size = Vector2(99, 22)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("12_gbdyi")
+
+[node name="ColorRect4" parent="input/type" unique_id=1905104377 instance=ExtResource("9_tpmcl")]
+material = ExtResource("10_m57n5")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0.3)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.65882355, 0.65882355, 0.65882355, 0.4627451)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 26.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 11)
+color = Color(1, 1, 1, 0)
+button_type = 1
+top = true
+hint = &"class"
+base_scale_x = 0.6
+resize_after = 5
+text = "class"
+text_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+base_size = Vector2(99, 22)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("12_gbdyi")
+
+[node name="ColorRect5" parent="input/type" unique_id=1646559918 instance=ExtResource("9_tpmcl")]
+material = ExtResource("10_m57n5")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0.3)
+instance_shader_parameters/outline_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+instance_shader_parameters/tuning = Color(0.65882355, 0.65882355, 0.65882355, 0.4627451)
+layout_mode = 0
+offset_left = -1.36284
+offset_top = 4.08851
+offset_right = 97.63716
+offset_bottom = 26.08851
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 11)
+color = Color(1, 1, 1, 0)
+button_type = 1
+top = true
+hint = &"bool"
+base_scale_x = 0.6
+resize_after = 5
+text = "bool"
+text_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+base_size = Vector2(99, 22)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("12_gbdyi")
+
+[node name="tabs" type="Control" parent="input" unique_id=779136653]
+anchors_preset = 0
+offset_left = 78.0
+offset_top = -39.0
+offset_right = 118.0
+offset_bottom = 1.0
+mouse_filter = 2
+
+[node name="int" type="Control" parent="input/tabs" unique_id=1879094175]
+visible = false
+anchors_preset = 0
+offset_left = -78.0
+offset_top = 59.0
+offset_right = -38.0
+offset_bottom = 88.0
+
+[node name="min" parent="input/tabs/int" unique_id=12963076 instance=ExtResource("7_0td0h")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 69.19992
+offset_bottom = 50.0
+scale = Vector2(0.3927497, 0.3927497)
+placeholder_text = "0"
+max_length = 9
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("13_7nifx")
+min_value = -10000.0
+max_value = 10000.0
+allow_float = false
+decimal_places = 2
+empty_on_min = true
+resize_after = 3
+change_always_accepted = false
+
+[node name="max" parent="input/tabs/int" unique_id=79271797 instance=ExtResource("7_0td0h")]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 2.0
+offset_right = 105.19992
+offset_bottom = 50.0
+scale = Vector2(0.3927497, 0.3927497)
+placeholder_text = "80"
+max_length = 9
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("13_7nifx")
+min_value = -10000.0
+max_value = 10000.0
+allow_float = false
+decimal_places = 2
+empty_on_min = true
+resize_after = 3
+change_always_accepted = false
+
+[node name="class" type="Control" parent="input/tabs" unique_id=1133363683]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Control" parent="input/tabs/class" unique_id=1907921626 instance=ExtResource("14_pxsba")]
+layout_mode = 1
+offset_left = -79.00001
+offset_top = 59.0
+offset_right = 103.54706
+offset_bottom = 59.0
+scale = Vector2(0.57965267, 0.57965267)
+
+[node name="run" parent="." unique_id=2141478829 node_paths=PackedStringArray("graph", "graph_root") instance=ExtResource("9_tpmcl")]
+visible = false
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 10.924696
+offset_top = -59.999992
+offset_right = 61.452263
+offset_bottom = -37.27872
+scale = Vector2(0.733764, 0.733764)
+pivot_offset = Vector2(25.263783, 11.360636)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 1)
+button_type = 1
+base_scale_x = 0.45
+resize_after = 5
+text = "Run!"
+text_offset = Vector2(2, 0)
+base_size = Vector2(50.527565, 22.721272)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_gbdyi")
+graph = NodePath("../input")
+graph_root = NodePath("..")
+
+[node name="Loc" type="Node" parent="run" unique_id=1265387168]
+script = ExtResource("16_1fsst")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"run": "Пуск"
+})
+localizations_kz = Dictionary[String, String]({
+"run": "Қосу"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[connection signal="pressed" from="input/ColorRect2" to="." method="_on_color_rect_2_pressed"]
+[connection signal="child_button_release" from="input/type" to="." method="_on_type_child_button_release"]
+[connection signal="released" from="run" to="." method="_on_run_released"]

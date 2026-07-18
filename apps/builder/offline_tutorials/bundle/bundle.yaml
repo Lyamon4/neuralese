@@ -1,0 +1,8 @@
+name: Neuralese — базовый курс ML
+
+lesson_order:
+  - 01_controls_proto_graph
+  - 02_model_graph_datatypes
+  - 03_train_iris
+  - 04_conv_pool_intro
+  - 05_train_digits_cnn

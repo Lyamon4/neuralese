@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://dedy0f202jvre"]
+
+[ext_resource type="Script" uid="uid://bucavow0hwn4e" path="res://scripts/layer_concat.gd" id="1_6v2qv"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="2_gcg34"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="3_uhfur"]
+[ext_resource type="Script" uid="uid://7mf5v1esvqbs" path="res://scripts/unit.gd" id="5_ca2lr"]
+[ext_resource type="Material" uid="uid://blkv556akjllh" path="res://resources/panel.tres" id="6_l1t6u"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="7_ubncg"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="8_5mo5q"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="9_6ovrf"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="10_ldvu6"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="12_nhdu8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa8wt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n00y3"]
+
+[sub_resource type="Resource" id="Resource_6u7a3"]
+script = ExtResource("9_6ovrf")
+hover_color = Color(1, 1, 1, 1)
+hover_mult = 1.4
+_hover_scale = 1.037
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" type="Control" unique_id=1406301816 node_paths=PackedStringArray("unit", "add_button", "input")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+mouse_filter = 2
+script = ExtResource("1_6v2qv")
+bottom_attached = true
+unit = NodePath("connection")
+add_button = NodePath("input/ColorRect2")
+input = NodePath("input")
+padding = -5.0
+target_size = 55.0
+input_y_add = -20.0
+server_typename = &"Concat"
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"uns": []
+})
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=875754647]
+z_index = 1
+material = ExtResource("2_gcg34")
+instance_shader_parameters/corner_radius_width_add = Vector2(-2, 0)
+instance_shader_parameters/outline_color = Color(0.85, 0.561, 0.5658166, 1)
+instance_shader_parameters/tuning = Color(0.35, 0.05600001, 0.060899924, 0.5882353)
+layout_mode = 0
+offset_left = -87.0
+offset_top = -64.0
+offset_right = 40.0
+offset_bottom = -9.0
+mouse_filter = 2
+
+[node name="root" type="Control" parent="ColorRect" unique_id=246417798]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root" unique_id=1181635164]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 233.0
+offset_bottom = 53.0
+scale = Vector2(0.414803, 0.414803)
+theme = ExtResource("3_uhfur")
+theme_override_colors/font_color = Color(0.83, 0.83, 0.83, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pa8wt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n00y3")
+text = "LayerConcat"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" unique_id=1463865298]
+script = ExtResource("10_ldvu6")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Склейка"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Біріктіру"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="connection" type="Control" parent="." unique_id=1251505452]
+anchors_preset = 0
+offset_left = -85.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 7.0
+script = ExtResource("5_ca2lr")
+for_conn_size = Vector2(202, 60)
+
+[node name="ColorRect" type="ColorRect" parent="connection" unique_id=1327381309]
+z_index = 1
+material = ExtResource("6_l1t6u")
+instance_shader_parameters/outline_color = Color(1, 0.7490196, 0.7490196, 0.60784316)
+instance_shader_parameters/tuning = Color(1, 0.75, 0.75, 0.60784316)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 117.0
+offset_bottom = 37.0
+
+[node name="Label" type="Label" parent="connection" unique_id=2077473992]
+z_index = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 336.0
+offset_bottom = 57.0
+scale = Vector2(0.37028307, 0.37028307)
+theme = ExtResource("3_uhfur")
+text = "Slot 1"
+
+[node name="o" parent="connection" unique_id=982987980 node_paths=PackedStringArray("parent_graph") instance=ExtResource("12_nhdu8")]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 14.0
+offset_right = 6.0
+offset_bottom = 31.0
+color = Color(0.89, 0.89, 0.89, 1)
+_accepted_datatypes = "layer1d"
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(20, 5, 20, 5)
+origin_offset = Vector2(3, 0)
+unpadded_area = Vector4(0, 0, 20, 0)
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("../..")
+auto_rename = true
+gradient_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
+
+[node name="input" type="Control" parent="." unique_id=1940546941]
+z_index = 1
+anchors_preset = 0
+offset_left = -78.0
+offset_top = -41.0
+offset_right = -38.0
+offset_bottom = -1.0
+
+[node name="ColorRect2" parent="input" unique_id=2074049757 node_paths=PackedStringArray("graph") instance=ExtResource("7_ubncg")]
+material = ExtResource("8_5mo5q")
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = 13.0
+offset_top = -26.0
+offset_right = 101.0
+offset_bottom = 11.806435
+scale = Vector2(0.583319, 0.583319)
+pivot_offset = Vector2(44, 18.903217)
+button_type = 1
+text = "Add +"
+base_size = Vector2(88, 37.806435)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_6u7a3")
+graph = NodePath("../..")
+
+[node name="Loc" type="Node" parent="input/ColorRect2" unique_id=1268767214]
+script = ExtResource("10_ldvu6")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Слот+"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="o" parent="." unique_id=1256463641 node_paths=PackedStringArray("parent_graph") instance=ExtResource("12_nhdu8")]
+layout_mode = 0
+offset_left = 34.0
+offset_top = -44.0
+offset_right = 49.0
+offset_bottom = -24.0
+color = Color(0.89, 0.89, 0.89, 1)
+_accepted_datatypes = "layer1d"
+server_name = &"layer_out"
+connection_type = 1
+area_paddings = Vector4(20, 5, 20, 5)
+origin_offset = Vector2(3, 0)
+unpadded_area = Vector4(0, 0, 20, 0)
+parent_graph = NodePath("..")
+gradient_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
+
+[connection signal="pressed" from="input/ColorRect2" to="." method="_on_color_rect_2_pressed"]

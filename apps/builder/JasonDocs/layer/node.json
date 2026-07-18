@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "node_id": "layer",
+  "status": "stable",
+  "generated": {
+    "node_id": "layer",
+    "created_with": "layer",
+    "scene_path": "res://scenes/layer.tscn",
+    "scene_uid": "uid://dk05hn4etkckc",
+    "root_instance_path": "res://scenes/base_graph.tscn",
+    "script_path": "res://scripts/neuron_layer.gd",
+    "inheritance_chain": [
+      "res://scripts/neuron_layer.gd",
+      "res://scripts/base_layer.gd",
+      "res://scripts/io_graph.gd",
+      "res://scripts/base_graph.gd"
+    ],
+    "inherits_graph": true,
+    "server_typename": "NeuronLayer",
+    "layer_name": "Dense",
+    "title_candidates": {
+      "en": "Dense",
+      "ru": "Плотн",
+      "kz": "Тығыз"
+    },
+    "base_config": {
+      "neuron_count": 0
+    },
+    "ports": [
+      {
+        "id": "input_activ_activ_in",
+        "scene_node": "activ",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "activ_in",
+        "direction": "input",
+        "datatypes": [
+          "activation"
+        ],
+        "multiple": true,
+        "config_conn": true,
+        "keyword": null,
+        "conn_count_keyword": "activ"
+      },
+      {
+        "id": "input_ni_layer_in",
+        "scene_node": "ni",
+        "scene_path": ".",
+        "hint": 1,
+        "server_name": "layer_in",
+        "direction": "input",
+        "datatypes": [
+          "layer1d",
+          "input1d"
+        ],
+        "multiple": true,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": "layer"
+      },
+      {
+        "id": "output_o_layer_out",
+        "scene_node": "o",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "layer_out",
+        "direction": "output",
+        "datatypes": [
+          "layer1d"
+        ],
+        "multiple": true,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": "layer"
+      }
+    ],
+    "settings": [
+      {
+        "id": "neuron_count",
+        "source": "base_config",
+        "default": 0,
+        "ui_kind": null,
+        "ui_path": null,
+        "options": []
+      }
+    ],
+    "icon_source": "res://node_icons/IconLayer.png",
+    "static_compatible_nodes": [
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "layer",
+        "to_port": "input_ni_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "softmax",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "reshape2d",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "classifier",
+        "to_port": "input_ni_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "dropout",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "concat",
+        "to_port": "input_connection_o_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      }
+    ]
+  },
+  "docs": {
+    "title": {
+      "en": "Dense",
+      "ru": "Плотн",
+      "kz": "Тығыз"
+    },
+    "summary": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "operation": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "compact": {
+      "body": {
+        "en": "",
+        "ru": "",
+        "kz": ""
+      }
+    },
+    "ports": {
+      "input_activ_activ_in": {
+        "label": {
+          "en": "activ_in",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      },
+      "input_ni_layer_in": {
+        "label": {
+          "en": "layer_in",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      },
+      "output_o_layer_out": {
+        "label": {
+          "en": "layer_out",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "settings": {
+      "neuron_count": {
+        "label": {
+          "en": "neuron_count",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "connects_to": [],
+    "examples": []
+  }
+}

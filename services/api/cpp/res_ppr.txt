@@ -1,0 +1,626 @@
+===== FILE: D:\nnet\nnet\.venv\py\api\cpp/src/binding.cpp ======#include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
+#include <torch/extension.h>
+
+#include "ops.h"
+#include "executor.h"
+
+namespace py = pybind11;
+
+PYBIND11_MODULE(neuralese_ops, m) {
+
+	py::enum_<ActivationType>(m, "ActivationType")
+		.value("NONE", ActivationType::None)
+		.value("ReLU", ActivationType::ReLU)
+		.value("Sigmoid", ActivationType::Sigmoid)
+		.value("Tanh", ActivationType::Tanh)
+		.value("GELU", ActivationType::GELU);
+
+	py::enum_<MergeType>(m, "MergeType")
+		.value("Add", MergeType::Add)
+		.value("Mean", MergeType::Mean);
+
+	py::class_<Op, std::shared_ptr<Op>>(m, "Op");
+
+	py::class_<DenseOp, Op, std::shared_ptr<DenseOp>>(m, "DenseOp")
+		.def(py::init<int,int,int,int,ActivationType,bool,c10::Device>(),
+			py::arg("input"), py::arg("output"),
+			py::arg("in_features"), py::arg("out_features"),
+			py::arg("activation"), py::arg("bias"),
+			py::arg("device"));
+
+	py::class_<Conv2DOp, Op, std::shared_ptr<Conv2DOp>>(m, "Conv2DOp")
+		.def(py::init<int,int,int,int,int,int,int,ActivationType,bool,c10::Device>(),
+			py::arg("input"), py::arg("output"),
+			py::arg("in_channels"), py::arg("out_channels"),
+			py::arg("kernel"), py::arg("stride"), py::arg("padding"),
+			py::arg("activation"), py::arg("bias"),
+			py::arg("device"));
+
+	py::class_<MaxPool2DOp, Op, std::shared_ptr<MaxPool2DOp>>(m, "MaxPool2DOp")
+		.def(py::init<int,int,int>(),
+			py::arg("input"), py::arg("output"), py::arg("k"));
+
+	py::class_<FlattenOp, Op, std::shared_ptr<FlattenOp>>(m, "FlattenOp")
+		.def(py::init<int,int>(), py::arg("input"), py::arg("output"));
+
+	py::class_<DropoutOp, Op, std::shared_ptr<DropoutOp>>(m, "DropoutOp")
+		.def(py::init<int,int,double,bool,c10::Device>(),
+			py::arg("input"), py::arg("output"),
+			py::arg("p"), py::arg("training"), py::arg("device"));
+
+	py::class_<ConcatOp, Op, std::shared_ptr<ConcatOp>>(m, "ConcatOp")
+		.def(py::init<std::vector<int>,int,int>(),
+			py::arg("inputs_ordered"), py::arg("output"), py::arg("dim"));
+
+	py::class_<MergeOp, Op, std::shared_ptr<MergeOp>>(m, "MergeOp")
+		.def(py::init<std::vector<int>,int,MergeType>(),
+			py::arg("inputs_ordered"), py::arg("output"), py::arg("mode"));
+
+	py::class_<Executor>(m, "Executor")
+		.def(py::init<std::vector<std::shared_ptr<Op>>, c10::Device>(),
+			py::arg("ops"), py::arg("device"))
+		.def("set_tensor", &Executor::set_tensor, py::arg("id"), py::arg("tensor"))
+		.def("get_tensor", &Executor::get_tensor, py::arg("id"))
+		.def("run", &Executor::run)
+		.def("run_n", &Executor::run_n, py::arg("n"))
+		.def("set_training", &Executor::set_training, py::arg("is_training"))
+		.def("capture", &Executor::capture, py::arg("warmup") = 3)
+		.def("replay", &Executor::replay)
+		.def("has_graph", &Executor::has_graph);
+}
+===== FILE: D:\nnet\nnet\.venv\py\api\cpp/src/executor.cpp ======#include "executor.h"
+
+#include <c10/util/Exception.h>
+#include <c10/cuda/CUDAGuard.h>
+
+// ---------------- FusedUnaryChainOp ----------------
+
+FusedUnaryChainOp::FusedUnaryChainOp(std::vector<std::shared_ptr<Op>> ops_chain)
+	: chain(std::move(ops_chain))
+{
+	TORCH_CHECK(!chain.empty(), "FusedUnaryChainOp: empty chain");
+	TORCH_CHECK(chain.front()->is_unary() && chain.back()->is_unary(), "FusedUnaryChainOp: chain must be unary");
+
+	in_id  = chain.front()->unary_in();
+	out_id = chain.back()->unary_out();
+
+	// sanity: ensure producer->consumer chain matches
+	for (size_t i = 0; i + 1 < chain.size(); ++i) {
+		TORCH_CHECK(chain[i]->is_unary() && chain[i+1]->is_unary(), "FusedUnaryChainOp: non-unary in chain");
+		TORCH_CHECK(chain[i]->unary_out() == chain[i+1]->unary_in(),
+			"FusedUnaryChainOp: broken chain: out != next in");
+	}
+}
+
+void FusedUnaryChainOp::run(TensorVec& t) {
+	auto x = t[in_id];
+	for (auto& op : chain) {
+		x = op->forward_unary(x);
+	}
+	t[out_id] = x;
+}
+
+void FusedUnaryChainOp::set_training(bool tr) {
+	for (auto& op : chain) op->set_training(tr);
+}
+
+void FusedUnaryChainOp::to(const c10::Device& d) {
+	for (auto& op : chain) op->to(d);
+}
+
+// ---------------- Executor ----------------
+
+Executor::Executor(std::vector<std::shared_ptr<Op>> ops_, c10::Device device_)
+	: ops(std::move(ops_)), device(device_)
+{
+	for (auto& op : ops)
+		op->to(device);
+
+	init_tensor_storage();
+	build_exec_plan();
+}
+
+void Executor::init_tensor_storage() {
+	int max_id = -1;
+	std::vector<int> tmp;
+
+	for (auto& op : ops) {
+		tmp.clear(); op->input_ids(tmp);
+		for (int id : tmp) max_id = std::max(max_id, id);
+
+		tmp.clear(); op->output_ids(tmp);
+		for (int id : tmp) max_id = std::max(max_id, id);
+	}
+
+	TORCH_CHECK(max_id >= 0, "init_tensor_storage: graph has no tensor ids");
+	tensors.resize((size_t)max_id + 1);
+}
+
+void Executor::build_exec_plan() {
+	// count uses of each tensor id as input
+	std::vector<int> use_count(tensors.size(), 0);
+	std::vector<int> tmp;
+
+	for (auto& op : ops) {
+		tmp.clear();
+		op->input_ids(tmp);
+		for (int id : tmp) {
+			TORCH_CHECK(id >= 0 && (size_t)id < use_count.size(), "invalid tensor id in inputs");
+			use_count[(size_t)id]++;
+		}
+	}
+
+	exec_ops.clear();
+	exec_ops.reserve(ops.size());
+
+	auto can_fuse = [&](const std::shared_ptr<Op>& a, const std::shared_ptr<Op>& b) -> bool {
+		if (!a->is_unary() || !b->is_unary()) return false;
+		int mid = a->unary_out();
+		if (mid < 0) return false;
+		if ((size_t)mid >= use_count.size()) return false;
+		if (use_count[(size_t)mid] != 1) return false;                  // no branching
+		return (a->unary_out() == b->unary_in());
+	};
+
+	for (size_t i = 0; i < ops.size(); ) {
+		auto& cur = ops[i];
+
+		if (!cur->is_unary()) {
+			exec_ops.push_back(cur);
+			++i;
+			continue;
+		}
+
+		std::vector<std::shared_ptr<Op>> chain;
+		chain.push_back(cur);
+
+		size_t j = i;
+		while (j + 1 < ops.size() && can_fuse(ops[j], ops[j + 1])) {
+			chain.push_back(ops[j + 1]);
+			++j;
+		}
+
+		if (chain.size() >= 2) {
+			exec_ops.push_back(std::make_shared<FusedUnaryChainOp>(std::move(chain)));
+			i = j + 1;
+		} else {
+			exec_ops.push_back(cur);
+			++i;
+		}
+	}
+}
+
+void Executor::set_tensor(int id, const at::Tensor& t) {
+	TORCH_CHECK(id >= 0 && (size_t)id < tensors.size(), "set_tensor: id out of range");
+
+	TORCH_CHECK(t.device().type() == device.type(), "set_tensor: device mismatch");
+
+	auto& slot = tensors[(size_t)id];
+	if (!slot.defined()) {
+		slot = t.contiguous();
+	} else {
+		TORCH_CHECK(slot.sizes() == t.sizes(), "set_tensor: shape mismatch for id=", id);
+		slot.copy_(t);
+	}
+}
+
+at::Tensor Executor::get_tensor(int id) const {
+	TORCH_CHECK(id >= 0 && (size_t)id < tensors.size(), "get_tensor: id out of range");
+	return tensors[(size_t)id];
+}
+
+void Executor::run() {
+	for (auto& op : exec_ops) {
+		op->run(tensors);
+	}
+}
+
+void Executor::run_n(int64_t n) {
+	TORCH_CHECK(n >= 0, "run_n: n must be >= 0");
+
+	if (graph_ready) {
+		for (int64_t i = 0; i < n; ++i) graph.replay();
+		return;
+	}
+	for (int64_t i = 0; i < n; ++i) run();
+}
+
+void Executor::set_training(bool is_training) {
+	for (auto& op : exec_ops) op->set_training(is_training);
+}
+
+void Executor::capture(int warmup) {
+	TORCH_CHECK(device.is_cuda(), "capture(): CUDA only");
+	TORCH_CHECK(!graph_ready, "capture(): graph already captured");
+
+	// фиксируем device
+	c10::cuda::CUDAGuard device_guard(device.index());
+
+	// warmup на default streampython setup.py build_ext --inplace допустим
+	for (int i = 0; i < warmup; ++i) run();
+	at::cuda::synchronize(); // <-- ВАЖНО: скобки
+
+	// non-default stream обязателен для capture
+	graph_stream.emplace(
+	at::cuda::getStreamFromPool(false, device.index())
+    );
+
+    at::cuda::CUDAStreamGuard stream_guard(*graph_stream);
+
+	graph.capture_begin();
+	run();
+	graph.capture_end();
+
+	graph_ready = true;
+}
+
+void Executor::replay() {
+	TORCH_CHECK(graph_stream.has_value(), "graph stream not initialized");
+    at::cuda::CUDAStreamGuard stream_guard(*graph_stream);
+    graph.replay();
+}
+===== FILE: D:\nnet\nnet\.venv\py\api\cpp/src/executor.h ======#pragma once
+#include <vector>
+#include <memory>
+#include <torch/torch.h>
+
+#include <optional>
+#include "ops.h"
+
+#include <ATen/cuda/CUDAGraph.h>
+#include <ATen/cuda/CUDAContext.h>
+
+class FusedUnaryChainOp final : public Op {
+	std::vector<std::shared_ptr<Op>> chain;
+	int in_id = -1;
+	int out_id = -1;
+
+public:
+	explicit FusedUnaryChainOp(std::vector<std::shared_ptr<Op>> ops_chain);
+
+	void run(TensorVec&) override;
+
+	void input_ids(std::vector<int>& out) const override { out.push_back(in_id); }
+	void output_ids(std::vector<int>& out) const override { out.push_back(out_id); }
+
+	void set_training(bool t) override;
+	void to(const c10::Device& d) override;
+};
+
+class Executor {
+public:
+	explicit Executor(std::vector<std::shared_ptr<Op>> ops_, c10::Device device);
+
+	void set_tensor(int id, const at::Tensor& t);
+	at::Tensor get_tensor(int id) const;
+
+	void run();
+	void run_n(int64_t n);
+
+	void set_training(bool is_training);
+
+	void capture(int warmup = 3);
+	void replay();
+	bool has_graph() const { return graph_ready; }
+
+private:
+	// original ops (ownership)
+	std::vector<std::shared_ptr<Op>> ops;
+
+	// execution plan (can contain fused blocks)
+	std::vector<std::shared_ptr<Op>> exec_ops;
+
+	TensorVec tensors;
+	c10::Device device;
+
+	bool graph_ready = false;
+	at::cuda::CUDAGraph graph;
+
+	// keep capture stream (non-default)
+	std::optional<at::cuda::CUDAStream> graph_stream;
+
+	void build_exec_plan();
+	void init_tensor_storage();
+};
+===== FILE: D:\nnet\nnet\.venv\py\api\cpp/src/op.h ======// ops.h
+#pragma once
+#include <torch/extension.h>
+#include <memory>
+
+struct Op {
+	virtual ~Op() = default;      // ОБЯЗАТЕЛЬНО
+	virtual void run(TensorTable&) = 0;
+};
+===== FILE: D:\nnet\nnet\.venv\py\api\cpp/src/ops.cpp ======#include "ops.h"
+
+// Dense
+DenseOp::DenseOp(int in,int out,int fin,int fout,ActivationType a,bool bias,c10::Device d)
+	: in_id(in), out_id(out), act(a)
+{
+	linear = torch::nn::Linear(torch::nn::LinearOptions(fin, fout).bias(bias));
+	linear->to(d);
+}
+
+at::Tensor DenseOp::forward_unary(const at::Tensor& xin) {
+	auto x = xin;
+	if (x.dim() > 2) x = x.contiguous().view({x.size(0), -1});
+	auto y = linear->forward(x);
+	return apply_activation(y, act);
+}
+
+void DenseOp::run(TensorVec& t) {
+	t[out_id] = forward_unary(t[in_id]);
+}
+
+// Conv2D
+Conv2DOp::Conv2DOp(int in,int out,int cin,int cout,int k,int s,int p,ActivationType a,bool bias,c10::Device d)
+	: in_id(in), out_id(out), act(a)
+{
+	conv = torch::nn::Conv2d(
+		torch::nn::Conv2dOptions(cin, cout, k).stride(s).padding(p).bias(bias)
+	);
+	conv->to(d);
+}
+
+at::Tensor Conv2DOp::forward_unary(const at::Tensor& xin) {
+	auto x = xin;
+	if (x.dim() == 3) x = x.unsqueeze(1); // [N,H,W] -> [N,1,H,W]
+	auto y = conv->forward(x);
+	return apply_activation(y, act);
+}
+
+void Conv2DOp::run(TensorVec& t) {
+	t[out_id] = forward_unary(t[in_id]);
+}
+
+// Pool
+MaxPool2DOp::MaxPool2DOp(int in,int out,int k_) : in_id(in), out_id(out), k(k_) {}
+
+at::Tensor MaxPool2DOp::forward_unary(const at::Tensor& x) {
+	return torch::max_pool2d(x, {k,k}, {k,k});
+}
+
+void MaxPool2DOp::run(TensorVec& t) {
+	t[out_id] = forward_unary(t[in_id]);
+}
+
+// Flatten
+FlattenOp::FlattenOp(int in,int out) : in_id(in), out_id(out) {}
+
+at::Tensor FlattenOp::forward_unary(const at::Tensor& x) {
+	return x.flatten(1);
+}
+
+void FlattenOp::run(TensorVec& t) {
+	t[out_id] = forward_unary(t[in_id]);
+}
+
+// Dropout
+DropoutOp::DropoutOp(int in,int out,double p,bool train,c10::Device d)
+	: in_id(in), out_id(out)
+{
+	drop = torch::nn::Dropout(torch::nn::DropoutOptions(p));
+	drop->to(d);
+	drop->train(train);
+}
+
+at::Tensor DropoutOp::forward_unary(const at::Tensor& x) {
+	return drop->forward(x);
+}
+
+void DropoutOp::run(TensorVec& t) {
+	t[out_id] = forward_unary(t[in_id]);
+}
+
+// Concat
+ConcatOp::ConcatOp(std::vector<int> ids,int out,int dim_) : in_ids(std::move(ids)), out_id(out), dim(dim_) {}
+
+void ConcatOp::run(TensorVec& t) {
+	std::vector<at::Tensor> xs;
+	xs.reserve(in_ids.size());
+	for (int id : in_ids) xs.push_back(t[id]);
+	t[out_id] = torch::cat(xs, dim);
+}
+
+// Merge
+MergeOp::MergeOp(std::vector<int> ids,int out,MergeType m) : in_ids(std::move(ids)), out_id(out), mode(m) {}
+
+void MergeOp::run(TensorVec& t) {
+	auto y = t[in_ids[0]];
+	for (size_t i=1;i<in_ids.size();++i) y = y + t[in_ids[i]];
+	if (mode == MergeType::Mean) y = y / (double)in_ids.size();
+	t[out_id] = y;
+}
+===== FILE: D:\nnet\nnet\.venv\py\api\cpp/src/ops.h ======#pragma once
+#include <torch/torch.h>
+#include <vector>
+#include <memory>
+
+using TensorVec = std::vector<at::Tensor>;
+
+enum class ActivationType {
+	None,
+	ReLU,
+	Sigmoid,
+	Tanh,
+	GELU
+};
+
+inline at::Tensor apply_activation(const at::Tensor& x, ActivationType a) {
+	switch (a) {
+		case ActivationType::ReLU:    return torch::relu(x);
+		case ActivationType::Sigmoid: return torch::sigmoid(x);
+		case ActivationType::Tanh:    return torch::tanh(x);
+		case ActivationType::GELU:    return torch::gelu(x);
+		default:                      return x;
+	}
+}
+
+enum class MergeType { Add, Mean };
+
+class Op {
+public:
+	virtual ~Op() = default;
+
+	// runtime
+	virtual void run(TensorVec&) = 0;
+
+	// build-time introspection (для планировщика/fusion)
+	virtual void input_ids(std::vector<int>& out) const = 0;
+	virtual void output_ids(std::vector<int>& out) const = 0;
+
+	// optional controls
+	virtual void set_training(bool) {}
+	virtual void to(const c10::Device&) {}
+
+	// unary fast-path (1 input -> 1 output)
+	virtual bool is_unary() const { return false; }
+	virtual int unary_in() const { return -1; }
+	virtual int unary_out() const { return -1; }
+	virtual at::Tensor forward_unary(const at::Tensor& x) { return x; }
+};
+
+// -------- Dense --------
+class DenseOp final : public Op {
+	int in_id, out_id;
+	ActivationType act;
+	torch::nn::Linear linear{nullptr};
+public:
+	DenseOp(int in,int out,int fin,int fout,ActivationType a,bool bias,c10::Device d);
+
+	void run(TensorVec&) override;
+
+	void input_ids(std::vector<int>& out) const override { out.push_back(in_id); }
+	void output_ids(std::vector<int>& out) const override { out.push_back(out_id); }
+
+	bool is_unary() const override { return true; }
+	int unary_in() const override { return in_id; }
+	int unary_out() const override { return out_id; }
+	at::Tensor forward_unary(const at::Tensor& x) override;
+
+	void to(const c10::Device& d) override { linear->to(d); }
+};
+
+// -------- Conv2D --------
+class Conv2DOp final : public Op {
+	int in_id, out_id;
+	ActivationType act;
+	torch::nn::Conv2d conv{nullptr};
+public:
+	Conv2DOp(int in,int out,int cin,int cout,int k,int s,int p,ActivationType a,bool bias,c10::Device d);
+
+	void run(TensorVec&) override;
+
+	void input_ids(std::vector<int>& out) const override { out.push_back(in_id); }
+	void output_ids(std::vector<int>& out) const override { out.push_back(out_id); }
+
+	bool is_unary() const override { return true; }
+	int unary_in() const override { return in_id; }
+	int unary_out() const override { return out_id; }
+	at::Tensor forward_unary(const at::Tensor& x) override;
+
+	void to(const c10::Device& d) override { conv->to(d); }
+};
+
+// -------- MaxPool --------
+class MaxPool2DOp final : public Op {
+	int in_id, out_id, k;
+public:
+	MaxPool2DOp(int in,int out,int k_);
+
+	void run(TensorVec&) override;
+
+	void input_ids(std::vector<int>& out) const override { out.push_back(in_id); }
+	void output_ids(std::vector<int>& out) const override { out.push_back(out_id); }
+
+	bool is_unary() const override { return true; }
+	int unary_in() const override { return in_id; }
+	int unary_out() const override { return out_id; }
+	at::Tensor forward_unary(const at::Tensor& x) override;
+};
+
+// -------- Flatten --------
+class FlattenOp final : public Op {
+	int in_id, out_id;
+public:
+	FlattenOp(int in,int out);
+
+	void run(TensorVec&) override;
+
+	void input_ids(std::vector<int>& out) const override { out.push_back(in_id); }
+	void output_ids(std::vector<int>& out) const override { out.push_back(out_id); }
+
+	bool is_unary() const override { return true; }
+	int unary_in() const override { return in_id; }
+	int unary_out() const override { return out_id; }
+	at::Tensor forward_unary(const at::Tensor& x) override;
+};
+
+// -------- Dropout --------
+class DropoutOp final : public Op {
+	int in_id, out_id;
+	torch::nn::Dropout drop{nullptr};
+public:
+	DropoutOp(int in,int out,double p,bool train,c10::Device d);
+
+	void set_training(bool t) override { drop->train(t); }
+
+	void run(TensorVec&) override;
+
+	void input_ids(std::vector<int>& out) const override { out.push_back(in_id); }
+	void output_ids(std::vector<int>& out) const override { out.push_back(out_id); }
+
+	bool is_unary() const override { return true; }
+	int unary_in() const override { return in_id; }
+	int unary_out() const override { return out_id; }
+	at::Tensor forward_unary(const at::Tensor& x) override;
+
+	void to(const c10::Device& d) override { drop->to(d); }
+};
+
+// -------- Concat --------
+class ConcatOp final : public Op {
+	std::vector<int> in_ids;
+	int out_id, dim;
+public:
+	ConcatOp(std::vector<int> ids,int out,int dim_);
+
+	void run(TensorVec&) override;
+
+	void input_ids(std::vector<int>& out) const override { out.insert(out.end(), in_ids.begin(), in_ids.end()); }
+	void output_ids(std::vector<int>& out) const override { out.push_back(out_id); }
+};
+
+// -------- Merge --------
+class MergeOp final : public Op {
+	std::vector<int> in_ids;
+	int out_id;
+	MergeType mode;
+public:
+	MergeOp(std::vector<int> ids,int out,MergeType m);
+
+	void run(TensorVec&) override;
+
+	void input_ids(std::vector<int>& out) const override { out.insert(out.end(), in_ids.begin(), in_ids.end()); }
+	void output_ids(std::vector<int>& out) const override { out.push_back(out_id); }
+};
+===== FILE: D:\nnet\nnet\.venv\py\api\cpp/src/opspec.h ======#pragma once
+#include <vector>
+
+enum class OpType {
+	Dense,
+	Flatten
+};
+
+struct OpSpec {
+	OpType type;
+	std::vector<int> inputs;
+	std::vector<int> outputs;
+
+	// resolved at BUILD time
+	int in_features = -1;
+	int out_features = -1;
+	int activation = 0; // 0=none,1=relu,2=sigmoid,3=tanh
+};
+===== DIR: D:\nnet\nnet\.venv\py\api\cpp/src/__init__.py ======

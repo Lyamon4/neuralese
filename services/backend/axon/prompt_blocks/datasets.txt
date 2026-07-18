@@ -1,0 +1,8 @@
+## Built-In Dataset Identifiers
+
+Use exact lowercase names only. Do not alias, capitalize, or invent dataset names.
+
+- `mnist`: 70,000 samples. Input: 28x28 grayscale image. Output: digit, 10 classes (`0`..`9`). Storage: numpy.
+- `iris`: 150 samples. Input: 4 numeric features (`sepal_length`, `sepal_width`, `petal_length`, `petal_width`). Output: species, 3 classes (`setosa`, `versicolor`, `virginica`). Storage: numpy.
+- `titanic`: 891 samples. Input: 8 normalized tabular features. Output: survived, 2 classes (`no`, `yes`). Storage: numpy.
+- `car_track`: 5,400 samples. Input: 8 raycast sensor distances (`ray_0`..`ray_7`, 0..1 floats). Output: continuous controls (`steer`, `throttle`). Storage: numpy.

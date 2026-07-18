@@ -1,0 +1,330 @@
+[gd_scene load_steps=9 format=3 uid="uid://70bqejl8x5np"]
+
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_aplfx"]
+[ext_resource type="Script" uid="uid://cppor4y4glxd6" path="res://scripts/conv_2d.gd" id="2_l5edn"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="3_cc8xm"]
+[ext_resource type="Material" uid="uid://bvlhwv585y83q" path="res://resources/neuron_graph.tres" id="4_aplfx"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="5_cc8xm"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="6_51xl4"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="6_aplfx"]
+[ext_resource type="Script" uid="uid://b0wh6bvd6pdc5" path="res://scripts/validate_number.gd" id="7_cc8xm"]
+
+[node name="Base" type="Control" node_paths=PackedStringArray("unit")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("2_l5edn")
+group_size = 3
+grid_padding = 2.0
+offset = Vector2(-24, 8)
+size_add_vec = Vector2(47, 74.645)
+max_size = Vector2(109, 0)
+outline_padding = 0.0
+kernel_size = Vector2i(2, 2)
+stride = 1
+max_displayed = 15
+layer_name = "Conv2D"
+unit = NodePath("unit")
+padding = 5.0
+unit_offset_y = -6.0
+target_size = 60.0
+min_size = 73.0
+size_add = 3.0
+lerp_size = false
+server_typename = &"NeuronLayer"
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"filters": 16,
+&"stride": 1,
+&"window": 2
+})
+
+[node name="activ" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_aplfx")]
+instance_shader_parameters/corner_radius_width_add = Vector2(3.5, 0)
+layout_mode = 0
+offset_left = 8.0
+offset_top = -72.0
+offset_right = 26.0
+offset_bottom = -53.0
+color = Color(0.297, 0.66885, 0.9, 1)
+config_conn = true
+_accepted_datatypes = "activation"
+server_name = &"activ_in"
+connection_type = 0
+area_paddings = Vector4(10, 5, 10, 5)
+multiple_splines = true
+origin_offset = Vector2(0, -6)
+dir_vector = Vector2(0, -1)
+parent_graph = NodePath("..")
+off = 1.0
+conn_count_keyword = "activ"
+gradient_color = Color(0.298039, 0.670588, 0.901961, 1)
+
+[node name="ni" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_aplfx")]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -36.0
+offset_right = -26.0
+offset_bottom = -17.0
+color = Color(0.901961, 0.694118, 0.458824, 1)
+_accepted_datatypes = "input2d layer2d"
+hint = 1
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(10, 5, 10, 5)
+multiple_splines = true
+origin_offset = Vector2(-5, 0)
+unpadded_area = Vector4(10, 10, 0, 10)
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+conn_count_keyword = "layer"
+gradient_color = Color(0.901961, 0.694118, 0.458824, 1)
+
+[node name="o" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_aplfx")]
+layout_mode = 0
+offset_left = 63.0
+offset_top = -36.0
+offset_right = 81.0
+offset_bottom = -17.0
+color = Color(0.9, 0.6942, 0.459, 1)
+_accepted_datatypes = "layer2d"
+server_name = &"layer_out"
+connection_type = 1
+area_paddings = Vector4(10, 5, 10, 5)
+multiple_splines = true
+origin_offset = Vector2(9, 0)
+unpadded_area = Vector4(0, 10, 10, 10)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"layer": 32,
+&"train": 1
+})
+parent_graph = NodePath("..")
+conn_count_keyword = "layer"
+gradient_color = Color(0.901961, 0.694118, 0.458824, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("3_cc8xm")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0)
+instance_shader_parameters/outline_color = Color(0.772833, 0.53, 1, 1)
+instance_shader_parameters/tuning = Color(0.255267, 0.154, 0.35, 0.596078)
+layout_mode = 0
+offset_left = -36.0
+offset_top = -64.0
+offset_right = 73.0
+offset_bottom = 9.0
+
+[node name="root" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+z_index = 1
+layout_mode = 0
+offset_left = 33.0
+offset_top = 4.0
+offset_right = 226.0
+offset_bottom = 47.0
+scale = Vector2(0.374766, 0.374766)
+theme = ExtResource("6_51xl4")
+text = "Conv2D"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label"]
+script = ExtResource("5_cc8xm")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Свёрт2D"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Свёрт2D"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="unit" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -48.0
+offset_top = 23.0
+offset_right = -33.0
+offset_bottom = 38.0
+
+[node name="ColorRect5" type="ColorRect" parent="unit"]
+material = ExtResource("4_aplfx")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3.5, 1)
+instance_shader_parameters/outline_color = Color(0.92, 0.92, 0.92, 1)
+instance_shader_parameters/tuning = Color(0.6, 0.6, 0.6, 0.443137)
+layout_mode = 0
+offset_right = 19.0
+offset_bottom = 19.0
+scale = Vector2(0.820862, 0.820862)
+color = Color(0.73, 0.563073, 0.3723, 1)
+
+[node name="filter" type="ColorRect" parent="."]
+z_index = 1
+material = ExtResource("4_aplfx")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3.5, 1)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 0.682353)
+instance_shader_parameters/tuning = Color(1, 1, 1, 0.235294)
+layout_mode = 0
+offset_left = -23.0
+offset_top = -42.0
+offset_right = -23.0
+offset_bottom = -42.0
+scale = Vector2(0.820862, 0.820862)
+
+[node name="filter2" type="ColorRect" parent="."]
+self_modulate = Color(0.9, 0.7656, 0.612, 0.509804)
+z_index = 1
+material = ExtResource("4_aplfx")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3.5, 1)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 0.686275)
+instance_shader_parameters/tuning = Color(1, 1, 1, 0.537255)
+layout_mode = 0
+offset_left = -23.0
+offset_top = -42.0
+offset_right = -23.0
+offset_bottom = -42.0
+scale = Vector2(0.820862, 0.820862)
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0.811765, 0.811765, 0.811765, 1)
+layout_mode = 0
+offset_left = -23.999996
+offset_top = -42.0
+offset_right = 92.0
+offset_bottom = 1.0
+scale = Vector2(0.339489, 0.339489)
+theme = ExtResource("6_51xl4")
+theme_override_font_sizes/font_size = 27
+text = "Window"
+
+[node name="HSlider" type="HSlider" parent="Label"]
+layout_mode = 0
+offset_left = 106.00003
+offset_top = 3.0543976
+offset_right = 174.00003
+offset_bottom = 19.054398
+scale = Vector2(1.8, 1.8)
+focus_mode = 1
+mouse_force_pass_scroll_events = false
+min_value = 1.0
+max_value = 11.0
+value = 1.0
+
+[node name="n" type="Label" parent="Label"]
+self_modulate = Color(0.6, 0.6, 0.6, 1)
+layout_mode = 0
+offset_left = 232.70227
+offset_top = -2.72639
+offset_right = 272.70227
+offset_bottom = 40.27361
+scale = Vector2(0.9, 0.9)
+theme = ExtResource("6_51xl4")
+text = "1"
+
+[node name="Loc" type="Node" parent="Label"]
+script = ExtResource("5_cc8xm")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Кернел"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Кернел"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Label2" type="Label" parent="."]
+self_modulate = Color(0.811765, 0.811765, 0.811765, 1)
+layout_mode = 0
+offset_left = -24.0
+offset_top = -27.000002
+offset_right = 92.0
+offset_bottom = 15.999998
+scale = Vector2(0.339, 0.339)
+theme = ExtResource("6_51xl4")
+theme_override_font_sizes/font_size = 27
+text = "Stride"
+
+[node name="HSlider2" type="HSlider" parent="Label2"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 3.050148
+offset_right = 174.0
+offset_bottom = 19.050148
+scale = Vector2(1.8, 1.8)
+focus_mode = 1
+mouse_force_pass_scroll_events = false
+min_value = 1.0
+max_value = 4.0
+value = 1.0
+
+[node name="n" type="Label" parent="Label2"]
+self_modulate = Color(0.6, 0.6, 0.6, 1)
+layout_mode = 0
+offset_left = 233.03784
+offset_top = -2.72639
+offset_right = 273.03784
+offset_bottom = 40.27361
+scale = Vector2(0.9, 0.9)
+theme = ExtResource("6_51xl4")
+text = "1"
+
+[node name="Loc" type="Node" parent="Label2"]
+script = ExtResource("5_cc8xm")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Прыжок"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Қадам"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Y" parent="." instance=ExtResource("6_aplfx")]
+layout_mode = 0
+offset_left = 19.000002
+offset_top = -11.0
+offset_right = 99.0
+offset_bottom = 37.0
+scale = Vector2(0.238192, 0.238192)
+placeholder_text = "16"
+max_length = 12
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("7_cc8xm")
+min_value = 16
+max_value = 128
+allow_float = false
+decimal_places = 2
+empty_on_min = true
+resize_after = 4
+change_always_accepted = false
+
+[node name="Label3" type="Label" parent="."]
+self_modulate = Color(0.811765, 0.811765, 0.811765, 1)
+layout_mode = 0
+offset_left = -24.0
+offset_top = -11.0
+offset_right = 92.0
+offset_bottom = 32.0
+scale = Vector2(0.339, 0.339)
+theme = ExtResource("6_51xl4")
+theme_override_font_sizes/font_size = 27
+text = "Filters"
+
+[node name="Loc" type="Node" parent="Label3"]
+script = ExtResource("5_cc8xm")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Фильтры"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Сүзгі"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[connection signal="value_changed" from="Label/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Label2/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="submitted" from="Y" to="." method="_on_yf_submitted"]

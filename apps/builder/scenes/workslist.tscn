@@ -1,0 +1,369 @@
+[gd_scene format=3 uid="uid://ctiauo8kt0kev"]
+
+[ext_resource type="Script" uid="uid://ctq7nyimmhsjd" path="res://scripts/workslist.gd" id="1_vtj8a"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="2_vfxqu"]
+[ext_resource type="Material" uid="uid://jm8oyahk342s" path="res://resources/context_menu.tres" id="3_lutd3"]
+[ext_resource type="Script" uid="uid://cb40vkd5uu1g1" path="res://scripts/edit_graph.gd" id="4_0dqf8"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="5_76vdw"]
+[ext_resource type="Material" uid="uid://crjr13k12egng" path="res://scenes/splash.tres" id="6_3xorn"]
+[ext_resource type="Texture2D" uid="uid://e3v60pbtb0op" path="res://game_assets/icons/splines.png" id="7_3uuj2"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="8_q3w4g"]
+[ext_resource type="Script" uid="uid://dqpr2y7tbsc13" path="res://scripts/works_list.gd" id="9_6ljbw"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="10_rxyai"]
+[ext_resource type="Script" uid="uid://3iluo5wg2wdh" path="res://scripts/works_unroll.gd" id="11_i2dhk"]
+[ext_resource type="Theme" uid="uid://74kwx22ikciq" path="res://resources/theme_headers.tres" id="12_880lx"]
+[ext_resource type="Script" uid="uid://cde6ymj4s7co" path="res://scenes/loca.gd" id="13_83yqb"]
+[ext_resource type="Script" uid="uid://cink4uduoxu4b" path="res://scripts/end.gd" id="14_mcf6w"]
+
+[sub_resource type="Resource" id="Resource_jips7"]
+script = ExtResource("5_76vdw")
+hover_color = Color(1.3, 1.1, 1.1, 1)
+press_color = Color(1.1, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_sfqu4"]
+script = ExtResource("5_76vdw")
+hover_color = Color(1.300188, 1.300188, 1.300188, 1)
+hover_mult = 1.15
+_hover_scale = 1.02
+press_color = Color(1.1, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_5kbvu"]
+script = ExtResource("5_76vdw")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="Resource" id="Resource_vtj8a"]
+script = ExtResource("5_76vdw")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.02
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Node2D" type="Control" unique_id=682084945]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vtj8a")
+typename = "workslist"
+
+[node name="delete_project" parent="." unique_id=1799724888 instance=ExtResource("2_vfxqu")]
+z_index = 90
+material = ExtResource("3_lutd3")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.51, 0.51, 0.51, 0.439216)
+layout_mode = 0
+offset_right = 159.0
+offset_bottom = 46.0
+scale = Vector2(0.75, 0.75)
+script = ExtResource("4_0dqf8")
+implement = true
+text_alignment = Vector2(-1, 0)
+text_offset = Vector2(15, 0)
+base_size = Vector2(159, 46)
+_scroll_container = false
+expanded_size = 96
+scale_anim = true
+mouse_open = false
+menu_name = &"delete_project"
+max_size = 0
+config = null
+in_splash = true
+still_hover_in_block = true
+
+[node name="delete" parent="delete_project" unique_id=1706306702 instance=ExtResource("2_vfxqu")]
+z_index = 2
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.95, 0.418, 0.418, 1)
+instance_shader_parameters/tuning = Color(0.44, 0.2244, 0.2244, 0.639216)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 105.0
+offset_bottom = 74.0
+pivot_offset = Vector2(50.5, 20.5)
+button_type = 1
+text = "Delete"
+base_size = Vector2(101, 41)
+alignment = Vector2(0.5, 0.5)
+mouse_open = false
+config = SubResource("Resource_jips7")
+in_splash = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=307385068]
+z_index = 8
+material = ExtResource("6_3xorn")
+instance_shader_parameters/corner_radius_width_add = Vector2(9.365, 1)
+instance_shader_parameters/outline_color = Color(0.85, 0.85, 0.85, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.7529412)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 99.0
+offset_right = 848.0
+offset_bottom = 522.0
+
+[node name="root" type="Control" parent="ColorRect" unique_id=1828747046]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="i" type="Sprite2D" parent="ColorRect/root" unique_id=1319567959]
+position = Vector2(23.000015, 21)
+scale = Vector2(0.9496938, 0.9496938)
+texture = ExtResource("7_3uuj2")
+
+[node name="Label" type="Label" parent="ColorRect/root" unique_id=1679741781]
+modulate = Color(0.41, 0.41, 0.41, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 140.84766
+offset_bottom = 52.0
+scale = Vector2(0.600218, 0.600218)
+theme = ExtResource("8_q3w4g")
+text = "/projects"
+
+[node name="list" parent="ColorRect" unique_id=1577918758 instance=ExtResource("2_vfxqu")]
+z_index = 3
+material = ExtResource("3_lutd3")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(1, 1, 1, 0)
+instance_shader_parameters/tuning = Color(0.509804, 0.509804, 0.509804, 0.439216)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 85.00001
+offset_right = 555.5556
+offset_bottom = 85.00001
+scale = Vector2(0.9, 0.9)
+color = Color(1, 1, 1, 0)
+script = ExtResource("9_6ljbw")
+tune_mult = 2.2
+top = true
+base_size = Vector2(535.5556, 0)
+static_mode = true
+expanded_size = 317
+mouse_open = false
+dynamic_size = true
+max_size = 317
+config = null
+in_splash = true
+
+[node name="name" parent="ColorRect/list" unique_id=12290764 instance=ExtResource("2_vfxqu")]
+z_index = 5
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.43137255, 0.5882353, 0.9019608, 1)
+instance_shader_parameters/tuning = Color(0.26400003, 0.3593334, 0.55, 0.5647059)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 221.333
+offset_right = 436.0
+offset_bottom = 296.6667
+pivot_offset = Vector2(118, 37.666847)
+button_type = 1
+placeholder = true
+auto_trim_text = true
+text = "Hello!!"
+text_alignment = Vector2(-1, -1)
+text_offset = Vector2(15, 15)
+base_size = Vector2(236, 75.333694)
+alignment = Vector2(0.5, 0.5)
+mouse_open = false
+config = SubResource("Resource_sfqu4")
+in_splash = true
+still_hover_in_block = true
+
+[node name="Loc" type="Node" parent="ColorRect/list/name" unique_id=1732625006]
+script = ExtResource("10_rxyai")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"untitled": "Безымянный"
+})
+localizations_kz = Dictionary[String, String]({
+"untitled": "Атаусыз"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="ProceduralNodes" type="Node" parent="ColorRect/list" unique_id=407792852 node_paths=PackedStringArray("instance")]
+script = ExtResource("11_i2dhk")
+instance = NodePath("../name")
+metadata/_custom_type_script = "uid://cppqde4187p8n"
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=945186329]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 38.0
+offset_right = 475.0
+offset_bottom = 75.0
+theme = ExtResource("12_880lx")
+text = "Your projects"
+
+[node name="Loc" type="Node" parent="ColorRect/Label" unique_id=1189558207]
+script = ExtResource("10_rxyai")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"project list": "Список проектов"
+})
+localizations_kz = Dictionary[String, String]({
+"project list": "Жобалар тізімі"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="train2" parent="ColorRect" unique_id=1264753404 instance=ExtResource("2_vfxqu")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -243.14642
+offset_top = 373.21283
+offset_right = -185.06793
+offset_bottom = 398.21283
+grow_horizontal = 0
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(29.039246, 12.5)
+mouse_filter = 1
+color = Color(0.93, 0.93, 0.93, 1)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 6
+text = "+ New"
+base_size = Vector2(58.07849, 25)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_5kbvu")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/train2" unique_id=1652572700]
+script = ExtResource("13_83yqb")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "+Нов."
+})
+localizations_kz = Dictionary[String, String]({
+"_": "+Жаңа"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="import" parent="ColorRect" unique_id=1492746911 instance=ExtResource("2_vfxqu")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -327.27423
+offset_top = 373.21283
+offset_right = -262.5852
+offset_bottom = 398.21283
+grow_horizontal = 0
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(32.344513, 12.5)
+mouse_filter = 1
+color = Color(0.93, 0.93, 0.93, 1)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 6
+text = "Import"
+base_size = Vector2(64.689026, 25)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_5kbvu")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/import" unique_id=1618543489]
+script = ExtResource("13_83yqb")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Импорт"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Импорт"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="lessons" parent="ColorRect" unique_id=1574953517 instance=ExtResource("2_vfxqu")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-9, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+layout_mode = 0
+offset_left = 402.93927
+offset_top = 43.999996
+offset_right = 489.2148
+offset_bottom = 69.0
+scale = Vector2(1.1770253, 1.1770253)
+pivot_offset = Vector2(43.13777, 12.500002)
+mouse_filter = 1
+color = Color(1, 1, 1, 0.105882354)
+button_type = 1
+top = true
+hint = &"login"
+base_scale_x = 0.45
+resize_after = 10
+text = "Tutorials"
+text_color = Color(0.24000001, 1, 0.5186666, 1)
+base_size = Vector2(86.27554, 25.000004)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_vtj8a")
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/lessons" unique_id=1122414713]
+script = ExtResource("10_rxyai")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Туториалы"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Сабақтар"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Node" type="Node" parent="." unique_id=1211013213]
+script = ExtResource("14_mcf6w")
+
+[connection signal="child_button_release" from="ColorRect/list" to="." method="_on_list_child_button_release"]
+[connection signal="scroll_changed" from="ColorRect/list" to="." method="_on_list_scroll_changed"]
+[connection signal="released" from="ColorRect/train2" to="." method="_on_add"]
+[connection signal="released" from="ColorRect/import" to="." method="_on_import_released"]
+[connection signal="released" from="ColorRect/lessons" to="." method="_on_lessons_released"]

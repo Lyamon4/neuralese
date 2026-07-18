@@ -1,0 +1,168 @@
+[gd_scene load_steps=11 format=3 uid="uid://6tgq6ifq5dbw"]
+
+[ext_resource type="Script" uid="uid://c1v2uitfrewdm" path="res://scripts/dropout.gd" id="1_i4g46"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_80rcy"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="3_2nacm"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="4_axe6h"]
+[ext_resource type="Shader" uid="uid://xdax0svtqhn4" path="res://shaders/rounded.gdshader" id="5_2nacm"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="5_axe6h"]
+[ext_resource type="Script" uid="uid://btcapdmf5j2nq" path="res://scripts/img_pusher.gd" id="6_2nacm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axe6h"]
+shader = ExtResource("5_2nacm")
+shader_parameter/corner_radius = 1.50000007125
+
+[sub_resource type="Image" id="Image_dt4lp"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "Lum8",
+"height": 8,
+"mipmaps": false,
+"width": 14
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_sdav8"]
+image = SubResource("Image_dt4lp")
+
+[node name="Base" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("1_i4g46")
+layer_name = "Dropout"
+target_size = 39.0
+server_typename = &"NeuronLayer"
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"p": 0.0
+})
+
+[node name="o2" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_80rcy")]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -7.0
+offset_right = -38.0
+offset_bottom = 10.0
+color = Color(0.4627451, 0.4509804, 0.8509804, 1)
+_accepted_datatypes = "layer1d"
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(10, 10, 10, 10)
+origin_offset = Vector2(-5, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+gradient_color = Color(0.4627451, 0.4509804, 0.8509804, 1)
+
+[node name="o" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_80rcy")]
+layout_mode = 0
+offset_left = 81.0
+offset_top = -7.0
+offset_right = 97.0
+offset_bottom = 10.0
+color = Color(0.4627451, 0.4509804, 0.8509804, 1)
+_accepted_datatypes = "layer1d"
+server_name = &"layer_out"
+connection_type = 1
+area_paddings = Vector4(10, 10, 10, 10)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+parent_graph = NodePath("..")
+gradient_color = Color(0.4627451, 0.4509804, 0.8509804, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("3_2nacm")
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/outline_color = Color(0.69411767, 0.6901961, 0.8509804, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.639216)
+layout_mode = 0
+offset_left = -47.0
+offset_top = -18.0
+offset_right = 89.0
+offset_bottom = 21.0
+
+[node name="root" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+z_index = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 143.0
+offset_bottom = 47.0
+scale = Vector2(0.419329, 0.419329)
+theme = ExtResource("4_axe6h")
+text = "Dropout"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label"]
+script = ExtResource("5_axe6h")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Дропаут"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Дропаут"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="Label4" type="Label" parent="ColorRect/root"]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 18.999996
+offset_right = 202.0
+offset_bottom = 62.999992
+scale = Vector2(0.311, 0.311)
+theme = ExtResource("4_axe6h")
+text = "P"
+
+[node name="HSlider" type="HSlider" parent="ColorRect/root/Label4"]
+layout_mode = 0
+offset_left = 28.93892
+offset_top = 6.430869
+offset_right = 97.93892
+offset_bottom = 22.4309
+scale = Vector2(2, 2)
+focus_mode = 1
+mouse_force_pass_scroll_events = false
+step = 5.0
+
+[node name="n" type="Label" parent="ColorRect/root/Label4"]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 173.63345
+offset_top = 6.430868
+offset_right = 366.63348
+offset_bottom = 50.430862
+scale = Vector2(0.7349866, 0.7349866)
+theme = ExtResource("4_axe6h")
+text = "0.0"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_axe6h")
+layout_mode = 0
+offset_left = 33.000004
+offset_top = -13.0
+offset_right = 47.000004
+offset_bottom = -5.0
+scale = Vector2(3.5893068, 3.5893068)
+texture = SubResource("ImageTexture_sdav8")
+stretch_mode = 2
+
+[node name="SizePusher" type="Node" parent="TextureRect"]
+script = ExtResource("6_2nacm")
+size = Vector2i(14, 8)
+metadata/_custom_type_script = "uid://btcapdmf5j2nq"
+
+[connection signal="value_changed" from="ColorRect/root/Label4/HSlider" to="." method="_on_h_slider_value_changed"]

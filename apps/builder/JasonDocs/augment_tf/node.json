@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "node_id": "augment_tf",
+  "status": "stable",
+  "generated": {
+    "node_id": "augment_tf",
+    "created_with": "augment_tf",
+    "scene_path": "res://scenes/augment_tune.tscn",
+    "scene_uid": "uid://cp0sggav0hojo",
+    "root_instance_path": null,
+    "script_path": "res://scripts/image_tune.gd",
+    "inheritance_chain": [
+      "res://scripts/image_tune.gd",
+      "res://scripts/base_graph.gd"
+    ],
+    "inherits_graph": true,
+    "server_typename": "AugmentTune",
+    "layer_name": null,
+    "title_candidates": {
+      "en": "ImageTune",
+      "ru": "",
+      "kz": ""
+    },
+    "base_config": {},
+    "ports": [
+      {
+        "id": "input_o2_layer_in",
+        "scene_node": "o2",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "layer_in",
+        "direction": "input",
+        "datatypes": [
+          "input2d"
+        ],
+        "multiple": false,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": null
+      },
+      {
+        "id": "output_o_layer_out",
+        "scene_node": "o",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "layer_out",
+        "direction": "output",
+        "datatypes": [
+          "input2d"
+        ],
+        "multiple": false,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": null
+      }
+    ],
+    "settings": [],
+    "icon_source": "res://node_icons/IconAugmentTf.png",
+    "static_compatible_nodes": [
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "flatten",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "input2d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "conv2d",
+        "to_port": "input_ni_layer_in",
+        "datatypes": [
+          "input2d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_layer_out",
+        "to_node": "augment_tf",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "input2d"
+        ],
+        "confidence": "static_datatype_intersection"
+      }
+    ]
+  },
+  "docs": {
+    "title": {
+      "en": "ImageTune",
+      "ru": "",
+      "kz": ""
+    },
+    "summary": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "operation": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "compact": {
+      "body": {
+        "en": "",
+        "ru": "",
+        "kz": ""
+      }
+    },
+    "ports": {
+      "input_o2_layer_in": {
+        "label": {
+          "en": "layer_in",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      },
+      "output_o_layer_out": {
+        "label": {
+          "en": "layer_out",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "settings": {},
+    "connects_to": [],
+    "examples": []
+  }
+}

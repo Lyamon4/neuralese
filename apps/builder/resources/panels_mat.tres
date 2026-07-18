@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://csd0434htqs0o"]
+
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="1_60i5c"]
+
+[resource]
+shader = ExtResource("1_60i5c")
+shader_parameter/shape = 0
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 0.0
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 0.0
+shader_parameter/mult = 1.5
+shader_parameter/blur_level = 3.870000183825
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.8790000892525
+shader_parameter/use_bg = true

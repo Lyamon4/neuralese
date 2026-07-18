@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "node_id": "classifier",
+  "status": "stable",
+  "generated": {
+    "node_id": "classifier",
+    "created_with": "classifier",
+    "scene_path": "res://scenes/classifier_graph.tscn",
+    "scene_uid": "uid://de6mgawywaidj",
+    "root_instance_path": null,
+    "script_path": "res://scripts/classifier.gd",
+    "inheritance_chain": [
+      "res://scripts/classifier.gd",
+      "res://scripts/io_graph.gd",
+      "res://scripts/base_graph.gd"
+    ],
+    "inherits_graph": true,
+    "server_typename": "ClassifierNode",
+    "layer_name": null,
+    "title_candidates": {
+      "en": "Variable name",
+      "ru": "Имя группы...",
+      "kz": "Топ атауы..."
+    },
+    "base_config": {
+      "label_names": "[]",
+      "title": ""
+    },
+    "ports": [
+      {
+        "id": "input_ni_layer_in",
+        "scene_node": "ni",
+        "scene_path": ".",
+        "hint": 1,
+        "server_name": "layer_in",
+        "direction": "input",
+        "datatypes": [
+          "layer1d"
+        ],
+        "multiple": false,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": "classifier"
+      }
+    ],
+    "settings": [
+      {
+        "id": "label_names",
+        "source": "base_config",
+        "default": "[]",
+        "ui_kind": null,
+        "ui_path": null,
+        "options": []
+      },
+      {
+        "id": "title",
+        "source": "base_config",
+        "default": "",
+        "ui_kind": null,
+        "ui_path": null,
+        "options": []
+      }
+    ],
+    "icon_source": "res://node_icons/IconClassifier.png",
+    "static_compatible_nodes": []
+  },
+  "docs": {
+    "title": {
+      "en": "Variable name",
+      "ru": "Имя группы...",
+      "kz": "Топ атауы..."
+    },
+    "summary": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "operation": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "compact": {
+      "body": {
+        "en": "",
+        "ru": "",
+        "kz": ""
+      }
+    },
+    "ports": {
+      "input_ni_layer_in": {
+        "label": {
+          "en": "layer_in",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "settings": {
+      "label_names": {
+        "label": {
+          "en": "label_names",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      },
+      "title": {
+        "label": {
+          "en": "title",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "connects_to": [],
+    "examples": []
+  }
+}

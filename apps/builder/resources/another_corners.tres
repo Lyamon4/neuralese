@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://xv1yxheu5sfq"]
+
+[ext_resource type="Shader" uid="uid://xdax0svtqhn4" path="res://shaders/rounded.gdshader" id="1_5fta2"]
+
+[resource]
+shader = ExtResource("1_5fta2")
+shader_parameter/corner_radius = 4.00000019
+shader_parameter/rect_size = Vector2(240, 180)

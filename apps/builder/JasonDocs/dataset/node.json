@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "node_id": "dataset",
+  "status": "stable",
+  "generated": {
+    "node_id": "dataset",
+    "created_with": "dataset",
+    "scene_path": "res://scenes/dataset.tscn",
+    "scene_uid": "uid://dkx7jmpcdb0sw",
+    "root_instance_path": null,
+    "script_path": "res://scripts/dataset_node.gd",
+    "inheritance_chain": [
+      "res://scripts/dataset_node.gd",
+      "res://scripts/base_graph.gd"
+    ],
+    "inherits_graph": true,
+    "server_typename": "DatasetName",
+    "layer_name": null,
+    "title_candidates": {
+      "en": "Dataset",
+      "ru": "Датасет",
+      "kz": "Датасет"
+    },
+    "base_config": {
+      "meta": "{}",
+      "name": ""
+    },
+    "ports": [
+      {
+        "id": "output_o3_netname",
+        "scene_node": "o3",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "netname",
+        "direction": "output",
+        "datatypes": [
+          "dataset_type"
+        ],
+        "multiple": false,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": "netname"
+      }
+    ],
+    "settings": [
+      {
+        "id": "meta",
+        "source": "base_config",
+        "default": "{}",
+        "ui_kind": null,
+        "ui_path": null,
+        "options": []
+      },
+      {
+        "id": "name",
+        "source": "base_config",
+        "default": "",
+        "ui_kind": null,
+        "ui_path": null,
+        "options": []
+      }
+    ],
+    "icon_source": "res://node_icons/IconDataset.png",
+    "static_compatible_nodes": [
+      {
+        "from_port": "output_o3_netname",
+        "to_node": "train_begin",
+        "to_port": "input_o2_netname",
+        "datatypes": [
+          "dataset_type"
+        ],
+        "confidence": "static_datatype_intersection"
+      }
+    ]
+  },
+  "docs": {
+    "title": {
+      "en": "Dataset",
+      "ru": "Датасет",
+      "kz": "Датасет"
+    },
+    "summary": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "operation": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "compact": {
+      "body": {
+        "en": "",
+        "ru": "",
+        "kz": ""
+      }
+    },
+    "ports": {
+      "output_o3_netname": {
+        "label": {
+          "en": "netname",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "settings": {
+      "meta": {
+        "label": {
+          "en": "meta",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      },
+      "name": {
+        "label": {
+          "en": "name",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "connects_to": [],
+    "examples": []
+  }
+}

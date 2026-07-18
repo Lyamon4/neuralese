@@ -1,0 +1,22 @@
+{
+  "model_provider": "deepseek",
+  "limits": {
+    "enabled": true,
+    "per_user_requests_per_day": 40,
+    "per_user_requests_per_hour": 20,
+    "per_user_requests_per_5_minutes": 6,
+    "global_requests_per_day": 1500,
+    "graph_builds_per_user_per_day": 8,
+    "graph_builds_per_user_per_hour": 1,
+    "graph_build_min_interval_seconds": 30,
+    "global_graph_builds_per_day": 250,
+    "soft_global_tokens_per_day": 10000000,
+    "hard_global_tokens_per_day": 20000000,
+    "max_user_message_chars": 4000,
+    "max_retained_chat_messages": 12,
+    "estimated_tokens_per_char": 0.25
+  },
+  "logging": {
+    "retrieval_debug": true
+  }
+}

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c302ey6c8nfi7"]
+
+[ext_resource type="Texture2D" uid="uid://csgih8s61hn14" path="res://game_assets/icons/hourglass.png" id="1_136ty"]
+[ext_resource type="Script" uid="uid://daxf1jnobophf" path="res://scripts/hourglass.gd" id="2_21rql"]
+
+[node name="Node2D" type="TextureRect"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+offset_right = 24.0
+grow_vertical = 0
+rotation = 3.1415927
+pivot_offset = Vector2(12, 12)
+texture = ExtResource("1_136ty")
+flip_v = true
+script = ExtResource("2_21rql")

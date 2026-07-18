@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://by1briddb0hwg"]
+
+[ext_resource type="Shader" uid="uid://cxl3lwrgb4nbm" path="res://shaders/bg.gdshader" id="1_5vsr6"]
+[ext_resource type="Script" uid="uid://07c2103mw3ts" path="res://scripts/bg.gd" id="1_bf1jy"]
+[ext_resource type="Shader" uid="uid://wlfuetpafxe6" path="res://shaders/cells.gdshader" id="1_dpp0m"]
+[ext_resource type="Script" uid="uid://bbtx7h4t5e3gu" path="res://scripts/texture_rect.gd" id="1_qd2e1"]
+[ext_resource type="Script" uid="uid://frvf3lkymg7d" path="res://scripts/color_rect.gd" id="2_qd2e1"]
+[ext_resource type="Script" uid="uid://bp6qhst05ic5l" path="res://scripts/sub_viewport.gd" id="3_w68nc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w68nc"]
+shader = ExtResource("1_5vsr6")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dpp0m"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0m0f1"]
+shader = ExtResource("1_dpp0m")
+shader_parameter/mult = 0.5
+shader_parameter/width = 7.98
+shader_parameter/spacing = 110.0
+shader_parameter/grid_color = Color(0.38, 0.38, 0.38, 1)
+shader_parameter/bg_color = Color(0.25, 0.25, 0.25, 1)
+shader_parameter/aa_pixels = 1.0
+
+[node name="Node" type="CanvasLayer" unique_id=1626059463]
+layer = -127
+script = ExtResource("1_bf1jy")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=656795692]
+material = SubResource("ShaderMaterial_w68nc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 988.0
+offset_bottom = 928.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_dpp0m")
+expand_mode = 1
+stretch_mode = 2
+script = ExtResource("1_qd2e1")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1016354271]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+gui_snap_controls_to_pixels = false
+canvas_cull_mask = 4293918951
+size = Vector2i(1152, 658)
+script = ExtResource("3_w68nc")
+
+[node name="bg" type="CanvasLayer" parent="SubViewport" unique_id=2135966352]
+layer = -128
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/bg" unique_id=1764216740 node_paths=PackedStringArray("rect")]
+z_index = -4096
+material = SubResource("ShaderMaterial_0m0f1")
+offset_left = -550.0
+offset_top = -541.0
+offset_right = 4727.0
+offset_bottom = 2686.0
+color = Color(0.45, 0.45, 0.45, 1)
+script = ExtResource("2_qd2e1")
+rect = NodePath("../../../TextureRect")
+offset_mult = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1691061135]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1485138673]
+z_index = -90
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)

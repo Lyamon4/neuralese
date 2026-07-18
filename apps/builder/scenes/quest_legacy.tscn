@@ -1,0 +1,330 @@
+[gd_scene load_steps=19 format=3 uid="uid://xcoy2jxx2861"]
+
+[ext_resource type="Script" uid="uid://bn7hh07dt0uv4" path="res://scripts/quest_legacy.gd" id="1_k2ols"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="2_dhvay"]
+[ext_resource type="Material" uid="uid://dhpvvvjn14qxk" path="res://resources/fg_block.tres" id="3_5v25a"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="4_fo8cb"]
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="5_ksx4s"]
+[ext_resource type="Shader" uid="uid://d3tgjo3i0d7" path="res://shaders/simple_alphamult.gdshader" id="6_1qkwn"]
+[ext_resource type="Script" uid="uid://thpe51hd6tk" path="res://scripts/c_legacy.gd" id="7_k2ols"]
+[ext_resource type="Script" uid="uid://c6kg1wngdxbwc" path="res://scripts/bubble_unit_legacy.gd" id="8_dhvay"]
+[ext_resource type="Theme" uid="uid://74kwx22ikciq" path="res://resources/theme_headers.tres" id="9_3td8k"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="10_jlwkv"]
+
+[sub_resource type="Resource" id="Resource_5s74b"]
+script = ExtResource("4_fo8cb")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.1
+_hover_scale = 1.02
+press_color = Color(0.84, 0.84, 0.84, 1)
+_press_scale = 0.98
+animation_speed = 2.657
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ih3n3"]
+shader = ExtResource("5_ksx4s")
+shader_parameter/shape = 1
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(0.55, 0.55, 0.55, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 13.9210006612475
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 1.3
+shader_parameter/mult = 2.0
+shader_parameter/blur_level = 3.1910004840725
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.0850000515375
+shader_parameter/use_bg = false
+
+[sub_resource type="Theme" id="Theme_ao4jg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2ols"]
+shader = ExtResource("6_1qkwn")
+shader_parameter/smoothness = 25.0
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_kj15b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ih3n3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ccl1"]
+
+[sub_resource type="Resource" id="Resource_k76xp"]
+script = ExtResource("4_fo8cb")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.3
+_hover_scale = 1.05
+press_color = Color(0.72, 0.72, 0.72, 1)
+_press_scale = 0.98
+animation_scale = 19.697
+animation_speed = 3.473
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Control2" type="Control" node_paths=PackedStringArray("scroll_cont")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k2ols")
+scroll_cont = NodePath("ColorRect/ScrollContainer")
+
+[node name="ai" parent="." instance=ExtResource("2_dhvay")]
+material = ExtResource("3_5v25a")
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = -28.0
+offset_top = -0.9999995
+offset_right = -3.2514343
+offset_bottom = 22.62362
+scale = Vector2(0.8889408, 0.8889408)
+pivot_offset = Vector2(12.374283, 11.81181)
+color = Color(0.74, 0.74, 0.74, 1)
+button_type = 1
+top = true
+hint = &"ai_help"
+text = "_"
+text_offset = Vector2(0, -8)
+base_size = Vector2(24.748566, 23.62362)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_5s74b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_ih3n3")
+instance_shader_parameters/corner_radius_width_add = Vector2(0, 2)
+instance_shader_parameters/outline_color = Color(0.83, 0.83, 0.83, 1)
+instance_shader_parameters/tuning = Color(0.86, 0.86, 0.86, 1)
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 451.0
+mouse_filter = 2
+color = Color(0.2, 1, 0.49411765, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ao4jg")
+
+[node name="c" type="Control" parent="ColorRect/ScrollContainer"]
+material = SubResource("ShaderMaterial_k2ols")
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+script = ExtResource("7_k2ols")
+
+[node name="radio" type="Control" parent="ColorRect/ScrollContainer/c" node_paths=PackedStringArray("root")]
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 69.0
+offset_right = 363.0
+offset_bottom = 109.0
+script = ExtResource("8_dhvay")
+unit_type = 0
+root = NodePath("../../../..")
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect/ScrollContainer/c/radio"]
+layout_mode = 0
+offset_top = -0.99999905
+offset_right = 24.0
+offset_bottom = 23.0
+scale = Vector2(1.8473208, 1.8473208)
+focus_mode = 0
+button_group = SubResource("ButtonGroup_kj15b")
+
+[node name="text" type="RichTextLabel" parent="ColorRect/ScrollContainer/c/radio"]
+visible = false
+z_index = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 43.0
+offset_top = 9.000001
+offset_right = 390.2121
+offset_bottom = 33.0
+scale = Vector2(0.9504278, 0.9504278)
+focus_mode = 2
+theme = ExtResource("9_3td8k")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+
+[node name="preview" type="Label" parent="ColorRect/ScrollContainer/c/radio"]
+z_index = 1
+layout_mode = 0
+offset_left = 43.0
+offset_top = 9.000001
+offset_right = 394.42072
+offset_bottom = 46.0
+scale = Vector2(0.9504278, 0.9504278)
+focus_mode = 2
+theme = ExtResource("9_3td8k")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="text" type="Control" parent="ColorRect/ScrollContainer/c" node_paths=PackedStringArray("root")]
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 363.0
+script = ExtResource("8_dhvay")
+root = NodePath("../../../..")
+
+[node name="text" type="RichTextLabel" parent="ColorRect/ScrollContainer/c/text"]
+z_index = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 402.5592
+offset_bottom = 1.0
+scale = Vector2(0.9504278, 0.9504278)
+focus_mode = 2
+theme = ExtResource("9_3td8k")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+
+[node name="checkbox" type="Control" parent="ColorRect/ScrollContainer/c" node_paths=PackedStringArray("root")]
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 69.0
+offset_right = 363.0
+offset_bottom = 109.0
+script = ExtResource("8_dhvay")
+unit_type = 2
+root = NodePath("../../../..")
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect/ScrollContainer/c/checkbox"]
+layout_mode = 0
+offset_top = -0.99999905
+offset_right = 24.0
+offset_bottom = 23.0
+scale = Vector2(1.8473208, 1.8473208)
+focus_mode = 0
+
+[node name="text" type="RichTextLabel" parent="ColorRect/ScrollContainer/c/checkbox"]
+visible = false
+z_index = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 43.0
+offset_top = 9.000001
+offset_right = 390.2121
+offset_bottom = 33.0
+scale = Vector2(0.9504278, 0.9504278)
+focus_mode = 2
+theme = ExtResource("9_3td8k")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+bbcode_enabled = true
+text = "edf"
+fit_content = true
+selection_enabled = true
+
+[node name="preview" type="Label" parent="ColorRect/ScrollContainer/c/checkbox"]
+z_index = 1
+layout_mode = 0
+offset_left = 43.0
+offset_top = 9.000001
+offset_right = 394.42072
+offset_bottom = 46.0
+scale = Vector2(0.9504278, 0.9504278)
+focus_mode = 2
+theme = ExtResource("9_3td8k")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="next" type="Control" parent="ColorRect/ScrollContainer/c" node_paths=PackedStringArray("root")]
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 363.0
+offset_bottom = 52.0
+script = ExtResource("8_dhvay")
+static_size = true
+unit_type = 3
+root = NodePath("../../../..")
+
+[node name="next" parent="ColorRect/ScrollContainer/c/next" instance=ExtResource("2_dhvay")]
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, -0.5)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.87, 0.87, 0.87, 0.078431375)
+layout_mode = 0
+offset_left = 165.00002
+offset_top = 10.0
+offset_right = 239.00002
+offset_bottom = 35.0
+scale = Vector2(1.6464939, 1.6464939)
+pivot_offset = Vector2(37, 12.5)
+mouse_filter = 1
+color = Color(0.6045, 0.93, 0.631625, 1)
+button_type = 1
+base_scale_x = 0.44
+text = "Next >"
+text_alignment = Vector2(-0.5, 0)
+text_offset = Vector2(6, 0)
+base_size = Vector2(74, 25)
+alignment = Vector2(0.5, 0.5)
+expanded_size = 98
+arrangement_padding = Vector2(5, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 170
+config = SubResource("Resource_k76xp")
+expand_to_text_length = true
+in_splash = true
+
+[node name="Loc" type="Node" parent="ColorRect/ScrollContainer/c/next/next"]
+script = ExtResource("10_jlwkv")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Дальше >"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Келесі >"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="released" from="ai" to="." method="_on_ai_released"]
+[connection signal="child_entered_tree" from="ColorRect/ScrollContainer/c/radio" to="ColorRect/ScrollContainer/c/radio" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="ColorRect/ScrollContainer/c/text" to="ColorRect/ScrollContainer/c/text" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="ColorRect/ScrollContainer/c/checkbox" to="ColorRect/ScrollContainer/c/checkbox" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="ColorRect/ScrollContainer/c/next" to="ColorRect/ScrollContainer/c/next" method="_on_child_entered_tree"]

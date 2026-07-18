@@ -1,0 +1,419 @@
+lesson_title: Урок 5 — Обучаем сеть распознавать цифры
+flow:
+- step welcome:
+    title: 'Финальный проект: настоящий распознаватель цифр'
+    actions:
+    - explain:
+        text:
+        - Теперь соберём модель, которая смотрит на рукописную цифру и выбирает ответ от 0 до 9.
+        - 'Это уже маленькая, но настоящая свёрточная нейросеть: две свёртки, два пуллинга, распрямление, плотный слой и выход.'
+        - Датасет называется [b]mnist[/b]. В нём много маленьких изображений цифр и правильные ответы к ним.
+        wait: next
+    - explain_next: {}
+- step image_input:
+    title: Картинка входит в модель
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=BEIGE][b]Ввод2D[/b][/color].
+        - Через этот вход модель будет получать маленькое изображение цифры.
+        - Пока она ничего не понимает — мы только открываем дверь для картинки.
+        wait: none
+    - create:
+        img: input
+    - require:
+        node:
+          bind: img
+    - prohibit_deletion: img
+    - confetti:
+        bind: img
+    - explain_next: {}
+- step conv_block_1:
+    title: 'Первый свёрточный блок: простые признаки'
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - 'Первый свёрточный блок ищет самые простые признаки: края, короткие линии и маленькие изгибы.'
+        - Создай [color=LIGHT_SKY_BLUE][b]Активация[/b][/color] ReLU, [color=VIOLET][b]Свёрт2D[/b][/color] и [color=LIGHT_SEA_GREEN][b]МаксПул2D[/b][/color].
+        - 'Настройки [color=VIOLET]Свёрт2D[/color]: filters = [b]32[/b], window = [b]3[/b], stride = [b]1[/b]. Для [color=LIGHT_SEA_GREEN]МаксПул2D[/color]:
+          group = [b]2[/b].'
+        - Соедини [color=BEIGE]Ввод2D[/color] → [color=VIOLET]Свёрт2D[/color] → [color=LIGHT_SEA_GREEN]МаксПул2D[/color],
+          а ReLU подключи к верхнему порту свёртки.
+        wait: none
+    - create:
+        relu1: neuron
+        conv1: conv2d
+        pool1: maxpool
+    - require:
+        topology:
+          root: img
+          nodes:
+            img:
+              type: input
+            relu1:
+              type: neuron
+              config:
+                activ: == 'relu'
+            conv1:
+              type: conv2d
+              config:
+                filters: == 32
+                window: == 3
+                stride: == 1
+            pool1:
+              type: maxpool
+              config:
+                group: == 2
+          edges:
+          - img.0 -> conv1.1
+          - relu1.0 -> conv1.0
+          - conv1.0 -> pool1.0
+    - prohibit_deletion:
+      - relu1
+      - conv1
+      - pool1
+    - confetti:
+        targets:
+        - bind: relu1
+        - bind: conv1
+        - bind: pool1
+    - explain_next: {}
+- step conv_block_2:
+    title: 'Второй блок: признаки крупнее'
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - После первого блока модель уже видит простые линии. Второй блок собирает из них более крупные части цифр.
+        - Создай вторую [color=LIGHT_SKY_BLUE][b]Активация[/b][/color] ReLU, второй [color=VIOLET][b]Свёрт2D[/b][/color] и
+          второй [color=LIGHT_SEA_GREEN][b]МаксПул2D[/b][/color].
+        - 'Настройки второй свёртки: filters = [b]64[/b], window = [b]3[/b], stride = [b]1[/b]. Пуллинг снова group = [b]2[/b].'
+        - Соедини первый [color=LIGHT_SEA_GREEN]МаксПул2D[/color] → второй [color=VIOLET]Свёрт2D[/color] → второй [color=LIGHT_SEA_GREEN]МаксПул2D[/color].
+          ReLU — в верхний порт второй свёртки.
+        wait: none
+    - create:
+        relu2: neuron
+        conv2: conv2d
+        pool2: maxpool
+    - require:
+        topology:
+          root: img
+          nodes:
+            img:
+              type: input
+            conv1:
+              type: conv2d
+              config:
+                filters: == 32
+            pool1:
+              type: maxpool
+            relu2:
+              type: neuron
+              config:
+                activ: == 'relu'
+            conv2:
+              type: conv2d
+              config:
+                filters: == 64
+                window: == 3
+                stride: == 1
+            pool2:
+              type: maxpool
+              config:
+                group: == 2
+          edges:
+          - img.0 -> conv1.1
+          - conv1.0 -> pool1.0
+          - pool1.0 -> conv2.1
+          - relu2.0 -> conv2.0
+          - conv2.0 -> pool2.0
+    - prohibit_deletion:
+      - relu2
+      - conv2
+      - pool2
+    - confetti:
+        targets:
+        - bind: relu2
+        - bind: conv2
+        - bind: pool2
+    - explain_next: {}
+- step dense_head:
+    title: Из карты признаков — в решение
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Теперь 2D-карты признаков нужно превратить в 1D-список и передать в обычный слой.
+        - Создай [color=WHITE][b]Плоск1D[/b][/color], [color=LIGHT_SKY_BLUE][b]Активация[/b][/color] ReLU и [color=CADET_BLUE][b]ПлотнСлой[/b][/color]
+          на [b]128 нейронов[/b].
+        - Соедини второй [color=LIGHT_SEA_GREEN]МаксПул2D[/color] → [color=WHITE]Плоск1D[/color] → [color=CADET_BLUE]ПлотнСлой[/color].
+          ReLU подключи к верхнему порту плотного слоя.
+        - 'Этот слой будет собирать найденные признаки в более общий вывод: “на какую цифру это похоже?”.'
+        wait: none
+    - create:
+        flat: flatten
+        relu3: neuron
+        dense128: layer
+    - require:
+        topology:
+          root: img
+          nodes:
+            img:
+              type: input
+            conv1:
+              type: conv2d
+              config:
+                filters: == 32
+            pool1:
+              type: maxpool
+            conv2:
+              type: conv2d
+              config:
+                filters: == 64
+            pool2:
+              type: maxpool
+            flat:
+              type: flatten
+            relu3:
+              type: neuron
+              config:
+                activ: == 'relu'
+            dense128:
+              type: layer
+              config:
+                neuron_count: == 128
+          edges:
+          - img.0 -> conv1.1
+          - conv1.0 -> pool1.0
+          - pool1.0 -> conv2.1
+          - conv2.0 -> pool2.0
+          - pool2.0 -> flat.0
+          - flat.0 -> dense128.1
+          - relu3.0 -> dense128.0
+    - prohibit_deletion:
+      - flat
+      - relu3
+      - dense128
+    - confetti:
+        targets:
+        - bind: flat
+        - bind: relu3
+        - bind: dense128
+    - explain_next: {}
+- step output_head:
+    title: Десять чисел — десять цифр
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Финальный слой должен выдать 10 чисел — по одному для каждой цифры.
+        - Создай [color=CADET_BLUE][b]ПлотнСлой[/b][/color] на [b]10 нейронов[/b], затем [color=PINK][b]Софтмакс[/b][/color]
+          и [color=WHITE][b]ВыводОтвет[/b][/color].
+        - Соедини [color=CADET_BLUE]ПлотнСлой[/color] 128 → [color=CADET_BLUE]ПлотнСлой[/color] 10 → [color=PINK]Софтмакс[/color]
+          → [color=WHITE]ВыводОтвет[/color].
+        wait: none
+    - create:
+        dense10: layer
+        soft: softmax
+        labels: classifier
+    - require:
+        topology:
+          root: img
+          nodes:
+            img:
+              type: input
+            conv1:
+              type: conv2d
+              config:
+                filters: == 32
+            pool1:
+              type: maxpool
+            conv2:
+              type: conv2d
+              config:
+                filters: == 64
+            pool2:
+              type: maxpool
+            flat:
+              type: flatten
+            dense128:
+              type: layer
+              config:
+                neuron_count: == 128
+            dense10:
+              type: layer
+              config:
+                neuron_count: == 10
+            soft:
+              type: softmax
+            labels:
+              type: classifier
+              config:
+                label_names: label_names.size() == 10
+          edges:
+          - img.0 -> conv1.1
+          - conv1.0 -> pool1.0
+          - pool1.0 -> conv2.1
+          - conv2.0 -> pool2.0
+          - pool2.0 -> flat.0
+          - flat.0 -> dense128.1
+          - dense128.0 -> dense10.1
+          - dense10.0 -> soft.0
+          - soft.0 -> labels.0
+    - prohibit_deletion:
+      - dense10
+      - soft
+      - labels
+    - confetti:
+        targets:
+        - bind: dense10
+        - bind: soft
+        - bind: labels
+    - explain:
+        text:
+        - 'В [color=WHITE]ВыводОтвет[/color] задай title [b]digits[/b] и метки: 0,1,2,3,4,5,6,7,8,9.'
+        - '[color=PINK]Софтмакс[/color] поможет превратить выходные числа в вероятности, а [color=WHITE]ВыводОтвет[/color]
+          подпишет ответы человеческими названиями.'
+        wait: next
+    - explain_next: {}
+- step training_data:
+    title: Подключаем MNIST
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Теперь модели нужны примеры для обучения. Создай [color=PLUM][b]Датасет[/b][/color] и выбери dataset_name [b]mnist[/b].
+        - После него создай [color=LIGHT_STEEL_BLUE][b]НачОбучения[/b][/color] и соедини [color=PLUM]Датасет[/color] → [color=LIGHT_STEEL_BLUE]НачОбучения[/color].
+        - 'Так мы запускаем поток обучающих примеров: картинка цифры плюс правильный ответ.'
+        wait: none
+    - create:
+        data: dataset
+        begin: train_begin
+    - require:
+        topology:
+          root: data
+          nodes:
+            data:
+              type: dataset
+              config:
+                dataset_name: == 'mnist'
+            begin:
+              type: train_begin
+          edges:
+          - data.0 -> begin.0
+    - prohibit_deletion:
+      - data
+      - begin
+    - confetti:
+        targets:
+        - bind: data
+        - bind: begin
+    - explain_next: {}
+- step training_run_map:
+    title: Сравниваем ответ модели с правильной цифрой
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=LIGHT_STEEL_BLUE][b]ЗапускМодели[/b][/color] и [color=LIGHT_STEEL_BLUE][b]КартаВывода[/b][/color].
+        - Соедини [color=LIGHT_STEEL_BLUE]НачОбучения[/color] → [color=LIGHT_STEEL_BLUE]ЗапускМодели[/color] → [color=LIGHT_STEEL_BLUE]КартаВывода[/color].
+        - 'В [color=LIGHT_STEEL_BLUE]ЗапускМодели[/color] настрой ветку [b]digits[/b]: loss [b]cross_entropy[/b], mapped target
+          [b]digit[/b].'
+        - 'Это значит: “модель отвечает цифрой, а мы сравниваем её ответ с настоящей цифрой из датасета”.'
+        wait: none
+    - create:
+        run: run_model
+        map: output_map
+    - require:
+        topology:
+          root: data
+          nodes:
+            data:
+              type: dataset
+              config:
+                dataset_name: == 'mnist'
+            begin:
+              type: train_begin
+            run:
+              type: run_model
+              config:
+                branches: branches.size() > 0
+            map:
+              type: output_map
+          edges:
+          - data.0 -> begin.0
+          - begin.0 -> run.0
+          - run.0 -> map.0
+    - prohibit_deletion:
+      - run
+      - map
+    - confetti:
+        targets:
+        - bind: run
+        - bind: map
+    - explain_next: {}
+- step training_step:
+    title: Шаг обучения CNN
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Создай [color=LIGHT_STEEL_BLUE][b]ШагОбучения[/b][/color] и подключи его после [color=LIGHT_STEEL_BLUE]КартаВывода[/color].
+        - Выбери optimizer [b]adam[/b], learning rate [b]1[/b], momentum [b]0[/b], weight_decay [b]0[/b].
+        - '[color=LIGHT_STEEL_BLUE]ШагОбучения[/color] будет постепенно менять веса модели так, чтобы следующий ответ был
+          чуть точнее предыдущего.'
+        wait: none
+    - create:
+        step: train_input
+    - require:
+        topology:
+          root: data
+          nodes:
+            data:
+              type: dataset
+              config:
+                dataset_name: == 'mnist'
+            begin:
+              type: train_begin
+            run:
+              type: run_model
+            map:
+              type: output_map
+            step:
+              type: train_input
+              config:
+                optimizer: == 'adam'
+                lr: == 1
+          edges:
+          - data.0 -> begin.0
+          - begin.0 -> run.0
+          - run.0 -> map.0
+          - map.0 -> step.0
+    - prohibit_deletion: step
+    - confetti:
+        bind: step
+    - explain_next: {}
+- step train:
+    title: Запускаем тренировку
+    persistent: true
+    actions:
+    - explain:
+        text:
+        - Запусти обучение и понаблюдай за результатом.
+        - 'Сначала модель может ошибаться почти случайно. Это нормально: она ещё только учится смотреть на цифры.'
+        - С каждой серией примеров она должна всё лучше понимать, какие линии и формы соответствуют цифрам 0–9.
+        wait: none
+    - require:
+        event: train
+    - confetti:
+        whole_screen: true
+        wait: false
+    - explain:
+        text:
+        - Готово. Ты прошёл путь от первого нода до обучаемой свёрточной сети.
+        - 'Теперь у тебя есть главное понимание Neuralese: модель — это граф, данные идут по соединениям, а обучение постепенно
+          настраивает слои под задачу.'
+        wait: next
+    - explain_next: {}

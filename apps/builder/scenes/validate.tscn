@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbe74hclhjp0e"]
+
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="1_3ckt6"]
+[ext_resource type="Script" uid="uid://dog0wpjftm7uk" path="res://scripts/validate_line.gd" id="2_qg4du"]
+
+[node name="LineEdit" type="LineEdit"]
+offset_left = -78.0
+offset_top = -32.0
+offset_right = 240.0
+offset_bottom = 16.0
+scale = Vector2(0.475104, 0.475104)
+theme = ExtResource("1_3ckt6")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Variable name"
+max_length = 17
+script = ExtResource("2_qg4du")

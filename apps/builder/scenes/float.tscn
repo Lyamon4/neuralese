@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwt5bitp0h1cn"]
+
+[ext_resource type="Script" uid="uid://bnhay4bporh3g" path="res://scripts/floatcell.gd" id="1_gliwu"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="2_sefui"]
+[ext_resource type="Script" uid="uid://c6hsc1axcapwg" path="res://scripts/h_slider.gd" id="2_ynaxs"]
+[ext_resource type="Script" uid="uid://b0wh6bvd6pdc5" path="res://scripts/validate_number.gd" id="3_ynaxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gliwu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sefui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynaxs"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 76.0
+offset_bottom = 103.0
+script = ExtResource("1_gliwu")
+cell_type = &"float"
+height = 50.0
+base_field = "val"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+offset_right = 84.0
+offset_bottom = 16.0
+mouse_filter = 1
+scrollable = false
+script = ExtResource("2_ynaxs")
+
+[node name="Label" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 6.0000005
+offset_top = 16.0
+offset_right = 54.19278
+offset_bottom = 64.0
+scale = Vector2(0.581, 0.581)
+theme = ExtResource("2_sefui")
+theme_override_colors/font_color = Color(0.029999971, 1, 0.7575, 1)
+theme_override_colors/font_placeholder_color = Color(0.20010002, 0.87, 0.702525, 0.6392157)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gliwu")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_sefui")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ynaxs")
+placeholder_text = "0.0"
+max_length = 7
+expand_to_text_length = true
+script = ExtResource("3_ynaxs")
+max_value = 1.0
+allow_float = true
+resize_after = 18
+change_always_accepted = false
+metadata/_custom_type_script = "uid://b0wh6bvd6pdc5"
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="changed" from="Label" to="." method="_on_label_changed"]

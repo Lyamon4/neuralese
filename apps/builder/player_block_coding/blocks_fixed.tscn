@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cukg870lnixwq"]
+
+[ext_resource type="Script" uid="uid://cpclh5ugm0bkw" path="res://player_block_coding/ui/block_coding_panel.gd" id="1_0835t"]
+
+[node name="Blocks" type="Control" unique_id=1725550224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0835t")
+palette_list_path = NodePath("BlockCodingPanel/HSplitContainer/PalettePanel/PaletteScroll/PaletteList")
+block_list_path = NodePath("BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/WorkspaceScroll/BlockList")
+language_option_path = NodePath("BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar/LanguageOption")
+export_button_path = NodePath("BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar/ExportButton")
+clear_button_path = NodePath("BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar/ClearButton")
+status_label_path = NodePath("BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar/StatusLabel")
+code_preview_path = NodePath("BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/CodePreview")
+
+[node name="BlockCodingPanel" type="Control" parent="." unique_id=1313095162]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="BlockCodingPanel" unique_id=165229201]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 260
+
+[node name="PalettePanel" type="PanelContainer" parent="BlockCodingPanel/HSplitContainer" unique_id=1864991831]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="PaletteScroll" type="ScrollContainer" parent="BlockCodingPanel/HSplitContainer/PalettePanel" unique_id=2107631051]
+layout_mode = 2
+
+[node name="PaletteList" type="VBoxContainer" parent="BlockCodingPanel/HSplitContainer/PalettePanel/PaletteScroll" unique_id=1745838593]
+layout_mode = 2
+
+[node name="WorkspacePanel" type="PanelContainer" parent="BlockCodingPanel/HSplitContainer" unique_id=779869524]
+layout_mode = 2
+
+[node name="WorkspaceVBox" type="VBoxContainer" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel" unique_id=403583987]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox" unique_id=2072785713]
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar" unique_id=1403280608]
+layout_mode = 2
+text = "Language"
+
+[node name="LanguageOption" type="OptionButton" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar" unique_id=1386285131]
+layout_mode = 2
+
+[node name="ExportButton" type="Button" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar" unique_id=919987633]
+layout_mode = 2
+text = "Export"
+
+[node name="ClearButton" type="Button" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar" unique_id=1027092606]
+layout_mode = 2
+text = "Clear"
+
+[node name="StatusLabel" type="Label" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/Toolbar" unique_id=1723160222]
+layout_mode = 2
+
+[node name="WorkspaceScroll" type="ScrollContainer" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox" unique_id=2094299563]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BlockList" type="VBoxContainer" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox/WorkspaceScroll" unique_id=672674248]
+layout_mode = 2
+
+[node name="CodePreview" type="TextEdit" parent="BlockCodingPanel/HSplitContainer/WorkspacePanel/WorkspaceVBox" unique_id=1373066977]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_vertical = 3
+editable = false

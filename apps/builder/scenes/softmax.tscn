@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb1li7gs5rtsc"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://scenes/base_graph.tscn" id="1_q72yv"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_kcfqd"]
+[ext_resource type="Script" uid="uid://dqkl4p7v8bw0c" path="res://scripts/softmax_node.gd" id="2_rnb4f"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="4_5bduk"]
+
+[node name="Base" instance=ExtResource("1_q72yv")]
+script = ExtResource("2_rnb4f")
+server_typename = &"SoftmaxNode"
+
+[node name="o2" parent="." index="0" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_kcfqd")]
+layout_mode = 0
+offset_left = -75.0
+offset_top = -12.0
+offset_right = -59.0
+offset_bottom = 5.0
+color = Color(1, 0.890196, 0.588235, 1)
+_accepted_datatypes = "layer1d"
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(10, 10, 10, 10)
+origin_offset = Vector2(-5, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+gradient_color = Color(1, 0.890196, 0.588235, 1)
+
+[node name="o" parent="." index="1" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_kcfqd")]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -12.0
+offset_right = 33.0
+offset_bottom = 5.0
+color = Color(1, 0.890667, 0.59, 1)
+_accepted_datatypes = "layer1d"
+server_name = &"soft_out"
+connection_type = 1
+area_paddings = Vector4(10, 10, 10, 10)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+parent_graph = NodePath("..")
+gradient_color = Color(1, 0.890196, 0.588235, 1)
+
+[node name="ColorRect" parent="." index="2"]
+instance_shader_parameters/outline_color = Color(1, 0.72, 0.874, 1)
+instance_shader_parameters/tuning = Color(0.31, 0.1147, 0.235135, 0.639216)
+offset_left = -68.0
+offset_top = -26.0
+offset_right = 25.0
+offset_bottom = 18.0
+
+[node name="Label" parent="ColorRect/root" index="0"]
+self_modulate = Color(1, 0.890196, 0.588235, 1)
+offset_left = 2.0000029
+offset_top = 12.0
+offset_right = 193.48596
+offset_bottom = 55.0
+scale = Vector2(0.464786, 0.464786)
+text = "Softmax"
+horizontal_alignment = 1
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" index="0"]
+script = ExtResource("4_5bduk")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Софтмакс"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Софтмакс"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"

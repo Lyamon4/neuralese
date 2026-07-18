@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dbgi78pifb8xh"]
+
+[ext_resource type="Script" uid="uid://drad1dm8hrqwt" path="res://scripts/project.gd" id="1_6ipd3"]
+[ext_resource type="PackedScene" uid="uid://tjiw5jmnnrgh" path="res://scenes/fg.tscn" id="1_djuk3"]
+[ext_resource type="Script" uid="uid://cycf8wrmrdnkj" path="res://scripts/gview.gd" id="2_6ipd3"]
+[ext_resource type="Script" uid="uid://c2egkwwdjnkbc" path="res://scripts/win_graph.gd" id="3_6ipd3"]
+[ext_resource type="Script" uid="uid://cm2g043jhfcdw" path="res://scripts/storer.gd" id="3_hyn5d"]
+[ext_resource type="PackedScene" uid="uid://8u7275kgyen4" path="res://scenes/menus.tscn" id="4_dsnwd"]
+[ext_resource type="PackedScene" uid="uid://by1briddb0hwg" path="res://scenes/bg.tscn" id="5_sa0gx"]
+[ext_resource type="Script" uid="uid://b4hd7meqnpke2" path="res://scripts/camera_2d.gd" id="6_agq83"]
+[ext_resource type="Script" uid="uid://ddn84p6nhiie0" path="res://scripts/follow_menus.gd" id="7_ioxnp"]
+[ext_resource type="PackedScene" uid="uid://2angf8j1gof7" path="res://scenes/cta.tscn" id="10_dsnwd"]
+[ext_resource type="PackedScene" uid="uid://dnhvvwjmwgaag" path="res://scenes/aiload.tscn" id="10_hyn5d"]
+
+[node name="base" type="Node2D" unique_id=1840216515]
+script = ExtResource("1_6ipd3")
+importance_chain = Array[StringName]([&"model_name", &"input", &"input_1d", &"dataset", &"train_begin", &"lua_env", &"neuron", &"augment_tf", &"flatten", &"reshape", &"layer", &"conv2d", &"maxpool", &"softmax", &"classifier", &"run_model", &"train_input", &"io", &"loop", &"base", &"output_map", &"reshape2d", &"concat", &"dropout"])
+
+[node name="fg" parent="." unique_id=1085741743 instance=ExtResource("1_djuk3")]
+
+[node name="WIN_GRAPH" type="Node2D" parent="." unique_id=1055154960 node_paths=PackedStringArray("camera")]
+script = ExtResource("3_6ipd3")
+window_name = "graph"
+camera = NodePath("Camera2D")
+
+[node name="GraphStorage" type="Node2D" parent="WIN_GRAPH" unique_id=1109604883]
+script = ExtResource("2_6ipd3")
+
+[node name="Node2D" type="Node2D" parent="WIN_GRAPH/GraphStorage" unique_id=908606479]
+script = ExtResource("3_hyn5d")
+
+[node name="menus" parent="WIN_GRAPH" unique_id=780468962 instance=ExtResource("4_dsnwd")]
+
+[node name="Camera2D" type="Camera2D" parent="WIN_GRAPH" unique_id=1912069481]
+position_smoothing_speed = 22.0
+script = ExtResource("6_agq83")
+main = true
+zoom_speed = 0.2
+drag_button = 3
+
+[node name="follow_menus" type="CanvasLayer" parent="WIN_GRAPH" unique_id=1590783954]
+layer = 125
+follow_viewport_enabled = true
+script = ExtResource("7_ioxnp")
+
+[node name="bg" parent="WIN_GRAPH" unique_id=1034422685 instance=ExtResource("5_sa0gx")]
+
+[node name="Cta" parent="WIN_GRAPH" unique_id=1343822123 instance=ExtResource("10_dsnwd")]
+position = Vector2(443, 285)
+
+[node name="Aiload" parent="." unique_id=578908318 instance=ExtResource("10_hyn5d")]

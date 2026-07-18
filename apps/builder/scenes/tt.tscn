@@ -1,0 +1,189 @@
+[gd_scene load_steps=16 format=3 uid="uid://cepj11roym7vr"]
+
+[ext_resource type="Script" uid="uid://c8idx3kc15bi" path="res://scripts/env_tag.gd" id="1_ykn70"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_3d5es"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="3_366fd"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="4_1q7df"]
+[ext_resource type="Script" uid="uid://ghud5xtg3ftl" path="res://scripts/conn_slider.gd" id="5_j3pqp"]
+[ext_resource type="Material" uid="uid://blkv556akjllh" path="res://resources/panel.tres" id="6_7mbhg"]
+[ext_resource type="Theme" uid="uid://cx365ld2mgjne" path="res://resources/theme_base.tres" id="7_iiom8"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="8_s5i07"]
+[ext_resource type="Theme" uid="uid://6b4rxqrmq3yb" path="res://resources/theme_no_aa.tres" id="9_4sin1"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="10_1xsdu"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="11_h533e"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="12_02ci6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic21g"]
+bg_color = Color(0.3, 0.29880002, 0.27600002, 0.5137255)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfdnk"]
+bg_color = Color(0.35, 0.345275, 0.31849998, 0.5137255)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="Resource" id="Resource_drcvp"]
+script = ExtResource("12_02ci6")
+hover_color = Color(1, 1, 1, 1)
+hover_mult = 1.4
+_hover_scale = 1.037
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" type="Control" node_paths=PackedStringArray("unit", "add_button", "input", "line_edit")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("1_ykn70")
+bottom_attached = true
+unit = NodePath("connection")
+add_button = NodePath("input/ColorRect2")
+input = NodePath("input")
+line_edit = NodePath("input/LineEdit")
+target_size = 80.0
+size_add = -2.0
+input_y_add = -8.0
+server_typename = &"LuaEnv"
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"meta": null
+})
+
+[node name="o3" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_3d5es")]
+instance_shader_parameters/corner_radius_width_add = Vector2(2, 0)
+layout_mode = 0
+offset_left = -7.0
+offset_top = 46.0
+offset_right = 13.0
+offset_bottom = 67.0
+color = Color(0.765, 0.53, 1, 1)
+_accepted_datatypes = "dataset_type"
+server_name = &"netname"
+connection_type = 1
+area_paddings = Vector4(20, 20, 20, 20)
+origin_offset = Vector2(8, 0)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"train": 0
+})
+dir_vector = Vector2(0, 1)
+parent_graph = NodePath("..")
+conn_count_keyword = "netname"
+gradient_color = Color(0.81960785, 0.6392157, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("3_366fd")
+instance_shader_parameters/corner_radius_width_add = Vector2(-4, 0)
+instance_shader_parameters/outline_color = Color(0.9369999, 0.73, 1, 1)
+instance_shader_parameters/tuning = Color(0.14255998, 0.1404, 0.27, 0.6509804)
+layout_mode = 0
+offset_left = -67.0
+offset_top = -24.0
+offset_right = 71.0
+offset_bottom = 58.0
+
+[node name="root" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+self_modulate = Color(0.9372549, 0.7294118, 1, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 47.0
+scale = Vector2(0.419329, 0.419329)
+theme = ExtResource("4_1q7df")
+text = "LuaEnv"
+
+[node name="connection" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = -63.0
+offset_top = 26.0
+offset_right = 66.0
+offset_bottom = 78.0
+script = ExtResource("5_j3pqp")
+
+[node name="ColorRect" type="ColorRect" parent="connection"]
+material = ExtResource("6_7mbhg")
+instance_shader_parameters/outline_color = Color(0.501961, 0.501961, 0.501961, 0.490196)
+instance_shader_parameters/tuning = Color(0.5, 0.5, 0.5, 0.490196)
+layout_mode = 0
+offset_left = 6.0
+offset_top = -25.0
+offset_right = 126.0
+offset_bottom = 2.0
+
+[node name="Label" type="Label" parent="connection"]
+z_index = 1
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 276.66238
+offset_bottom = 55.0
+scale = Vector2(0.37028307, 0.37028307)
+theme = ExtResource("7_iiom8")
+
+[node name="input" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -64.0
+offset_top = -3.0
+offset_right = -24.0
+offset_bottom = 37.0
+
+[node name="LineEdit" parent="input" node_paths=PackedStringArray("accept_button") instance=ExtResource("8_s5i07")]
+layout_mode = 0
+offset_left = 4.999996
+offset_top = 8.0
+offset_right = 261.7859
+offset_bottom = 54.0
+theme = ExtResource("9_4sin1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ic21g")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jfdnk")
+placeholder_text = "Feature name"
+max_length = 14
+context_menu_enabled = false
+accept_button = NodePath("../ColorRect2")
+
+[node name="ColorRect2" parent="input" node_paths=PackedStringArray("graph") instance=ExtResource("10_1xsdu")]
+material = ExtResource("11_h533e")
+instance_shader_parameters/corner_radius_width_add = Vector2(-2, 0)
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = 62.999992
+offset_top = 29.0
+offset_right = 147.00208
+offset_bottom = 63.71462
+scale = Vector2(0.583319, 0.583319)
+pivot_offset = Vector2(42.001038, 17.35731)
+button_type = 1
+text = "Add +"
+base_size = Vector2(84.00208, 34.71462)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_drcvp")
+graph = NodePath("")

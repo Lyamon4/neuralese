@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=3 uid="uid://bsbdls0nw0uf2"]
+
+[ext_resource type="Script" uid="uid://3ccxl5a8323n" path="res://scripts/aibox.gd" id="1_3ccl1"]
+[ext_resource type="Material" uid="uid://b32bkwpidhiyp" path="res://resources/font_alphamult.tres" id="1_ih3n3"]
+[ext_resource type="Theme" uid="uid://74kwx22ikciq" path="res://resources/theme_headers.tres" id="1_wcx6r"]
+[ext_resource type="Script" uid="uid://crg17igxmewdi" path="res://scripts/ai_text.gd" id="2_cr52i"]
+[ext_resource type="Shader" uid="uid://q0g5c44a6f7r" path="res://shaders/block.gdshader" id="3_cr52i"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="6_xwtie"]
+[ext_resource type="Material" uid="uid://dhpvvvjn14qxk" path="res://resources/fg_block.tres" id="7_4bkw7"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="8_tkbvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ih3n3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ccl1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ih3n3"]
+shader = ExtResource("3_cr52i")
+shader_parameter/shape = 1
+shader_parameter/mult_tuning = Color(1, 1, 1, 1)
+shader_parameter/color_mult = Color(0.55, 0.55, 0.55, 1)
+shader_parameter/smoothness = 20.0
+shader_parameter/corner_radius = 13.9210006612475
+shader_parameter/blurred_background = true
+shader_parameter/outline_width = 1.3
+shader_parameter/mult = 2.0
+shader_parameter/blur_level = 3.1910004840725
+shader_parameter/gaussian_mix = 1.0
+shader_parameter/gaussian_step = 1.0850000515375
+shader_parameter/use_bg = false
+
+[sub_resource type="Resource" id="Resource_5s74b"]
+script = ExtResource("8_tkbvy")
+as_mult = true
+hover_color = Color(1.1, 1.1, 1.1, 1)
+hover_mult = 1.1
+_hover_scale = 1.02
+press_color = Color(0.84, 0.84, 0.84, 1)
+_press_scale = 0.98
+animation_speed = 2.657
+animation_decay = 6.0
+animation_duration = 1.359
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3ccl1")
+
+[node name="txt" type="RichTextLabel" parent="."]
+z_index = 1
+material = ExtResource("1_ih3n3")
+instance_shader_parameters/extents = Vector4(10, 120, 0, 0)
+clip_contents = false
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 1
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 357.0
+offset_bottom = 142.5
+scale = Vector2(0.8, 0.8)
+focus_mode = 2
+theme = ExtResource("1_wcx6r")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ih3n3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ccl1")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+selection_enabled = true
+script = ExtResource("2_cr52i")
+
+[node name="ColorRect" type="ColorRect" parent="txt"]
+z_index = -1
+material = SubResource("ShaderMaterial_ih3n3")
+instance_shader_parameters/outline_color = Color(1, 1, 1, 1)
+instance_shader_parameters/tuning = Color(1, 1, 1, 0.43529412)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.6784314, 0.21568628, 0.76862746, 1)
+
+[node name="ai" parent="." instance=ExtResource("6_xwtie")]
+material = ExtResource("7_4bkw7")
+instance_shader_parameters/corner_radius_width_add = Vector2(-7, 0)
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.94, 0.94, 0.94, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.407843)
+layout_mode = 0
+offset_left = -28.0
+offset_top = -0.9999995
+offset_right = -3.2514343
+offset_bottom = 22.62362
+scale = Vector2(0.8889408, 0.8889408)
+pivot_offset = Vector2(12.374283, 11.81181)
+color = Color(0.74, 0.74, 0.74, 1)
+button_type = 1
+top = true
+hint = &"ai_help"
+text = "_"
+text_offset = Vector2(0, -8)
+base_size = Vector2(24.748566, 23.62362)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_5s74b")
+
+[connection signal="released" from="ai" to="." method="_on_ai_released"]

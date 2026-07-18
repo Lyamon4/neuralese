@@ -1,0 +1,21 @@
+[Unit]
+Description=Neuralese On-Prem ONNX Training Runtime
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=neuralese
+Group=neuralese
+WorkingDirectory=/opt/neuralese-onprem
+EnvironmentFile=/etc/neuralese/onprem.env
+ExecStart=/opt/neuralese-onprem/.venv/bin/python -m onprem_runtime --mode local_school --host 0.0.0.0 --port 8010 --storage-dir ${NEURALESE_STORAGE_DIR} --public-dataset-dir ${NEURALESE_PUBLIC_DATASET_DIR} --max-parallel-jobs ${NEURALESE_MAX_PARALLEL_JOBS} --auth-token ${NEURALESE_AUTH_TOKEN}
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/var/lib/neuralese-onprem /etc/neuralese
+
+[Install]
+WantedBy=multi-user.target

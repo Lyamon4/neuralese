@@ -1,0 +1,1 @@
+D:\vs\Common7\Tools\Launch-VsDevShell.ps1 

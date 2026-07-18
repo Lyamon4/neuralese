@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "node_id": "input",
+  "status": "stable",
+  "generated": {
+    "node_id": "input",
+    "created_with": "input",
+    "scene_path": "res://scenes/input_graph.tscn",
+    "scene_uid": "uid://e3l6g3u21slb",
+    "root_instance_path": "res://scenes/base_graph.tscn",
+    "script_path": "res://scripts/input_graph.gd",
+    "inheritance_chain": [
+      "res://scripts/input_graph.gd",
+      "res://scripts/base_graph.gd"
+    ],
+    "inherits_graph": true,
+    "server_typename": "InputNode",
+    "layer_name": null,
+    "title_candidates": {
+      "en": "Input2D",
+      "ru": "Ввод2D",
+      "kz": "Кіріс2D"
+    },
+    "base_config": {},
+    "ports": [
+      {
+        "id": "input_o2_runmodel",
+        "scene_node": "o2",
+        "scene_path": ".",
+        "hint": 1,
+        "server_name": "RunModel",
+        "direction": "input",
+        "datatypes": [
+          "netname"
+        ],
+        "multiple": false,
+        "config_conn": true,
+        "keyword": null,
+        "conn_count_keyword": "netname"
+      },
+      {
+        "id": "output_o_input_out",
+        "scene_node": "o",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "input_out",
+        "direction": "output",
+        "datatypes": [
+          "input2d"
+        ],
+        "multiple": true,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": null
+      }
+    ],
+    "settings": [],
+    "icon_source": "res://node_icons/IconInput.png",
+    "static_compatible_nodes": [
+      {
+        "from_port": "output_o_input_out",
+        "to_node": "flatten",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "input2d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_input_out",
+        "to_node": "conv2d",
+        "to_port": "input_ni_layer_in",
+        "datatypes": [
+          "input2d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_input_out",
+        "to_node": "augment_tf",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "input2d"
+        ],
+        "confidence": "static_datatype_intersection"
+      }
+    ]
+  },
+  "docs": {
+    "title": {
+      "en": "Input2D",
+      "ru": "Ввод2D",
+      "kz": "Кіріс2D"
+    },
+    "summary": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "operation": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "compact": {
+      "body": {
+        "en": "",
+        "ru": "",
+        "kz": ""
+      }
+    },
+    "ports": {
+      "input_o2_runmodel": {
+        "label": {
+          "en": "RunModel",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      },
+      "output_o_input_out": {
+        "label": {
+          "en": "input_out",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "settings": {},
+    "connects_to": [],
+    "examples": []
+  }
+}

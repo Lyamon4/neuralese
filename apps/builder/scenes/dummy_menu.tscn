@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dwmitn3chxnhw"]
+
+[ext_resource type="Script" uid="uid://rohlkfvwibqv" path="res://scripts/dummy_menu.gd" id="1_dummy"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="2_block"]
+[ext_resource type="Material" uid="uid://jm8oyahk342s" path="res://resources/context_menu.tres" id="3_menu_mat"]
+[ext_resource type="Resource" uid="uid://b87f7qp31583q" path="res://resources/lite_config.tres" id="4_button_cfg"]
+[ext_resource type="Material" uid="uid://b32bkwpidhiyp" path="res://resources/font_alphamult.tres" id="5_font_mat"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="8_theme"]
+[ext_resource type="FontFile" uid="uid://d0xcffxoyd14k" path="res://game_assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="9_mono"]
+[ext_resource type="Script" uid="uid://c32qbg1w7n0cn" path="res://scripts/block_auto_fit_content.gd" id="6_fit"]
+
+[sub_resource type="FontVariation" id="FontVariation_debug_bold"]
+base_font = ExtResource("9_mono")
+variation_embolden = 0.8
+[node name="dummy_menu" type="CanvasLayer" unique_id=684254045]
+layer = 127
+script = ExtResource("1_dummy")
+
+[node name="debug_menu" parent="." unique_id=850384670 instance=ExtResource("2_block")]
+material = ExtResource("3_menu_mat")
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/tuning = Color(0.37, 0.37, 0.37, 0.5)
+offset_left = 72.0
+offset_top = 96.0
+offset_right = 332.0
+offset_bottom = 122.0
+clip_contents = true
+pivot_offset = Vector2(67600, 1300)
+text = "Input2D node      *"
+text_alignment = Vector2(0, -1)
+text_offset = Vector2(0, 10)
+base_size = Vector2(260, 26)
+alignment = Vector2(260, 50)
+static_mode = true
+size_add = 4.0
+_scroll_container = 0.0
+expanded_size = 350
+arrangement_padding = Vector2(10, 8)
+mouse_open = false
+menu_name = &"dummy_play_around"
+max_size = 240
+config = null
+margin_y = 20
+
+[node name="top_button" parent="debug_menu" unique_id=1171479322 instance=ExtResource("2_block")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.72, 0.88, 1, 1)
+instance_shader_parameters/tuning = Color(0.18, 0.27, 0.34, 0.68)
+layout_mode = 0
+pivot_offset = Vector2(100, 25)
+button_type = 1
+hint = &"top"
+text = "Top Button"
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("4_button_cfg")
+
+[node name="rich_text_row" parent="debug_menu" unique_id=562933858 instance=ExtResource("2_block")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.88, 0.82, 0.62, 1)
+instance_shader_parameters/tuning = Color(0.24, 0.22, 0.16, 0.68)
+custom_minimum_size = Vector2(238, 176)
+clip_contents = true
+layout_mode = 0
+pivot_offset = Vector2(119, 88)
+button_type = 1
+reveal_extents_targets = Array[NodePath]([NodePath("RichTextLabel")])
+hint = &"text"
+base_size = Vector2(238, 176)
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("4_button_cfg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="debug_menu/rich_text_row" unique_id=1480718413]
+material = ExtResource("5_font_mat")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("8_theme")
+theme_override_fonts/normal_font = ExtResource("9_mono")
+theme_override_fonts/bold_font = SubResource("FontVariation_debug_bold")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_debug_bold")
+theme_override_fonts/italics_font = ExtResource("9_mono")
+theme_override_fonts/mono_font = ExtResource("9_mono")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+text = "[b]Rich text row[/b]
+This intentionally tall item checks menu height, reveal extents, and clipping.
+[color=#a8d8ff]Targeted extents only.[/color]"
+scroll_active = false
+
+[node name="AutoFitContent" type="Node" parent="debug_menu/rich_text_row" unique_id=1886766890]
+script = ExtResource("6_fit")
+content_path = NodePath("RichTextLabel")
+minimum_height = 50.0
+
+[node name="bottom_button" parent="debug_menu" unique_id=589250872 instance=ExtResource("2_block")]
+instance_shader_parameters/extents = Vector2(0, 0)
+instance_shader_parameters/outline_color = Color(0.78, 0.95, 0.82, 1)
+instance_shader_parameters/tuning = Color(0.16, 0.28, 0.19, 0.68)
+layout_mode = 0
+pivot_offset = Vector2(100, 25)
+button_type = 1
+hint = &"bottom"
+text = "Bottom Button"
+alignment = Vector2(0.5, 0.5)
+config = ExtResource("4_button_cfg")

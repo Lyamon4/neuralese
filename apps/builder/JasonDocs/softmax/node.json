@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "node_id": "softmax",
+  "status": "stable",
+  "generated": {
+    "node_id": "softmax",
+    "created_with": "softmax",
+    "scene_path": "res://scenes/softmax.tscn",
+    "scene_uid": "uid://bb1li7gs5rtsc",
+    "root_instance_path": "res://scenes/base_graph.tscn",
+    "script_path": "res://scripts/softmax_node.gd",
+    "inheritance_chain": [
+      "res://scripts/softmax_node.gd",
+      "res://scripts/base_graph.gd"
+    ],
+    "inherits_graph": true,
+    "server_typename": "SoftmaxNode",
+    "layer_name": null,
+    "title_candidates": {
+      "en": "Softmax",
+      "ru": "Софтмакс",
+      "kz": "Софтмакс"
+    },
+    "base_config": {},
+    "ports": [
+      {
+        "id": "input_o2_layer_in",
+        "scene_node": "o2",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "layer_in",
+        "direction": "input",
+        "datatypes": [
+          "layer1d"
+        ],
+        "multiple": false,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": null
+      },
+      {
+        "id": "output_o_soft_out",
+        "scene_node": "o",
+        "scene_path": ".",
+        "hint": 0,
+        "server_name": "soft_out",
+        "direction": "output",
+        "datatypes": [
+          "layer1d"
+        ],
+        "multiple": false,
+        "config_conn": false,
+        "keyword": null,
+        "conn_count_keyword": null
+      }
+    ],
+    "settings": [],
+    "icon_source": "res://node_icons/IconSoftmax.png",
+    "static_compatible_nodes": [
+      {
+        "from_port": "output_o_soft_out",
+        "to_node": "layer",
+        "to_port": "input_ni_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_soft_out",
+        "to_node": "softmax",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_soft_out",
+        "to_node": "reshape2d",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_soft_out",
+        "to_node": "classifier",
+        "to_port": "input_ni_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_soft_out",
+        "to_node": "dropout",
+        "to_port": "input_o2_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      },
+      {
+        "from_port": "output_o_soft_out",
+        "to_node": "concat",
+        "to_port": "input_connection_o_layer_in",
+        "datatypes": [
+          "layer1d"
+        ],
+        "confidence": "static_datatype_intersection"
+      }
+    ]
+  },
+  "docs": {
+    "title": {
+      "en": "Softmax",
+      "ru": "Софтмакс",
+      "kz": "Софтмакс"
+    },
+    "summary": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "operation": {
+      "en": "",
+      "ru": "",
+      "kz": ""
+    },
+    "compact": {
+      "body": {
+        "en": "",
+        "ru": "",
+        "kz": ""
+      }
+    },
+    "ports": {
+      "input_o2_layer_in": {
+        "label": {
+          "en": "layer_in",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      },
+      "output_o_soft_out": {
+        "label": {
+          "en": "soft_out",
+          "ru": "",
+          "kz": ""
+        },
+        "description": {
+          "en": "",
+          "ru": "",
+          "kz": ""
+        }
+      }
+    },
+    "settings": {},
+    "connects_to": [],
+    "examples": []
+  }
+}

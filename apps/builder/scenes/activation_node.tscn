@@ -1,0 +1,180 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca6p5f7voeq2"]
+
+[ext_resource type="PackedScene" uid="uid://dvy7srp0sk1qm" path="res://scenes/base_graph.tscn" id="1_0jgoj"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_bbamu"]
+[ext_resource type="PackedScene" uid="uid://wd63efdi6bdn" path="res://scenes/BaseBComponent.tscn" id="2_uvpah"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="3_b0ppm"]
+[ext_resource type="Material" uid="uid://bubmhjvmjccip" path="res://resources/button_mat.tres" id="3_bbamu"]
+[ext_resource type="Script" uid="uid://dx40hpbce8w60" path="res://scripts/button_config.gd" id="4_b0ppm"]
+
+[sub_resource type="Resource" id="Resource_b8f4u"]
+script = ExtResource("4_b0ppm")
+hover_color = Color(0.68, 1, 0.834667, 1)
+hover_mult = 1.4
+_hover_scale = 1.037
+press_color = Color(0.9, 0.9, 0.9, 1)
+_press_scale = 0.97
+animation_speed = 1.951
+animation_decay = 4.564
+metadata/_custom_type_script = "uid://dx40hpbce8w60"
+
+[node name="Base" instance=ExtResource("1_0jgoj")]
+server_typename = &"ActivationNode"
+
+[node name="i" parent="." index="0" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_bbamu")]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -10.0
+offset_right = -26.0
+offset_bottom = 9.0
+color = Color(0, 1, 0.882353, 1)
+_accepted_datatypes = "layer"
+server_name = &"activ_in"
+keyword = &"activ"
+connection_type = 0
+area_paddings = Vector4(10, 5, 10, 5)
+origin_offset = Vector2(-5, 0)
+unpadded_area = Vector4(10, 0, 10, 20)
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+gradient_color = Color(0, 1, 0.882353, 1)
+
+[node name="o" parent="." index="1" node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_bbamu")]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -10.0
+offset_right = 41.0
+offset_bottom = 9.0
+color = Color(0, 1, 0.882353, 1)
+_accepted_datatypes = "layer"
+server_name = &"activ_out"
+keyword = &"activ"
+connection_type = 1
+area_paddings = Vector4(10, 5, 10, 5)
+origin_offset = Vector2(5, 0)
+unpadded_area = Vector4(10, 0, 10, 20)
+parent_graph = NodePath("..")
+gradient_color = Color(0, 1, 0.882353, 1)
+
+[node name="ColorRect" parent="." index="2"]
+offset_left = -37.0
+offset_top = -23.0
+offset_right = 34.0
+offset_bottom = 22.0
+
+[node name="Label" parent="ColorRect/root" index="0"]
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 200.0
+offset_bottom = 47.0
+scale = Vector2(0.296124, 0.296124)
+text = "Activation"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label" index="0"]
+script = ExtResource("3_b0ppm")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Активация"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Активация"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="ColorRect2" parent="." index="3" node_paths=PackedStringArray("graph") instance=ExtResource("2_uvpah")]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -5.0
+offset_right = 46.0
+offset_bottom = 21.0
+scale = Vector2(0.733764, 0.733764)
+button_type = 2
+top = true
+base_scale_x = 0.55
+resize_after = 4
+text = "Change"
+base_size = Vector2(75, 26)
+expanded_size = 130
+arrangement_padding = Vector2(6, 5)
+mouse_open = false
+menu_name = &"g"
+max_size = 140
+graph = NodePath("..")
+
+[node name="ColorRect2" parent="ColorRect2" index="1" instance=ExtResource("2_uvpah")]
+visible = false
+material = ExtResource("3_bbamu")
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+text = "None"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_b8f4u")
+
+[node name="ColorRect3" parent="ColorRect2" index="2" instance=ExtResource("2_uvpah")]
+visible = false
+material = ExtResource("3_bbamu")
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+text = "RelU"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_b8f4u")
+
+[node name="ColorRect4" parent="ColorRect2" index="3" instance=ExtResource("2_uvpah")]
+visible = false
+material = ExtResource("3_bbamu")
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+resize_after = 6
+text = "Sigmoid"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_b8f4u")
+
+[node name="ColorRect5" parent="ColorRect2" index="4" instance=ExtResource("2_uvpah")]
+visible = false
+material = ExtResource("3_bbamu")
+instance_shader_parameters/outline_color = Color(0.78, 0.78, 0.78, 1)
+instance_shader_parameters/tuning = Color(0, 0, 0, 0.635294)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 40.0
+scale = Vector2(0.601426, 0.601426)
+pivot_offset = Vector2(49.5, 18)
+button_type = 1
+top = true
+resize_after = 5
+text = "Tanh"
+base_size = Vector2(99, 36)
+alignment = Vector2(0.5, 0.5)
+config = SubResource("Resource_b8f4u")

@@ -1,0 +1,200 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctesghfdkge1l"]
+
+[ext_resource type="Script" uid="uid://brb3n24vuk204" path="res://scripts/maxpool.gd" id="1_1np84"]
+[ext_resource type="PackedScene" uid="uid://cyyhr5tmi4ljw" path="res://scenes/Connection.tscn" id="2_lwm0g"]
+[ext_resource type="Material" uid="uid://c556teg3qs0aw" path="res://resources/graph.tres" id="3_fyq0i"]
+[ext_resource type="Theme" uid="uid://cxe1714v2p0a1" path="res://resources/theme.tres" id="4_pkr15"]
+[ext_resource type="Material" uid="uid://bvlhwv585y83q" path="res://resources/neuron_graph.tres" id="5_a4o7u"]
+[ext_resource type="Script" uid="uid://dtwj74o465brs" path="res://scripts/loc.gd" id="5_pkr15"]
+[ext_resource type="Material" uid="uid://b32bkwpidhiyp" path="res://resources/font_alphamult.tres" id="6_1np84"]
+[ext_resource type="Script" uid="uid://kv1oxn7kpjfq" path="res://scripts/adraw.gd" id="6_bncok"]
+[ext_resource type="PackedScene" uid="uid://cbe74hclhjp0e" path="res://scenes/validate.tscn" id="6_jq4kv"]
+[ext_resource type="Script" uid="uid://b0wh6bvd6pdc5" path="res://scripts/validate_number.gd" id="7_melkw"]
+
+[node name="Base" type="Control" node_paths=PackedStringArray("unit")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+script = ExtResource("1_1np84")
+group = 2
+group_size = 3
+grid_padding = 2.0
+offset = Vector2(-24, -17)
+size_add_vec = Vector2(47.6, 74.6)
+label_offset = 33.0
+max_size = Vector2(100, 0)
+outline_padding = 0.0
+max_displayed = 15
+layer_name = "MaxPool2D"
+unit = NodePath("unit")
+padding = 5.0
+unit_offset_y = -6.0
+target_size = 60.0
+min_size = 73.0
+size_add = 3.0
+lerp_size = false
+server_typename = &"NeuronLayer"
+area_padding = 0.0
+base_config = Dictionary[StringName, Variant]({
+&"group": 2
+})
+
+[node name="ni" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_lwm0g")]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -36.0
+offset_right = -26.0
+offset_bottom = -17.0
+color = Color(0.901961, 0.694118, 0.458824, 1)
+_accepted_datatypes = "layer2d"
+hint = 1
+server_name = &"layer_in"
+connection_type = 0
+area_paddings = Vector4(10, 5, 10, 5)
+multiple_splines = true
+origin_offset = Vector2(-5, 0)
+unpadded_area = Vector4(10, 10, 0, 10)
+dir_vector = Vector2(-1, 0)
+parent_graph = NodePath("..")
+conn_count_keyword = "layer"
+gradient_color = Color(0.901961, 0.694118, 0.458824, 1)
+
+[node name="o" parent="." node_paths=PackedStringArray("parent_graph") instance=ExtResource("2_lwm0g")]
+layout_mode = 0
+offset_left = 52.0
+offset_top = -36.0
+offset_right = 70.0
+offset_bottom = -17.0
+color = Color(0.9, 0.6942, 0.459, 1)
+_accepted_datatypes = "layer2d"
+server_name = &"layer_out"
+connection_type = 1
+area_paddings = Vector4(10, 5, 10, 5)
+multiple_splines = true
+origin_offset = Vector2(9, 0)
+unpadded_area = Vector4(0, 10, 10, 10)
+max_splines_by_keyword = Dictionary[StringName, int]({
+&"layer": 32,
+&"train": 1
+})
+parent_graph = NodePath("..")
+conn_count_keyword = "layer"
+gradient_color = Color(0.901961, 0.694118, 0.458824, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("3_fyq0i")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3, 0)
+instance_shader_parameters/outline_color = Color(0.12549, 0.698039, 0.666667, 1)
+instance_shader_parameters/tuning = Color(0.1353, 0.33, 0.320265, 0.654902)
+layout_mode = 0
+offset_left = -36.0
+offset_top = -64.0
+offset_right = 62.0
+offset_bottom = -3.0
+
+[node name="root" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/root"]
+z_index = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 208.0
+offset_bottom = 47.0
+scale = Vector2(0.374766, 0.374766)
+theme = ExtResource("4_pkr15")
+text = "MaxPool2D"
+
+[node name="Loc" type="Node" parent="ColorRect/root/Label"]
+script = ExtResource("5_pkr15")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "МаксПул2D"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "МаксПул2D"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[node name="unit" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -48.0
+offset_top = 23.0
+offset_right = -33.0
+offset_bottom = 38.0
+
+[node name="ColorRect5" type="ColorRect" parent="unit"]
+material = ExtResource("5_a4o7u")
+instance_shader_parameters/corner_radius_width_add = Vector2(-3.5, 1)
+instance_shader_parameters/outline_color = Color(0.92, 0.92, 0.92, 1)
+instance_shader_parameters/tuning = Color(0.6, 0.6, 0.6, 0.443137)
+layout_mode = 0
+offset_right = 19.0
+offset_bottom = 19.0
+scale = Vector2(0.820862, 0.820862)
+color = Color(0.73, 0.563073, 0.3723, 1)
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(0.56, 0.56, 0.56, 1)
+z_index = 1
+material = ExtResource("6_1np84")
+instance_shader_parameters/extents = Vector4(0, 0, -100, -100)
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 41.0
+offset_bottom = 36.0
+script = ExtResource("6_bncok")
+max_displayed = 15
+
+[node name="YY" parent="." instance=ExtResource("6_jq4kv")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -40.000004
+offset_right = 74.0
+offset_bottom = 7.999996
+scale = Vector2(0.25142688, 0.25142688)
+placeholder_text = "2"
+max_length = 3
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+script = ExtResource("7_melkw")
+min_value = 2
+max_value = 8
+allow_float = false
+decimal_places = 2
+empty_on_min = true
+resize_after = 4
+change_always_accepted = false
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0.811765, 0.811765, 0.811765, 1)
+layout_mode = 0
+offset_left = -27.0
+offset_top = -41.0
+offset_right = 89.0
+offset_bottom = 2.0
+scale = Vector2(0.339489, 0.339489)
+theme = ExtResource("4_pkr15")
+theme_override_font_sizes/font_size = 27
+text = "Group"
+
+[node name="Loc" type="Node" parent="Label"]
+script = ExtResource("5_pkr15")
+auto = true
+localizations_ru = Dictionary[String, String]({
+"_": "Групп"
+})
+localizations_kz = Dictionary[String, String]({
+"_": "Топ"
+})
+metadata/_custom_type_script = "uid://dtwj74o465brs"
+
+[connection signal="changed" from="YY" to="." method="_on_yy_changed"]
+[connection signal="submitted" from="YY" to="." method="_on_yy_submitted"]
