@@ -48,18 +48,9 @@ jobs:
             throw "windows_release_x86_64.exe was not found in the export templates archive."
           }
           $templateSource = $releaseTemplate.Directory.FullName
-          $templateDestination = Join-Path $env:APPDATA "Godot\export_templates\$release"
-          New-Item -ItemType Directory -Force -Path $templateDestination | Out-Null
-          Copy-Item -Path (Join-Path $templateSource "*") -Destination $templateDestination -Recurse -Force
-
-          foreach ($templateName in @("windows_debug_x86_64.exe", "windows_release_x86_64.exe")) {
-            $installedTemplate = Join-Path $templateDestination $templateName
-            if (-not (Test-Path -LiteralPath $installedTemplate -PathType Leaf)) {
-              throw "Required Godot export template was not installed: $installedTemplate"
-            }
-          }
 
           "GODOT_EXE=$($godot.FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "GODOT_TEMPLATE_SOURCE=$templateSource" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           & $godot.FullName --version
 
       - name: Import builder project
@@ -75,6 +66,17 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
+          $release = "$env:GODOT_VERSION-$env:GODOT_STATUS"
+          $templateDestination = Join-Path $env:APPDATA "Godot\export_templates\$release"
+          New-Item -ItemType Directory -Force -Path $templateDestination | Out-Null
+          Copy-Item -Path (Join-Path $env:GODOT_TEMPLATE_SOURCE "*") -Destination $templateDestination -Recurse -Force
+          foreach ($templateName in @("windows_debug_x86_64.exe", "windows_release_x86_64.exe")) {
+            $installedTemplate = Join-Path $templateDestination $templateName
+            if (-not (Test-Path -LiteralPath $installedTemplate -PathType Leaf)) {
+              throw "Required Godot export template was not installed: $installedTemplate"
+            }
+          }
+
           $gameDir = Join-Path $env:RUNNER_TEMP "neuralese-game"
           $gameExe = Join-Path $gameDir "Neuralese.exe"
           New-Item -ItemType Directory -Force -Path $gameDir | Out-Null
